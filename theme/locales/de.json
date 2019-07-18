@@ -1,0 +1,10 @@
+{
+  "html": {
+    "lang": {
+      "code": "de"
+    }
+  },
+  "date_formats": {
+    "month_day_year": "%B %d, %Y"
+  }
+}

@@ -1,0 +1,7 @@
+{{linklist.handle | json}}: {
+    "handle": {{linklist.handle | json}},
+    "id": {{linklist.id | json}},
+    "levels": {{linklist.levels | json}},
+    "links": {% include "utils-json-links", links: linklist.links, level: 0 %},
+    "title": {{linklist.title | json}}
+}
