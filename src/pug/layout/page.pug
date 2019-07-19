@@ -1,0 +1,12 @@
+.container-fluid.pt-4.page(class='{{template|handleize}}', id='page-content-{{page.handle}}')
+  .row
+    .col-12.col-lg-6
+      .row
+        .col-12
+          h1.page-title
+            | {{ page.title }}
+            block title
+          .rte
+            | {{ page.content }}
+          .content
+            block content

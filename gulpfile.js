@@ -3,10 +3,12 @@
 }());
 
 const gulp          = require('gulp');
-const gutil         = require('gulp-util');
+const log           = require('fancy-log');
 const pjson         = require('./package.json');
 const zip           = require('gulp-zip');
 const jsoncombine   = require('gulp-jsoncombine');
+const pug           = require('gulp-pug');
+const rename          = require("gulp-rename");
 
 // list of settings files to include, in order of inclusion
 var settingsSchemas = [
@@ -18,8 +20,7 @@ var settingsSchemas = [
 // Basic error messages output to the console.
 // Used with plumber so we don't stop the other tasks from running or kill the gulp process on an error
 var onError = function (err) {
-  gutil.beep();
-  gutil.log(gutil.colors.red(err));
+  log.error(err);
 };
  
 /**
@@ -57,4 +58,15 @@ gulp.task('theme_settings', function () {
       return new Buffer(JSON.stringify(data_array, null, 2));
     }))
     .pipe(gulp.dest('./theme/config/'));
+});
+
+gulp.task('templates', function buildHTML() {
+  return gulp.src('./src/pug/pages/*.pug')
+  .pipe(pug({
+    // Your options in here.
+  }))
+  .pipe(rename(function (path) {
+    path.extname = ".liquid";
+  }))
+  .pipe(gulp.dest('./theme/templates/'));
 });
