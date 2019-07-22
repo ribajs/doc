@@ -1,0 +1,36 @@
+extends ../layout/page.pug
+
+block title
+ | Binder Reference
+
+block content
+  h2#text text
+  include:markdown-it ../../../node_modules/ribajs/docs/reference/binders/text.md
+  h2#html html
+  include:markdown-it ../../../node_modules/ribajs/docs/reference/binders/html.md
+  h2#show show
+  include:markdown-it ../../../node_modules/ribajs/docs/reference/binders/show.md
+  h2#hide hide
+  include:markdown-it ../../../node_modules/ribajs/docs/reference/binders/hide.md
+  h2#enabled enabled
+  include:markdown-it ../../../node_modules/ribajs/docs/reference/binders/enabled.md
+  h2#disabled disabled
+  include:markdown-it ../../../node_modules/ribajs/docs/reference/binders/disabled.md
+  h2#if if
+  include:markdown-it ../../../node_modules/ribajs/docs/reference/binders/if.md
+  h2#unless unless
+  include:markdown-it ../../../node_modules/ribajs/docs/reference/binders/unless.md
+  h2#value value
+  include:markdown-it ../../../node_modules/ribajs/docs/reference/binders/value.md
+  h2#checked checked
+  include:markdown-it ../../../node_modules/ribajs/docs/reference/binders/checked.md
+  h2#unchecked unchecked
+  include:markdown-it ../../../node_modules/ribajs/docs/reference/binders/unchecked.md
+  h2#on-event on-[event]
+  include:markdown-it ../../../node_modules/ribajs/docs/reference/binders/on-[event].md
+  h2#each-item each-[item]
+  include:markdown-it ../../../node_modules/ribajs/docs/reference/binders/each-[item].md
+  h2#class-classname class-[classname]
+  include:markdown-it ../../../node_modules/ribajs/docs/reference/binders/class-[classname].md
+  h2#attribute [attribute]
+  include:markdown-it ../../../node_modules/ribajs/docs/reference/binders/[attribute].md
