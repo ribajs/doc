@@ -1,7 +1,10 @@
 @import 'charset';
-@import 'variables';
 @import 'custom-variables';
+@import 'variables';
 @import 'bootstrap';
+
+// bootstrap overwrites
+@import 'navbar';
 
 // other
 @import 'development';

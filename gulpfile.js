@@ -60,7 +60,19 @@ gulp.task('theme_settings', function () {
     .pipe(gulp.dest('./theme/config/'));
 });
 
-gulp.task('templates', function buildHTML() {
+gulp.task('templates:snippets', function buildHTML() {
+  return gulp.src('./src/pug/snippets/*.pug')
+  .pipe(pug({
+    // Your options in here.
+  }))
+  .pipe(rename(function (path) {
+    path.extname = ".liquid";
+  }))
+  .pipe(gulp.dest('./theme/snippets/'));
+});
+
+
+gulp.task('templates:pages', function buildHTML() {
   return gulp.src('./src/pug/pages/*.pug')
   .pipe(pug({
     // Your options in here.
@@ -70,3 +82,5 @@ gulp.task('templates', function buildHTML() {
   }))
   .pipe(gulp.dest('./theme/templates/'));
 });
+
+gulp.task('templates', gulp.series('templates:snippets', 'templates:pages'));

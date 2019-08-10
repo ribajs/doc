@@ -1,5 +1,5 @@
 {% comment %} Navigation Desktop {% endcomment %}
-<bs4-navbar class="navbar navbar-light navbar-main fixed-top">
+<bs4-navbar class="navbar navbar-dark navbar-main fixed-top bg-primary">
 
   {% comment %}
     MAINBAR
@@ -11,12 +11,7 @@
         MAINBAR LEFT
       {% endcomment %}
       <div class="col-auto d-flex align-items-center">
-        <a rv-route="'/'" href="/" class="brand-dark pt-2 pb-1">
-          <div class="font-weight-bold brand-text">Art</div>
-          <img lazyload="eager" class="brand-image" src="{{ 'icon_heart_px.png' | asset_url }}" alt="{{ shop.name | strip_html }}">
-          <div class="font-weight-bold brand-text">Code</div>
-          <div class="font-weight-normal brand-text hidden-xs-down">&nbsp;Studio</div>
-        </a>
+        <a class="navbar-brand" href="/">Riba</a>
       </div>
 
       {% comment %}
@@ -29,33 +24,7 @@
         {% endcomment %}
         <ul class="nav d-none d-lg-flex">
 
-          <tda-i18n-switcher class="px-3 d-flex align-items-center language-toggler">
-            <div rv-show="ready" class="nav-item" rv-each-langcode="langcodes" rv-on-click="toggle">
-              <div
-                class="nav-link text-uppercase"
-                rv-text="langcode.code"
-                rv-class-active="langcode.active"
-              ></div>
-            </div>
-          </tda-i18n-switcher>
-
           <shopify-linklist class="d-flex align-items-center" name="main-menu" vertical="false" pills="false"></shopify-linklist>
-
-          {% comment %}
-          <li class="nav-item">
-            <rv-share class="nav-link" title="{{shop.name}}" text-i18n="blogs.article.share-text" label-i18n="blogs.article.share">
-              <img lazyload="eager" rv-show="isNative" class="pixelated" src="{{ 'iconset-share.png' | asset_url }}" alt="share" width="24" height="24">
-            </rv-share>
-          </li>
-          {% endcomment %}
-
-          <li class="nav-item">
-            <a class="nav-link" href="/search" rv-route-class-active="'/search'" rv-route="'/search'">
-              <img lazyload="eager" class="pixelated" src="{{ 'iconset-glass.png' | asset_url }}" alt="search" width="24" height="24">
-            </a>
-          </li>
-
-
 
         </ul>
 
