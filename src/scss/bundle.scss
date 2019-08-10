@@ -3,8 +3,12 @@
 @import 'custom-variables';
 @import 'bootstrap';
 
+// bootstrap
+@import 'navbar';
+
 // other
 @import 'development';
+@import 'fonts';
 
 // templates
 @import 'templates/index';
