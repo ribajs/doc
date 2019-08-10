@@ -1,33 +1,22 @@
-(function () {
-  'use strict';
-}());
+'use strict';
 
-const gulp          = require('gulp');
-const log           = require('fancy-log');
-const pjson         = require('./package.json');
-const zip           = require('gulp-zip');
-const jsoncombine   = require('gulp-jsoncombine');
-const pug           = require('gulp-pug');
-const rename          = require("gulp-rename");
+const gulp = require('gulp');
+const log = require('fancy-log');
+const pjson = require('./package.json');
+const zip = require('gulp-zip');
+const jsoncombine = require('gulp-jsoncombine');
+const pug = require('gulp-pug');
+const rename = require("gulp-rename");
 
 // list of settings files to include, in order of inclusion
-var settingsSchemas = [
+const settingsSchemas = [
   'theme_info',
   'general',
   'home',
 ];
 
-// Basic error messages output to the console.
-// Used with plumber so we don't stop the other tasks from running or kill the gulp process on an error
-var onError = function (err) {
-  log.error(err);
-};
- 
-/**
- * Cretae a zipped file of the theme that can be uploaded to Shopify
- */
-gulp.task('zip', function () {
-  var theme = [
+const files = {
+  zip: [
     'theme/assets/*',
     'theme/config/*',
     'theme/layout/*',
@@ -36,19 +25,34 @@ gulp.task('zip', function () {
     'theme/snippets/*',
     'theme/templates/*',
     'theme/templates/customers/*'
-  ];
+  ],
+  theme_settings: './settings_schema/*.json',
+  templates: {
+    snippets: './src/pug/snippets/*.pug',
+    pages: './src/pug/pages/*.pug',
 
-  return gulp.src(theme, {base: "."})
+  }
+}
+ 
+/**
+ * Cretae a zipped file of the theme that can be uploaded to Shopify
+ */
+gulp.task('build:zip', () => {
+  return gulp.src(files.zip, {base: "."})
     .pipe(zip(pjson.name + '-' + pjson.version + '.zip'))
     .pipe(gulp.dest('./'));
+});
+
+gulp.task('watch:zip', () => {
+  return gulp.watch(files.zip, gulp.series('build:zip'));
 });
 
 /**
  * Create settings_schema.json
  */
-gulp.task('theme_settings', function () {
-  return gulp.src('./settings_schema/*.json')
-    .pipe(jsoncombine('settings_schema.json',function(data){
+gulp.task('build:theme_settings', () => {
+  return gulp.src(files.theme_settings)
+    .pipe(jsoncombine('settings_schema.json', (data) => {
       var data_array = [];
       // collect the json data and store it in the correct order
       for (var i = 0; i < settingsSchemas.length; i++) {
@@ -60,27 +64,44 @@ gulp.task('theme_settings', function () {
     .pipe(gulp.dest('./theme/config/'));
 });
 
-gulp.task('templates:snippets', function buildHTML() {
-  return gulp.src('./src/pug/snippets/*.pug')
-  .pipe(pug({
-    // Your options in here.
-  }))
-  .pipe(rename(function (path) {
-    path.extname = ".liquid";
-  }))
-  .pipe(gulp.dest('./theme/snippets/'));
+const buildTemplateSnippets = (files) => {
+  return gulp.src(files)
+    .pipe(pug({}))
+    .pipe(rename(function (path) {
+      path.extname = ".liquid";
+    }))
+    .pipe(gulp.dest('./theme/snippets/'));
+}
+
+gulp.task('build:templates:snippets', () => {
+  return buildTemplateSnippets(files.templates.snippets);
 });
 
+gulp.task('watch:templates:snippets', () => {
+  return gulp.watch(files.templates.snippets)
+  .on('change', buildTemplateSnippets)
+  .on('add', buildTemplateSnippets);
+});
 
-gulp.task('templates:pages', function buildHTML() {
-  return gulp.src('./src/pug/pages/*.pug')
-  .pipe(pug({
-    // Your options in here.
-  }))
+const buildTemplatePages = (files) => {
+  return gulp.src(files)
+  .pipe(pug({}))
   .pipe(rename(function (path) {
     path.extname = ".liquid";
   }))
   .pipe(gulp.dest('./theme/templates/'));
+}
+
+gulp.task('build:templates:pages', () => {
+  return buildTemplatePages(files.templates.pages);
 });
 
-gulp.task('templates', gulp.series('templates:snippets', 'templates:pages'));
+gulp.task('watch:templates:pages', () => {
+  return gulp.watch(files.templates.pages)
+  .on('change', buildTemplatePages)
+  .on('add', buildTemplatePages);});
+
+
+gulp.task('build:templates', gulp.series('build:templates:snippets', 'build:templates:pages'));
+
+gulp.task('watch:templates', gulp.parallel('watch:templates:snippets', 'watch:templates:pages'));
