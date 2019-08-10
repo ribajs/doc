@@ -1,0 +1,6 @@
+.navbar-brand {
+    border: 2px solid;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    @extend .px-3;
+}
