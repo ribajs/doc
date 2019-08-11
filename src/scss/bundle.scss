@@ -3,7 +3,11 @@
 @import 'variables';
 @import 'bootstrap';
 
+// vendors
+@import 'vendors/index';
+
 // bootstrap overwrites
+@import 'colors';
 @import 'navbar';
 
 // other

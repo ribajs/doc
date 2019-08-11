@@ -22,7 +22,7 @@
         {% comment %}
           Desktop
         {% endcomment %}
-        <ul class="nav d-none d-lg-flex">
+        <ul class="nav d-none d-md-flex">
 
           <shopify-linklist class="d-flex align-items-center" name="main-menu" vertical="false" pills="false"></shopify-linklist>
 
@@ -31,16 +31,16 @@
         {% comment %}
           Smartphone
         {% endcomment %}
-        <ul class="nav d-flex d-lg-none">
-          <li class="nav-item">
-            <a rv-show="isCollapsed" class="nav-link" rv-on-click="toggle">
-              <img lazyload="eager" src="{{ 'iconset-plus.png' | asset_url }}" class="pixelated" width="16" height="16" />
-            </a>
+        <ul class="nav d-flex d-md-none">
+          <li class="nav-item d-flex align-items-center">
+            <div rv-show="isCollapsed" class="nav-link" rv-on-click="toggle">
+              <rv-icon rv-src="'{{ 'iconset_icon_menu.svg' | asset_url }}'" size="32"></rv-icon>
+            </div>
           </li>
-          <li class="nav-item">
-            <a rv-hide="isCollapsed" class="nav-link" rv-on-click="toggle">
-              <img lazyload="eager" src="{{ 'iconset-x.png' | asset_url }}" class="pixelated" width="16" height="16" />
-            </a>
+          <li class="nav-item d-flex align-items-center">
+            <div rv-hide="isCollapsed" class="nav-link" rv-on-click="toggle">
+              <rv-icon rv-src="'{{ 'iconset_icon_close.svg' | asset_url }}'" size="32"></rv-icon>
+            </div>
           </li>
         </ul>
 
@@ -49,40 +49,10 @@
   </div>
 
   {% comment %} Collapsed navigation {% endcomment %}
-  <div class="collapse navbar-collapse d-lg-none py-3 scrollbar-y-auto">
+  <div class="collapse navbar-collapse d-md-none py-3 scrollbar-y-auto">
     <div class="container-fluid">
       <div class="row">
         <shopify-linklist class="col-12" name="main-menu" vertical="true" pills="false"></shopify-linklist>
-
-        <div class="col-12">
-          {% section 'navbar-contact-form' %}
-        </div>
-
-        <div class="col-12 pb-3 d-flex">
-          <tda-i18n-switcher class="d-flex align-items-center language-toggler pr-3">
-            <div rv-show="ready" class="nav-item" rv-each-langcode="langcodes" rv-on-click="toggle">
-              <div
-                class="nav-link text-uppercase"
-                rv-text="langcode.code"
-                rv-class-active="langcode.active"
-              ></div>
-            </div>
-          </tda-i18n-switcher>
-
-          <div class="nav-item">
-            <a class="nav-link" href="/search" rv-route-class-active="'/search'" rv-route="'/search'">
-              <img lazyload="eager" class="pixelated" src="{{ 'iconset-glass.png' | asset_url }}" alt="search" width="24" height="24">
-            </a>
-          </div>
-
-          <div class="nav-item">
-            <rv-share class="nav-link" title="{{shop.name}}" text-i18n="blogs.article.share-text" label-i18n="blogs.article.share">
-              <img lazyload="eager" rv-show="isNative" class="pixelated" src="{{ 'iconset-share.png' | asset_url }}" alt="share" width="24" height="24">
-            </rv-share>
-          </div>
-
-        </div>
-
       </div>
     </div>
   </div>

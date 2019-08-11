@@ -3,6 +3,7 @@
 const gulp = require('gulp');
 const log = require('fancy-log');
 const pjson = require('./package.json');
+const ribaPjson = require('./node_modules/ribajs/package.json');
 const zip = require('gulp-zip');
 const jsoncombine = require('gulp-jsoncombine');
 const pug = require('gulp-pug');
@@ -65,8 +66,13 @@ gulp.task('build:theme_settings', () => {
 });
 
 const buildTemplateSnippets = (files) => {
+  log.info('file', files);
   return gulp.src(files)
-    .pipe(pug({}))
+    .pipe(pug({
+      locals: {
+        riba: ribaPjson
+      }
+    }))
     .pipe(rename(function (path) {
       path.extname = ".liquid";
     }))
@@ -85,7 +91,11 @@ gulp.task('watch:templates:snippets', () => {
 
 const buildTemplatePages = (files) => {
   return gulp.src(files)
-  .pipe(pug({}))
+  .pipe(pug({
+    locals: {
+      riba: ribaPjson
+    }
+  }))
   .pipe(rename(function (path) {
     path.extname = ".liquid";
   }))
@@ -99,7 +109,8 @@ gulp.task('build:templates:pages', () => {
 gulp.task('watch:templates:pages', () => {
   return gulp.watch(files.templates.pages)
   .on('change', buildTemplatePages)
-  .on('add', buildTemplatePages);});
+  .on('add', buildTemplatePages);
+});
 
 
 gulp.task('build:templates', gulp.series('build:templates:snippets', 'build:templates:pages'));
