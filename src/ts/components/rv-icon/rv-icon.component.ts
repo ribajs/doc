@@ -1,8 +1,8 @@
 import Debug from 'debug';
 import $ from 'jquery';
-import { AbstractRibaComponent } from '@ribajs/core';
+import { Component } from '@ribajs/core';
 
-export class IconComponent extends AbstractRibaComponent {
+export class IconComponent extends Component {
 
   public static tagName: string = 'rv-icon';
 

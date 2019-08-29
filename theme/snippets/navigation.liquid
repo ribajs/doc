@@ -4,13 +4,27 @@
   {% comment %}
     MAINBAR
   {% endcomment %}
-  <div class="container-fluid d-block mainbar">
+  <div class="container-fluid d-block px-0">
     <div class="row justify-content-between">
 
       {% comment %}
         MAINBAR LEFT
       {% endcomment %}
-      <div class="col-auto d-flex align-items-center">
+      <div class="col-auto d-flex align-items-center px-0">
+        <bs4-toggle-button target-id="main-sidebar">
+          <ul class="nav d-flex">
+            <li class="nav-item d-flex align-items-center">
+              <div rv-show="isClosed" class="nav-link" rv-on-click="toggle">
+                <rv-icon rv-src="'{{ 'iconset_icon_menu.svg' | asset_url }}'" size="32"></rv-icon>
+              </div>
+            </li>
+            <li class="nav-item d-flex align-items-center">
+              <div rv-hide="isClosed" class="nav-link" rv-on-click="toggle">
+                <rv-icon rv-src="'{{ 'iconset_icon_close.svg' | asset_url }}'" size="32"></rv-icon>
+              </div>
+            </li>
+          </ul>
+        </bs4-toggle-button>
         <a class="navbar-brand" href="/">Riba</a>
       </div>
 
@@ -23,25 +37,7 @@
           Desktop
         {% endcomment %}
         <ul class="nav d-none d-md-flex">
-
           <shopify-linklist class="d-flex align-items-center" name="main-menu" vertical="false" pills="false"></shopify-linklist>
-
-        </ul>
-
-        {% comment %}
-          Smartphone
-        {% endcomment %}
-        <ul class="nav d-flex d-md-none">
-          <li class="nav-item d-flex align-items-center">
-            <div rv-show="isCollapsed" class="nav-link" rv-on-click="toggle">
-              <rv-icon rv-src="'{{ 'iconset_icon_menu.svg' | asset_url }}'" size="32"></rv-icon>
-            </div>
-          </li>
-          <li class="nav-item d-flex align-items-center">
-            <div rv-hide="isCollapsed" class="nav-link" rv-on-click="toggle">
-              <rv-icon rv-src="'{{ 'iconset_icon_close.svg' | asset_url }}'" size="32"></rv-icon>
-            </div>
-          </li>
         </ul>
 
       </div>

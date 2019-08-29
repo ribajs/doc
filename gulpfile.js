@@ -31,9 +31,10 @@ const files = {
   templates: {
     snippets: './src/pug/snippets/*.pug',
     pages: './src/pug/pages/*.pug',
-
-  }
-}
+    layouts: './src/pug/layout/*.pug',
+    includes: ['./src/pug/includes/*.pug', './src/pug/includes/*.md'],
+  },
+};
  
 /**
  * Cretae a zipped file of the theme that can be uploaded to Shopify
@@ -65,7 +66,7 @@ gulp.task('build:theme_settings', () => {
     .pipe(gulp.dest('./theme/config/'));
 });
 
-const buildTemplateSnippets = (files) => {
+const buildTemplate = (files, targetDir) => {
   log.info('file', files);
   return gulp.src(files)
     .pipe(pug({
@@ -76,8 +77,21 @@ const buildTemplateSnippets = (files) => {
     .pipe(rename(function (path) {
       path.extname = ".liquid";
     }))
-    .pipe(gulp.dest('./theme/snippets/'));
-}
+    .pipe(gulp.dest(`./theme/${targetDir}/`));
+};
+
+const buildTemplateSnippets = (files) => {
+  return buildTemplate(files, 'snippets');
+};
+
+const buildTemplateLayouts = (files) => {
+  return buildTemplate(files, 'layout');
+};
+
+const buildTemplatePages = (files) => {
+  return buildTemplate(files, 'templates');
+};
+
 
 gulp.task('build:templates:snippets', () => {
   return buildTemplateSnippets(files.templates.snippets);
@@ -89,18 +103,17 @@ gulp.task('watch:templates:snippets', () => {
   .on('add', buildTemplateSnippets);
 });
 
-const buildTemplatePages = (files) => {
-  return gulp.src(files)
-  .pipe(pug({
-    locals: {
-      riba: ribaPjson
-    }
-  }))
-  .pipe(rename(function (path) {
-    path.extname = ".liquid";
-  }))
-  .pipe(gulp.dest('./theme/templates/'));
-}
+
+gulp.task('build:templates:layouts', () => {
+  return buildTemplateLayouts(files.templates.layouts);
+});
+
+gulp.task('watch:templates:layouts', () => {
+  return gulp.watch(files.templates.layouts)
+  .on('change', buildTemplateLayouts)
+  .on('add', buildTemplateLayouts);
+});
+
 
 gulp.task('build:templates:pages', () => {
   return buildTemplatePages(files.templates.pages);
@@ -113,6 +126,16 @@ gulp.task('watch:templates:pages', () => {
 });
 
 
-gulp.task('build:templates', gulp.series('build:templates:snippets', 'build:templates:pages'));
+/**
+ * Builds all templates if any include file was changes
+ */
+gulp.task('watch:templates:includes', () => {
+  return gulp.watch(files.templates.includes)
+  .on('change', gulp.series('build:templates'))
+  .on('add', gulp.series('build:templates'));
+});
 
-gulp.task('watch:templates', gulp.parallel('watch:templates:snippets', 'watch:templates:pages'));
+
+gulp.task('build:templates', gulp.series('build:templates:snippets', 'build:templates:pages', 'build:templates:layouts'));
+
+gulp.task('watch:templates', gulp.parallel('watch:templates:snippets', 'watch:templates:pages', 'watch:templates:layouts', 'watch:templates:includes'));

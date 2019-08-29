@@ -1,11 +1,11 @@
 import Debug from 'debug';
-import { AbstractRibaComponent } from '@ribajs/core';
+import { Component } from '@ribajs/core';
 import template from './shopify-linklist.component.html';
 
 /**
  * shopify-filter
  */
-export class ShopifyLinklistComponent extends AbstractRibaComponent {
+export class ShopifyLinklistComponent extends Component {
 
   public static tagName: string = 'shopify-linklist';
 

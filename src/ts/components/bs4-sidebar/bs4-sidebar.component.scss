@@ -1,0 +1,10 @@
+bs4-sidebar {
+  display: block;
+  height: calc(100vh - 64px);
+  position: fixed;
+  width: 300px;
+  top: 64px;
+  bottom: 0;
+  left: 0;
+  z-index: $zindex-fixed + 1;
+}

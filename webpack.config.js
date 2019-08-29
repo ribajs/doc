@@ -85,9 +85,19 @@ module.exports = env => {
               minimize: true
             }
           }]
+        },
+        // pug templates
+        {
+          test: /\.pug$/,
+          use: [ {
+            loader: 'pug-loader',
+            options: {
+              minimize: true
+            }
+          }]
         }
       ]
     },
-    plugins:  [new ConsoleNotifierPlugin()]
-  }
+    plugins:  [new ConsoleNotifierPlugin()],
+  };
 };
