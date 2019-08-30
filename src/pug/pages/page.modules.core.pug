@@ -1,0 +1,34 @@
+extends ../extends/generated-page.pug
+
+block content
+  h2#binders Binders
+  h3#text text
+  include:markdown-it ../../../node_modules/ribajs/docs/reference/binders/text.md
+  h3#html html
+  include:markdown-it ../../../node_modules/ribajs/docs/reference/binders/html.md
+  h3#show show
+  include:markdown-it ../../../node_modules/ribajs/docs/reference/binders/show.md
+  h3#hide hide
+  include:markdown-it ../../../node_modules/ribajs/docs/reference/binders/hide.md
+  h3#enabled enabled
+  include:markdown-it ../../../node_modules/ribajs/docs/reference/binders/enabled.md
+  h3#disabled disabled
+  include:markdown-it ../../../node_modules/ribajs/docs/reference/binders/disabled.md
+  h3#if if
+  include:markdown-it ../../../node_modules/ribajs/docs/reference/binders/if.md
+  //- h3#unless unless
+  //- include:markdown-it ../../../node_modules/ribajs/docs/reference/binders/unless.md
+  h3#value value
+  include:markdown-it ../../../node_modules/ribajs/docs/reference/binders/value.md
+  h3#checked checked
+  include:markdown-it ../../../node_modules/ribajs/docs/reference/binders/checked.md
+  //- h3#unchecked unchecked
+  //- include:markdown-it ../../../node_modules/ribajs/docs/reference/binders/unchecked.md
+  h3#on-event on-[event]
+  include:markdown-it ../../../node_modules/ribajs/docs/reference/binders/on-[event].md
+  h3#each-item each-[item]
+  include:markdown-it ../../../node_modules/ribajs/docs/reference/binders/each-[item].md
+  h3#class-classname class-[classname]
+  include:markdown-it ../../../node_modules/ribajs/docs/reference/binders/class-[classname].md
+  h3#attribute [attribute]
+  include:markdown-it ../../../node_modules/ribajs/docs/reference/binders/[attribute].md

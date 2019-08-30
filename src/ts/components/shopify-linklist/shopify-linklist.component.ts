@@ -2,6 +2,30 @@ import Debug from 'debug';
 import { Component } from '@ribajs/core';
 import template from './shopify-linklist.component.html';
 
+interface ILink {
+  active: boolean;
+  child_active: boolean;
+  handle: string;
+  level: number;
+  levels: number;
+  links: Array<ILink>;
+  title: string;
+  type: 'page_link';
+  url: string;
+}
+
+interface ILinklist {
+  handle: string;
+  id: string | null;
+  levels: number;
+  links: Array<ILink>;
+  title: string;
+}
+
+interface IScope {
+  linklist?: ILinklist;
+}
+
 /**
  * shopify-filter
  */
@@ -15,7 +39,9 @@ export class ShopifyLinklistComponent extends Component {
     return ['name', 'linklist', 'pills', 'vertical'];
   }
 
-  protected scope: any = {};
+  protected scope: IScope = {
+
+  };
 
   constructor(element?: HTMLElement) {
     super(element);
@@ -29,6 +55,7 @@ export class ShopifyLinklistComponent extends Component {
     // set linklist by name
     if (name === 'name') {
       this.scope.linklist = window.model.system.linklists[newValue];
+      this.debug('linklist', this.scope.linklist);
     }
   }
 

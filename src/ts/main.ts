@@ -4,7 +4,7 @@ import {
   coreModule,
   EventDispatcher,
 } from '@ribajs/core';
-import shopifyModule from '@ribajs/shopify';
+// import shopifyModule from '@ribajs/shopify';
 import routerModule from '@ribajs/router';
 // import { i18nModule } from '@ribajs/i18n';
 import { bs4Module } from '@ribajs/bs4';
@@ -42,7 +42,9 @@ export class Main {
       // binders: {...customBinders},
     });
 
+    console.error('hello!');
     this.dispatcher.on('newPageReady', () => {
+      console.error('newPageReady');
       Prism.highlightAll();
     });
 
