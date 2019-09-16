@@ -42,9 +42,7 @@ export class Main {
       // binders: {...customBinders},
     });
 
-    console.error('hello!');
     this.dispatcher.on('newPageReady', () => {
-      console.error('newPageReady');
       Prism.highlightAll();
     });
 

@@ -1,24 +1,24 @@
-include ../includes/header
+include ../_includes/header
 | {{ content_for_index  }}
 .container
   .row
     .separator.col-12
       h2 Why Riba.js?
     section.flexible.col-12.col-md-6.my-3
-      include:markdown-it ../includes/flexible.md
+      include:markdown-it ../_includes/flexible.md
     section.configurable.col-12.col-md-6.my-3
-      include:markdown-it ../includes/configurable.md
+      include:markdown-it ../_includes/configurable.md
   .row
     .separator.col-12
       h2 Highlights
     section.binders.col-12.col-md-6.my-3
-      include:markdown-it ../includes/binders.md
+      include:markdown-it ../_includes/binders.md
     section.formatters.col-12.col-md-6.my-3(rv-block)
-      include:markdown-it ../includes/formatters.md
+      include:markdown-it ../_includes/formatters.md
     section.adapters.col-12.col-md-6.my-3
-      include ../includes/adapters
+      include ../_includes/adapters
     section.web-components.col-12.col-md-6.my-3
-      include:markdown-it ../includes/web-components.md
+      include:markdown-it ../_includes/web-components.md
 section.author.py-5
   .container
     .row
