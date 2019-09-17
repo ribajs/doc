@@ -9,15 +9,12 @@
           <div class="rte">{{ page.content }}</div>
           <div class="content">
             <section class="my-5">
-              <h2 id="install">Install</h2><p>You can grab the latest stable release from <a href="https://raw.githubusercontent.com/blikblum/riba/master/dist/riba.js">github</a> or install using the package manager of your choice.</p>
-<pre><code class="language-bash">npm install riba
+              <h2 id="install">Install</h2><p>To get started, you can either scaffold the project with the Riba CLI</p>
+<p>To scaffold the project with the Riba CLI, run the following commands. This will create a new project directory, and populate the directory with the initial core Riba files and supporting modules, creating a conventional base structure for your project. Creating a new project with the Riba CLI is recommended for first-time users.</p>
+<pre><code class="language-bash">npm i -g @ribajs/cli
+riba new project-name
 </code></pre>
-<p>Use in a script tag...</p>
-<pre><code class="language-html">&lt;script src=&quot;riba.js&quot;&gt;&lt;/script&gt;
-</code></pre>
-<p>... or import using a bundler like webpack</p>
-<pre><code class="language-javascript">import riba from 'riba'
-</code></pre>
+<p>This will create the <code>project-name</code> directory, node modules and a few other boilerplate files will be installed, and a src/ directory will be created and populated with several core files.</p>
 
             </section>
             <section class="my-5">

@@ -36,7 +36,7 @@ $ riba new project</code></pre>
     <section class="binders col-12 col-md-6 my-3"><h3>Binders</h3>
 <pre><code class="language-html">&lt;input rv-value=&quot;item.summary&quot;&gt;
 </code></pre>
-<p>p Describe how your underlying data is reflected in the DOM and vice-versa. All binders create a binding that is automatically updated when model data changes or when the user interacts with the DOM.</p>
+<p>Describe how your underlying data is reflected in the DOM and vice-versa. All binders create a binding that is automatically updated when model data changes or when the user interacts with the DOM.</p>
 
     </section>
     <section class="formatters col-12 col-md-6 my-3" rv-block="rv-block"><h3>Formatters</h3>
@@ -45,10 +45,11 @@ $ riba new project</code></pre>
 <p>Format dates, numbers, currencies and implement logic gates and conversions. Formatters work in a similar fashion to the Unix pipeline, so you can stack as many of them together as you like.</p>
 
     </section>
-    <section class="adapters col-12 col-md-6 my-3">
-      <h3>Adapters</h3>
-      <pre><code class="language-html">&lt;select rv-value=&quot;user.address:city&quot;&gt;</code></pre>
-      <p>Teach Riba.js how to observe and interact with different objects. Use . for plain object proterties and define a : adapter for Backbone model attributes. It's up to you. Adapters take care of observing and reading each key in a keypath.</p>
+    <section class="adapters col-12 col-md-6 my-3"><h3>Adapters</h3>
+<pre><code class="language-html">&lt;select rv-value=&quot;user.address:city&quot;&gt;
+</code></pre>
+<p>Teach Riba.js how to observe and interact with different objects. Use . for plain object proterties and define a : adapter for Backbone model attributes. It's up to you. Adapters take care of observing and reading each key in a keypath</p>
+
     </section>
     <section class="web-components col-12 col-md-6 my-3"><h3>Web Components</h3>
 <pre><code class="language-html">&lt;toggle-item on=&quot;item.complete&quot;&gt;&lt;/toggle-item&gt;
