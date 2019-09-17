@@ -1,6 +1,6 @@
 Use `riba.configure` to set the following configuration options for your app. Note that all configuration options can be overridden locally to a particular view if needed.
 
-```javascript
+```typescript
 riba.configure({
 
   // Attribute prefix in templates
@@ -14,6 +14,12 @@ riba.configure({
 
   // Template delimiters for text bindings
   templateDelimiters: ['{', '}'],
+
+  // Removes binder attribute after the binder was bound
+  removeBinderAttributes: true,
+
+  // Stop binding on this node names
+  blockNodeNames: ['SCRIPT', 'STYLE', 'TEMPLATE', 'CODE'],
 
   // Augment the event handler of the on-* binder
   handler: function(target, event, binding) {
