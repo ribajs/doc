@@ -1,6 +1,10 @@
 shopify-linklist {
   .nav-link {
     color: $white;
+    &.active {
+      color: theme-color('primary');
+      cursor: default;
+    }
   }
   .nav.flex-column {
     .nav-item-level-0 {

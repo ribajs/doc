@@ -1,7 +1,7 @@
 {
-  "name": "riba-docs-theme",
-  "version": "0.0.0",
-  "description": "Shopify theme based on Bootstrap 4 and Riba",
+  "name": "@ribajs/doc",
+  "version": "1.1.3",
+  "description": "Shopify theme for the Riba.js Documentation",
   "main": "src/ts/main.ts",
   "typings": "src/ts/types",
   "scripts": {
