@@ -54,7 +54,12 @@ block content
     
   section.my-5
     h3#each-item each-[item]
-    include:markdown-it(html) ../../../doc/reference/core/binders/each-[item].md
+    include:markdown-it(html) ../../../doc/reference/core/binders/each-[item]/each-[item].md
+    include ../../../doc/reference/core/binders/each-[item]/each-[item]-example
+
+  section.my-5
+    h3#each-item Nested each-[item]
+    include:markdown-it(html) ../../../doc/reference/core/binders/each-[item]/nested-each-[item].md
     
   section.my-5
     h3#class-classname class-[classname]

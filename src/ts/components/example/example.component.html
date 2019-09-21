@@ -1,1 +1,61 @@
-<p>Message from <strong>component</strong> rv-example: {hello}</p>
+<bs4-tabs class="row py-5">
+  <div class="col-12 example-tab-list nav nav-tabs nav-tabs-underline d-flex flex-nowrap" id="each-item-example-tab-list" role="tablist">
+    <a class="nav-item nav-link d-inline-block text-truncate"
+      href="#each-item-example-tab-content-html"
+      id="each-item-example-tab-title-html"
+      role="tab"
+      aria-controls="each-item-example-tab-content-html"
+      aria-selected="false"
+    >
+      HTML
+    </a>
+    <a class="nav-item nav-link d-inline-block text-truncate"
+      href="#each-item-example-tab-content-typescript"
+      id="each-item-example-tab-title-typescript"
+      role="tab"
+      aria-controls="each-item-example-tab-content-typescript"
+      aria-selected="false"
+    >
+      TypeScript
+    </a>
+    <a class="nav-item nav-link d-inline-block text-truncate"
+      href="#each-item-example-tab-content-result"
+      id="each-item-example-tab-title-result"
+      role="tab"
+      aria-controls="each-item-example-tab-content-result"
+      aria-selected="false"
+    >
+      Result {test}?
+    </a>
+  </div>
+  <div class="col-12 col-md-6 tab-content product-tab-content px-5 mx-auto" id="product-{{product.handle}}-tab-content">
+    <div
+      class="tab-pane mt-3 mb-4"
+      id="each-item-example-tab-content-html"
+      role="tabpanel"
+      aria-labelledby="each-item-example-tab-title-html"
+      rv-text="html"
+    >
+      HTML Inhalt
+    </div>
+    <div
+      class="tab-pane mt-3 mb-4"
+      id="each-item-example-tab-content-typescript"
+      role="tabpanel"
+      aria-labelledby="each-item-example-tab-title-typescript"
+    >
+      <pre class="language-typescript" rv-html="typescript"></pre>
+      TypeScript Inhalt
+    </div>
+    <div
+      class="tab-pane mt-3 mb-4"
+      id="each-item-example-tab-content-result"
+      role="tabpanel"
+      aria-labelledby="each-item-example-tab-title-result"
+      
+    >
+      Result Inhalt <span rv-text="test"></span>
+    </div>
+  </div>
+
+</bs4-tabs>

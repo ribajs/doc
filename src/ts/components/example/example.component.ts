@@ -4,9 +4,13 @@ import {
 } from '@ribajs/core';
 
 import template from './example.component.html';
+import { TemplateElement } from 'babel-types';
 
 interface IScope {
-  hello?: string;
+  html: string | null;
+  typescript: string | null;
+  result: string | null;
+  test: string;
 }
 
 export class ExampleComponent extends Component {
@@ -15,6 +19,10 @@ export class ExampleComponent extends Component {
 
   protected autobind = true;
 
+  protected htmlTemplate: HTMLTemplateElement | null = null;
+  protected typescriptTemplate: HTMLTemplateElement | null  = null;
+  protected resultTemplate: HTMLTemplateElement | null  = null;
+
   static get observedAttributes() {
     return [];
   }
@@ -22,12 +30,30 @@ export class ExampleComponent extends Component {
   protected debug = Debug('component:' + ExampleComponent.tagName);
 
   protected scope: IScope = {
-    hello: undefined,
+    html: null,
+    typescript: null,
+    result: null,
+    test: 'hello',
   };
 
   constructor(element?: HTMLElement) {
     super(element);
     this.debug('constructor', this);
+
+    this.htmlTemplate = this.el.querySelector<HTMLTemplateElement>('template[name="html"]');
+    this.typescriptTemplate = this.el.querySelector<HTMLTemplateElement>('template[name="typescript"]');
+    this.resultTemplate = this.el.querySelector<HTMLTemplateElement>('template[name="result"]');
+
+    if (this.htmlTemplate) {
+      this.scope.html = this.htmlTemplate.innerHTML;
+    }
+    if (this.typescriptTemplate) {
+      this.scope.typescript = this.typescriptTemplate.innerHTML;
+    }
+    if (this.resultTemplate) {
+      this.scope.result = this.resultTemplate.innerHTML;
+    }
+
     this.init(ExampleComponent.observedAttributes);
   }
 
@@ -39,7 +65,7 @@ export class ExampleComponent extends Component {
   }
 
   protected async beforeBind() {
-    this.debug('beforeBind');
+    this.debug('beforeBind', this.scope);
   }
 
   protected async afterBind() {
@@ -60,13 +86,7 @@ export class ExampleComponent extends Component {
   }
 
   protected template() {
-    // Only set the component template if there no childs already
-    if (this.el.hasChildNodes()) {
-      this.debug('Do not use template, because element has child nodes');
-      return null;
-    } else {
-      this.debug('Use template', template);
-      return template;
-    }
+    this.debug('Use template', template);
+    return template;
   }
 }

@@ -5,9 +5,7 @@ import {
 
 import template from './file-tree.component.html';
 
-interface IScope {
-  hello?: string;
-}
+// interface IScope {}
 
 export class FileTreeComponent extends Component {
 
@@ -21,7 +19,7 @@ export class FileTreeComponent extends Component {
 
   protected debug = Debug('component:' + FileTreeComponent.tagName);
 
-  protected scope: IScope = {};
+  protected scope = {}; // : IScope = {};
 
   constructor(element?: HTMLElement) {
     super(element);
