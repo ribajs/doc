@@ -1,4 +1,4 @@
-<nav class="nav" rv-class="linklist.handle" rv-class-nav-pills="pills" rv-class-w-100="vertical" rv-class-flex-column="vertical" rv-class-flex-row="vertical | not">
+<nav class="nav" rv-add-class="linklist.handle" rv-class-nav-pills="pills" rv-class-w-100="vertical" rv-class-flex-column="vertical" rv-class-flex-row="vertical | not">
     <div class="nav-item nav-item-level-0" rv-each-link="linklist.links">
       <a
         class="nav-link"
@@ -12,8 +12,8 @@
       <div class="nav-item nav-item-level-1" rv-each-sublink="link.links">
         <a
           class="nav-link"
-          rv-class="sublink.level | prepend 'level-'"
-          rv-class-active="sublink.active"
+          rv-add-class="sublink.level | prepend 'level-'"
+          rv-add-class-active="sublink.active"
           rv-route-class-active="link.url"
           rv-route="sublink.url"
           rv-href="sublink.url"
@@ -23,8 +23,8 @@
         <div class="nav-item nav-item-level-2" rv-each-subsublink="sublink.links">
           <a
             class="nav-link"
-            rv-class="subsublink.level | prepend 'level-'"
-            rv-class-active="subsublink.active"
+            rv-add-class="subsublink.level | prepend 'level-'"
+            rv-add-class-active="subsublink.active"
             rv-route-class-active="link.url"
             rv-route="subsublink.url"
             rv-href="subsublink.url"

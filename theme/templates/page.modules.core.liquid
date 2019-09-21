@@ -8,53 +8,89 @@
           </h1>
           <div class="rte">{{ page.content }}</div>
           <div class="content">
-            <h2 id="binders">Binders</h2>
-            <h3 id="text">text</h3><p>Sets the element's text content.</p>
+            <section class="my-5">
+              <h2 id="binders">Binders</h2>
+            </section>
+            <section class="my-5">
+              <h3 id="text">text</h3><p>Sets the element's text content.</p>
 <pre><code class="language-html">&lt;h1 rv-text=&quot;user.name&quot;&gt;&lt;/h1&gt;
 </code></pre>
 <p>You can also bind text using interpolation.</p>
 <pre><code class="language-html">&lt;p&gt;{ user.name } is { user.age } years old.&lt;/p&gt;
 </code></pre>
 
-            <h3 id="html">html</h3><p>Sets the element's HTML content.</p>
+            </section>
+            <section class="my-5">
+              <h3 id="html">html</h3><p>Sets the element's HTML content.</p>
 <pre><code class="language-html">&lt;section rv-html=&quot;item.summary&quot;&gt;&lt;/section&gt;
 </code></pre>
 
-            <h3 id="show">show</h3><p>Shows the element when the value evaluates to true and hides the element when the value evaluates to false.</p>
+            </section>
+            <section class="my-5">
+              <h3 id="show">show</h3><p>Shows the element when the value evaluates to true and hides the element when the value evaluates to false.</p>
 <pre><code class="language-html">&lt;button rv-show=&quot;user.admin&quot;&gt;Remove&lt;/button&gt;
 </code></pre>
 
-            <h3 id="hide">hide</h3><p>Hides the element when the value evaluates to true and shows the element when the value evaluates to false.</p>
+            </section>
+            <section class="my-5"> 
+              <h3 id="hide">hide</h3><p>Hides the element when the value evaluates to true and shows the element when the value evaluates to false.</p>
 <pre><code class="language-html">&lt;section rv-hide=&quot;feature.disabled&quot;&gt;&lt;/section&gt;
 </code></pre>
 
-            <h3 id="enabled">enabled</h3><p>Enables the element when the value evaluates to true and disables the element when the value evaluates to false.</p>
+            </section>
+            <section class="my-5">
+              <h3 id="enabled">enabled</h3><p>Enables the element when the value evaluates to true and disables the element when the value evaluates to false.</p>
 <pre><code class="language-html">&lt;button rv-enabled=&quot;user.canVote&quot;&gt;Upvote&lt;/button&gt;
 </code></pre>
 
-            <h3 id="disabled">disabled</h3><p>Disables the element when the value evaluates to true and enables the element when the value evaluates to false.</p>
+            </section>
+            <section class="my-5">
+              <h3 id="disabled">disabled</h3><p>Disables the element when the value evaluates to true and enables the element when the value evaluates to false.</p>
 <pre><code class="language-html">&lt;button rv-disabled=&quot;user.suspended&quot;&gt;Upvote&lt;/button&gt;
 </code></pre>
 
-            <h3 id="if">if</h3><p>Inserts and binds the element as well as it's child nodes into the DOM when the value evaluates to true and removes / unbinds the element when the value evaluates to false.</p>
+            </section>
+            <section class="my-5">
+              <h3 id="if">if</h3><p>Inserts and binds the element as well as it's child nodes into the DOM when the value evaluates to true and removes / unbinds the element when the value evaluates to false.</p>
 <pre><code class="language-html">&lt;section rv-if=&quot;item.editable&quot;&gt;&lt;/section&gt;
 </code></pre>
 
-            <h3 id="value">value</h3><p>Sets the element's value when the attribute changes and sets the bound object's value when the input element changes from user input (two-way).</p>
+            </section>
+            <section class="my-5">
+              <h3 id="unless">unless</h3><p>Removes and unbinds the element as well as it's child nodes when the value evaluates to true and inserts / binds the element when the value evaluates to false.</p>
+<pre><code class="language-html">&lt;section rv-unless=&quot;item.locked&quot;&gt;&lt;/section&gt;
+</code></pre>
+
+            </section>
+            <section class="my-5">
+              <h3 id="value">value</h3><p>Sets the element's value when the attribute changes and sets the bound object's value when the input element changes from user input (two-way).</p>
 <pre><code class="language-html">&lt;input rv-value=&quot;item.name&quot;&gt;
 </code></pre>
 
-            <h3 id="checked">checked</h3><p>Checks the input when the value evaluates to true and unchecks the input when the value evaluates to false. This also sets the bound object's value to true/false when the user checks/unchecks the input (two-way).</p>
+            </section>
+            <section class="my-5">
+              <h3 id="checked">checked</h3><p>Checks the input when the value evaluates to true and unchecks the input when the value evaluates to false. This also sets the bound object's value to true/false when the user checks/unchecks the input (two-way).</p>
 <p><em>Use this instead of value when binding to checkboxes or radio buttons.</em></p>
 <pre><code class="language-html">&lt;input type=&quot;checkbox&quot; rv-checked=&quot;item.enabled&quot;&gt;
 </code></pre>
 
-            <h3 id="on-event">on-[event]</h3><p>Binds an event listener on the element using the event specified in <code>[event]</code> and the bound object (should return a function) as the callback.</p>
+            </section>
+            <section class="my-5">
+              <h3 id="unchecked">unchecked</h3><p>Unchecks the input when the value evaluates to true and checks the input when the value evaluates to false. This also sets the bound object's value to false/true when the user checks/unchecks the input (two-way).</p>
+<p><em>Use this instead of value when binding to checkboxes or radio buttons.</em></p>
+<pre><code class="language-html">&lt;input type=&quot;checkbox&quot; rv-unchecked=&quot;item.disabled&quot;&gt;
+</code></pre>
+
+            </section>
+            <section class="my-5">
+              <h3 id="on-event">on-[event]</h3><p>Binds an event listener on the element using the event specified in <code>[event]</code> and the bound object (should return a function) as the callback.</p>
 <p><em>If the end value of the binding changes to a different function, this binder will automatically unbind the old callback and bind a new listener to the new function.</em></p>
 <pre><code class="language-html">&lt;button rv-on-click=&quot;destroy | args item&quot;&gt;Remove&lt;/button&gt;
 </code></pre>
 
-            <h3 id="each-item">each-[item]</h3><p>Appends a new instance of the element in place for each item in an array. Each element is bound to a new view created in a scope with three special properties:</p>
+            </section>
+            <section class="my-5">
+              <h3 id="each-item">each-[item]</h3><p>Appends a new instance of the element in place for each item in an array. Each element is bound to a new view created in a scope with three special properties:</p>
 <ul>
 <li>the current iterated item in the array, named whatever value is in place of <code>[item]</code></li>
 <li><code>%[item]%</code>: the current iterated item index. Can be configured by setting <code>index-property</code> attribute</li>
@@ -67,8 +103,8 @@
   &lt;/li&gt;
 &lt;ul&gt;
 </code></pre>
-<p>&lt;iframe src=&quot;https://codesandbox.io/embed/github/ribajs/riba/tree/master/docs/reference/binders/each-star?fontsize=14&quot; title=&quot;each-star-example&quot; allow=&quot;geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media&quot; style=&quot;width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;&quot; sandbox=&quot;allow-modals allow-forms allow-popups allow-scripts allow-same-origin&quot;&gt;&lt;/iframe&gt;</p>
-<h3>Nested <code>rv-each</code></h3>
+<iframe src="https://codesandbox.io/embed/github/ribajs/riba/tree/master/examples/each-item?fontsize=14" title="each-item-example" allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+<h3>Nested rv-each</h3>
 <p>By nesting elements bound by <code>rv-each</code>, a scope is created for each nest level. The variables from parent scopes can be acessed by child ones, using a resolution algorithm similar to JavaScript prototype chain, i.e., looks for current scope if not found, look in parent scope repeating until find.</p>
 <pre><code class="language-html">&lt;ul&gt;
   &lt;li rv-each-category=&quot;categories&quot;&gt;
@@ -87,15 +123,64 @@
 </code></pre>
 <p>A more complex example can be found <a href="https://codepen.io/blikblum/pen/MKXXOX?editors=1010#0">here</a></p>
 
-            <h3 id="class-classname">class-[classname]</h3><p>Adds a class (whatever value is in place of <code>[classname]</code>) on the element when the value evaluates to true and removes that class if the value evaluates to false.</p>
+            </section>
+            <section class="my-5">
+              <h3 id="class-classname">class-[classname]</h3><p>Adds a class (whatever value is in place of <code>[classname]</code>) on the element when the value evaluates to true and removes that class if the value evaluates to false.</p>
 <pre><code class="language-html">&lt;li rv-class-completed=&quot;todo.done&quot;&gt;{ todo.name }&lt;/li&gt;
 </code></pre>
 
-            <h3 id="attribute">[attribute]</h3><p>Sets the value of an attribute (whatever value is in place of <code>[attribute]</code>) on the element.</p>
+            </section>
+            <section class="my-5">
+              <h3 id="add-class">add-class</h3><p>Adds the value of the attribute to the class. Instead of <code>class-[classname]</code> the classname is setted by the attribute value and not by the star value.</p>
+<pre><code class="language-html">&lt;ul&gt;
+  &lt;li rv-each-todo=&quot;todos&quot;&gt;
+    &lt;div rv-add-class=&quot;todo.state&quot;&gt;&lt;/div&gt;
+  &lt;/li&gt;
+&lt;ul&gt;
+</code></pre>
+
+            </section>
+            <section class="my-5">
+              <h3 id="remove-class">remove-class</h3><p>Removes the given class string the class attibute.
+Instead of <code>class-[classname]</code> the classname is removed by the
+given attribute and not by the star value.</p>
+<pre><code class="language-html">&lt;img class=&quot;loading&quot; rv-src=&quot;img.src&quot; rv-remove-class=&quot;loadingClass&quot;&gt;
+</code></pre>
+
+            </section>
+            <section class="my-5">
+              <h3 id="assign-property">assign-[property]</h3><p>Assign a value in your model. Sets or overwrites a value by his property name (named whatever value is in place of <code>[property]</code>) in your model.</p>
+<pre><code class="language-html">&lt;div rv-assign-message='&quot;Hello World!&quot;'&gt;{message}&lt;/div&gt;
+</code></pre>
+
+            </section>
+            <section class="my-5">
+              <h3 id="assign">assign</h3><p>Assign a value in your model. The value you want to assign must be an object and will be concatenate with your model. You can also pass a JSON string.</p>
+<pre><code class="language-html">&lt;div rv-assign='{&quot;newValue&quot;: &quot;hello&quot;, &quot;anotherNewValue&quot;: &quot;world&quot;}'&gt;{newValue} {anotherNewValue}!&lt;/div&gt;
+</code></pre>
+
+            </section>
+            <section class="my-5">
+              <h3 id="block">block</h3><p>Blocks the binding for the current element and his childs.</p>
+<p><em>Please note that <code>script</code>, <code>style</code>, <code>template</code> and <code>code</code> tags are blocked by default. You can change this by setting the <code>blockNodeNames</code> option.</em></p>
+<pre><code class="language-html">&lt;div rv-block=&quot;&quot;&gt;
+  &lt;!--
+    After binding you will see `{ value }`
+    (instead of the content of value)
+    because the binding is blocked here
+  --&gt;
+  { value }
+&lt;/div&gt;
+</code></pre>
+
+            </section>
+            <section class="my-5">
+              <h3 id="attribute">[attribute]</h3><p>Sets the value of an attribute (whatever value is in place of <code>[attribute]</code>) on the element.</p>
 <p><em>If your binding declaration does not match any of the above routines, it will fallback to use this binding.</em></p>
 <pre><code class="language-html">&lt;input type=&quot;text&quot; rv-placeholder=&quot;field.placeholder&quot;&gt;
 </code></pre>
 
+            </section>
           </div>
         </div>
       </div>
