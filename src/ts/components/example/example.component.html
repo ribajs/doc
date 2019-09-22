@@ -1,61 +1,37 @@
-<bs4-tabs class="row py-5">
-  <div class="col-12 example-tab-list nav nav-tabs nav-tabs-underline d-flex flex-nowrap" id="each-item-example-tab-list" role="tablist">
-    <a class="nav-item nav-link d-inline-block text-truncate"
-      href="#each-item-example-tab-content-html"
-      id="each-item-example-tab-title-html"
-      role="tab"
-      aria-controls="each-item-example-tab-content-html"
-      aria-selected="false"
-    >
-      HTML
-    </a>
-    <a class="nav-item nav-link d-inline-block text-truncate"
-      href="#each-item-example-tab-content-typescript"
-      id="each-item-example-tab-title-typescript"
-      role="tab"
-      aria-controls="each-item-example-tab-content-typescript"
-      aria-selected="false"
-    >
-      TypeScript
-    </a>
-    <a class="nav-item nav-link d-inline-block text-truncate"
-      href="#each-item-example-tab-content-result"
-      id="each-item-example-tab-title-result"
-      role="tab"
-      aria-controls="each-item-example-tab-content-result"
-      aria-selected="false"
-    >
-      Result {test}?
-    </a>
-  </div>
-  <div class="col-12 col-md-6 tab-content product-tab-content px-5 mx-auto" id="product-{{product.handle}}-tab-content">
-    <div
-      class="tab-pane mt-3 mb-4"
-      id="each-item-example-tab-content-html"
-      role="tabpanel"
-      aria-labelledby="each-item-example-tab-title-html"
-      rv-text="html"
-    >
-      HTML Inhalt
+<rv-example-tabs class="row"
+  rv-tab-0-title="tabs.html.title"
+  rv-tab-0-content="tabs.html.content"
+  rv-tab-0-handle="tabs.html.handle"
+  rv-tab-1-title="tabs.script.title"
+  rv-tab-1-content="tabs.script.content"
+  rv-tab-1-handle="tabs.script.handle"
+  rv-tab-2-title="tabs.result.title"
+  rv-tab-2-content="tabs.result.content"
+  rv-tab-2-handle="tabs.result.handle"
+>
+  <div class="col-12 py-3">
+    <div class="tab-list nav nav-tabs nav-tabs-underline d-flex flex-nowrap" rv-id="'tab-list-' | append tab.handle" role="tablist">
+      <a class="nav-item nav-link d-inline-block text-truncate"
+        rv-each-tab="tabs"
+        rv-href="'#tab-content-' | append tab.handle"
+        rv-id="'tab-title-' | append tab.handle"
+        rv-aria-controls="'tab-content-' | append tab.handle"
+        rv-html="tab.title"
+        rv-on-click="activate"
+        role="tab"
+        aria-selected="false"
+      ></a>
     </div>
-    <div
-      class="tab-pane mt-3 mb-4"
-      id="each-item-example-tab-content-typescript"
-      role="tabpanel"
-      aria-labelledby="each-item-example-tab-title-typescript"
-    >
-      <pre class="language-typescript" rv-html="typescript"></pre>
-      TypeScript Inhalt
-    </div>
-    <div
-      class="tab-pane mt-3 mb-4"
-      id="each-item-example-tab-content-result"
-      role="tabpanel"
-      aria-labelledby="each-item-example-tab-title-result"
-      
-    >
-      Result Inhalt <span rv-text="test"></span>
+    <div class="tab-content product-tab-content mx-auto">
+      <div
+        rv-each-tab="tabs"
+        rv-id="'tab-content-' | append tab.handle"
+        rv-html="tab.content"
+        class="tab-pane mt-3 mb-4"
+        role="tabpanel"
+        aria-labelledby="'tab-title-' | append tab.handle"
+      >
+      </div>
     </div>
   </div>
-
-</bs4-tabs>
+</rv-example-tabs>

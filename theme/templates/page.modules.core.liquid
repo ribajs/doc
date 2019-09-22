@@ -53,7 +53,142 @@
   &lt;/li&gt;
 &lt;ul&gt;
 </code></pre>
-</section><section class="my-5"><h3 id="each-item">Nested each-[item]</h3><p>By nesting elements bound by <code>rv-each</code>, a scope is created for each nest level. The variables from parent scopes can be acessed by child ones, using a resolution algorithm similar to JavaScript prototype chain, i.e., looks for current scope if not found, look in parent scope repeating until find.</p>
+<section class="my-5"><h4 id="each-item-example">Example</h4><rv-example><template name="html"><nav>
+  <button rv-on-click="push">Push</button>
+  <button rv-on-click="pop">Pop</button>
+  <button rv-on-click="shift">Shift</button>
+  <button rv-on-click="unshift">Unshift</button>
+  <button rv-on-click="splice">Splice</button>
+  <button rv-on-click="sort">Sort</button>
+  <button rv-on-click="reset">Reset</button>
+</nav>
+<section>
+  <div rv-each-item="items">
+    <div>Item { %item% } / { item.name }</div>
+  </div>
+</section>
+</template><template name="script">import {
+  Component,
+  Debug,
+  IDebugger,
+} from '@ribajs/core';
+
+import template from './each-item-example.component.html';
+
+interface IItem {
+  name: string;
+  value?: number;
+}
+
+interface IScope {
+  items: Array<IItem>,
+  push: EachItemExampleComponent['push'],
+  pop: EachItemExampleComponent['pop'],
+  shift: EachItemExampleComponent['shift'],
+  unshift: EachItemExampleComponent['unshift'],
+  splice: EachItemExampleComponent['splice'],
+  reset: EachItemExampleComponent['reset'],
+  sort: EachItemExampleComponent['sort'],
+}
+
+export class EachItemExampleComponent extends Component {
+
+  public static tagName: string = 'rv-each-item-example';
+
+  protected autobind = true;
+
+  protected debug: IDebugger = Debug('component:' +EachItemExampleComponent.tagName);
+
+  protected scope: IScope = {
+    items: this.getItems(),
+    push: this.push,
+    pop: this.pop,
+    shift: this.shift,
+    unshift: this.unshift,
+    splice: this.splice,
+    reset: this.reset,
+    sort: this.sort,
+  };
+
+  constructor(element?: HTMLElement) {
+    super(element);
+    this.debug('constructor', this);
+    this.init(EachItemExampleComponent.observedAttributes);
+  }
+
+  static get observedAttributes() {
+    return [];
+  }
+
+  public push() {
+    this.debug('push');
+    this.scope.items.push({name: 'pushed'});
+  }
+
+  public pop() {
+    this.debug('pop');
+    this.scope.items.pop()
+  }
+
+  public shift() {
+    this.debug('shift');
+    this.scope.items.shift()
+  }
+
+  public unshift() {
+    this.debug('unshift');
+    this.scope.items.unshift({name: 'shifted'})
+  }
+
+  public splice() {
+    this.debug('splice');
+    this.scope.items.splice(1, 1, {name: 'spliced1'}, {name: 'spliced2'})
+  }
+
+  public reset() {
+    this.debug('reset');
+    this.scope.items = this.getItems()
+  }
+
+  public sort() {
+    this.debug('sort');
+    this.scope.items.sort((a, b) => {
+      return (a.value || 0) - (b.value || 0)
+    })
+  }
+
+  private getItems(): IItem[] {
+    return [{name: 'x', value: 2} ,{name: 'y', value: 1} , {name: 'z', value: 3}]
+  }
+
+  protected async init(observedAttributes: string[]) {
+    return super.init(observedAttributes)
+    .then((view) => {
+      return view;
+    });
+  }
+
+  protected requiredAttributes() {
+    return [];
+  }
+
+  protected attributeChangedCallback(attributeName: string, oldValue: any, newValue: any, namespace: string | null) {
+    super.attributeChangedCallback(attributeName, oldValue, newValue, namespace);
+  }
+
+  protected template() {
+    // Only set the component template if there no childs already
+    if (this.el.hasChildNodes()) {
+      this.debug('Do not use template, because element has child nodes');
+      return null;
+    } else {
+      
+      this.debug('Use template', template);
+      return template;
+    }
+  }
+}
+</template><template name="result"><rv-each-item-example></rv-each-item-example></template></rv-example></section></section><section class="my-5"><h3 id="each-item">Nested each-[item]</h3><p>By nesting elements bound by <code>rv-each</code>, a scope is created for each nest level. The variables from parent scopes can be acessed by child ones, using a resolution algorithm similar to JavaScript prototype chain, i.e., looks for current scope if not found, look in parent scope repeating until find.</p>
 <pre><code class="language-html">&lt;ul&gt;
   &lt;li rv-each-category=&quot;categories&quot;&gt;
     { category.name }

@@ -12,15 +12,12 @@ import { bs4Module } from '@ribajs/bs4';
 
 import * as CustomComponents from './components';
 
+// Examples
+import { EachItemExampleComponent } from '../../../../examples/each-item/src/components';
+
 import * as Prism from 'prismjs';
-import 'prismjs/plugins/toolbar/prism-toolbar';
-import 'prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard';
-import 'prismjs/components/prism-css';
 import 'prismjs/components/prism-javascript';
-import 'prismjs/components/prism-java';
-import 'prismjs/components/prism-markup';
 import 'prismjs/components/prism-typescript';
-import 'prismjs/components/prism-sass';
 import 'prismjs/components/prism-scss';
 
 export class Main {
@@ -41,6 +38,9 @@ export class Main {
       components: CustomComponents,
       // binders: {...customBinders},
     });
+
+    // Regist examples‚
+    this.riba.module.component.regist(EachItemExampleComponent);
 
     this.dispatcher.on('newPageReady', () => {
       Prism.highlightAll();

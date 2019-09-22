@@ -1,16 +1,23 @@
 import {
   Component,
   Debug,
+  Utils,
 } from '@ribajs/core';
 
 import template from './example.component.html';
-import { TemplateElement } from 'babel-types';
+
+interface Tab {
+  title: string;
+  content: string;
+  handle: string;
+}
 
 interface IScope {
-  html: string | null;
-  typescript: string | null;
-  result: string | null;
-  test: string;
+  tabs: {
+    html?: Tab,
+    script?: Tab,
+    result?: Tab,
+  }
 }
 
 export class ExampleComponent extends Component {
@@ -20,7 +27,7 @@ export class ExampleComponent extends Component {
   protected autobind = true;
 
   protected htmlTemplate: HTMLTemplateElement | null = null;
-  protected typescriptTemplate: HTMLTemplateElement | null  = null;
+  protected scriptTemplate: HTMLTemplateElement | null  = null;
   protected resultTemplate: HTMLTemplateElement | null  = null;
 
   static get observedAttributes() {
@@ -30,10 +37,7 @@ export class ExampleComponent extends Component {
   protected debug = Debug('component:' + ExampleComponent.tagName);
 
   protected scope: IScope = {
-    html: null,
-    typescript: null,
-    result: null,
-    test: 'hello',
+    tabs: {},
   };
 
   constructor(element?: HTMLElement) {
@@ -41,17 +45,30 @@ export class ExampleComponent extends Component {
     this.debug('constructor', this);
 
     this.htmlTemplate = this.el.querySelector<HTMLTemplateElement>('template[name="html"]');
-    this.typescriptTemplate = this.el.querySelector<HTMLTemplateElement>('template[name="typescript"]');
+    this.scriptTemplate = this.el.querySelector<HTMLTemplateElement>('template[name="script"]');
     this.resultTemplate = this.el.querySelector<HTMLTemplateElement>('template[name="result"]');
 
-    if (this.htmlTemplate) {
-      this.scope.html = this.htmlTemplate.innerHTML;
+
+    if (this.htmlTemplate && this.htmlTemplate.innerHTML) {
+      this.scope.tabs.html = {
+        title: 'HTML',
+        content: `<pre class="language-html"><code class="language-html">${Utils.escapeHtml(this.htmlTemplate.innerHTML)}</code></pre>`,
+        handle: 'html',
+      };
     }
-    if (this.typescriptTemplate) {
-      this.scope.typescript = this.typescriptTemplate.innerHTML;
+    if (this.scriptTemplate && this.scriptTemplate.innerHTML) {
+      this.scope.tabs.script = {
+        title: 'TypeScript',
+        content: `<pre class="language-typescript"><code class="language-typescript">${this.scriptTemplate.innerHTML}</code></pre>`,
+        handle: 'script',
+      };
     }
-    if (this.resultTemplate) {
-      this.scope.result = this.resultTemplate.innerHTML;
+    if (this.resultTemplate && this.resultTemplate.innerHTML) {
+      this.scope.tabs.result = {
+        title: 'Result',
+        content: this.resultTemplate.innerHTML,
+        handle: 'result',
+      };
     }
 
     this.init(ExampleComponent.observedAttributes);
