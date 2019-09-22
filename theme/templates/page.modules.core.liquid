@@ -53,7 +53,7 @@
   &lt;/li&gt;
 &lt;ul&gt;
 </code></pre>
-<section class="my-5"><h4 id="each-item-example">Example</h4><rv-example><template name="html"><nav>
+<section class="my-5"><h4 id="each-item-example">Example</h4><rv-example handle="each-item"><template name="html"><nav>
   <button rv-on-click="push">Push</button>
   <button rv-on-click="pop">Pop</button>
   <button rv-on-click="shift">Shift</button>
@@ -92,13 +92,8 @@ interface IScope {
 }
 
 export class EachItemExampleComponent extends Component {
-
   public static tagName: string = 'rv-each-item-example';
-
-  protected autobind = true;
-
   protected debug: IDebugger = Debug('component:' +EachItemExampleComponent.tagName);
-
   protected scope: IScope = {
     items: this.getItems(),
     push: this.push,
@@ -161,34 +156,27 @@ export class EachItemExampleComponent extends Component {
     return [{name: 'x', value: 2} ,{name: 'y', value: 1} , {name: 'z', value: 3}]
   }
 
-  protected async init(observedAttributes: string[]) {
-    return super.init(observedAttributes)
-    .then((view) => {
-      return view;
-    });
-  }
-
-  protected requiredAttributes() {
-    return [];
-  }
-
-  protected attributeChangedCallback(attributeName: string, oldValue: any, newValue: any, namespace: string | null) {
-    super.attributeChangedCallback(attributeName, oldValue, newValue, namespace);
-  }
-
   protected template() {
     // Only set the component template if there no childs already
     if (this.el.hasChildNodes()) {
       this.debug('Do not use template, because element has child nodes');
       return null;
     } else {
-      
       this.debug('Use template', template);
       return template;
     }
   }
 }
-</template><template name="result"><rv-each-item-example></rv-each-item-example></template></rv-example></section></section><section class="my-5"><h3 id="each-item">Nested each-[item]</h3><p>By nesting elements bound by <code>rv-each</code>, a scope is created for each nest level. The variables from parent scopes can be acessed by child ones, using a resolution algorithm similar to JavaScript prototype chain, i.e., looks for current scope if not found, look in parent scope repeating until find.</p>
+</template><template name="preview"><rv-each-item-example></rv-each-item-example></template><template name="try-it"><h1>each-item-example</h1>
+<pre><code class="language-bash">git clone --recurse-submodules https://github.com/ribajs/riba.git
+cd riba/examples/each-item
+npm install
+npm run start
+</code></pre>
+<h2>Debug</h2>
+<p>This example makes use of the popular <a href="https://github.com/visionmedia/debug">debug module</a>.</p>
+<p>To see the debuging output <a href="https://github.com/visionmedia/debug#browser-support">in your browser</a> console just open your browser developer tools and set the local storage key to <code>debug</code> with the value of <code>component:rv-each-item-example</code> (to see only the component debug output) or <code>*</code> (to see all debug output).</p>
+</template></rv-example></section></section><section class="my-5"><h3 id="each-item">Nested each-[item]</h3><p>By nesting elements bound by <code>rv-each</code>, a scope is created for each nest level. The variables from parent scopes can be acessed by child ones, using a resolution algorithm similar to JavaScript prototype chain, i.e., looks for current scope if not found, look in parent scope repeating until find.</p>
 <pre><code class="language-html">&lt;ul&gt;
   &lt;li rv-each-category=&quot;categories&quot;&gt;
     { category.name }

@@ -3,7 +3,7 @@ import {
 } from '@ribajs/core';
 
 import {
-  TabsComponent
+  TabsComponent,
 } from '@ribajs/bs4/src/components/tabs/tabs.component';
 
 import * as Prism from 'prismjs';
@@ -18,7 +18,6 @@ export class ExampleTabsComponent extends TabsComponent {
 
   protected debug = Debug('component:' + ExampleTabsComponent.tagName);
 
-
   constructor(element?: HTMLElement) {
     super(element);
     this.init(ExampleTabsComponent.observedAttributes);
@@ -30,6 +29,7 @@ export class ExampleTabsComponent extends TabsComponent {
       // 'tab0Title', 'tab0Content', 'tab0Handle',
       // 'tab1Title', 'tab1Content', 'tab1Handle',
       // 'tab2Title', 'tab2Content', 'tab2Handle',
+      // 'tab3Title', 'tab3Content', 'tab3Handle',
     ];
   }
 

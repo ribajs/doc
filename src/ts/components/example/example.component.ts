@@ -14,10 +14,11 @@ interface Tab {
 
 interface IScope {
   tabs: {
-    html?: Tab,
-    script?: Tab,
-    result?: Tab,
-  }
+    html?: Tab;
+    script?: Tab;
+    preview?: Tab;
+    tryIt?: Tab;
+  };
 }
 
 export class ExampleComponent extends Component {
@@ -27,11 +28,12 @@ export class ExampleComponent extends Component {
   protected autobind = true;
 
   protected htmlTemplate: HTMLTemplateElement | null = null;
-  protected scriptTemplate: HTMLTemplateElement | null  = null;
-  protected resultTemplate: HTMLTemplateElement | null  = null;
+  protected scriptTemplate: HTMLTemplateElement | null = null;
+  protected previewTemplate: HTMLTemplateElement | null = null;
+  protected tryItTemplate: HTMLTemplateElement | null  = null;
 
   static get observedAttributes() {
-    return [];
+    return ['handle'];
   }
 
   protected debug = Debug('component:' + ExampleComponent.tagName);
@@ -46,8 +48,8 @@ export class ExampleComponent extends Component {
 
     this.htmlTemplate = this.el.querySelector<HTMLTemplateElement>('template[name="html"]');
     this.scriptTemplate = this.el.querySelector<HTMLTemplateElement>('template[name="script"]');
-    this.resultTemplate = this.el.querySelector<HTMLTemplateElement>('template[name="result"]');
-
+    this.previewTemplate = this.el.querySelector<HTMLTemplateElement>('template[name="preview"]');
+    this.tryItTemplate = this.el.querySelector<HTMLTemplateElement>('template[name="try-it"]');
 
     if (this.htmlTemplate && this.htmlTemplate.innerHTML) {
       this.scope.tabs.html = {
@@ -63,11 +65,18 @@ export class ExampleComponent extends Component {
         handle: 'script',
       };
     }
-    if (this.resultTemplate && this.resultTemplate.innerHTML) {
-      this.scope.tabs.result = {
-        title: 'Result',
-        content: this.resultTemplate.innerHTML,
-        handle: 'result',
+    if (this.previewTemplate && this.previewTemplate.innerHTML) {
+      this.scope.tabs.preview = {
+        title: 'Preview',
+        content: this.previewTemplate.innerHTML,
+        handle: 'preview',
+      };
+    }
+    if (this.tryItTemplate && this.tryItTemplate.innerHTML) {
+      this.scope.tabs.tryIt = {
+        title: 'Try It',
+        content: this.tryItTemplate.innerHTML,
+        handle: 'tryIt',
       };
     }
 
@@ -90,7 +99,7 @@ export class ExampleComponent extends Component {
   }
 
   protected requiredAttributes() {
-    return [];
+    return ['handle'];
   }
 
   protected attributeChangedCallback(attributeName: string, oldValue: any, newValue: any, namespace: string | null) {

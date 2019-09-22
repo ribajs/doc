@@ -8,13 +8,8 @@ module.exports = {
     ],
     [
       "@babel/preset-env", {
-        "targets": {
-          "ie": "11",
-          "safari": "10",
-          "chrome": "52",
-          "edge": "16",
-          "firefox": "59"
-        }
+        // see https://www.sumcumo.com/tree-shaking-eine-einfuehrung
+        modules: false
       }
     ]
   ],

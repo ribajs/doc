@@ -19,7 +19,130 @@ $ riba new project</code></pre></div></div></div></section>{{ content_for_index 
 <pre><code class="language-html">&lt;toggle-item on=&quot;item.complete&quot;&gt;&lt;/toggle-item&gt;
 </code></pre>
 <p>Define reusable views, instantiable as a custom element. Each web component gets its own isolated, augmentable scope and are based on the <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements">custom elements</a> browser standard.</p>
-</section></div></div><section class="author py-5"><div class="container"><div class="row"><div class="col-12"><h2>Authors</h2><p>Pascal Garber by <a href="https://artandcode.studio/">Art+Code Studio</a><br/>Luiz Américo Pereira Câmara, author of <a href="https://blikblum.github.io/tinybind/">tinybind</a><br/>Michael Richards, original author of <a href="http://rivetsjs.com/">Rivets.js</a></p></div></div></div></section><script type="application/ld+json">{
+</section></div><div class="row"><div class="separator col-12"><h2>Example</h2></div><section class="example col-12 my-3"><rv-example handle="each-item"><template name="html"><nav>
+  <button rv-on-click="push">Push</button>
+  <button rv-on-click="pop">Pop</button>
+  <button rv-on-click="shift">Shift</button>
+  <button rv-on-click="unshift">Unshift</button>
+  <button rv-on-click="splice">Splice</button>
+  <button rv-on-click="sort">Sort</button>
+  <button rv-on-click="reset">Reset</button>
+</nav>
+<section>
+  <div rv-each-item="items">
+    <div>Item { %item% } / { item.name }</div>
+  </div>
+</section>
+</template><template name="script">import {
+  Component,
+  Debug,
+  IDebugger,
+} from '@ribajs/core';
+
+import template from './each-item-example.component.html';
+
+interface IItem {
+  name: string;
+  value?: number;
+}
+
+interface IScope {
+  items: Array<IItem>,
+  push: EachItemExampleComponent['push'],
+  pop: EachItemExampleComponent['pop'],
+  shift: EachItemExampleComponent['shift'],
+  unshift: EachItemExampleComponent['unshift'],
+  splice: EachItemExampleComponent['splice'],
+  reset: EachItemExampleComponent['reset'],
+  sort: EachItemExampleComponent['sort'],
+}
+
+export class EachItemExampleComponent extends Component {
+  public static tagName: string = 'rv-each-item-example';
+  protected debug: IDebugger = Debug('component:' +EachItemExampleComponent.tagName);
+  protected scope: IScope = {
+    items: this.getItems(),
+    push: this.push,
+    pop: this.pop,
+    shift: this.shift,
+    unshift: this.unshift,
+    splice: this.splice,
+    reset: this.reset,
+    sort: this.sort,
+  };
+
+  constructor(element?: HTMLElement) {
+    super(element);
+    this.debug('constructor', this);
+    this.init(EachItemExampleComponent.observedAttributes);
+  }
+
+  static get observedAttributes() {
+    return [];
+  }
+
+  public push() {
+    this.debug('push');
+    this.scope.items.push({name: 'pushed'});
+  }
+
+  public pop() {
+    this.debug('pop');
+    this.scope.items.pop()
+  }
+
+  public shift() {
+    this.debug('shift');
+    this.scope.items.shift()
+  }
+
+  public unshift() {
+    this.debug('unshift');
+    this.scope.items.unshift({name: 'shifted'})
+  }
+
+  public splice() {
+    this.debug('splice');
+    this.scope.items.splice(1, 1, {name: 'spliced1'}, {name: 'spliced2'})
+  }
+
+  public reset() {
+    this.debug('reset');
+    this.scope.items = this.getItems()
+  }
+
+  public sort() {
+    this.debug('sort');
+    this.scope.items.sort((a, b) => {
+      return (a.value || 0) - (b.value || 0)
+    })
+  }
+
+  private getItems(): IItem[] {
+    return [{name: 'x', value: 2} ,{name: 'y', value: 1} , {name: 'z', value: 3}]
+  }
+
+  protected template() {
+    // Only set the component template if there no childs already
+    if (this.el.hasChildNodes()) {
+      this.debug('Do not use template, because element has child nodes');
+      return null;
+    } else {
+      this.debug('Use template', template);
+      return template;
+    }
+  }
+}
+</template><template name="preview"><rv-each-item-example></rv-each-item-example></template><template name="try-it"><h1>each-item-example</h1>
+<pre><code class="language-bash">git clone --recurse-submodules https://github.com/ribajs/riba.git
+cd riba/examples/each-item
+npm install
+npm run start
+</code></pre>
+<h2>Debug</h2>
+<p>This example makes use of the popular <a href="https://github.com/visionmedia/debug">debug module</a>.</p>
+<p>To see the debuging output <a href="https://github.com/visionmedia/debug#browser-support">in your browser</a> console just open your browser developer tools and set the local storage key to <code>debug</code> with the value of <code>component:rv-each-item-example</code> (to see only the component debug output) or <code>*</code> (to see all debug output).</p>
+</template></rv-example></section></div></div><section class="author py-5"><div class="container"><div class="row"><div class="col-12"><h2>Authors</h2><p>Pascal Garber by <a href="https://artandcode.studio/">Art+Code Studio</a><br/>Luiz Américo Pereira Câmara, author of <a href="https://blikblum.github.io/tinybind/">tinybind</a><br/>Michael Richards, original author of <a href="http://rivetsjs.com/">Rivets.js</a></p></div></div></div></section><script type="application/ld+json">{
   "@context": "http://schema.org",
   "@type": "WebSite",
   "name": "{{ shop.name }}",

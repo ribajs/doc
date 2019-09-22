@@ -3,3 +3,11 @@
 rv-example {
   display: block;
 }
+
+rv-example-tabs {
+  &.example-each-item {
+    .tab-content {
+      height: 500px;
+    }
+  }
+}
