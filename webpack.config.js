@@ -68,13 +68,6 @@ module.exports = env => {
           test: /\.(tsx?)|\.(js)$/,
           exclude: [/node_modules\/(?!@ribajs)/, /(bower_components)/],
           loader: 'babel-loader',
-          // include: []
-          // include: [
-          //   // /node_modules\/@ribajs\/*/,
-          //   path.resolve(__dirname, "node_modules/@ribajs/core"),
-          //   path.resolve(__dirname, "node_modules/@ribajs/router"),
-          //   path.resolve(__dirname, "node_modules/@ribajs/shopify")
-          // ]
         },
         // html templates
         {

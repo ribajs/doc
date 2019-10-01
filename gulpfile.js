@@ -1,7 +1,9 @@
+/*jslint node: true */
+
 'use strict';
 
 const gulp = require('gulp');
-const pjson = require('./package.json');
+const pkg = require('./package.json');
 const zip = require('gulp-zip');
 const jsoncombine = require('gulp-jsoncombine');
 
@@ -31,7 +33,7 @@ const files = {
  */
 gulp.task('build:zip', () => {
   return gulp.src(files.zip, {base: "."})
-    .pipe(zip(pjson.name + '-' + pjson.version + '.zip'))
+    .pipe(zip(pkg.name + '-' + pkg.version + '.zip'))
     .pipe(gulp.dest('./'));
 });
 
