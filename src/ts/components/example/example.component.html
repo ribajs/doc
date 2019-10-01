@@ -1,0 +1,41 @@
+<rv-example-tabs class="row"
+  rv-add-class="handle | prepend 'example-'"
+  rv-tab-0-title="tabs.html.title"
+  rv-tab-0-content="tabs.html.content"
+  rv-tab-0-handle="tabs.html.handle"
+  rv-tab-1-title="tabs.script.title"
+  rv-tab-1-content="tabs.script.content"
+  rv-tab-1-handle="tabs.script.handle"
+  rv-tab-2-title="tabs.preview.title"
+  rv-tab-2-content="tabs.preview.content"
+  rv-tab-2-handle="tabs.preview.handle"
+  rv-tab-3-title="tabs.tryIt.title"
+  rv-tab-3-content="tabs.tryIt.content"
+  rv-tab-3-handle="tabs.tryIt.handle"
+>
+  <div class="col-12 py-3">
+    <div class="tab-list nav nav-tabs nav-tabs-underline d-flex flex-nowrap" rv-id="'tab-list-' | append tab.handle" role="tablist">
+      <a class="nav-item nav-link d-inline-block text-truncate"
+        rv-each-tab="tabs"
+        rv-href="'#tab-content-' | append tab.handle"
+        rv-id="'tab-title-' | append tab.handle"
+        rv-aria-controls="'tab-content-' | append tab.handle"
+        rv-html="tab.title"
+        rv-on-click="activate"
+        role="tab"
+        aria-selected="false"
+      ></a>
+    </div>
+    <div class="tab-content product-tab-content mx-auto">
+      <div
+        rv-each-tab="tabs"
+        rv-id="'tab-content-' | append tab.handle"
+        rv-html="tab.content"
+        class="tab-pane mt-3 mb-4"
+        role="tabpanel"
+        aria-labelledby="'tab-title-' | append tab.handle"
+      >
+      </div>
+    </div>
+  </div>
+</rv-example-tabs>

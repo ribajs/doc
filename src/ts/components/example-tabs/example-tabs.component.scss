@@ -1,0 +1,7 @@
+rv-example-tabs {
+  display: block;
+  .tab-content {
+    max-height: 500px;
+    overflow: auto;
+  }
+}

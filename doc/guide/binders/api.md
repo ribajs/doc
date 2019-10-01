@@ -17,3 +17,11 @@ Set this to true if you want view.publish() to call publish on these bindings.
 #### binder.block
 
 Blocks the current node and child nodes from being parsed (used for iteration binding as well as the if/unless binders).
+
+#### binder.priority
+
+Sets the priority of the binder to affect the order in which the binders are executed, binders with higher priority are applied first.
+
+#### binder.name
+
+The name of the binder, the name specified attribute name (with the prefix `rv-` by default) which the binder can be used with.

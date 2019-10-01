@@ -1,13 +1,12 @@
-Templates describe your UI in plain HTML. You can define them directly in the document, use template elements or store and load them however you like. Just make sure you have a convenient way to reference your templates when you want to bind some data to them.
+Templates describe your UI in plain HTML. You can define them directly in the document, use template elements, custom elements or store and load them however you like. Just make sure you have a convenient way to reference your templates when you want to bind some data to them.
 
 ```html
 <section id="auction">
   <h3>{ auction.product.name }</h3>
   <p>Current bid: { auction.currentBid | money }</p>
-
-  <aside rv-if="auction.timeLeft | lt 120">
+  <rv-aside rv-if="auction.timeLeft | lt 120">
     Hurry up! There is { auction.timeLeft | time } left.
-  </aside>
+  </rv-aside>
 </section>
 ```
 
