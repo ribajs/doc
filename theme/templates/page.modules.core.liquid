@@ -110,20 +110,20 @@
                   <template title="Preview">
                     <rv-each-item-example></rv-each-item-example>
                   </template>
-                  <template title="each-item-example.component.html"><nav>
-  <button rv-on-click="push">Push</button>
-  <button rv-on-click="pop">Pop</button>
-  <button rv-on-click="shift">Shift</button>
-  <button rv-on-click="unshift">Unshift</button>
-  <button rv-on-click="splice">Splice</button>
-  <button rv-on-click="sort">Sort</button>
-  <button rv-on-click="reset">Reset</button>
-</nav>
-<section>
-  <div rv-each-item="items">
-    <div>Item { %item% } / { item.name }</div>
-  </div>
-</section>
+                  <template title="each-item-example.component.html">&lt;nav&gt;
+  &lt;button rv-on-click=&quot;push&quot;&gt;Push&lt;/button&gt;
+  &lt;button rv-on-click=&quot;pop&quot;&gt;Pop&lt;/button&gt;
+  &lt;button rv-on-click=&quot;shift&quot;&gt;Shift&lt;/button&gt;
+  &lt;button rv-on-click=&quot;unshift&quot;&gt;Unshift&lt;/button&gt;
+  &lt;button rv-on-click=&quot;splice&quot;&gt;Splice&lt;/button&gt;
+  &lt;button rv-on-click=&quot;sort&quot;&gt;Sort&lt;/button&gt;
+  &lt;button rv-on-click=&quot;reset&quot;&gt;Reset&lt;/button&gt;
+&lt;/nav&gt;
+&lt;section&gt;
+  &lt;div rv-each-item=&quot;items&quot;&gt;
+    &lt;div&gt;Item { %item% } / { item.name }&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
 
                   </template>
                   <template title="each-item-example.component.ts">import {
@@ -249,19 +249,19 @@ export class EachItemExampleComponent extends Component {
 }
 
                   </template>
-                  <template title="index.html"><!DOCTYPE html>
-<html>
-  <head>
-    <title>each-star-example</title>
-    <link rel="stylesheet" href="./main.scss">
-    <script src="./main.ts"></script>
-  </head>
-  <body>
-    <div id="rv-app">
-      <rv-each-item-example></rv-each-item-example>
-    </div>
-  </body>
-</html>
+                  <template title="index.html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;each-star-example&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;./main.scss&quot;&gt;
+    &lt;script src=&quot;./main.ts&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id=&quot;rv-app&quot;&gt;
+      &lt;rv-each-item-example&gt;&lt;/rv-each-item-example&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
 
                   </template>
                   <template title="README.md"><h1>each-item-example</h1>

@@ -88,6 +88,7 @@
     "gulp-zip": "^5.0.0",
     "html-loader": "^0.5.5",
     "jshint": "^2.10.2",
+    "jstransformer-escape-html": "^1.1.0",
     "jstransformer-markdown-it": "^2.1.0",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.12.0",
