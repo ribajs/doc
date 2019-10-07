@@ -13,7 +13,8 @@ import { bs4Module } from '@ribajs/bs4';
 import * as CustomComponents from './components';
 
 // Examples
-import { EachItemExampleComponent } from '../../../../examples/each-item/src/components';
+import { EachItemExampleComponent } from '../../../../examples/each-item/src/components/each-item-example/each-item-example.component';
+import { Bs4TabsAttrExampleComponent } from '../../../../examples/bs4-tabs-attr/src/components/bs4-tabs-attr-example/bs4-tabs-attr-example.component';
 
 import * as Prism from 'prismjs';
 import 'prismjs/components/prism-javascript';
@@ -41,10 +42,13 @@ export class Main {
 
     // Regist examples‚
     this.riba.module.component.regist(EachItemExampleComponent);
+    this.riba.module.component.regist(Bs4TabsAttrExampleComponent);
 
     this.dispatcher.on('newPageReady', () => {
       Prism.highlightAll();
     });
+
+    console.warn('this.riba', this.riba);
 
     // window.model.system.shopify = (window as any).Shopify;
     this.riba.bind(JQuery('body')[0], window.model);

@@ -87,6 +87,7 @@
     "gulp-jsoncombine": "^1.0.4",
     "gulp-zip": "^5.0.1",
     "html-loader": "^0.5.5",
+    "inspectpack": "^4.2.2",
     "jshint": "^2.10.2",
     "jstransformer-escape-html": "^1.1.0",
     "jstransformer-markdown-it": "^2.1.0",

@@ -1,0 +1,42 @@
+
+<div class="container py-5 page {{template|handleize}}" id="page-content-{{page.handle}}">
+  <div class="row pt-5">
+    <div class="col-12">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="page-title">{{ page.title }}
+          </h1>
+          <div class="rte">{{ page.content }}</div>
+          <div class="content">
+            <section class="my-5">
+              <h2 id="components">Components</h2>
+              <section class="my-5">
+                <h3 id="bs4-tabs">bs4-tabs</h3>
+                <rv-example-tabs handle="bs4-tabs-attr">
+                  <template title="each-item-example.component.html"><pre><code class="language-html">&lt;bs4-tabs
+  tab-0-title=&quot;Tab 0&quot;
+  tab-0-content=&quot;&lt;p&gt;Hello from &lt;strong&gt;tab 0&lt;/strong&gt;&lt;/p&gt;&quot;
+  tab-1-title=&quot;Tab 1&quot;
+  tab-1-content=&quot;&lt;p&gt;Hello from &lt;strong&gt;tab 1&lt;/strong&gt;&lt;/p&gt;&quot;
+&gt;&lt;/bs4-tabs&gt;</code></pre>
+                  </template>
+                  <template title="README.md"><h1>bs4-tabs-attr</h1>
+<pre><code class="language-bash">git clone --recurse-submodules https://github.com/ribajs/riba.git
+cd riba/examples/bs4-tabs-attr
+npm install
+npm run start
+</code></pre>
+
+                  </template>
+                  <template title="Preview">
+                    <rv-bs4-tabs-attr-example></rv-bs4-tabs-attr-example>
+                  </template>
+                </rv-example-tabs>
+              </section>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

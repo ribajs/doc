@@ -1,6 +1,7 @@
 // https://github.com/Microsoft/TypeScript-Babel-Starter
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
+const { DuplicatesPlugin } = require("inspectpack/plugin");
 
 /**
  * output errors on watch
@@ -57,7 +58,7 @@ module.exports = env => {
       path: path.resolve(__dirname, 'theme/assets/')
     },
     resolve: {
-      modules: [ 'node_modules', 'src/modules' ],
+      modules: ['node_modules'],
       extensions: ['.ts', '.tsx', '.js', '.json'],
       symlinks: true
     },
@@ -91,6 +92,9 @@ module.exports = env => {
         }
       ]
     },
-    plugins:  [new ConsoleNotifierPlugin()],
+    plugins:  [
+      new ConsoleNotifierPlugin(),
+      new DuplicatesPlugin(),
+    ],
   };
 };

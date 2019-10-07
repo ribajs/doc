@@ -64,9 +64,6 @@ $ riba new project</code></pre>
     </div>
     <section class="example col-12 my-3">
       <rv-example-tabs handle="each-item">
-        <template title="Preview">
-          <rv-each-item-example></rv-each-item-example>
-        </template>
         <template title="each-item-example.component.html"><pre><code class="language-html">&lt;nav&gt;
   &lt;button rv-on-click=&quot;push&quot;&gt;Push&lt;/button&gt;
   &lt;button rv-on-click=&quot;pop&quot;&gt;Pop&lt;/button&gt;
@@ -189,10 +186,10 @@ cd riba/examples/each-item
 npm install
 npm run start
 </code></pre>
-<h2>Debug</h2>
-<p>This example makes use of the popular <a href="https://github.com/visionmedia/debug">debug module</a>.</p>
-<p>To see the debuging output <a href="https://github.com/visionmedia/debug#browser-support">in your browser console</a> just open your browser developer tools and set the local storage key to <code>debug</code> with the value of <code>component:rv-each-item-example</code> (to see only the component debug output) or <code>*</code> (to see all debug output).</p>
 
+        </template>
+        <template title="Preview">
+          <rv-each-item-example></rv-each-item-example>
         </template>
       </rv-example-tabs>
     </section>
