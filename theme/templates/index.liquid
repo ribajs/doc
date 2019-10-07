@@ -67,7 +67,7 @@ $ riba new project</code></pre>
         <template title="Preview">
           <rv-each-item-example></rv-each-item-example>
         </template>
-        <template title="each-item-example.component.html">&lt;nav&gt;
+        <template title="each-item-example.component.html"><pre><code class="language-html">&lt;nav&gt;
   &lt;button rv-on-click=&quot;push&quot;&gt;Push&lt;/button&gt;
   &lt;button rv-on-click=&quot;pop&quot;&gt;Pop&lt;/button&gt;
   &lt;button rv-on-click=&quot;shift&quot;&gt;Shift&lt;/button&gt;
@@ -81,39 +81,14 @@ $ riba new project</code></pre>
     &lt;div&gt;Item { %item% } / { item.name }&lt;/div&gt;
   &lt;/div&gt;
 &lt;/section&gt;
-
+</code></pre>
         </template>
-        <template title="each-item-example.component.ts">import {
-  Component,
-  Debug,
-  IDebugger,
-} from '@ribajs/core';
-
-import template from './each-item-example.component.html';
-
-interface IItem {
-  name: string;
-  value?: number;
-}
-
-interface IScope {
-  items: Array<IItem>,
-  push: EachItemExampleComponent['push'],
-  pop: EachItemExampleComponent['pop'],
-  shift: EachItemExampleComponent['shift'],
-  unshift: EachItemExampleComponent['unshift'],
-  splice: EachItemExampleComponent['splice'],
-  reset: EachItemExampleComponent['reset'],
-  sort: EachItemExampleComponent['sort'],
-}
+        <template title="each-item-example.component.ts"><pre><code class="language-typescript">import { Component } from &#39;@ribajs/core&#39;;
+import template from &#39;./each-item-example.component.html&#39;;
 
 export class EachItemExampleComponent extends Component {
 
-  public static tagName: string = 'rv-each-item-example';
-
-  protected autobind = true;
-
-  protected debug: IDebugger = Debug('component:' +EachItemExampleComponent.tagName);
+  public static tagName: string = &#39;rv-each-item-example&#39;;
 
   protected scope: IScope = {
     items: this.getItems(),
@@ -128,85 +103,72 @@ export class EachItemExampleComponent extends Component {
 
   constructor(element?: HTMLElement) {
     super(element);
-    this.debug('constructor', this);
-    this.init(EachItemExampleComponent.observedAttributes);
-  }
-
-  static get observedAttributes() {
-    return [];
+    this.init([]);
   }
 
   public push() {
-    this.debug('push');
-    this.scope.items.push({name: 'pushed'});
+    this.scope.items.push({name: &#39;pushed&#39;});
   }
 
   public pop() {
-    this.debug('pop');
     this.scope.items.pop()
   }
 
   public shift() {
-    this.debug('shift');
     this.scope.items.shift()
   }
 
   public unshift() {
-    this.debug('unshift');
-    this.scope.items.unshift({name: 'shifted'})
+    this.scope.items.unshift({name: &#39;shifted&#39;})
   }
 
   public splice() {
-    this.debug('splice');
-    this.scope.items.splice(1, 1, {name: 'spliced1'}, {name: 'spliced2'})
+    this.scope.items.splice(1, 1, {name: &#39;spliced1&#39;}, {name: &#39;spliced2&#39;})
   }
 
   public reset() {
-    this.debug('reset');
     this.scope.items = this.getItems()
   }
 
   public sort() {
-    this.debug('sort');
-    this.scope.items.sort((a, b) => {
+    this.scope.items.sort((a, b) =&gt; {
       return (a.value || 0) - (b.value || 0)
     })
   }
 
   private getItems(): IItem[] {
-    return [{name: 'x', value: 2} ,{name: 'y', value: 1} , {name: 'z', value: 3}]
+    return [{name: &#39;x&#39;, value: 2} ,{name: &#39;y&#39;, value: 1} , {name: &#39;z&#39;, value: 3}]
   }
 
   protected async init(observedAttributes: string[]) {
     return super.init(observedAttributes)
-    .then((view) => {
+    .then((view) =&gt; {
       return view;
     });
   }
 
-  protected requiredAttributes() {
-    return [];
-  }
-
-  protected attributeChangedCallback(attributeName: string, oldValue: any, newValue: any, namespace: string | null) {
-    super.attributeChangedCallback(attributeName, oldValue, newValue, namespace);
-  }
-
   protected template() {
-    // Only set the component template if there no childs already
-    if (this.el.hasChildNodes()) {
-      this.debug('Do not use template, because element has child nodes');
-      return null;
-    } else {
-      
-      this.debug('Use template', template);
-      return template;
-    }
+    return template;
   }
 }
 
+interface IItem {
+  name: string;
+  value?: number;
+}
+
+interface IScope {
+  items: Array&lt;IItem&gt;,
+  push: EachItemExampleComponent[&#39;push&#39;],
+  pop: EachItemExampleComponent[&#39;pop&#39;],
+  shift: EachItemExampleComponent[&#39;shift&#39;],
+  unshift: EachItemExampleComponent[&#39;unshift&#39;],
+  splice: EachItemExampleComponent[&#39;splice&#39;],
+  reset: EachItemExampleComponent[&#39;reset&#39;],
+  sort: EachItemExampleComponent[&#39;sort&#39;],
+}</code></pre>
         </template>
-        <template title="index.html">&lt;!DOCTYPE html&gt;
+        <template title="index.html"><pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
   &lt;head&gt;
     &lt;title&gt;each-star-example&lt;/title&gt;
@@ -219,7 +181,7 @@ export class EachItemExampleComponent extends Component {
     &lt;/div&gt;
   &lt;/body&gt;
 &lt;/html&gt;
-
+</code></pre>
         </template>
         <template title="README.md"><h1>each-item-example</h1>
 <pre><code class="language-bash">git clone --recurse-submodules https://github.com/ribajs/riba.git
