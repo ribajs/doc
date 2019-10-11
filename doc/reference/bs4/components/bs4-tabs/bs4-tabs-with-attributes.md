@@ -1,0 +1,1 @@
+You can define the tab tilte and content with the `tab-[index]-title` and `tab-[index]-content` attributes.
