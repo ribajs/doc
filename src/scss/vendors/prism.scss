@@ -115,6 +115,7 @@ pre {
   margin: .5em 0;
   overflow: auto;
   border-radius: 0.3em;
+  @extend .scrollbar-primary-on-hover;
 }
 
 /* Code blocks */

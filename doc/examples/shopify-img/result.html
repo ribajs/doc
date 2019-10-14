@@ -1,0 +1,8 @@
+<img
+  lazyload="lazy"
+  class="img-fluid"
+  src="{{ settings.example_image | img_url: 'master' }}"
+  srcset="{{ settings.example_image | img_url: '1665x' }} 1665w"
+  sizes=" (width: 1680px) 1665px"
+  alt="{{ settings.example_image.alt }}"
+>

@@ -3,16 +3,21 @@
 @import 'variables';
 @import 'bootstrap';
 
+// Bootstrap style extensions from @ribajs/bs4
+@import "../../node_modules/@ribajs/bs4/src/index";
+
 // vendors
 @import 'vendors/index';
 
 // bootstrap overwrites
 @import 'colors';
 @import 'navbar';
+@import 'typo';
 
 // other
 @import 'development';
 @import 'fonts';
+
 
 // templates
 @import 'templates/index';

@@ -1,0 +1,1 @@
+Loads an shopify image with the exact size for the current `img` element without the need to get the right size manually over the `img_url` filter / formatter. The image source path is set by the `srcset` and `sizes` attributes to make them responsive.

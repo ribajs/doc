@@ -6,8 +6,11 @@ rv-example-tabs {
       overflow: auto;
       border-radius: 0 0 0.3em 0.3em;
       border: solid 1px $code-background-color;
+      background-color: $code-background-color;
+      @extend .scrollbar-primary-on-hover;
       > .tab-pane {
         background-color: $code-background-color;
+        background-clip: border-box;
         color: $white;
         padding: 1em;
         &.tab-content-preview {
@@ -16,6 +19,7 @@ rv-example-tabs {
         }
         > pre {
           padding: 0;
+          overflow: visible;
         }
       }
     }

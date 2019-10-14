@@ -4,7 +4,7 @@ import {
   coreModule,
   EventDispatcher,
 } from '@ribajs/core';
-// import shopifyModule from '@ribajs/shopify';
+import shopifyModule from '@ribajs/shopify';
 import routerModule from '@ribajs/router';
 // import { i18nModule } from '@ribajs/i18n';
 import { bs4Module } from '@ribajs/bs4';
@@ -31,7 +31,7 @@ export class Main {
   constructor() {
     this.riba.module.regist(coreModule);
     this.riba.module.regist(routerModule);
-    // this.riba.module.regist(shopifyModule);
+    this.riba.module.regist(shopifyModule);
     // this.riba.module.regist(i18nModule(this.localesService));
     this.riba.module.regist(bs4Module);
 
@@ -52,8 +52,7 @@ export class Main {
 
     console.warn('this.riba', this.riba);
 
-    // window.model.system.shopify = (window as any).Shopify;
-    this.riba.bind(JQuery('body')[0], window.model);
+    this.riba.bind(document.body, window.model);
   }
 }
 

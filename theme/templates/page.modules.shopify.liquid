@@ -1,0 +1,62 @@
+
+<div class="container py-5 page {{template|handleize}}" id="page-content-{{page.handle}}">
+  <div class="row pt-5">
+    <div class="col-12">
+      <div class="row">
+        <div class="col-12">
+          <section class="my-5"><h1>Shopify Module</h1>
+<h2>Install</h2>
+<pre><code class="language-bash">npm install --save-dev @ribajs/shopify
+</code></pre>
+<h2>Regist</h2>
+<p>To regist the module include <code>import shopifyModule from '@ribajs/shopify';</code> in your <code>main.ts</code> file and regist the module with <code>riba.module.regist(shopifyModule);</code>:</p>
+<pre><code class="language-ts">import { Riba, JQuery } from '@ribajs/core';
+import shopifyModule from '@ribajs/shopify';
+const riba = new Riba();
+const model = {};
+riba.module.regist(shopifyModule);
+JQuery(($: JQueryStatic) =&gt; {
+  riba.bind(document.body, this.model);
+});
+</code></pre>
+
+          </section>
+          <section class="my-5">
+            <h2 id="components">Binders</h2>
+            <section class="my-5">
+              <h3 id="shopify-img">shopify-img</h3><p>Loads an shopify image with the exact size for the current <code>img</code> element without the need to get the right size manually over the <code>img_url</code> filter / formatter. The image source path is set by the <code>srcset</code> and <code>sizes</code> attributes to make them responsive.</p>
+
+              <rv-example-tabs handle="shopify-img">
+                <template title="Source"><pre><code class="language-html">&lt;img
+  lazyload=&quot;lazy&quot;
+  class=&quot;img-fluid&quot;
+  src=&quot;{{ settings.example_image | img_url: &#39;master&#39; }}&quot;
+  rv-shopify-img=&quot;&#39;{{ settings.example_image | img_url: &#39;master&#39; }}&#39;&quot;
+  alt=&quot;{{ settings.example_image.alt }}&quot;
+/&gt;</code></pre>
+                </template>
+                <template title="Result"><pre><code class="language-html">&lt;img
+  lazyload=&quot;lazy&quot;
+  class=&quot;img-fluid&quot;
+  src=&quot;{{ settings.example_image | img_url: &#39;master&#39; }}&quot;
+  srcset=&quot;{{ settings.example_image | img_url: &#39;1665x&#39; }} 1665w&quot;
+  sizes=&quot; (width: 1680px) 1665px&quot;
+  alt=&quot;{{ settings.example_image.alt }}&quot;
+&gt;</code></pre>
+                </template>
+                <template title="Preview"><img
+  lazyload="lazy"
+  class="img-fluid"
+  src="{{ settings.example_image | img_url: 'master' }}"
+  rv-shopify-img="'{{ settings.example_image | img_url: 'master' }}'"
+  alt="{{ settings.example_image.alt }}"
+/>
+                </template>
+              </rv-example-tabs>
+            </section>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

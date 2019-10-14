@@ -1,6 +1,10 @@
-extends ../_extends/generated-page.pug
+extends ../_extends/generated-page-without-content.pug
 
 block content
+
+  section.my-5
+    include:markdown-it(html) ../../../../core/README.md
+
   section.my-5
     h2#binders Binders
 
@@ -86,6 +90,7 @@ block content
     section.my-5
       h3#srcset-size srcset-[size]
       include:markdown-it(html) ../../../doc/reference/core/binders/srcset-[size].md
+      include ../../../doc/examples/srcset-[size]/embed.pug
 
     section.my-5
       h3#assign assign

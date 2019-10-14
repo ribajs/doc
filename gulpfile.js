@@ -12,6 +12,7 @@ const settingsSchemas = [
   'theme_info',
   'general',
   'home',
+  'shopify_module',
 ];
 
 const files = {
@@ -33,7 +34,7 @@ const files = {
  */
 gulp.task('build:zip', () => {
   return gulp.src(files.zip, {base: "."})
-    .pipe(zip(pkg.name + '-' + pkg.version + '.zip'))
+    .pipe(zip(pkg.name.replace('/', '-') + '-' + pkg.version + '.zip'))
     .pipe(gulp.dest('./'));
 });
 

@@ -1,0 +1,10 @@
+{
+  "name": "Shopify Module",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "example_image",
+      "label": "Example image"
+    }
+  ]
+}
