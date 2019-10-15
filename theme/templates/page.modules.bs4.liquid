@@ -1,14 +1,4 @@
-
-<div class="container py-5 page {{template|handleize}}" id="page-content-{{page.handle}}">
-  <div class="row pt-5">
-    <div class="col-12">
-      <div class="row">
-        <div class="col-12">
-          <h1 class="page-title">{{ page.title }}
-          </h1>
-          <div class="rte">{{ page.content }}</div>
-          <div class="content">
-            <section class="my-5"><h1>Bootstrap 4 Module</h1>
+<div class="container py-5 page {{template|handleize}}" id="page-content-{{page.handle}}"><div class="row pt-5"><div class="col-12"><div class="row"><div class="col-12"><h1 class="page-title">{{ page.title }}</h1><div class="rte">{{ page.content }}</div><div class="content"><section class="my-5"><h1>Bootstrap 4 Module</h1>
 <h2>Install</h2>
 <pre><code class="language-bash">npm install --save-dev @ribajs/bs4
 </code></pre>
@@ -23,63 +13,37 @@ JQuery(($: JQueryStatic) =&gt; {
   riba.bind(document.body, this.model);
 });
 </code></pre>
-
-            </section>
-            <section class="my-5">
-              <h2 id="components">Components</h2>
-              <section class="my-5">
-                <h3 id="bs4-tabs">bs4-tabs</h3><p>You can define the tab tilte and content with the <code>tab-[index]-title</code> and <code>tab-[index]-content</code> attributes.</p>
-
-                <rv-example-tabs handle="bs4-tabs-attr">
-                  <template title="each-item-example.component.html"><pre><code class="language-html">&lt;bs4-tabs
+</section><section class="my-5" id="binders"><h2>Binders</h2><section class="my-5" id="scroll-to-on-event"><h3>scroll-to-on-[event]</h3><p>Scrolls to an element by event and selector</p>
+<rv-example-tabs handle="scroll-to-on-event">
+<template type="single-html-file">
+<button class="btn btn-success" rv-scroll-to-on-click="'#bs4-tabs'" data-offset="80">
+  Scroll to bs4-tabs
+</button>
+</template>
+</rv-example-tabs></section></section><section class="my-5" id="components"><h2>Components</h2><section class="my-5" id="bs4-tabs"><h3>bs4-tabs</h3><p>You can define the tab tilte and content with the <code>tab-[index]-title</code> and <code>tab-[index]-content</code> attributes.</p>
+<rv-example-tabs handle="bs4-tabs-attr"><template title="each-item-example.component.html"><pre><code class="language-html">&lt;bs4-tabs
   tab-0-title=&quot;Tab 0&quot;
   tab-0-content=&quot;&lt;p&gt;Hello from &lt;strong&gt;tab 0&lt;/strong&gt;&lt;/p&gt;&quot;
   tab-1-title=&quot;Tab 1&quot;
   tab-1-content=&quot;&lt;p&gt;Hello from &lt;strong&gt;tab 1&lt;/strong&gt;&lt;/p&gt;&quot;
-&gt;&lt;/bs4-tabs&gt;</code></pre>
-                  </template>
-                  <template title="README.md"><h1>bs4-tabs-attr</h1>
+&gt;&lt;/bs4-tabs&gt;</code></pre></template><template title="Preview"><rv-bs4-tabs-attr-example></rv-bs4-tabs-attr-example></template><template title="README.md"><h1>bs4-tabs-attr</h1>
 <pre><code class="language-bash">git clone --recurse-submodules https://github.com/ribajs/riba.git
 cd riba/examples/bs4-tabs-attr
 npm install
 npm run start
 </code></pre>
-
-                  </template>
-                  <template title="Preview">
-                    <rv-bs4-tabs-attr-example></rv-bs4-tabs-attr-example>
-                  </template>
-                </rv-example-tabs>
-                <div class="mt-5"><p>Sometimes it is useful to define the tabs via templates, for example if the html content of the tabs are too complex.</p>
-
-                </div>
-                <rv-example-tabs handle="bs4-tabs-tpl">
-                  <template title="bs4-tabs-tpl-example.component.html"><pre><code class="language-html">&lt;bs4-tabs&gt;
+</template></rv-example-tabs><div class="mt-5"><p>Sometimes it is useful to define the tabs via templates, for example if the html content of the tabs are too complex.</p>
+</div><rv-example-tabs handle="bs4-tabs-tpl"><template title="bs4-tabs-tpl-example.component.html"><pre><code class="language-html">&lt;bs4-tabs&gt;
   &lt;template title=&quot;Tab 0&quot;&gt;
     &lt;img class=&quot;img-fluid&quot; src=&quot;https://via.placeholder.com/150/7c00b5/FFFFFF?text=Tab%200&quot; alt=&quot;Tab 0&quot;&gt;
   &lt;/template&gt;
   &lt;template title=&quot;Tab 1&quot;&gt;
     &lt;img class=&quot;img-fluid&quot; src=&quot;https://via.placeholder.com/150/00b56a/FFFFFF?text=Tab%201&quot; alt=&quot;Tab 1&quot;&gt;
   &lt;/template&gt;
-&lt;/bs4-tabs&gt;</code></pre>
-                  </template>
-                  <template title="Preview">
-                    <rv-bs4-tabs-tpl-example></rv-bs4-tabs-tpl-example>
-                  </template>
-                  <template title="README.md"><h1>bs4-tabs-tpl</h1>
+&lt;/bs4-tabs&gt;</code></pre></template><template title="Preview"><rv-bs4-tabs-tpl-example></rv-bs4-tabs-tpl-example></template><template title="README.md"><h1>bs4-tabs-tpl</h1>
 <pre><code class="language-bash">git clone --recurse-submodules https://github.com/ribajs/riba.git
 cd riba/examples/bs4-tabs-tpl
 npm install
 npm run start
 </code></pre>
-
-                  </template>
-                </rv-example-tabs>
-              </section>
-            </section>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+</template></rv-example-tabs></section></section><bs4-scrollspy class="d-none d-lg-block side-scrollspy" header-parent-selector="#main-container" headers-start="2" headers-depth="2" offset="200" offset-bottom="80" scroll-offset="80"></bs4-scrollspy></div></div></div></div></div></div>

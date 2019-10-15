@@ -16,11 +16,10 @@ head
   | {% include 'favicons' %}
   | {% include 'open-graph-tags' %}
   link(rel='stylesheet', href="{{ 'bundle.css' | asset_url }}")
-  body(id="{% include 'utils-get-namespace' %}")
+  body(id="{% include 'utils-get-namespace' %}" rv-id="dataset.namespace")
     bs4-sidebar#main-sidebar(container-selector="#main-container")
       shopify-linklist.d-flex.align-items-center.my-5(name="sidebar-menu" vertical="true" pills="false")
     #main-container
-      main
       #layout-top
         | {% include 'navigation' %}
       #main(rv-view='{"listenAllLinks": false, "datasetToModel": true}')

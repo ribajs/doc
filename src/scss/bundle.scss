@@ -18,6 +18,9 @@
 @import 'development';
 @import 'fonts';
 
+// component style overwrites
+@import 'components/index';
+
 
 // templates
 @import 'templates/index';

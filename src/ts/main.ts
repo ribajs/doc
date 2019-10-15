@@ -50,8 +50,6 @@ export class Main {
       Prism.highlightAll();
     });
 
-    console.warn('this.riba', this.riba);
-
     this.riba.bind(document.body, window.model);
   }
 }

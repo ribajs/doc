@@ -5,11 +5,18 @@ block content
   section.my-5
     include:markdown-it(html) ../../../../bs4/README.md
 
-  section.my-5
-    h2#components Components
+  section.my-5#binders
+    h2 Binders
 
-    section.my-5
-      h3#bs4-tabs bs4-tabs
+    section#scroll-to-on-event.my-5
+      h3 scroll-to-on-[event]
+      include:markdown-it(html) ../../../doc/reference/bs4/binders/scroll-to-on-[event].md
+
+  section#components.my-5
+    h2 Components
+
+    section#bs4-tabs.my-5
+      h3 bs4-tabs
       include:markdown-it(html) ../../../doc/reference/bs4/components/bs4-tabs/bs4-tabs-with-attributes.md
       include ../../../doc/examples/bs4-tabs-attr
 
