@@ -6,8 +6,9 @@
       rv-each-tab="tabs"
       rv-class-active="tab.active"
       rv-add-class="'tab-title-' | append tab.handle"
-      rv-id="'tab-title-' | append tab.handle"
-      rv-aria-controls="'tab-content-' | append tab.handle"
+      {# rv-add-class="'tab-title-' | append handle" #}
+      rv-id="'tab-title-' | append handle | append '-' | append tab.handle"
+      rv-aria-controls="'tab-content-' | append handle | append '-' | append tab.handle"
       rv-html="tab.title"
       rv-title="tab.title"
       rv-on-click="activate | args tab"
@@ -22,9 +23,10 @@
       rv-class-active="tab.active"
       rv-class-show="tab.active"
       rv-add-class="'tab-content-' | append tab.handle"
-      rv-id="'tab-content-' | append tab.handle"
+      {# rv-add-class="'tab-content-' | append handle" #}
+      rv-id="'tab-content-' | append handle | append '-' | append tab.handle"
       rv-html="tab.content"
-      rv-aria-labelledby="'tab-title-' | append tab.handle"
+      rv-aria-labelledby="'tab-title-' | append handle | append '-' | append tab.handle"
     >
     </div>
   </div>

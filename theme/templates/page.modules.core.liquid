@@ -1,4 +1,15 @@
-<div class="container py-5 page {{template|handleize}}" id="page-content-{{page.handle}}"><div class="row pt-5"><div class="col-12"><div class="row"><div class="col-12"><section class="my-5"><h1>Core Module</h1>
+
+<div class="container py-5 page {{template|handleize}}" id="page-content-{{page.handle}}">
+  <div class="row pt-5">
+    <div class="col-12">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="page-title">{{ page.title }}
+          </h1>
+          <div class="rte">{{ page.content }}</div>
+          <div class="content">
+            <bs4-contents class="d-block d-lg-none top-contents" header-parent-selector="#main-container" headers-start="2" headers-depth="3" scroll-offset="80"></bs4-contents>
+            <section class="my-5"><h1>Core Module</h1>
 <h2>Install</h2>
 <pre><code class="language-bash">npm install --save-dev @ribajs/core
 </code></pre>
@@ -9,52 +20,93 @@ const riba = new Riba();
 const model = {};
 riba.module.regist(coreModule);
 JQuery(($: JQueryStatic) =&gt; {
-  riba.bind(document.body, this.model);
+  riba.bind(document.body, model);
 });
 </code></pre>
-</section><section class="my-5" id="binders"><h2>Binders</h2><section class="my-5" id="text"><h3>text</h3><p>Sets the element's text content.</p>
+
+            </section>
+            <section class="my-5" id="binders">
+              <h2>Binders</h2>
+              <section class="my-5" id="text">
+                <h3>text</h3><p>Sets the element's text content.</p>
 <pre><code class="language-html">&lt;h1 rv-text=&quot;user.name&quot;&gt;&lt;/h1&gt;
 </code></pre>
 <p>You can also bind text using interpolation.</p>
 <pre><code class="language-html">&lt;p&gt;{ user.name } is { user.age } years old.&lt;/p&gt;
 </code></pre>
-</section><section class="my-5" id="html"><h3>html</h3><p>Sets the element's HTML content.</p>
+
+              </section>
+              <section class="my-5" id="html">
+                <h3>html</h3><p>Sets the element's HTML content.</p>
 <pre><code class="language-html">&lt;section rv-html=&quot;item.summary&quot;&gt;&lt;/section&gt;
 </code></pre>
-</section><section class="my-5" id="show"><h3>show</h3><p>Shows the element when the value evaluates to true and hides the element when the value evaluates to false.</p>
+
+              </section>
+              <section class="my-5" id="show">
+                <h3>show</h3><p>Shows the element when the value evaluates to true and hides the element when the value evaluates to false.</p>
 <pre><code class="language-html">&lt;button rv-show=&quot;user.admin&quot;&gt;Remove&lt;/button&gt;
 </code></pre>
-</section><section class="my-5" id="hide"> <h3>hide</h3><p>Hides the element when the value evaluates to true and shows the element when the value evaluates to false.</p>
+
+              </section>
+              <section class="my-5" id="hide"> 
+                <h3>hide</h3><p>Hides the element when the value evaluates to true and shows the element when the value evaluates to false.</p>
 <pre><code class="language-html">&lt;section rv-hide=&quot;feature.disabled&quot;&gt;&lt;/section&gt;
 </code></pre>
-</section><section class="my-5" id="enabled"><h3>enabled</h3><p>Enables the element when the value evaluates to true and disables the element when the value evaluates to false.</p>
+
+              </section>
+              <section class="my-5" id="enabled">
+                <h3>enabled</h3><p>Enables the element when the value evaluates to true and disables the element when the value evaluates to false.</p>
 <pre><code class="language-html">&lt;button rv-enabled=&quot;user.canVote&quot;&gt;Upvote&lt;/button&gt;
 </code></pre>
-</section><section class="my-5" id="disabled"><h3>disabled</h3><p>Disables the element when the value evaluates to true and enables the element when the value evaluates to false.</p>
+
+              </section>
+              <section class="my-5" id="disabled">
+                <h3>disabled</h3><p>Disables the element when the value evaluates to true and enables the element when the value evaluates to false.</p>
 <pre><code class="language-html">&lt;button rv-disabled=&quot;user.suspended&quot;&gt;Upvote&lt;/button&gt;
 </code></pre>
-</section><section class="my-5" id="if"><h3>if</h3><p>Inserts and binds the element as well as it's child nodes into the DOM when the value evaluates to true and removes / unbinds the element when the value evaluates to false.</p>
+
+              </section>
+              <section class="my-5" id="if">
+                <h3>if</h3><p>Inserts and binds the element as well as it's child nodes into the DOM when the value evaluates to true and removes / unbinds the element when the value evaluates to false.</p>
 <pre><code class="language-html">&lt;section rv-if=&quot;item.editable&quot;&gt;&lt;/section&gt;
 </code></pre>
-</section><section class="my-5" id="unless"><h3>unless</h3><p>Removes and unbinds the element as well as it's child nodes when the value evaluates to true and inserts / binds the element when the value evaluates to false.</p>
+
+              </section>
+              <section class="my-5" id="unless">
+                <h3>unless</h3><p>Removes and unbinds the element as well as it's child nodes when the value evaluates to true and inserts / binds the element when the value evaluates to false.</p>
 <pre><code class="language-html">&lt;section rv-unless=&quot;item.locked&quot;&gt;&lt;/section&gt;
 </code></pre>
-</section><section class="my-5" id="value"><h3>value</h3><p>Sets the element's value when the attribute changes and sets the bound object's value when the input element changes from user input (two-way).</p>
+
+              </section>
+              <section class="my-5" id="value">
+                <h3>value</h3><p>Sets the element's value when the attribute changes and sets the bound object's value when the input element changes from user input (two-way).</p>
 <pre><code class="language-html">&lt;input rv-value=&quot;item.name&quot;&gt;
 </code></pre>
-</section><section class="my-5" id="checked"><h3>checked</h3><p>Checks the input when the value evaluates to true and unchecks the input when the value evaluates to false. This also sets the bound object's value to true/false when the user checks/unchecks the input (two-way).</p>
+
+              </section>
+              <section class="my-5" id="checked">
+                <h3>checked</h3><p>Checks the input when the value evaluates to true and unchecks the input when the value evaluates to false. This also sets the bound object's value to true/false when the user checks/unchecks the input (two-way).</p>
 <p><em>Use this instead of value when binding to checkboxes or radio buttons.</em></p>
 <pre><code class="language-html">&lt;input type=&quot;checkbox&quot; rv-checked=&quot;item.enabled&quot;&gt;
 </code></pre>
-</section><section class="my-5" id="unchecked"><h3>unchecked</h3><p>Unchecks the input when the value evaluates to true and checks the input when the value evaluates to false. This also sets the bound object's value to false/true when the user checks/unchecks the input (two-way).</p>
+
+              </section>
+              <section class="my-5" id="unchecked">
+                <h3>unchecked</h3><p>Unchecks the input when the value evaluates to true and checks the input when the value evaluates to false. This also sets the bound object's value to false/true when the user checks/unchecks the input (two-way).</p>
 <p><em>Use this instead of value when binding to checkboxes or radio buttons.</em></p>
 <pre><code class="language-html">&lt;input type=&quot;checkbox&quot; rv-unchecked=&quot;item.disabled&quot;&gt;
 </code></pre>
-</section><section class="my-5"><h3 id="on-event">on-[event]</h3><p>Binds an event listener on the element using the event specified in <code>[event]</code> and the bound object (should return a function) as the callback.</p>
+
+              </section>
+              <section class="my-5">
+                <h3 id="on-event">on-[event]</h3><p>Binds an event listener on the element using the event specified in <code>[event]</code> and the bound object (should return a function) as the callback.</p>
 <p><em>If the end value of the binding changes to a different function, this binder will automatically unbind the old callback and bind a new listener to the new function.</em></p>
 <pre><code class="language-html">&lt;button rv-on-click=&quot;destroy | args item&quot;&gt;Remove&lt;/button&gt;
 </code></pre>
-</section><section class="my-5" id="each-item"> <h3>each-[item]</h3><p>Appends a new instance of the element in place for each item in an array. Each element is bound to a new view created in a scope with three special properties:</p>
+
+              </section>
+              <section class="my-5" id="each-item"> 
+                <h3>each-[item]</h3><p>Appends a new instance of the element in place for each item in an array. Each element is bound to a new view created in a scope with three special properties:</p>
 <ul>
 <li>the current iterated item in the array, named whatever value is in place of <code>[item]</code></li>
 <li><code>%[item]%</code>: the current iterated item index. Can be configured by setting <code>index-property</code> attribute</li>
@@ -67,7 +119,11 @@ JQuery(($: JQueryStatic) =&gt; {
   &lt;/li&gt;
 &lt;ul&gt;
 </code></pre>
-<section class="my-5"><h4 id="each-item-example">Example</h4><rv-example-tabs handle="each-item"><template title="each-item-example.component.html"><pre><code class="language-html">&lt;nav&gt;
+
+                <section class="my-5">
+                  <h4 id="each-item-example">Example</h4>
+                  <rv-example-tabs handle="each-item">
+                    <template title="each-item-example.component.html"><pre><code class="language-html">&lt;nav&gt;
   &lt;button rv-on-click=&quot;push&quot;&gt;Push&lt;/button&gt;
   &lt;button rv-on-click=&quot;pop&quot;&gt;Pop&lt;/button&gt;
   &lt;button rv-on-click=&quot;shift&quot;&gt;Shift&lt;/button&gt;
@@ -81,7 +137,9 @@ JQuery(($: JQueryStatic) =&gt; {
     &lt;div&gt;Item { %item% } / { item.name }&lt;/div&gt;
   &lt;/div&gt;
 &lt;/section&gt;
-</code></pre></template><template title="each-item-example.component.ts"><pre><code class="language-typescript">import { Component } from &#39;@ribajs/core&#39;;
+</code></pre>
+                    </template>
+                    <template title="each-item-example.component.ts"><pre><code class="language-typescript">import { Component } from &#39;@ribajs/core&#39;;
 import template from &#39;./each-item-example.component.html&#39;;
 
 export class EachItemExampleComponent extends Component {
@@ -164,7 +222,9 @@ interface IScope {
   splice: EachItemExampleComponent[&#39;splice&#39;],
   reset: EachItemExampleComponent[&#39;reset&#39;],
   sort: EachItemExampleComponent[&#39;sort&#39;],
-}</code></pre></template><template title="index.html"><pre><code class="language-html">&lt;!DOCTYPE html&gt;
+}</code></pre>
+                    </template>
+                    <template title="index.html"><pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
   &lt;head&gt;
     &lt;title&gt;each-star-example&lt;/title&gt;
@@ -177,13 +237,24 @@ interface IScope {
     &lt;/div&gt;
   &lt;/body&gt;
 &lt;/html&gt;
-</code></pre></template><template title="README.md"><h1>each-item-example</h1>
+</code></pre>
+                    </template>
+                    <template title="README.md"><h1>each-item-example</h1>
 <pre><code class="language-bash">git clone --recurse-submodules https://github.com/ribajs/riba.git
 cd riba/examples/each-item
 npm install
 npm run start
 </code></pre>
-</template><template title="Preview"><rv-each-item-example></rv-each-item-example></template></rv-example-tabs></section></section><section class="my-5" id="nested-each-item"><h3>Nested each-[item]</h3><p>By nesting elements bound by <code>rv-each</code>, a scope is created for each nest level. The variables from parent scopes can be acessed by child ones, using a resolution algorithm similar to JavaScript prototype chain, i.e., looks for current scope if not found, look in parent scope repeating until find.</p>
+
+                    </template>
+                    <template title="Preview">
+                      <rv-each-item-example></rv-each-item-example>
+                    </template>
+                  </rv-example-tabs>
+                </section>
+              </section>
+              <section class="my-5" id="nested-each-item">
+                <h3>Nested each-[item]</h3><p>By nesting elements bound by <code>rv-each</code>, a scope is created for each nest level. The variables from parent scopes can be acessed by child ones, using a resolution algorithm similar to JavaScript prototype chain, i.e., looks for current scope if not found, look in parent scope repeating until find.</p>
 <pre><code class="language-html">&lt;ul&gt;
   &lt;li rv-each-category=&quot;categories&quot;&gt;
     { category.name }
@@ -200,27 +271,42 @@ npm run start
 &lt;ul&gt;
 </code></pre>
 <!-- A more complex example can be found [here](https://codepen.io/blikblum/pen/MKXXOX?editors=1010#0) -->
-</section><section class="my-5" id="class-classname"><h3>class-[classname]</h3><p>Adds a class (whatever value is in place of <code>[classname]</code>) on the element when the value evaluates to true and removes that class if the value evaluates to false.</p>
+
+              </section>
+              <section class="my-5" id="class-classname">
+                <h3>class-[classname]</h3><p>Adds a class (whatever value is in place of <code>[classname]</code>) on the element when the value evaluates to true and removes that class if the value evaluates to false.</p>
 <pre><code class="language-html">&lt;li rv-class-completed=&quot;todo.done&quot;&gt;{ todo.name }&lt;/li&gt;
 </code></pre>
-</section><section class="my-5" id="add-class"><h3>add-class</h3><p>Adds the value of the attribute to the class. Instead of <code>class-[classname]</code> the classname is setted by the attribute value and not by the star value.</p>
+
+              </section>
+              <section class="my-5" id="add-class">
+                <h3>add-class</h3><p>Adds the value of the attribute to the class. Instead of <code>class-[classname]</code> the classname is setted by the attribute value and not by the star value.</p>
 <pre><code class="language-html">&lt;ul&gt;
   &lt;li rv-each-todo=&quot;todos&quot;&gt;
     &lt;div rv-add-class=&quot;todo.state&quot;&gt;&lt;/div&gt;
   &lt;/li&gt;
 &lt;ul&gt;
 </code></pre>
-</section><section class="my-5" id="remove-class"><h3>remove-class</h3><p>Removes the given class string the class attibute.
+
+              </section>
+              <section class="my-5" id="remove-class">
+                <h3>remove-class</h3><p>Removes the given class string the class attibute.
 Instead of <code>class-[classname]</code> the classname is removed by the
 given attribute and not by the star value.</p>
 <pre><code class="language-html">&lt;img class=&quot;loading&quot; rv-src=&quot;img.src&quot; rv-remove-class=&quot;loadingClass&quot;&gt;
 </code></pre>
-</section><section class="my-5" id="remove-class"><h3>remove-class</h3><p>Removes the given class string the class attibute.
+
+              </section>
+              <section class="my-5" id="remove-class">
+                <h3>remove-class</h3><p>Removes the given class string the class attibute.
 Instead of <code>class-[classname]</code> the classname is removed by the
 given attribute and not by the star value.</p>
 <pre><code class="language-html">&lt;img class=&quot;loading&quot; rv-src=&quot;img.src&quot; rv-remove-class=&quot;loadingClass&quot;&gt;
 </code></pre>
-</section><section class="my-5" id="srcset-size"><h3>srcset-[size]</h3><p>Sets an url with size to the <code>srcset</code> attribute</p>
+
+              </section>
+              <section class="my-5" id="srcset-size">
+                <h3>srcset-[size]</h3><p>Sets an url with size to the <code>srcset</code> attribute</p>
 <rv-example-tabs handle="srcset-size">
 <template type="single-html-file">
 <img
@@ -232,10 +318,16 @@ given attribute and not by the star value.</p>
   src="//placehold.it/100x"
 />
 </template>
-</rv-example-tabs></section><section class="my-5" id="assign"><h3>assign</h3><p>Assign a value in your model. The value you want to assign must be an object and will be concatenate with your model. You can also pass a JSON string.</p>
+</rv-example-tabs>
+              </section>
+              <section class="my-5" id="assign">
+                <h3>assign</h3><p>Assign a value in your model. The value you want to assign must be an object and will be concatenate with your model. You can also pass a JSON string.</p>
 <pre><code class="language-html">&lt;div rv-assign='{&quot;newValue&quot;: &quot;hello&quot;, &quot;anotherNewValue&quot;: &quot;world&quot;}'&gt;{newValue} {anotherNewValue}!&lt;/div&gt;
 </code></pre>
-</section><section class="my-5" id="block"><h3>block</h3><p>Blocks the binding for the current element and his childs.</p>
+
+              </section>
+              <section class="my-5" id="block">
+                <h3>block</h3><p>Blocks the binding for the current element and his childs.</p>
 <p><em>Please note that <code>script</code>, <code>style</code>, <code>template</code> and <code>code</code> tags are blocked by default. You can change this by setting the <code>blockNodeNames</code> option.</em></p>
 <pre><code class="language-html">&lt;div rv-block=&quot;&quot;&gt;
   &lt;!--
@@ -246,8 +338,20 @@ given attribute and not by the star value.</p>
   { value }
 &lt;/div&gt;
 </code></pre>
-</section><section class="my-5" id="attribute"><h3>[attribute]</h3><p>Sets the value of an attribute (whatever value is in place of <code>[attribute]</code>) on the element.</p>
+
+              </section>
+              <section class="my-5" id="attribute">
+                <h3>[attribute]</h3><p>Sets the value of an attribute (whatever value is in place of <code>[attribute]</code>) on the element.</p>
 <p><em>If your binding declaration does not match any of the above routines, it will fallback to use this binding.</em></p>
 <pre><code class="language-html">&lt;input type=&quot;text&quot; rv-placeholder=&quot;field.placeholder&quot;&gt;
 </code></pre>
-</section></section><bs4-scrollspy class="d-none d-lg-block side-scrollspy" header-parent-selector="#main-container" headers-start="2" headers-depth="2" offset="200" offset-bottom="80" scroll-offset="80"></bs4-scrollspy></div></div></div></div></div>
+
+              </section>
+            </section>
+            <bs4-scrollspy class="d-none d-lg-block side-scrollspy" header-parent-selector="#main-container" headers-start="2" headers-depth="3" offset="200" offset-bottom="80" scroll-offset="80"></bs4-scrollspy>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

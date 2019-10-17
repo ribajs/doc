@@ -15,6 +15,13 @@ export class ExampleTabsComponent extends TabsComponent {
 
   protected autobind = true;
 
+  static get observedAttributes() {
+    return [
+      'option-tabs-auto-height',
+      'handle',
+    ];
+  }
+
   constructor(element?: HTMLElement) {
     super(element);
     this.init(ExampleTabsComponent.observedAttributes);
