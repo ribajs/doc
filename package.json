@@ -46,22 +46,32 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ribajs/docs-theme"
+    "url": "https://github.com/ribajs/doc"
   },
   "keywords": [
+    "Bootstrap",
     "Bootstrap4",
     "Shopify",
     "Art+Code Studio",
     "Riba",
+    "Rivets",
+    "tinybind",
     "Documentation",
     "Docs"
   ],
   "author": "Pascal Garber <pascal@artandcode.studio>",
   "license": "MIT",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/ribajs/doc/blob/master/README.md"
+    }
+  ],
   "bugs": {
-    "url": "https://github.com/ribajs/docs-theme/issues"
+    "url": "https://github.com/ribajs/doc/issues"
   },
-  "homepage": "https://art-code-studio.myshopify.com",
+  "url": "https://github.com/ribajs/doc",
+  "homepage": "https://ribajs.com/",
   "devDependencies": {
     "@babel/cli": "^7.6.4",
     "@babel/core": "^7.6.4",
