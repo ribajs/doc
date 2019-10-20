@@ -1,0 +1,14 @@
+extends ../_extends/generated-page.pug
+
+block content
+  section.my-5#icons
+    h2 Icons
+    include:markdown-it(html) ../../../doc/reference/iconset/icons.md
+  .row
+    each icon in icons
+      - var iconSrc = "{{ '" + icon + ".svg' | asset_url }}";
+      section.col-4.col-md-2.col-xl-2.py-2
+        .row
+          .col-auto.mx-auto
+            a.d-flex.align-items-center(href="/pages/icon?name=" + icon, title=icon)
+              bs4-icon(src=iconSrc, color='black' class='m-1' size="32")

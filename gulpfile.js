@@ -27,6 +27,7 @@ const files = {
     'theme/templates/customers/*'
   ],
   theme_settings: './settings_schema/*.json',
+  iconset: './node_modules/@ribajs/iconset/dest/svg/*.svg'
 };
  
 /**
@@ -57,4 +58,9 @@ gulp.task('build:theme_settings', () => {
       return new Buffer(JSON.stringify(data_array, null, 2));
     }))
     .pipe(gulp.dest('./theme/config/'));
+});
+
+gulp.task('build:iconset', function () {
+  return gulp.src(files.iconset)
+    .pipe(gulp.dest('./theme/assets'));
 });

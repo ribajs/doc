@@ -1,7 +1,7 @@
 const ribaPjson = require('./node_modules/ribajs/package.json');
+const icons = require('./node_modules/@ribajs/iconset/dest/svg.json');
 
 module.exports = {
-  locals: {
-    riba: ribaPjson
-  }
-}
+  riba: ribaPjson,
+  icons
+};

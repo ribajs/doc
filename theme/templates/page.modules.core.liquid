@@ -297,6 +297,16 @@ given attribute and not by the star value.</p>
 </code></pre>
 
               </section>
+              <section class="my-5" id="style-property">
+                <h3>style-property</h3><p>Adds a style to the element.</p>
+<pre><code class="language-html">&lt;div rv-style-background-color=&quot;'blue'&quot;&gt;&lt;/div&gt;
+</code></pre>
+<rv-example-tabs handle="srcset-size">
+<template type="single-html-file">
+<div rv-style-background-color="'blue'" rv-style-width="'20px'" rv-style-height="'20px'"></div>
+</template>
+</rv-example-tabs>
+              </section>
               <section class="my-5" id="remove-class">
                 <h3>remove-class</h3><p>Removes the given class string the class attibute.
 Instead of <code>class-[classname]</code> the classname is removed by the
@@ -346,6 +356,28 @@ given attribute and not by the star value.</p>
 <pre><code class="language-html">&lt;input type=&quot;text&quot; rv-placeholder=&quot;field.placeholder&quot;&gt;
 </code></pre>
 
+              </section>
+            </section>
+            <section class="my-5" id="components">
+              <h2>Components</h2>
+              <section class="my-5" id="video-component">
+                <h3>Video</h3><p>Wrap your html5 video tag with this component to have easy implementable custom controls.</p>
+<rv-example-tabs handle="scroll-to-on-event">
+<template type="single-html-file">
+<rv-video class="embed-responsive embed-responsive-21by9">
+  <video playsinline webkit-playsinline autoplay muted loop class="embed-responsive-item">
+    <source src="https://jumplink.eu/storage/app/media/spring_blender_open_movie_1080p.mp4" type="video/mp4">
+    <span >
+      Your browser does not support the video tag.
+    </span>
+  </video>
+  <div rv-hide="controls">
+    <bs4-icon rv-hide="muted" rv-on-click="toggleMute" size="50" class="video-volume-high" src="{{ 'icon_volume-high_alt.svg' | asset_url }}"></bs4-icon>
+    <bs4-icon rv-show="muted" rv-on-click="toggleMute" size="50" class="video-volume-mute" src="{{ 'icon_vol-mute_alt.svg' | asset_url }}"></bs4-icon>
+  </div>
+</rv-video>
+</template>
+</rv-example-tabs>
               </section>
             </section>
             <bs4-scrollspy class="d-none d-lg-block side-scrollspy" header-parent-selector="#main-container" headers-start="2" headers-depth="3" offset="200" offset-bottom="80" scroll-offset="80"></bs4-scrollspy>
