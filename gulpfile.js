@@ -27,7 +27,8 @@ const files = {
     'theme/templates/customers/*'
   ],
   theme_settings: './settings_schema/*.json',
-  iconset: './node_modules/@ribajs/iconset/dest/svg/*.svg'
+  iconset: './node_modules/@ribajs/iconset/dest/svg/*.svg',
+  favicons: './src/assets/favicons/*'
 };
  
 /**
@@ -60,7 +61,17 @@ gulp.task('build:theme_settings', () => {
     .pipe(gulp.dest('./theme/config/'));
 });
 
-gulp.task('build:iconset', function () {
+gulp.task('build:assets:iconset', function () {
   return gulp.src(files.iconset)
+    .pipe(gulp.dest('./theme/assets'));
+});
+
+gulp.task('build:assets:favicons', function () {
+  return gulp.src(files.favicons)
+    .pipe(gulp.dest('./theme/assets'));
+});
+
+gulp.task('build:assets', function () {
+  return gulp.src([files.iconset, files.favicons])
     .pipe(gulp.dest('./theme/assets'));
 });

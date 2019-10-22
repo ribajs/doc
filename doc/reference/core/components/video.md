@@ -1,6 +1,6 @@
 Wrap your html5 video tag with this component to have easy implementable custom controls.
 
-<rv-example-tabs handle="scroll-to-on-event">
+<rv-example-tabs handle="video-component">
 <template type="single-html-file">
 <rv-video class="embed-responsive embed-responsive-21by9">
   <video playsinline webkit-playsinline autoplay muted loop class="embed-responsive-item">
@@ -9,10 +9,14 @@ Wrap your html5 video tag with this component to have easy implementable custom 
       Your browser does not support the video tag.
     </span>
   </video>
-  <div rv-hide="controls">
-    <bs4-icon rv-hide="muted" rv-on-click="toggleMute" size="50" class="video-volume-high" src="{{ 'icon_volume-high_alt.svg' | asset_url }}"></bs4-icon>
-    <bs4-icon rv-show="muted" rv-on-click="toggleMute" size="50" class="video-volume-mute" src="{{ 'icon_vol-mute_alt.svg' | asset_url }}"></bs4-icon>
+  <div rv-hide="controls" class="video-custom-controls">
+    <bs4-icon rv-hide="muted" rv-on-click="toggleMute" size="50" class="video-volume-high" src="{{ 'icon_volume-high_alt.svg' | asset_url }}">
+    </bs4-icon>
+    <bs4-icon rv-show="muted" rv-on-click="toggleMute" size="50" class="video-volume-mute" src="{{ 'icon_vol-mute_alt.svg' | asset_url }}">
+    </bs4-icon>
   </div>
+  <bs4-icon rv-class-default-controls-visible="controls" rv-on-click="toggleControls" direction="right" size="50" class="video-default-controls-show" src="{{ 'icon_adjust.svg' | asset_url }}">
+  </bs4-icon>
 </rv-video>
 </template>
 </rv-example-tabs>
