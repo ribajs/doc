@@ -5,6 +5,7 @@
 const gulp = require('gulp');
 const pkg = require('./package.json');
 const zip = require('gulp-zip');
+const print = require('gulp-print').default;
 const jsoncombine = require('gulp-jsoncombine');
 
 // list of settings files to include, in order of inclusion
@@ -63,15 +64,18 @@ gulp.task('build:theme_settings', () => {
 
 gulp.task('build:assets:iconset', function () {
   return gulp.src(files.iconset)
+    .pipe(print())
     .pipe(gulp.dest('./theme/assets'));
 });
 
 gulp.task('build:assets:favicons', function () {
   return gulp.src(files.favicons)
+    .pipe(print())
     .pipe(gulp.dest('./theme/assets'));
 });
 
 gulp.task('build:assets', function () {
   return gulp.src([files.iconset, files.favicons])
+    .pipe(print())
     .pipe(gulp.dest('./theme/assets'));
 });
