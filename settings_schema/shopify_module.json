@@ -5,6 +5,11 @@
       "type": "image_picker",
       "id": "example_image",
       "label": "Example image"
+    },
+    {
+      "type": "image_picker",
+      "id": "shopify-linklist-collapse",
+      "label": "Shopify-linklist collapse image"
     }
   ]
 }

@@ -8,6 +8,13 @@ from [@ribajs/shopify/src/snippets/](https://github.com/ribajs/riba/tree/master/
 
 ```html
 {% raw %}<script>
-var linklists = {% include 'utils-json-linklists' %};
+var linklists = {% include 'utils-json-linklists' %}
+// If the component should access the linklist by his handle
+// the linklist must be globally available as follows
+window.model = {
+  system: {
+    linklists: linklists
+  }
+};
 </script>{% endraw %}
 ```

@@ -24,7 +24,91 @@ JQuery(($: JQueryStatic) =&gt; {
   alt="{{ settings.example_image.alt }}"
 />
 </template>
-</rv-example-tabs></section></section><section class="my-5"><h2 id="components">Components</h2><section class="my-5"><h3 id="shopify-linklist">shopify-linklist</h3><p>Component to render a shopify linklist</p>
+</rv-example-tabs></section></section><section class="my-5"><h2 id="components">Components</h2><section class="my-5"><h3 id="shopify-linklist">shopify-linklist</h3><p>Component to render a shopify linklist .</p>
+<h4>Attributes</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>linklist</td>
+<td>string</td>
+<td>The linklist as a json string</td>
+</tr>
+<tr>
+<td>handle</td>
+<td>string</td>
+<td>Sets the linklist by his name (see note below)</td>
+</tr>
+<tr>
+<td>pills</td>
+<td>boolean</td>
+<td>If the navigation should be displayed as pills</td>
+</tr>
+<tr>
+<td>vertical</td>
+<td>boolean</td>
+<td>If the navigation should be displayed as vertically</td>
+</tr>
+<tr>
+<td>collapseOnNewPage</td>
+<td>boolean</td>
+<td>Set this option to true if toggleable links should be automatically collapse when a page changes</td>
+</tr>
+<tr>
+<td>showOnActiveChild</td>
+<td>boolean</td>
+<td>Set this option to true if toggleable links should be automatically open when a child link is active</td>
+</tr>
+</tbody>
+</table>
+<p><em>Note: If you do not want to pass the linklist as a json string, you can also pass just the linklist handle string. This assumes, however, that the linklist is available as a global variable under <code>window.model.system.linklists[yourLinklistHandle]</code>.</em></p>
+<h4>Template Methods</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Arguments</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>toggle</td>
+<td>link</td>
+<td>Toggles a link</td>
+</tr>
+<tr>
+<td>collapse</td>
+<td>link</td>
+<td>Collapse a link</td>
+</tr>
+<tr>
+<td>collapseAll</td>
+<td></td>
+<td>Collapse all links</td>
+</tr>
+<tr>
+<td>show</td>
+<td>link</td>
+<td>Show a link</td>
+</tr>
+<tr>
+<td>showAll</td>
+<td></td>
+<td>Show all links</td>
+</tr>
+</tbody>
+</table>
+<h4>Collapseable links</h4>
+<p>If a link should be collapseable, <code>#collapse</code> must be entered as the URL for this link in the Shopify administration:</p>
+<img class="img-fluid img-thumbnail" src="{{ settings.shopify-linklist-collapse | img_url: 'master' }}" alt="shopify-linklist: Collapseable link" />
+<h4>Example</h4>
 <pre><code class="language-html">{% raw %}&lt;shopify-linklist linklist='{% include 'utils-json-linklist', linklist: linklists.main-menu %}'&gt;&lt;/shopify-linklist&gt;{% endraw %}
 </code></pre>
 </section></section><section class="my-5"><h2 id="snippets">Snippets</h2><section class="my-5"><h3 id="utils-json-linklists">utils-json-linklists.liquid</h3><p>Copy the snippets</p>
@@ -36,7 +120,14 @@ JQuery(($: JQueryStatic) =&gt; {
 </ul>
 <p>from <a href="https://github.com/ribajs/riba/tree/master/packages/shopify/src/snippets">@ribajs/shopify/src/snippets/</a> to your themes snippets directory to transform shopify linklists to a json string.</p>
 <pre><code class="language-html">{% raw %}&lt;script&gt;
-var linklists = {% include 'utils-json-linklists' %};
+var linklists = {% include 'utils-json-linklists' %}
+// If the component should access the linklist by his handle
+// the linklist must be globally available as follows
+window.model = {
+  system: {
+    linklists: linklists
+  }
+};
 &lt;/script&gt;{% endraw %}
 </code></pre>
 </section><section class="my-5"><h3 id="utils-json-linklist">utils-json-linklist.liquid</h3><p>If you only want a specific linklist you can use <code>utils-json-linklist.liquid</code>:</p>
