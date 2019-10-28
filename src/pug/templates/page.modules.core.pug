@@ -8,108 +8,207 @@ block content
   section.my-5#binders
     h2 Binders
 
-    section.my-5#text
-      h3 text
-      include:markdown-it(html) ../../../doc/reference/core/binders/text.md
+    section.my-5#add-class-binder
+      h3 add-class
+      include:markdown-it(html) ../../../doc/reference/core/binders/add-class.md
 
-    section.my-5#html
-      h3 html
-      include:markdown-it(html) ../../../doc/reference/core/binders/html.md
+    section.my-5#remove-class-binder
+      h3 remove-class
+      include:markdown-it(html) ../../../doc/reference/core/binders/remove-class.md
 
-    section.my-5#show
-      h3 show
-      include:markdown-it(html) ../../../doc/reference/core/binders/show.md
-      
-    section.my-5#hide 
-      h3 hide
-      include:markdown-it(html) ../../../doc/reference/core/binders/hide.md
-      
-    section.my-5#enabled
-      h3 enabled
-      include:markdown-it(html) ../../../doc/reference/core/binders/enabled.md
-      
-    section.my-5#disabled
-      h3 disabled
-      include:markdown-it(html) ../../../doc/reference/core/binders/disabled.md
-      
-    section.my-5#if
-      h3 if
-      include:markdown-it(html) ../../../doc/reference/core/binders/if.md
+    //- section.my-5#animate-classname-binder
+    //-   h3 animate-classname
+    //-   include:markdown-it(html) ../../../doc/reference/core/binders/animate-classname.md
 
-    section.my-5#unless
-      h3 unless
-      include:markdown-it(html) ../../../doc/reference/core/binders/unless.md
-      
-    section.my-5#value
-      h3 value
-      include:markdown-it(html) ../../../doc/reference/core/binders/value.md
-      
-    section.my-5#checked
+    section.my-5#assign-binder
+      h3 assign
+      include:markdown-it(html) ../../../doc/reference/core/binders/assign.md
+
+    section.my-5#assign-property-binder
+      h3 assign-[property]
+      include:markdown-it(html) ../../../doc/reference/core/binders/assign-[property].md
+
+    section.my-5#attribute-binder
+      h3 [attribute]
+      include:markdown-it(html) ../../../doc/reference/core/binders/[attribute].md
+
+    section.my-5#block-binder
+      h3 block
+      include:markdown-it(html) ../../../doc/reference/core/binders/block.md
+
+    section.my-5#checked-binder
       h3 checked
       include:markdown-it(html) ../../../doc/reference/core/binders/checked.md
 
-    section.my-5#unchecked
+    section.my-5#unchecked-binder
       h3 unchecked
       include:markdown-it(html) ../../../doc/reference/core/binders/unchecked.md
-      
-    section.my-5
-      h3#on-event on-[event]
-      include:markdown-it(html) ../../../doc/reference/core/binders/on-[event].md
-      
-    section.my-5#each-item 
+
+    section.my-5#class-classname-binder
+      h3 class-[classname]
+      include:markdown-it(html) ../../../doc/reference/core/binders/class-[classname].md
+
+    section.my-5#disabled-binder
+      h3 disabled
+      include:markdown-it(html) ../../../doc/reference/core/binders/disabled.md
+
+    section.my-5#enabled-binder
+      h3 enabled
+      include:markdown-it(html) ../../../doc/reference/core/binders/enabled.md
+  
+    section.my-5#each-item-binder
       h3 each-[item]
       include:markdown-it(html) ../../../doc/reference/core/binders/each-[item]/each-[item].md
       section.my-5
         h4#each-item-example Example
         include ../../../doc/examples/each-[item]
 
-    section.my-5#nested-each-item
+    section.my-5#nested-each-item-binder
       h3 Nested each-[item]
       include:markdown-it(html) ../../../doc/reference/core/binders/each-[item]/nested-each-[item].md
-      
-    section.my-5#class-classname
-      h3 class-[classname]
-      include:markdown-it(html) ../../../doc/reference/core/binders/class-[classname].md
 
-    section.my-5#add-class
-      h3 add-class
-      include:markdown-it(html) ../../../doc/reference/core/binders/add-class.md
+    section.my-5#hide-binder
+      h3 hide
+      include:markdown-it(html) ../../../doc/reference/core/binders/hide.md
 
-    section.my-5#remove-class
-      h3 remove-class
-      include:markdown-it(html) ../../../doc/reference/core/binders/remove-class.md
+    section.my-5#show-binder
+      h3 show
+      include:markdown-it(html) ../../../doc/reference/core/binders/show.md
 
-    section.my-5#style-property
-      h3 style-property
-      include:markdown-it(html) ../../../doc/reference/core/binders/style-[property].md
+    section.my-5#html-binder
+      h3 html
+      include:markdown-it(html) ../../../doc/reference/core/binders/html.md
 
-    //- section.my-5#animate-classname
-    //-   h3 animate-classname
-    //-   include:markdown-it(html) ../../../doc/reference/core/binders/animate-classname.md
+    section.my-5#text-binder
+      h3 text
+      include:markdown-it(html) ../../../doc/reference/core/binders/text.md
+            
+    section.my-5#if-binder
+      h3 if
+      include:markdown-it(html) ../../../doc/reference/core/binders/if.md
 
-    section.my-5#remove-class
-      h3 remove-class
-      include:markdown-it(html) ../../../doc/reference/core/binders/remove-class.md
+    section.my-5#unless-binder
+      h3 unless
+      include:markdown-it(html) ../../../doc/reference/core/binders/unless.md
 
-    section.my-5#srcset-size
+    section.my-5
+      h3#on-event-binder on-[event]
+      include:markdown-it(html) ../../../doc/reference/core/binders/on-[event].md
+
+    section.my-5#srcset-size-binder
       h3 srcset-[size]
       include:markdown-it(html) ../../../doc/reference/core/binders/srcset-[size].md
 
-    section.my-5#assign
-      h3 assign
-      include:markdown-it(html) ../../../doc/reference/core/binders/assign.md
+    section.my-5#style-property-binder
+      h3 style-property
+      include:markdown-it(html) ../../../doc/reference/core/binders/style-[property].md
+      
+    section.my-5#value-binder
+      h3 value
+      include:markdown-it(html) ../../../doc/reference/core/binders/value.md
 
-    section.my-5#block
-      h3 block
-      include:markdown-it(html) ../../../doc/reference/core/binders/block.md
-
-    section.my-5#attribute
-      h3 [attribute]
-      include:markdown-it(html) ../../../doc/reference/core/binders/[attribute].md
 
   section.my-5#components
     h2 Components
 
     section.my-5#video-component
-      h3 Video
+      h3 rv-video
       include:markdown-it(html) ../../../doc/reference/core/components/video.md
+
+  section.my-5#formatters
+    h2 Formatters
+
+    section.my-5#compare-formatters
+      h3 Compare formatters
+
+      section.my-5#and-formatter
+        h4 and
+        include:markdown-it(html) ../../../doc/reference/core/formatters/compare/and.md
+
+      section.my-5#between-formatter
+        h4 between
+        include:markdown-it(html) ../../../doc/reference/core/formatters/compare/between.md
+
+      section.my-5#egt-formatter
+        h4 egt
+        include:markdown-it(html) ../../../doc/reference/core/formatters/compare/egt.md
+
+      section.my-5#elt-formatter
+        h4 elt
+        include:markdown-it(html) ../../../doc/reference/core/formatters/compare/elt.md
+
+      section.my-5#eq-formatter
+        h4 eq
+        include:markdown-it(html) ../../../doc/reference/core/formatters/compare/eq.md
+
+      section.my-5#lt-formatter
+        h4 lt
+        include:markdown-it(html) ../../../doc/reference/core/formatters/compare/lt.md
+
+      section.my-5#ne-formatter
+        h4 ne
+        include:markdown-it(html) ../../../doc/reference/core/formatters/compare/ne.md
+
+      section.my-5#not-formatter
+        h4 not
+        include:markdown-it(html) ../../../doc/reference/core/formatters/compare/not.md
+
+      section.my-5#or-formatter
+        h4 or
+        include:markdown-it(html) ../../../doc/reference/core/formatters/compare/or.md
+
+    section.my-5#math-formatters
+      h3 Math formatters
+
+      section.my-5#digits-formatter
+        h4 digits
+        include:markdown-it(html) ../../../doc/reference/core/formatters/math/digits.md
+
+      section.my-5#divided-by-formatter
+        h4 dividedBy
+        include:markdown-it(html) ../../../doc/reference/core/formatters/math/divided-by.md
+
+      section.my-5#even-formatter
+        h4 even
+        include:markdown-it(html) ../../../doc/reference/core/formatters/math/even.md
+
+      section.my-5#gcd-formatter
+        h4 gcd
+        include:markdown-it(html) ../../../doc/reference/core/formatters/math/gcd.md
+
+      section.my-5#minus-formatter
+        h4 minus
+        include:markdown-it(html) ../../../doc/reference/core/formatters/math/minus.md
+
+      section.my-5#modulo-formatter
+        h4 modulo
+        include:markdown-it(html) ../../../doc/reference/core/formatters/math/modulo.md
+
+      section.my-5#number-formatter
+        h4 number
+        include:markdown-it(html) ../../../doc/reference/core/formatters/math/number.md
+
+      section.my-5#plus-formatter
+        h4 plus
+        include:markdown-it(html) ../../../doc/reference/core/formatters/math/plus.md
+
+      section.my-5#times-formatter
+        h4 times
+        include:markdown-it(html) ../../../doc/reference/core/formatters/math/times.md
+
+      section.my-5#uneven-formatter
+        h4 uneven
+        include:markdown-it(html) ../../../doc/reference/core/formatters/math/uneven.md
+
+    section.my-5#property-formatters
+      h3 Property formatters
+
+      section.my-5#contains-formatter
+        h4 contains
+        include:markdown-it(html) ../../../doc/reference/core/formatters/property/contains.md
+
+
+
+      section.my-5#random-formatter
+        h4 random
+        include:markdown-it(html) ../../../doc/reference/core/formatters/property/random.md

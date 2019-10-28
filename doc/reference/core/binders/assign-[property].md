@@ -1,5 +1,5 @@
-Assign a value in your model. Sets or overwrites a value by his property name (named whatever value is in place of `[property]`) in your model.
+Assign a value in your model, sets or overwrites a value by his property name (named whatever value is in place of `[property]`) in your model.
 
-```html
-<div rv-assign-message='"Hello World!"'>{message}</div>
-```
+<rv-example-tabs class="pt-3" handle="bs4-icon">
+<template type="single-html-file"><div rv-assign-new-value="'Hello World'">{newValue}!</div></template>
+</rv-example-tabs>

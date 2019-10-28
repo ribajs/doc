@@ -1,4 +1,4 @@
-Component to render a shopify linklist .
+Component to render a shopify linklist
 
 #### Attributes
 
