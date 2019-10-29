@@ -191,3 +191,17 @@ pre {
     cursor: help;
   }
 }
+
+
+// WWORKAROUND to display `"` instead of `&quot;`
+// [title='"'] {
+//   visibility: hidden;
+//   display: inline-block;
+//   max-width: 10px;
+//   cursor: text;
+//   &:before {
+//     visibility: visible;
+//     display: inline;
+//     content: '"';
+//   }
+// }

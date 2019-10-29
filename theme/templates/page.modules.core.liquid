@@ -131,7 +131,7 @@ given attribute and not by the star value.</p>
 </code></pre>
 
                 <section class="my-5">
-                  <h4 id="each-item-example">Example</h4>
+                  <h4>Example</h4>
                   <rv-example-tabs handle="each-item">
                     <template title="each-item-example.component.html"><pre><code class="language-html">&lt;nav&gt;
   &lt;button rv-on-click=&quot;push&quot;&gt;Push&lt;/button&gt;
@@ -390,6 +390,105 @@ npm run start
             </section>
             <section class="my-5" id="formatters">
               <h2>Formatters</h2>
+              <section class="my-5" id="array-formatters">
+                <h3>Array formatters</h3>
+                <section class="my-5" id="contains-formatter">
+                  <h4>contains</h4><p>Returns true if an object, array or string contains an object, property or substring.</p>
+<rv-example-tabs class="pt-3" handle="contains-formatter">
+<template type="single-html-file">
+<div rv-class-text-success="'I like my SNES' | contains 'SNES'">String contains SNES</div>
+<div rv-class-text-success="'I like my SNES' | contains 'PlayStation'">String contains PlayStation</div>
+<div rv-class-text-success="{'SNES': 1, 'N64': 2, 'GameBoy': 3, 'SEGA': 4} | contains 'SNES'">Object contains SNES</div>
+<div rv-class-text-success="{'SNES': 1, 'N64': 2, 'GameBoy': 3, 'SEGA': 4} | contains 'SNES' 1">Object contains 1 on key SNES</div>
+<div rv-class-text-success="{'SNES': 1, 'N64': 2, 'GameBoy': 3, 'SEGA': 4} | contains 'SNES' 2">Object contains 2 on key SNES</div>
+<div rv-class-text-success="{'SNES': 1, 'N64': 2, 'GameBoy': 3, 'SEGA': 4} | contains 'PlayStation'">Object contains PlayStation</div>
+<div rv-class-text-success="['SNES', 'N64', 'GameBoy', 'SEGA'] | contains 'SNES'">Contains SNES</div>
+<div rv-class-text-success="['SNES', 'N64', 'GameBoy', 'SEGA'] | contains 2 'GameBoy'">Contains GameBoy on index 2</div>
+<div rv-class-text-success="['SNES', 'N64', 'GameBoy', 'SEGA'] | contains 2 'PlayStation'">Contains PlayStation on index 2</div>
+<div rv-class-text-success="['SNES', 'N64', 'GameBoy', 'SEGA'] | contains 'PlayStation'">Contains PlayStation</div>
+</template>
+</rv-example-tabs>
+                </section>
+                <section class="my-5" id="empty-formatter">
+                  <h4>empty</h4><p>Returns <code>true</code> if a string or array is empty</p>
+<rv-example-tabs class="pt-3" handle="empty-formatter">
+<template type="single-html-file">
+<div rv-if="[] | empty" >The array is empty</div>
+<div rv-if="['cracker'] | empty" >The array is not empty</div>
+</template>
+</rv-example-tabs>
+                </section>
+                <section class="my-5" id="first-formatter">
+                  <h4>first</h4><p>Array formatter to get the first element of an array</p>
+<rv-example-tabs class="pt-3" handle="first-formatter">
+<template type="single-html-file">
+I like <span rv-text="['cracker', 'muffin', 'cake'] | first" ></span>.
+</template>
+</rv-example-tabs>
+                </section>
+                <section class="my-5" id="get-formatter">
+                  <h4>get</h4><p>Get property of object or array by key or index</p>
+<rv-example-tabs class="pt-3" handle="get-formatter">
+<template type="single-html-file">
+I like <span rv-text="['cracker', 'muffin', 'cake'] | get 1" ></span>.
+</template>
+</rv-example-tabs>
+                </section>
+                <section class="my-5" id="is-last-formatter">
+                  <h4>is-last</h4><p>Returns true if value index is the last index of the array and returns false if it is not the last index</p>
+<rv-example-tabs class="pt-3" handle="bs4-icon">
+<template type="single-html-file">
+<ul rv-assign-sweets="['cracker', 'muffin', 'cake']">
+  <li rv-each-sweetness="sweets" rv-class-font-weight-bold="sweets | isLast %sweetness%">{sweetness}</li>
+</ul>
+</template>
+</rv-example-tabs>
+                </section>
+                <section class="my-5" id="last-formatter">
+                  <h4>last</h4><p>Array formatter to get the first element of an array</p>
+<rv-example-tabs class="pt-3" handle="last-formatter">
+<template type="single-html-file">
+I like <span rv-text="['cracker', 'muffin', 'cake'] | last" ></span>.
+</template>
+</rv-example-tabs>
+                </section>
+                <section class="my-5" id="random-formatter">
+                  <h4>random</h4><p>Formatter to get back a random value of an array</p>
+<rv-example-tabs class="pt-3" handle="random-formatter">
+<template type="single-html-file">
+<div class="row" rv-assign-random-class="'['col-2', 'col-3', 'col-4', 'col-5', 'col-6']' | random">
+  <div rv-class="randomClass">This div has a random column class: {randomClass}</div>
+</div>
+</template>
+</rv-example-tabs>
+                </section>
+                <section class="my-5" id="set-formatter">
+                  <h4>set</h4><p>Sets property of object, array or value</p>
+<rv-example-tabs class="pt-3" handle="bs4-icon">
+<template type="single-html-file">
+<div
+  rv-assign-arr="['cracker', 'muffin', 'broccoli'] | set 2 'cake'"
+  rv-assign-obj="{'cracker': 'tasty', 'muffin': 'yummy', 'cake': 'disgusting'} | set 'cake' 'the tastiest'"
+>
+  <span rv-text="arr | get 2"></span> is <span rv-text="obj.cake"></span>
+</div>
+</template>
+</rv-example-tabs>
+                </section>
+                <section class="my-5" id="size-formatter">
+                  <h4>size</h4><p>Returns the size of a string (the number of characters) or an array (the number of elements)</p>
+<rv-example-tabs class="pt-3" handle="size-formatter">
+<template type="single-html-file">
+<div
+  rv-assign-str="'This string has a length of'"
+  rv-assign-arr="['cracker', 'muffin', 'cake']"
+>
+  {str} {str | size} characters and the array has a length of {arr | size} elements.
+</div>
+</template>
+</rv-example-tabs>
+                </section>
+              </section>
               <section class="my-5" id="compare-formatters">
                 <h3>Compare formatters</h3>
                 <section class="my-5" id="and-formatter">
@@ -505,11 +604,12 @@ This formatter corresponds to the <code>||</code> expression: <code>a || b</code
 </rv-example-tabs>
                 </section>
                 <section class="my-5" id="even-formatter">
-                  <h4>even</h4><p>Returns true if the number is even.</p>
+                  <h4>even / uneven</h4><p><strong>even</strong> returns <code>true</code> if the number is even.
+<strong>uneven</strong> returns <code>true</code> if the number is uneven.</p>
 <rv-example-tabs class="pt-3" handle="bs4-icon">
 <template type="single-html-file">
 <ul>
-  <li rv-each-text='["Milk","Chocolate","Butter","Toast"]' rv-class-text-success="%text% | even">{text}</li>
+  <li rv-each-text="['Milk','Chocolate','Butter','Toast']" rv-class-text-success="%text% | even" rv-class-text-danger="%text% | uneven">{text}</li>
 </ul>
 </template>
 </rv-example-tabs>
@@ -573,47 +673,324 @@ This formatter corresponds to the <code>||</code> expression: <code>a || b</code
 </template>
 </rv-example-tabs>
                 </section>
-                <section class="my-5" id="uneven-formatter">
-                  <h4>uneven</h4><p>Returns true if the number is uneven.</p>
-<rv-example-tabs class="pt-3" handle="bs4-icon">
+              </section>
+              <section class="my-5" id="special-formatters">
+                <h3>Special formatters</h3>
+                <section class="my-5" id="args-formatter">
+                  <h4>args</h4><p>This special formatter sets his arguments to a function without call them directly</p>
+<rv-example-tabs class="pt-3" handle="args-formatter">
 <template type="single-html-file">
-<ul>
-  <li rv-each-text='["Milk","Chocolate","Butter","Toast"]' rv-class-text-danger="%text% | uneven">{text}</li>
-</ul>
+<div rv-assign-result="0">
+  <button rv-on-click="sum | args 5 8">Result is {result}.</button>
+</div>
+</template>
+</rv-example-tabs>
+                </section>
+                <section class="my-5" id="call-formatter">
+                  <h4>call</h4><p>Calls a function with arguments</p>
+<rv-example-tabs class="pt-3" handle="args-formatter">
+<template type="single-html-file">
+<div rv-assign-result="0">
+  Result is {sum | call 5 8}.
+</div>
+</template>
+</rv-example-tabs>
+                </section>
+                <section class="my-5" id="debug-formatter">
+                  <h4>debug</h4><p>Prints a value to web developer console</p>
+<rv-example-tabs class="pt-3" handle="args-formatter">
+<template type="single-html-file">
+<div rv-text="'You should see this text in your browser developer console under info messages.' | debug 'info'"></div>
+</template>
+</rv-example-tabs>
+                </section>
+                <section class="my-5" id="default-formatter">
+                  <h4>default</h4><p>Sets a default value if the first value is not set</p>
+<rv-example-tabs class="pt-3" handle="default-formatter">
+<template type="single-html-file">
+<div
+  rv-assign-empty-string="''"
+  rv-assign-filled-string="'Link to the Past'"
+  class="text-center"
+>
+  <div rv-text="emptyString | default 'The Legend of Zelda'"></div>
+  <small rv-text="filledString | default 'Placeholder'"></small>
+</div>
 </template>
 </rv-example-tabs>
                 </section>
               </section>
-              <section class="my-5" id="property-formatters">
-                <h3>Property formatters</h3>
-                <section class="my-5" id="contains-formatter">
-                  <h4>contains</h4><p>Returns true if an object, array or string contains an object, property or substring.</p>
-<rv-example-tabs class="pt-3" handle="bs4-icon">
+              <section class="my-5" id="string-formatters">
+                <h3>String formatters</h3>
+                <section class="my-5" id="append-formatter">
+                  <h4>append</h4><p>Appends a string to an existing string</p>
+<rv-example-tabs class="pt-3" handle="append-formatter">
 <template type="single-html-file">
-<div rv-class-text-success="'I like my SNES' | contains 'SNES'">String contains SNES</div>
-<div rv-class-text-success="'I like my SNES' | contains 'PlayStation'">String contains PlayStation</div>
-<div rv-class-text-success='{"SNES": 1, "N64": 2, "GameBoy": 3, "SEGA": 4} | contains "SNES"'>Object contains SNES</div>
-<div rv-class-text-success='{"SNES": 1, "N64": 2, "GameBoy": 3, "SEGA": 4} | contains "SNES" 1'>Object contains 1 on key SNES</div>
-<div rv-class-text-success='{"SNES": 1, "N64": 2, "GameBoy": 3, "SEGA": 4} | contains "SNES" 2'>Object contains 2 on key SNES</div>
-<div rv-class-text-success='{"SNES": 1, "N64": 2, "GameBoy": 3, "SEGA": 4} | contains "PlayStation"'>Object contains PlayStation</div>
-<div rv-class-text-success='["SNES", "N64", "GameBoy", "SEGA"] | contains "SNES"'>Contains SNES</div>
-<div rv-class-text-success='["SNES", "N64", "GameBoy", "SEGA"] | contains 2 "GameBoy"'>Contains GameBoy on index 2</div>
-<div rv-class-text-success='["SNES", "N64", "GameBoy", "SEGA"] | contains 2 "PlayStation"'>Contains PlayStation on index 2</div>
-<div rv-class-text-success='["SNES", "N64", "GameBoy", "SEGA"] | contains "PlayStation"'>Contains PlayStation</div>
+<div rv-text="'Na' | append 'Na' | append 'Naaa'"></div>
 </template>
 </rv-example-tabs>
                 </section>
-                <section class="my-5" id="random-formatter">
-                  <h4>random</h4><p>Formatter to get back a random value of an array.</p>
-<rv-example-tabs class="pt-3" handle="bs4-icon">
+                <section class="my-5" id="downcase-formatter">
+                  <h4>downcase</h4><p>Converts a string into lowercase</p>
+<rv-example-tabs class="pt-3" handle="args-formatter">
 <template type="single-html-file">
-<div rv-add-class='"["col-2", "col-3", "col-4", "col-5", "col-6"]" | parse | random'>Random column size</div>
+<div rv-text="'NaNaNaaa' | downcase"></div>
+</template>
+</rv-example-tabs>
+                </section>
+                <section class="my-5" id="filled-formatter">
+                  <h4>filled</h4><p>Check if value is a string and not empty</p>
+<rv-example-tabs class="pt-3" handle="filled-formatter">
+<template type="single-html-file">
+<div
+  rv-assign-empty-string="''"
+  rv-assign-filled-string="'Link to the Past'"
+  class="text-center"
+>
+  <div rv-if="emptyString | filled" rv-text="emptyString"></div>
+  <div rv-if="filledString | filled" rv-text="filledString"></div>
+</div>
+</template>
+</rv-example-tabs>
+                </section>
+                <section class="my-5" id="handleize-formatter">
+                  <h4>handleize</h4><p>Formats a string into a handle, useful to use a title string as an id or class attribute</p>
+<rv-example-tabs class="pt-3" handle="handleize-formatter">
+<template type="single-html-file">
+<div rv-assign-title="'Handleize Example Title'">
+  <h2 class="m-0" rv-id="title | handleize" rv-text="title"></h2>
+</div>
+</template>
+</rv-example-tabs>
+                </section>
+                <section class="my-5" id="match-formatter">
+                  <h4>match</h4><p>Checks if a string matchs regular expression</p>
+<rv-example-tabs class="pt-3" handle="match-formatter">
+<template type="single-html-file">
+<div rv-assign-image="'{{ settings.example_image | img_url: 'master' }}'">
+  <img rv-if="image | match '.(gif|jpg|jpeg|tiff|png)'" rv-src="image" class="img-fluid" />
+</div>
+</template>
+</rv-example-tabs>
+                </section>
+                <section class="my-5" id="pluralize-formatter">
+                  <h4>pluralize</h4><p>Gets the singular or plural version of a string based on the value of a number. The first parameter is the singular string and the second parameter is the plural string</p>
+<rv-example-tabs class="pt-3" handle="pluralize-formatter">
+<template type="single-html-file">
+<div
+  rv-assign-items="['Raspberry Pi', 'Arduino']"
+  rv-assign-colors="['Blue']"
+>
+  Your cart has {items | size} {items | size | pluralize 'item' 'items'} with {colors | size}  {colors | size | pluralize 'color' 'colors'}
+</div>
+</template>
+</rv-example-tabs>
+                </section>
+                <section class="my-5" id="prepend-formatter">
+                  <h4>prepend</h4><p>Prepends a string to an existing string</p>
+<rv-example-tabs class="pt-3" handle="prepend-formatter">
+<template type="single-html-file">
+<div rv-text="'Na' | prepend 'Na' | prepend 'Naaa'"></div>
+</template>
+</rv-example-tabs>
+                </section>
+                <section class="my-5" id="replace-first-formatter">
+                  <h4>replaceFirst</h4><p>Replaces the first occurrence of a string with a substring</p>
+<rv-example-tabs class="pt-3" handle="replace-first-formatter">
+<template type="single-html-file">
+<div rv-text="'Super Man' | replaceFirst 'Super' 'Mega'"></div>
+</template>
+</rv-example-tabs>
+                </section>
+                <section class="my-5" id="replace-formatter">
+                  <h4>replace</h4><p>Replaces all occurrences of a string with a substring</p>
+<rv-example-tabs class="pt-3" handle="replace-first-formatter">
+<template type="single-html-file">
+<div rv-text="'Mega Man and Mega Mario' | replace 'Mega' 'Super'"></div>
+</template>
+</rv-example-tabs>
+                </section>
+                <section class="my-5" id="slice-formatter">
+                  <h4>slice</h4><p>The <code>slice</code> formatter returns a substring, starting at the specified index.
+An optional second parameter can be passed to specify the length of the substring.
+If no second parameter is given, a substring until the end will be returned.</p>
+<rv-example-tabs class="pt-3" handle="replace-first-formatter">
+<template type="single-html-file">
+<div rv-text="'Mega Man and Super Mario' | slice 13"></div>
+<div rv-text="'Mega Man and Super Mario' | slice 0 8"></div>
+</template>
+</rv-example-tabs>
+                </section>
+                <section class="my-5" id="strip-html-formatter">
+                  <h4>strip-html</h4><p>Strips all HTML tags from a string</p>
+<rv-example-tabs class="pt-3" handle="replace-first-formatter">
+<template type="single-html-file">
+<div rv-html="'<h1>Mega Man and <em>Super Mario</em></h1>' | stripHtml"></div>
+</template>
+</rv-example-tabs>
+                </section>
+                <section class="my-5" id="strip-formatter">
+                  <h4>strip</h4><p>Strips tabs, spaces, and newlines (all whitespace) from the left and right side of a string</p>
+<rv-example-tabs class="pt-3" handle="replace-first-formatter">
+<template type="single-html-file">
+<div rv-text="'        Mega Man and Super Mario        ' | strip"></div>
+</template>
+</rv-example-tabs>
+                </section>
+                <section class="my-5" id="upcase-formatter">
+                  <h4>upcase</h4><p>Converts a string into uppercase</p>
+<rv-example-tabs class="pt-3" handle="args-formatter">
+<template type="single-html-file">
+<div rv-text="'\ô.ô/' | upcase"></div>
+</template>
+</rv-example-tabs>
+                </section>
+              </section>
+              <section class="my-5" id="type-formatters">
+                <h3>Type formatters</h3>
+                <section class="my-5" id="boolean-formatter">
+                  <h4>boolean</h4><p>Strips tabs, spaces, and newlines (all whitespace) from the left and right side of a string</p>
+<rv-example-tabs class="pt-3" handle="replace-first-formatter">
+<template type="single-html-file">
+<div rv-text="'I am true' | boolean"></div>
+<div rv-text="'' | boolean"></div>
+<div rv-text="1 | boolean"></div>
+<div rv-text="0 | boolean"></div>
+<div rv-text="true | boolean"></div>
+<div rv-text="false | boolean"></div>
+</template>
+</rv-example-tabs>
+                </section>
+                <section class="my-5" id="is-array-formatter">
+                  <h4>isArray</h4><p>Checks if value is an array</p>
+<rv-example-tabs class="pt-3" handle="is-array-formatter">
+<template type="single-html-file">
+<div rv-text="[] | isArray"></div>
+<div rv-text="{} | isArray"></div>
+<div rv-text="'abc' | isArray"></div>
+<div rv-text="true | isArray"></div>
+<div rv-text="1 | isArray"></div>
+<div rv-text="0 | isArray"></div>
+<div rv-text="undefined | isArray"></div>
+</template>
+</rv-example-tabs>
+                </section>
+                <section class="my-5" id="is-boolean-formatter">
+                  <h4>isBoolean</h4><p>Checks if value is a boolean</p>
+<rv-example-tabs class="pt-3" handle="is-boolean-formatter">
+<template type="single-html-file">
+<div rv-text="[] | isBoolean"></div>
+<div rv-text="{} | isBoolean"></div>
+<div rv-text="'abc' | isBoolean"></div>
+<div rv-text="true | isBoolean"></div>
+<div rv-text="1 | isBoolean"></div>
+<div rv-text="0 | isBoolean"></div>
+<div rv-text="undefined | isBoolean"></div>
+</template>
+</rv-example-tabs>
+                </section>
+                <section class="my-5" id="is-defined-formatter">
+                  <h4>isDefined</h4><p>Checks if value is defined</p>
+<rv-example-tabs class="pt-3" handle="is-defined-formatter">
+<template type="single-html-file">
+<div rv-text="[] | isDefined"></div>
+<div rv-text="{} | isDefined"></div>
+<div rv-text="'abc' | isDefined"></div>
+<div rv-text="true | isDefined"></div>
+<div rv-text="1 | isDefined"></div>
+<div rv-text="0 | isDefined"></div>
+<div rv-text="undefined | isDefined"></div>
+</template>
+</rv-example-tabs>
+                </section>
+                <section class="my-5" id="is-number-formatter">
+                  <h4>isNumber</h4><p>Checks if value is a number</p>
+<rv-example-tabs class="pt-3" handle="is-number-formatter">
+<template type="single-html-file">
+<div rv-text="[] | isNumber"></div>
+<div rv-text="{} | isNumber"></div>
+<div rv-text="'abc' | isNumber"></div>
+<div rv-text="true | isNumber"></div>
+<div rv-text="1 | isNumber"></div>
+<div rv-text="0 | isNumber"></div>
+<div rv-text="undefined | isNumber"></div>
+</template>
+</rv-example-tabs>
+                </section>
+                <section class="my-5" id="is-object-formatter">
+                  <h4>isObject</h4><p>Checks if value is a object</p>
+<rv-example-tabs class="pt-3" handle="is-boolean-formatter">
+<template type="single-html-file">
+<div rv-text="[] | isObject"></div>
+<div rv-text="{} | isObject"></div>
+<div rv-text="'abc' | isObject"></div>
+<div rv-text="true | isObject"></div>
+<div rv-text="1 | isObject"></div>
+<div rv-text="0 | isObject"></div>
+<div rv-text="undefined | isObject"></div>
+</template>
+</rv-example-tabs>
+                </section>
+                <section class="my-5" id="is-string-formatter">
+                  <h4>isString</h4><p>Checks if value is a string</p>
+<rv-example-tabs class="pt-3" handle="is-number-formatter">
+<template type="single-html-file">
+<div rv-text="[] | isString"></div>
+<div rv-text="{} | isString"></div>
+<div rv-text="'abc' | isString"></div>
+<div rv-text="true | isString"></div>
+<div rv-text="1 | isString"></div>
+<div rv-text="0 | isString"></div>
+<div rv-text="undefined | isString"></div>
+</template>
+</rv-example-tabs>
+                </section>
+                <section class="my-5" id="is-undefined-formatter">
+                  <h4>isUndefined</h4><p>Checks if value is undefined</p>
+<rv-example-tabs class="pt-3" handle="is-boolean-formatter">
+<template type="single-html-file">
+<div rv-text="[] | isUndefined"></div>
+<div rv-text="{} | isUndefined"></div>
+<div rv-text="'abc' | isUndefined"></div>
+<div rv-text="true | isUndefined"></div>
+<div rv-text="1 | isUndefined"></div>
+<div rv-text="0 | isUndefined"></div>
+<div rv-text="undefined | isUndefined"></div>
+</template>
+</rv-example-tabs>
+                </section>
+                <section class="my-5" id="json-formatter">
+                  <h4>json</h4><p>Converts a string into a JSON string</p>
+<rv-example-tabs class="pt-3" handle="json-formatter">
+<template type="single-html-file">
+<div rv-text="{'SNES': 1, 'N64': 2, 'GameBoy': 3, 'SEGA': 4} | json"></div>
+</template>
+</rv-example-tabs>
+                </section>
+                <section class="my-5" id="parse-formatter">
+                  <h4>parse</h4><p>Parses a json string to object</p>
+<rv-example-tabs class="pt-3" handle="json-formatter">
+<template type="single-html-file">
+<div rv-assign-json-string="{'SNES': 1, 'N64': 2, 'GameBoy': 3, 'SEGA': 4} | json">
+  <div rv-assign-object="jsonString | parse">
+    The key "SNES" has the value of "{object | get 'SNES'}" and the json string is {jsonString}.
+  </div>
+</div>
+</template>
+</rv-example-tabs>
+                </section>
+                <section class="my-5" id="string-formatter">
+                  <h4>string</h4><p>Parses a value to string</p>
+<rv-example-tabs class="pt-3" handle="json-formatter">
+<template type="single-html-file">
+<div rv-text="1000 | string | isString"></div>
+<div rv-text="1000 | isString"></div>
 </template>
 </rv-example-tabs>
                 </section>
               </section>
             </section>
-            <bs4-scrollspy class="d-none d-lg-block side-scrollspy" header-parent-selector="#main-container" headers-start="2" headers-depth="4" offset="200" offset-bottom="80" scroll-offset="80"></bs4-scrollspy>
+            <bs4-scrollspy class="d-none d-lg-block py-3 side-scrollspy scrollbar-primary-on-hover scrollbar-y-auto" header-parent-selector="#main-container" headers-start="2" headers-depth="4" offset="200" offset-bottom="80" scroll-offset="80"></bs4-scrollspy>
           </div>
         </div>
       </div>

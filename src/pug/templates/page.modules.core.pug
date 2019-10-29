@@ -60,7 +60,7 @@ block content
       h3 each-[item]
       include:markdown-it(html) ../../../doc/reference/core/binders/each-[item]/each-[item].md
       section.my-5
-        h4#each-item-example Example
+        h4 Example
         include ../../../doc/examples/each-[item]
 
     section.my-5#nested-each-item-binder
@@ -118,6 +118,45 @@ block content
   section.my-5#formatters
     h2 Formatters
 
+    section.my-5#array-formatters
+      h3 Array formatters
+
+      section.my-5#contains-formatter
+        h4 contains
+        include:markdown-it(html) ../../../doc/reference/core/formatters/array/contains.md
+
+      section.my-5#empty-formatter
+        h4 empty
+        include:markdown-it(html) ../../../doc/reference/core/formatters/array/empty.md
+
+      section.my-5#first-formatter
+        h4 first
+        include:markdown-it(html) ../../../doc/reference/core/formatters/array/first.md
+
+      section.my-5#get-formatter
+        h4 get
+        include:markdown-it(html) ../../../doc/reference/core/formatters/array/get.md
+
+      section.my-5#is-last-formatter
+        h4 is-last
+        include:markdown-it(html) ../../../doc/reference/core/formatters/array/is-last.md
+
+      section.my-5#last-formatter
+        h4 last
+        include:markdown-it(html) ../../../doc/reference/core/formatters/array/last.md
+
+      section.my-5#random-formatter
+        h4 random
+        include:markdown-it(html) ../../../doc/reference/core/formatters/array/random.md
+
+      section.my-5#set-formatter
+        h4 set
+        include:markdown-it(html) ../../../doc/reference/core/formatters/array/set.md
+
+      section.my-5#size-formatter
+        h4 size
+        include:markdown-it(html) ../../../doc/reference/core/formatters/array/size.md
+
     section.my-5#compare-formatters
       h3 Compare formatters
 
@@ -169,7 +208,7 @@ block content
         include:markdown-it(html) ../../../doc/reference/core/formatters/math/divided-by.md
 
       section.my-5#even-formatter
-        h4 even
+        h4 even / uneven
         include:markdown-it(html) ../../../doc/reference/core/formatters/math/even.md
 
       section.my-5#gcd-formatter
@@ -196,19 +235,123 @@ block content
         h4 times
         include:markdown-it(html) ../../../doc/reference/core/formatters/math/times.md
 
-      section.my-5#uneven-formatter
-        h4 uneven
-        include:markdown-it(html) ../../../doc/reference/core/formatters/math/uneven.md
+    section.my-5#special-formatters
+      h3 Special formatters
 
-    section.my-5#property-formatters
-      h3 Property formatters
+      section.my-5#args-formatter
+        h4 args
+        include:markdown-it(html) ../../../doc/reference/core/formatters/special/args.md
 
-      section.my-5#contains-formatter
-        h4 contains
-        include:markdown-it(html) ../../../doc/reference/core/formatters/property/contains.md
+      section.my-5#call-formatter
+        h4 call
+        include:markdown-it(html) ../../../doc/reference/core/formatters/special/call.md
 
+      section.my-5#debug-formatter
+        h4 debug
+        include:markdown-it(html) ../../../doc/reference/core/formatters/special/debug.md
 
+      section.my-5#default-formatter
+        h4 default
+        include:markdown-it(html) ../../../doc/reference/core/formatters/special/default.md
 
-      section.my-5#random-formatter
-        h4 random
-        include:markdown-it(html) ../../../doc/reference/core/formatters/property/random.md
+    section.my-5#string-formatters
+      h3 String formatters
+
+      section.my-5#append-formatter
+        h4 append
+        include:markdown-it(html) ../../../doc/reference/core/formatters/string/append.md
+
+      section.my-5#downcase-formatter
+        h4 downcase
+        include:markdown-it(html) ../../../doc/reference/core/formatters/string/downcase.md
+
+      section.my-5#filled-formatter
+        h4 filled
+        include:markdown-it(html) ../../../doc/reference/core/formatters/string/filled.md
+
+      section.my-5#handleize-formatter
+        h4 handleize
+        include:markdown-it(html) ../../../doc/reference/core/formatters/string/handleize.md
+
+      section.my-5#match-formatter
+        h4 match
+        include:markdown-it(html) ../../../doc/reference/core/formatters/string/match.md
+
+      section.my-5#pluralize-formatter
+        h4 pluralize
+        include:markdown-it(html) ../../../doc/reference/core/formatters/string/pluralize.md
+
+      section.my-5#prepend-formatter
+        h4 prepend
+        include:markdown-it(html) ../../../doc/reference/core/formatters/string/prepend.md
+
+      section.my-5#replace-first-formatter
+        h4 replaceFirst
+        include:markdown-it(html) ../../../doc/reference/core/formatters/string/replace-first.md
+
+      section.my-5#replace-formatter
+        h4 replace
+        include:markdown-it(html) ../../../doc/reference/core/formatters/string/replace.md
+
+      section.my-5#slice-formatter
+        h4 slice
+        include:markdown-it(html) ../../../doc/reference/core/formatters/string/slice.md
+
+      section.my-5#strip-html-formatter
+        h4 strip-html
+        include:markdown-it(html) ../../../doc/reference/core/formatters/string/strip-html.md
+
+      section.my-5#strip-formatter
+        h4 strip
+        include:markdown-it(html) ../../../doc/reference/core/formatters/string/strip.md
+
+      section.my-5#upcase-formatter
+        h4 upcase
+        include:markdown-it(html) ../../../doc/reference/core/formatters/string/upcase.md
+
+    section.my-5#type-formatters
+      h3 Type formatters
+
+      section.my-5#boolean-formatter
+        h4 boolean
+        include:markdown-it(html) ../../../doc/reference/core/formatters/type/boolean.md
+
+      section.my-5#is-array-formatter
+        h4 isArray
+        include:markdown-it(html) ../../../doc/reference/core/formatters/type/is-array.md
+
+      section.my-5#is-boolean-formatter
+        h4 isBoolean
+        include:markdown-it(html) ../../../doc/reference/core/formatters/type/is-boolean.md
+
+      section.my-5#is-defined-formatter
+        h4 isDefined
+        include:markdown-it(html) ../../../doc/reference/core/formatters/type/is-defined.md
+
+      section.my-5#is-number-formatter
+        h4 isNumber
+        include:markdown-it(html) ../../../doc/reference/core/formatters/type/is-number.md
+
+      section.my-5#is-object-formatter
+        h4 isObject
+        include:markdown-it(html) ../../../doc/reference/core/formatters/type/is-object.md
+
+      section.my-5#is-string-formatter
+        h4 isString
+        include:markdown-it(html) ../../../doc/reference/core/formatters/type/is-string.md
+
+      section.my-5#is-undefined-formatter
+        h4 isUndefined
+        include:markdown-it(html) ../../../doc/reference/core/formatters/type/is-undefined.md
+
+      section.my-5#json-formatter
+        h4 json
+        include:markdown-it(html) ../../../doc/reference/core/formatters/type/json.md
+
+      section.my-5#parse-formatter
+        h4 parse
+        include:markdown-it(html) ../../../doc/reference/core/formatters/type/parse.md
+
+      section.my-5#string-formatter
+        h4 string
+        include:markdown-it(html) ../../../doc/reference/core/formatters/type/string.md

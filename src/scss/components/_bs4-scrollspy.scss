@@ -3,8 +3,19 @@ $bs4-scrollspy-dot-size: 5px;
 bs4-scrollspy.side-scrollspy {
   position: fixed;
   right: 0;
-  top: 100px;
+  top: 64px;
   width: 200px;
+  height: calc(100vw - 64px);
+  .nav-item {
+    > ul.list-scrollspy {
+      display: none;
+    }
+    &.active {
+      > ul.list-scrollspy {
+        display: block;
+      }
+    }
+  }
   ul.list-scrollspy-level-2 {
     position: relative;
     &:before {
