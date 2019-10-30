@@ -8,7 +8,9 @@ Available attributes are:
 | header-parent-selector | Selector to search for headers               |
 | scroll-offset          | Scroll offset after click on an element      |
 | scroll-element         | Container element which should be scrolled (default is `window`) |
-  
+
+<rv-bind-content class="pt-3">
+<template>
 <rv-example-tabs class="pt-3" handle="bs4-contents">
 <template type="single-html-file">
 <bs4-contents headers-start="1" headers-depth="6" header-parent-selector="#header-example-wrapper" scroll-offset="80" scroll-element="[handle='bs4-contents'] .tab-content"></bs4-contents>
@@ -53,3 +55,5 @@ Available attributes are:
 <bs4-contents headers-start="1" headers-depth="6" header-parent-selector="#header-example-wrapper" scroll-offset="80" scroll-element="[handle='bs4-contents'] .tab-content"></bs4-contents>
 </template>
 </rv-example-tabs>
+</template>
+</rv-bind-content>

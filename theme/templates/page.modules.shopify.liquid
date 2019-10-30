@@ -31,6 +31,7 @@ JQuery(($: JQueryStatic) =&gt; {
               <section class="my-5">
                 <h3 id="shopify-img">shopify-img</h3><p>Loads an shopify image with the exact size for the current <code>img</code> element without the need to get the right size manually over the <code>img_url</code> filter / formatter. The image source path is set by the <code>srcset</code> and <code>sizes</code> attributes to make them responsive.</p>
 <p><em>You should prefer to set the <code>srcset</code> attribute server-site (with liquid) (but if you want to use the <code>shopify-img</code> binder anyway the <code>src</code> attribute should not be set server-site, as this causes problems for some browsers if the srcset attribute is set afterwards the <code>src</code> attribute) but if your images are generated anyway with riba e.g. within a <code>rv-each-item</code> binder then you can safely use the <code>shopify-img</code> binder.</em></p>
+<p><rv-bind-content class="pt-3"><template>
 <rv-example-tabs handle="shopify-img">
 <template type="single-html-file">
 <img
@@ -41,6 +42,8 @@ JQuery(($: JQueryStatic) =&gt; {
 />
 </template>
 </rv-example-tabs>
+</template></rv-bind-content></p>
+
               </section>
             </section>
             <section class="my-5">

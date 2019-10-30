@@ -63,8 +63,10 @@ $ riba new project</code></pre>
       <h2>Example</h2>
     </div>
     <section class="example col-12 my-3">
-      <rv-example-tabs handle="each-item">
-        <template title="each-item-example.component.html"><pre><code class="language-html">&lt;nav&gt;
+      <rv-bind-content>
+        <template>
+          <rv-example-tabs handle="each-item">
+            <template title="each-item-example.component.html"><pre><code class="language-html">&lt;nav&gt;
   &lt;button rv-on-click=&quot;push&quot;&gt;Push&lt;/button&gt;
   &lt;button rv-on-click=&quot;pop&quot;&gt;Pop&lt;/button&gt;
   &lt;button rv-on-click=&quot;shift&quot;&gt;Shift&lt;/button&gt;
@@ -79,8 +81,8 @@ $ riba new project</code></pre>
   &lt;/div&gt;
 &lt;/section&gt;
 </code></pre>
-        </template>
-        <template title="each-item-example.component.ts"><pre><code class="language-typescript">import { Component } from &#39;@ribajs/core&#39;;
+            </template>
+            <template title="each-item-example.component.ts"><pre><code class="language-typescript">import { Component } from &#39;@ribajs/core&#39;;
 import template from &#39;./each-item-example.component.html&#39;;
 
 export class EachItemExampleComponent extends Component {
@@ -164,8 +166,8 @@ interface IScope {
   reset: EachItemExampleComponent[&#39;reset&#39;],
   sort: EachItemExampleComponent[&#39;sort&#39;],
 }</code></pre>
-        </template>
-        <template title="index.html"><pre><code class="language-html">&lt;!DOCTYPE html&gt;
+            </template>
+            <template title="index.html"><pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
   &lt;head&gt;
     &lt;title&gt;each-star-example&lt;/title&gt;
@@ -179,19 +181,21 @@ interface IScope {
   &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-        </template>
-        <template title="README.md"><h1>each-item-example</h1>
+            </template>
+            <template title="README.md"><h1>each-item-example</h1>
 <pre><code class="language-bash">git clone --recurse-submodules https://github.com/ribajs/riba.git
 cd riba/examples/each-item
 npm install
 npm run start
 </code></pre>
 
+            </template>
+            <template title="Preview">
+              <rv-each-item-example></rv-each-item-example>
+            </template>
+          </rv-example-tabs>
         </template>
-        <template title="Preview">
-          <rv-each-item-example></rv-each-item-example>
-        </template>
-      </rv-example-tabs>
+      </rv-bind-content>
     </section>
   </div>
 </div>

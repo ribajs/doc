@@ -2,6 +2,7 @@ Loads an shopify image with the exact size for the current `img` element without
 
 *You should prefer to set the `srcset` attribute server-site (with liquid) (but if you want to use the `shopify-img` binder anyway the `src` attribute should not be set server-site, as this causes problems for some browsers if the srcset attribute is set afterwards the `src` attribute) but if your images are generated anyway with riba e.g. within a `rv-each-item` binder then you can safely use the `shopify-img` binder.*
 
+<rv-bind-content class="pt-3"><template>
 <rv-example-tabs handle="shopify-img">
 <template type="single-html-file">
 <img
@@ -12,3 +13,4 @@ Loads an shopify image with the exact size for the current `img` element without
 />
 </template>
 </rv-example-tabs>
+</template></rv-bind-content>

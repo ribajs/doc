@@ -1,6 +1,8 @@
 Sets an url with size to the `srcset` attribute
 
-<rv-example-tabs handle="srcset-size">
+<rv-bind-content class="pt-3">
+<template>
+<rv-example-tabs handle="srcset-size" class="pt-3">
 <template type="single-html-file">
 <img
   rv-srcset-468w="'//placehold.it/468x'"
@@ -12,3 +14,5 @@ Sets an url with size to the `srcset` attribute
 />
 </template>
 </rv-example-tabs>
+</template>
+</rv-bind-content>

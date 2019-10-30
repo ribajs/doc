@@ -1,5 +1,7 @@
 Sets property of object, array or value
 
+<rv-bind-content class="pt-3">
+<template>
 <rv-example-tabs class="pt-3" handle="bs4-icon">
 <template type="single-html-file">
 <div
@@ -10,3 +12,5 @@ Sets property of object, array or value
 </div>
 </template>
 </rv-example-tabs>
+</template>
+</rv-bind-content>

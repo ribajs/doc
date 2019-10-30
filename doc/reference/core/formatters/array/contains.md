@@ -1,5 +1,7 @@
 Returns true if an object, array or string contains an object, property or substring.
 
+<rv-bind-content class="pt-3">
+<template>
 <rv-example-tabs class="pt-3" handle="contains-formatter">
 <template type="single-html-file">
 <div rv-class-text-success="'I like my SNES' | contains 'SNES'">String contains SNES</div>
@@ -16,3 +18,5 @@ Returns true if an object, array or string contains an object, property or subst
 <div rv-class-text-success="['SNES', 'N64', 'GameBoy', 'SEGA'] | contains 'PlayStation'">Contains PlayStation</div>
 </template>
 </rv-example-tabs>
+</template>
+</rv-bind-content>

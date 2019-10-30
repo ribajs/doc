@@ -31,6 +31,7 @@ export class ExampleTabsComponent extends TabsComponent {
     super(element);
     // sum is used for examples
     (this.scope as any).sum = this.sum;
+    console.debug('ExampleTabsComponent');
     this.init(ExampleTabsComponent.observedAttributes);
   }
 

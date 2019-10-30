@@ -1,5 +1,7 @@
 Sets a default value if the first value is not set
 
+<rv-bind-content class="pt-3">
+<template>
 <rv-example-tabs class="pt-3" handle="default-formatter">
 <template type="single-html-file">
 <div
@@ -12,3 +14,5 @@ Sets a default value if the first value is not set
 </div>
 </template>
 </rv-example-tabs>
+</template>
+</rv-bind-content>

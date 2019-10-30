@@ -1,5 +1,7 @@
 Checks if value is a number
 
+<rv-bind-content class="pt-3">
+<template>
 <rv-example-tabs class="pt-3" handle="is-number-formatter">
 <template type="single-html-file">
 <div rv-text="[] | isNumber"></div>
@@ -11,3 +13,5 @@ Checks if value is a number
 <div rv-text="undefined | isNumber"></div>
 </template>
 </rv-example-tabs>
+</template>
+</rv-bind-content>
