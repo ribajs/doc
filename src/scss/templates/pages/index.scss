@@ -1,8 +1,15 @@
 .content {
   table {
     @extend .table;
-    @extend .table-sm;
+    @extend .table-borderless;
+    // @extend .table-sm;
     // @extend .table-dark;
     @extend .table-hover;
+    thead {
+      th {
+        background-color: $primary;
+        color: $white;
+      }
+    }
   }
 }

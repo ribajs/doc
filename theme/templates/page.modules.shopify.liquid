@@ -1,15 +1,4 @@
-
-<div class="container py-5 page {{template|handleize}}" id="page-content-{{page.handle}}">
-  <div class="row pt-5">
-    <div class="col-12">
-      <div class="row">
-        <div class="col-12">
-          <h1 class="page-title">{{ page.title }}
-          </h1>
-          <div class="rte">{{ page.content }}</div>
-          <div class="content">
-            <bs4-contents class="d-block d-lg-none top-contents" header-parent-selector="#main-container" headers-start="2" headers-depth="4" scroll-offset="80"></bs4-contents>
-            <section class="my-5"><h1>Shopify Module</h1>
+<div class="container py-5 page {{template|handleize}}" id="page-content-{{page.handle}}"><div class="row pt-5"><div class="col-12"><div class="row"><div class="col-12"><h1 class="page-title">{{ page.title }}</h1><div class="rte">{{ page.content }}</div><div class="content"><bs4-contents class="d-block d-lg-none top-contents" header-parent-selector="#main-container" headers-start="2" headers-depth="4" scroll-offset="80"></bs4-contents><section class="my-5"><h1>Shopify Module</h1>
 <h2>Install</h2>
 <pre><code class="language-bash">npm install --save-dev @ribajs/shopify
 </code></pre>
@@ -24,12 +13,7 @@ JQuery(($: JQueryStatic) =&gt; {
   riba.bind(document.body, model);
 });
 </code></pre>
-
-            </section>
-            <section class="my-5">
-              <h2 id="binders">Binders</h2>
-              <section class="my-5">
-                <h3 id="shopify-img">shopify-img</h3><p>Loads an shopify image with the exact size for the current <code>img</code> element without the need to get the right size manually over the <code>img_url</code> filter / formatter. The image source path is set by the <code>srcset</code> and <code>sizes</code> attributes to make them responsive.</p>
+</section><section class="my-5"><h2 id="binders">Binders</h2><section class="my-5"><h3 id="shopify-img">shopify-img</h3><p>Loads an shopify image with the exact size for the current <code>img</code> element without the need to get the right size manually over the <code>img_url</code> filter / formatter. The image source path is set by the <code>srcset</code> and <code>sizes</code> attributes to make them responsive.</p>
 <p><em>You should prefer to set the <code>srcset</code> attribute server-site (with liquid) (but if you want to use the <code>shopify-img</code> binder anyway the <code>src</code> attribute should not be set server-site, as this causes problems for some browsers if the srcset attribute is set afterwards the <code>src</code> attribute) but if your images are generated anyway with riba e.g. within a <code>rv-each-item</code> binder then you can safely use the <code>shopify-img</code> binder.</em></p>
 <p><rv-bind-content class="pt-3"><template>
 <rv-example-tabs handle="shopify-img">
@@ -43,13 +27,7 @@ JQuery(($: JQueryStatic) =&gt; {
 </template>
 </rv-example-tabs>
 </template></rv-bind-content></p>
-
-              </section>
-            </section>
-            <section class="my-5">
-              <h2 id="components">Components</h2>
-              <section class="my-5">
-                <h3 id="shopify-linklist">shopify-linklist</h3><p>Component to render a shopify linklist</p>
+</section></section><section class="my-5"><h2 id="components">Components</h2><section class="my-5"><h3 id="shopify-linklist">shopify-linklist</h3><p>Component to render a shopify linklist</p>
 <h4>Attributes</h4>
 <table>
 <thead>
@@ -136,13 +114,7 @@ JQuery(($: JQueryStatic) =&gt; {
 <h4>Example</h4>
 <pre><code class="language-html">{% raw %}&lt;shopify-linklist linklist='{% include 'utils-json-linklist', linklist: linklists.main-menu %}'&gt;&lt;/shopify-linklist&gt;{% endraw %}
 </code></pre>
-
-              </section>
-            </section>
-            <section class="my-5">
-              <h2 id="snippets">Snippets</h2>
-              <section class="my-5">
-                <h3 id="utils-json-linklists">utils-json-linklists.liquid</h3><p>Copy the snippets</p>
+</section></section><section class="my-5"><h2 id="snippets">Snippets</h2><section class="my-5"><h3 id="utils-json-linklists">utils-json-linklists.liquid</h3><p>Copy the snippets</p>
 <ul>
 <li><code>utils-json-link.liquid</code>,</li>
 <li><code>utils-json-links.liquid</code>,</li>
@@ -161,21 +133,9 @@ window.model = {
 };
 &lt;/script&gt;{% endraw %}
 </code></pre>
-
-              </section>
-              <section class="my-5">
-                <h3 id="utils-json-linklist">utils-json-linklist.liquid</h3><p>If you only want a specific linklist you can use <code>utils-json-linklist.liquid</code>:</p>
+</section><section class="my-5"><h3 id="utils-json-linklist">utils-json-linklist.liquid</h3><p>If you only want a specific linklist you can use <code>utils-json-linklist.liquid</code>:</p>
 <pre><code class="language-html">{% raw %}&lt;script&gt;
 var mainMenu = {% include 'utils-json-linklist', linklist: linklists.main-menu %};
 &lt;/script&gt;{% endraw %}
 </code></pre>
-
-              </section>
-            </section>
-            <bs4-scrollspy class="d-none d-lg-block py-3 side-scrollspy scrollbar-primary-on-hover scrollbar-y-auto" header-parent-selector="#main-container" headers-start="2" headers-depth="4" offset="200" offset-bottom="80" scroll-offset="80"></bs4-scrollspy>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+</section></section><bs4-scrollspy class="d-none d-lg-block py-3 side-scrollspy scrollbar-primary-on-hover scrollbar-y-auto" header-parent-selector="#main-container" headers-start="2" headers-depth="4" offset="200" offset-bottom="80" scroll-offset="80"></bs4-scrollspy></div></div></div></div></div></div>

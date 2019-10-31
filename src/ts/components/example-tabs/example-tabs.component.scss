@@ -1,5 +1,6 @@
 rv-example-tabs {
   display: block;
+  overflow: hidden;
   > div {
     > .tab-content {
       max-height: 500px;

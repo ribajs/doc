@@ -1,6 +1,7 @@
 Loads and displays an svg icon.
 
-Available attributes are:
+#### Attributes
+
 | Name      | Description                              |
 | --------- |:-----------------------------------------|
 | size      | Sets the width and height of the icon    |
@@ -10,6 +11,12 @@ Available attributes are:
 | color     | Color of the icon                        |
 | direction | Direction of the icon (default is `top`) |
 
-<rv-bind-content class="pt-3"><template><rv-example-tabs class="pt-3" handle="bs4-icon">
-<template type="single-html-file"><bs4-icon color="danger" rv-src="'{{ 'icon_close.svg' | asset_url }}'" size="32"></bs4-icon></template>
-</rv-example-tabs></template></rv-bind-content>
+<rv-bind-content class="pt-3">
+  <template>
+    <rv-example-tabs class="pt-3" handle="bs4-icon">
+      <template type="single-html-file">
+        <bs4-icon color="danger" rv-src="'{{ 'icon_close.svg' | asset_url }}'" size="32"></bs4-icon>
+      </template>
+    </rv-example-tabs>
+  </template>
+</rv-bind-content>

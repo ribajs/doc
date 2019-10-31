@@ -31,7 +31,6 @@ export class ExampleTabsComponent extends TabsComponent {
     super(element);
     // sum is used for examples
     (this.scope as any).sum = this.sum;
-    console.debug('ExampleTabsComponent');
     this.init(ExampleTabsComponent.observedAttributes);
   }
 
@@ -61,21 +60,53 @@ export class ExampleTabsComponent extends TabsComponent {
     Prism.highlightAll();
   }
 
+  protected countOfFirstWhitespaces(str: string) {
+    const match = str.match(/^([\s]+)/s);
+    return match ? match[0].length : 0;
+  }
+
+  /**
+   * Removes the first indents of a source string based on the first indents until the first character was found
+   * @param source
+   */
+  protected removeIndentsOfSource(source: string) {
+    const lines = source.split(/\r?\n/);
+    let firstLineIndents = this.countOfFirstWhitespaces(lines[0]);
+    // If the first lines contains only whitespaces
+    while (firstLineIndents === lines[0].length) {
+      lines.shift();
+      firstLineIndents = this.countOfFirstWhitespaces(lines[0]);
+    }
+
+    if (firstLineIndents !== 0) {
+      for (let i = 0; i < lines.length; i++) {
+        const currentIndents = this.countOfFirstWhitespaces(lines[i]);
+        if (currentIndents >= firstLineIndents) {
+          console.error('currentIndents', currentIndents, '"' + lines[i] + '"');
+          lines[i] = lines[i].substring(firstLineIndents);
+        }
+      }
+    }
+
+    return lines.join('\n').trim();
+  }
+
   protected addTabsByTemplate() {
     const templates = this.el.querySelectorAll<HTMLTemplateElement>('template');
     templates.forEach((tpl) => {
       const type = tpl.getAttribute('type');
       if (type === 'single-html-file') {
         const sourceTemplate = document.createElement('template');
+        const sourceCode = this.removeIndentsOfSource(tpl.innerHTML);
         sourceTemplate.setAttribute('title', 'Source');
         sourceTemplate.setAttribute('type', 'source');
-        sourceTemplate.innerHTML = `<pre class="language-html"><code class="language-html">${Utils.escapeHtml(tpl.innerHTML.trim())}</code></pre>`;
+        sourceTemplate.innerHTML = `<pre class="language-html"><code class="language-html">${Utils.escapeHtml(sourceCode)}</code></pre>`;
         this.addTabByTemplate(sourceTemplate);
 
         const previewTemplate = document.createElement('template');
         previewTemplate.setAttribute('title', 'Preview');
         previewTemplate.setAttribute('type', 'preview');
-        previewTemplate.innerHTML = tpl.innerHTML.trim();
+        previewTemplate.innerHTML = sourceCode;
         this.addTabByTemplate(previewTemplate);
 
         const resultTemplate = document.createElement('template');
