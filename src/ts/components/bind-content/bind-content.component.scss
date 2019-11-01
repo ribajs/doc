@@ -11,7 +11,8 @@ rv-bind-content {
     background-color: $code-background-color;
     position: absolute;
     width: 100%;
-    height: 100%;
+    // height: 100%;
+    border-radius: $code-border-radius;
 
     .icon {
       background-image: url(arrow_triangle.svg);
@@ -23,7 +24,7 @@ rv-bind-content {
       margin-right: auto;
       background-size: contain;
       position: relative;
-      top: 35px;
+      top: 25px;
       // white color
       filter: invert(100%);
       // arrow to right

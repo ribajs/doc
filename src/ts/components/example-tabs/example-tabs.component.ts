@@ -82,7 +82,6 @@ export class ExampleTabsComponent extends TabsComponent {
       for (let i = 0; i < lines.length; i++) {
         const currentIndents = this.countOfFirstWhitespaces(lines[i]);
         if (currentIndents >= firstLineIndents) {
-          console.error('currentIndents', currentIndents, '"' + lines[i] + '"');
           lines[i] = lines[i].substring(firstLineIndents);
         }
       }

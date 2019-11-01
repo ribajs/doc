@@ -75,7 +75,7 @@ code[class*="language-"] {
   color: $code-text-color;
   background: none;
   text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-  font-family: $prism-font-family;
+  font-family: $code-font-family;
   font-size: 1em;
   text-align: left;
   white-space: pre;
@@ -96,7 +96,7 @@ pre {
   color: $code-text-color;
   background: none;
   text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-  font-family: $prism-font-family;
+  font-family: $code-font-family;
   font-size: 1em;
   text-align: left;
   white-space: pre;
@@ -114,7 +114,7 @@ pre {
   padding: 1em;
   margin: .5em 0;
   overflow: auto;
-  border-radius: 0.3em;
+  border-radius: $code-border-radius;
   @extend .scrollbar-primary-on-hover;
 }
 
@@ -128,7 +128,7 @@ pre {
 
 :not(pre) > code[class*="language-"] {
   padding: .1em;
-  border-radius: .3em;
+  border-radius: $code-border-radius;
   white-space: normal;
 }
 

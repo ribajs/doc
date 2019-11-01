@@ -282,9 +282,14 @@ toggleButtonEvents.on('toggle', () =&gt; {
   <template>
     <rv-example-tabs handle="bs4-toggle-button-component" class="pt-3">
       <template type="single-html-file">
-        <bs4-toggle-button target-id="main-sidebar"  >
+        <bs4-toggle-button target-id="main-sidebar" class="p-3">
           <button rv-on-click="toggle" class="btn btn-warning">
-            Click to toggle the main sidebar
+            Click to toggle the main sidebar <span rv-show="isClosed">(Closed)</span><span rv-hide="isClosed">(Open)</span>
+          </button>
+        </bs4-toggle-button>
+        <bs4-toggle-button target-id="example-sidebar" class="p-3">
+          <button rv-on-click="toggle" class="btn btn-info">
+            Click to toggle the sidebar in the example below <span rv-show="isClosed">(Closed)</span><span rv-hide="isClosed">(Open)</span>
           </button>
         </bs4-toggle-button>
       </template>

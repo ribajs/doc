@@ -1,6 +1,6 @@
 {
   "name": "@ribajs/doc",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Shopify theme for the Riba.js Documentation",
   "main": "src/ts/main.ts",
   "typings": "src/ts/types",
@@ -89,7 +89,7 @@
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-typescript": "^7.6.0",
     "@types/prismjs": "^1.16.0",
-    "autoprefixer": "^9.7.0",
+    "autoprefixer": "^9.7.1",
     "babel-loader": "^8.0.6",
     "babel-plugin-array-includes": "^2.0.3",
     "babelify": "^10.0.0",
@@ -133,19 +133,19 @@
     "vinyl-source-stream": "^2.0.0",
     "watchify": "^3.11.1",
     "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.9",
+    "webpack-cli": "^3.3.10",
     "webpack-stream": "^5.2.1",
     "yargs": "^14.2.0"
   },
   "dependencies": {
     "@babel/runtime-corejs2": "^7.6.3",
-    "@ribajs/bs4": "^1.3.0",
-    "@ribajs/core": "^1.3.0",
-    "@ribajs/i18n": "^1.3.0",
-    "@ribajs/iconset": "^1.3.0",
-    "@ribajs/router": "^1.3.0",
-    "@ribajs/shopify": "^1.3.0",
-    "@ribajs/shopify-tda": "^1.3.0",
+    "@ribajs/bs4": "^1.4.0",
+    "@ribajs/core": "^1.4.0",
+    "@ribajs/i18n": "^1.4.0",
+    "@ribajs/iconset": "^1.4.0",
+    "@ribajs/router": "^1.4.0",
+    "@ribajs/shopify": "^1.4.0",
+    "@ribajs/shopify-tda": "^1.4.0",
     "@types/debug": "^4.1.5",
     "@types/jquery": "^3.3.31",
     "bootstrap": "^4.3.1",
@@ -155,6 +155,6 @@
     "popper.js": "^1.16.0",
     "ribajs": "github:ribajs/riba#master",
     "rxjs": "^6.5.3",
-    "three": "^0.109.0"
+    "three": "^0.110.0"
   }
 }
