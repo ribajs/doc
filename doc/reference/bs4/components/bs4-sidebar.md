@@ -4,15 +4,16 @@ You can use the `bs4-toggle-button` component to open or close the sidebar at an
 
 #### Attributes
 
-| Name                             | Required | Default |  Description                                                           |
-| -------------------------------- |:--------:|:-------:| ---------------------------------------------------------------------- |
+| Name                             | Required | Default |  Description                                                               |
+| -------------------------------- |:--------:|:-------:| -------------------------------------------------------------------------- |
 | id                               | Yes      |         | The 'id' is required to react to events of the `bs4-toggle-button`, the `target-id` attribute of the `bs4-toggle-button` must be identical to this `id` |
-| container-selector               | No       |         | Selector string to get the container element from DOM                  |
-| position                         | No       | "left"  | The sidebar can be positioned `right` or `left`                        |
-| width                            | No       | 250     | The width of the sidebar                                               |
-| auto-show-in-wider-than          | No       | 1199    | Auto show the sidebar if the viewport width is wider than this value   |
-| auto-hide-on-slimmer-than        | No       | 1200    | Auto hide the sidebar if the viewport width is slimmer than this value |
-| force-hide-on-location-pathnames | No       | []      | You can force to hide the sidebar on corresponding URL pathames e.g. you can hide the sidebar on home with `['/']`. |
+| container-selector               | No       |         | Selector string to get the container element from DOM                      |
+| position                         | No       | "left"  | The sidebar can be positioned `'right'` or `'left'`                        |
+| width                            | No       | 250     | The width of the sidebar                                                   |
+| auto-show-in-wider-than          | No       | 1199    | Auto show the sidebar if the viewport width is wider than this value       |
+| auto-hide-on-slimmer-than        | No       | 1200    | Auto hide the sidebar if the viewport width is slimmer than this value     |
+| force-hide-on-location-pathnames | No       | []      | You can force to hide the sidebar on corresponding URL pathames e.g. you can hide the sidebar on home with `['/']` |
+| force-show-on-location-pathnames | No       | []      | Like `force-hide-on-location-pathnames`, but to force to open the sidebar  |
 | overlay-on-slimmer-than          | No       | 1200    | If the viewport width is wider than this value the sidebar adds a margin to the container (detected with the `container-selector`) to reduce its content, if the viewport width is slimmer than this value the sidebar opens over the content |
 
 #### Template methods
@@ -25,9 +26,9 @@ You can use the `bs4-toggle-button` component to open or close the sidebar at an
 
 #### Additional template properties
 
-| Name                             |  Description                                                                                                    |
-| -------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| state                            | The current state of the sidebar, can be 'hidden', 'side-left', 'side-right', 'overlay-left' or 'overlay-right' |
+| Name                             |  Description                                                                                                              |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| state                            | The current state of the sidebar, can be `'hidden'`, `'side-left'`, `'side-right'`, `'overlay-left'` or `'overlay-right'` |
 
 <rv-bind-content class="pt-3">
   <template>

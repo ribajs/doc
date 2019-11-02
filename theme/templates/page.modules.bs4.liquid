@@ -4,12 +4,12 @@
 </code></pre>
 <h2>Regist</h2>
 <p>To regist the module include <code>import bs4Module from '@ribajs/bs4';</code> in your <code>main.ts</code> file and regist the module with <code>riba.module.regist(bs4Module);</code>:</p>
-<pre><code class="language-ts">import { Riba, JQuery } from '@ribajs/core';
+<pre><code class="language-ts">import { Riba, Utils } from '@ribajs/core';
 import bs4Module from '@ribajs/bs4';
 const riba = new Riba();
 const model = {};
 riba.module.regist(bs4Module);
-JQuery(($: JQueryStatic) =&gt; {
+Utils.domIsReady(() =&gt; {
   riba.bind(document.body, model);
 });
 </code></pre>
@@ -291,6 +291,7 @@ toggleButtonEvents.on('toggle', () =&gt; {
           <button rv-on-click="toggle" class="btn btn-info">
             Click to toggle the sidebar in the example below <span rv-show="isClosed">(Closed)</span><span rv-hide="isClosed">(Open)</span>
           </button>
+          <p class="m-3"><em>Before you click on this button, make sure that the preview of the sidebar component example is open.</em></p>
         </bs4-toggle-button>
       </template>
     </rv-example-tabs>
@@ -325,7 +326,7 @@ toggleButtonEvents.on('toggle', () =&gt; {
 <td>position</td>
 <td style="text-align:center">No</td>
 <td style="text-align:center">&quot;left&quot;</td>
-<td>The sidebar can be positioned <code>right</code> or <code>left</code></td>
+<td>The sidebar can be positioned <code>'right'</code> or <code>'left'</code></td>
 </tr>
 <tr>
 <td>width</td>
@@ -349,7 +350,13 @@ toggleButtonEvents.on('toggle', () =&gt; {
 <td>force-hide-on-location-pathnames</td>
 <td style="text-align:center">No</td>
 <td style="text-align:center">[]</td>
-<td>You can force to hide the sidebar on corresponding URL pathames e.g. you can hide the sidebar on home with <code>['/']</code>.</td>
+<td>You can force to hide the sidebar on corresponding URL pathames e.g. you can hide the sidebar on home with <code>['/']</code></td>
+</tr>
+<tr>
+<td>force-show-on-location-pathnames</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">[]</td>
+<td>Like <code>force-hide-on-location-pathnames</code>, but to force to open the sidebar</td>
 </tr>
 <tr>
 <td>overlay-on-slimmer-than</td>
@@ -397,7 +404,7 @@ toggleButtonEvents.on('toggle', () =&gt; {
 <tbody>
 <tr>
 <td>state</td>
-<td>The current state of the sidebar, can be 'hidden', 'side-left', 'side-right', 'overlay-left' or 'overlay-right'</td>
+<td>The current state of the sidebar, can be <code>'hidden'</code>, <code>'side-left'</code>, <code>'side-right'</code>, <code>'overlay-left'</code> or <code>'overlay-right'</code></td>
 </tr>
 </tbody>
 </table>

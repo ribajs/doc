@@ -51,6 +51,7 @@ toggleButtonEvents.trigger('toggled', 'hidden');
           <button rv-on-click="toggle" class="btn btn-info">
             Click to toggle the sidebar in the example below <span rv-show="isClosed">(Closed)</span><span rv-hide="isClosed">(Open)</span>
           </button>
+          <p class="m-3"><em>Before you click on this button, make sure that the preview of the sidebar component example is open.</em></p>
         </bs4-toggle-button>
       </template>
     </rv-example-tabs>

@@ -4,11 +4,11 @@
 </code></pre>
 <h2>Regist</h2>
 <p>To regist the module include <code>import coreModule from '@ribajs/core';</code> in your <code>main.ts</code> file and regist the module with <code>riba.module.regist(coreModule);</code>:</p>
-<pre><code class="language-ts">import { Riba, JQuery, coreModule } from '@ribajs/core';
+<pre><code class="language-ts">import { Riba, Utils, coreModule } from '@ribajs/core';
 const riba = new Riba();
 const model = {};
 riba.module.regist(coreModule);
-JQuery(($: JQueryStatic) =&gt; {
+Utils.domIsReady(() =&gt; {
   riba.bind(document.body, model);
 });
 </code></pre>

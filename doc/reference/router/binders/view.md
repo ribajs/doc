@@ -1,4 +1,4 @@
-This binder is the heart of the router module, If you want to develop a **single-page application** then the main content should use this binder to dynamically exchange its content. This page also uses this binder to dynamically load its content. Your application can also have multiple view binders, only the ids need to be different. In the example below we also use an additional view binder to demonstrate the functionality:
+This binder is the heart of the router module. If you want to develop a **single-page application** then the main content should use this binder to dynamically exchange its content. This binder is what the `barba-wrapper` and `barba-container` are in barba.js (see [barba install documentation](https://barba.js.org/v1/installation.html)). As a bigger example this site also uses this binder to dynamically load its content. Your application can also have multiple view binders, only the ids need to be different. In the example below we also use an additional view binder to demonstrate the functionality:
 
 <rv-bind-content class="pt-3">
   <template>

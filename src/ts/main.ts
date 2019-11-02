@@ -1,8 +1,8 @@
 import {
   Riba,
-  JQuery,
   coreModule,
   EventDispatcher,
+  Utils,
 } from '@ribajs/core';
 import shopifyModule from '@ribajs/shopify';
 import routerModule from '@ribajs/router';
@@ -54,6 +54,6 @@ export class Main {
   }
 }
 
-JQuery(($: JQueryStatic) => {
+Utils.domIsReady(() => {
   const main = new Main();
 });
