@@ -1,15 +1,4 @@
-
-<div class="container py-5 page {{template|handleize}}" id="page-content-{{page.handle}}">
-  <div class="row pt-5">
-    <div class="col-12">
-      <div class="row">
-        <div class="col-12">
-          <h1 class="page-title">{{ page.title }}
-          </h1>
-          <div class="rte">{{ page.content }}</div>
-          <div class="content">
-            <bs4-contents class="d-block d-lg-none top-contents" header-parent-selector="#main-container" headers-start="2" headers-depth="4" scroll-offset="80"></bs4-contents>
-            <section class="my-5"><h1>Router Module</h1>
+<div class="container py-5 page {{template|handleize}}" id="page-content-{{page.handle}}"><div class="row pt-5"><div class="col-12"><div class="row"><div class="col-12"><h1 class="page-title">{{ page.title }}</h1><div class="rte">{{ page.content }}</div><div class="content"><bs4-contents class="d-block d-lg-none top-contents" header-parent-selector="#main-container" headers-start="2" headers-depth="4" scroll-offset="80"></bs4-contents><section class="my-5"><h1>Router Module</h1>
 <p>The router module is based on <a href="https://barba.js.org/">barba.js v1</a> but was converted to typescript and adapted to a few to our needs for this module. To understand how this module works, we still recommend to read the documentation how barba.js works.</p>
 <h2>Install</h2>
 <pre><code class="language-bash">npm install --save-dev @ribajs/router
@@ -27,13 +16,7 @@ Utils.domIsReady(() =&gt; {
 </code></pre>
 <h2>Future</h2>
 <p>As soon as we have time we will check if barba v2 is suitable for our module and will maybe change it to use barba v2.</p>
-
-            </section>
-            <section class="my-5" id="binders">
-              <h2>Binders</h2>
-              <section class="my-5" id="route-binder">
-                <h3>route</h3>
-                <section><p>Loads a link and injects the content insite the view container, in addition, the link is pre-loaded on a mouse over.
+</section><section class="my-5" id="binders"><h2>Binders</h2><section class="my-5" id="route-binder"><h3>route</h3><section><p>Loads a link and injects the content insite the view container, in addition, the link is pre-loaded on a mouse over.
 This binder is like a normal link in barba.js but allows a bit more control.</p>
 <rv-bind-content class="pt-3">
   <template>
@@ -83,12 +66,7 @@ This binder is like a normal link in barba.js but allows a bit more control.</p>
     </rv-example-tabs>
   </template>
 </rv-bind-content>
-
-                </section>
-              </section>
-              <section class="my-5" id="view-binder">
-                <h3>view</h3>
-                <section><p>This binder is the heart of the router module. If you want to develop a <strong>single-page application</strong> then the main content should use this binder to dynamically exchange its content. This binder is what the <code>barba-wrapper</code> and <code>barba-container</code> are in barba.js (see <a href="https://barba.js.org/v1/installation.html">barba install documentation</a>). As a bigger example this site also uses this binder to dynamically load its content. Your application can also have multiple view binders, only the ids need to be different. In the example below we also use an additional view binder to demonstrate the functionality:</p>
+</section></section><section class="my-5" id="view-binder"><h3>view</h3><section><p>This binder is the heart of the router module. If you want to develop a <strong>single-page application</strong> then the main content should use this binder to dynamically exchange its content. This binder is what the <code>barba-wrapper</code> and <code>barba-container</code> are in barba.js (see <a href="https://barba.js.org/v1/installation.html">barba install documentation</a>). As a bigger example this site also uses this binder to dynamically load its content. Your application can also have multiple view binders, only the ids need to be different. In the example below we also use an additional view binder to demonstrate the functionality:</p>
 <rv-bind-content class="pt-3">
   <template>
     <rv-example-tabs class="pt-3" handle="view-binder">
@@ -108,12 +86,7 @@ This binder is like a normal link in barba.js but allows a bit more control.</p>
     </rv-example-tabs>
   </template>
 </rv-bind-content>
-
-                </section>
-              </section>
-              <section class="my-5" id="view-static-binder">
-                <h3>view-static</h3>
-                <section><p>Loads the content of the url with pjax and replaces this with the inner html of the element</p>
+</section></section><section class="my-5" id="view-static-binder"><h3>view-static</h3><section><p>Loads the content of the url with pjax and replaces this with the inner html of the element</p>
 <rv-bind-content class="pt-3">
   <template>
     <rv-example-tabs class="pt-3" handle="view-static-binder">
@@ -123,14 +96,4 @@ This binder is like a normal link in barba.js but allows a bit more control.</p>
     </rv-example-tabs>
   </template>
 </rv-bind-content>
-
-                </section>
-              </section>
-            </section>
-            <bs4-scrollspy class="d-none d-lg-block py-3 side-scrollspy scrollbar-primary-on-hover scrollbar-y-auto" header-parent-selector="#main-container" headers-start="2" headers-depth="4" offset="200" offset-bottom="80" scroll-offset="80"></bs4-scrollspy>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+</section></section></section><bs4-scrollspy class="d-none d-lg-block py-3 side-scrollspy scrollbar-primary-on-hover scrollbar-y-auto" header-parent-selector="#main-container" headers-start="2" headers-depth="4" offset="200" offset-bottom="80" scroll-offset="80"></bs4-scrollspy></div></div></div></div></div></div>

@@ -1,6 +1,5 @@
 import {
   Component,
-  Debug,
   Utils,
 } from '@ribajs/core';
 
@@ -28,8 +27,6 @@ export class IconPreviewComponent extends Component {
     return ['asset-path'];
   }
 
-  protected debug = Debug('component:' + IconPreviewComponent.tagName);
-
   protected scope: IScope = {
     assetPath: '',
     name: '',
@@ -45,7 +42,6 @@ export class IconPreviewComponent extends Component {
 
   constructor(element?: HTMLElement) {
     super(element);
-    this.debug('constructor', this);
     const urlParams = new URLSearchParams(window.location.search);
     const name = urlParams.get('name');
     if (!name) {
@@ -60,10 +56,6 @@ export class IconPreviewComponent extends Component {
     .then((view) => {
       return view;
     });
-  }
-
-  protected async beforeBind() {
-    this.debug('beforeBind');
   }
 
   protected async afterBind() {
@@ -92,10 +84,8 @@ export class IconPreviewComponent extends Component {
   protected template() {
     // Only set the component template if there no childs already
     if (this.el.hasChildNodes()) {
-      this.debug('Do not use template, because element has child nodes');
       return null;
     } else {
-      this.debug('Use template', template);
       return template;
     }
   }

@@ -1,6 +1,5 @@
 import {
   Component,
-  Debug,
 } from '@ribajs/core';
 
 import template from './bind-content.component.html';
@@ -13,19 +12,15 @@ export class BindContentComponent extends Component {
 
   protected content = '';
 
-  protected debug = Debug('component:' + BindContentComponent.tagName);
-
   protected scope = {};
 
   constructor(element?: HTMLElement) {
     super(element);
-    this.debug('constructor', this);
     this.el.addEventListener('click', this.bindContent);
     this.init([]);
   }
 
   public bindContent() {
-    this.debug('bindContent', this.content);
     this.el.classList.add('bound');
     this.el.innerHTML = this.content;
     this.el.removeEventListener('click', this.bindContent);
