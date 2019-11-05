@@ -12,7 +12,7 @@ interface IScope {
   name: string;
   src: string;
   sizes: number[];
-  colors: string[];
+  colors: Array<string | string[]>;
   directions: string[];
   example: string;
 }
@@ -34,7 +34,7 @@ export class IconPreviewComponent extends Component {
     sizes: [96, 88, 80, 72, 64, 56, 48, 40, 32, 24, 16, 8],
     colors: [
       'black', 'white', 'primary', 'success', 'info', 'warning', 'danger',
-      'stroke-black', 'stroke-white', 'stroke-primary', 'stroke-success', 'stroke-info', 'stroke-warning', 'stroke-danger',
+      ['stroke-black', 'white'], ['stroke-white', 'black'], ['stroke-primary', 'white'], ['stroke-success', 'white'], ['stroke-info', 'white'], ['stroke-warning', 'white'], ['stroke-danger', 'white'],
     ],
     directions: ['left', 'left-up', 'up', 'up-right', 'right', 'right-down', 'down', 'down-left'],
     example: 'string',

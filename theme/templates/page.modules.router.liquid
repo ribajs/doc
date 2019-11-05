@@ -28,7 +28,7 @@ This binder is like a normal link in barba.js but allows a bit more control.</p>
     </rv-example-tabs>
   </template>
 </rv-bind-content>
-<p>Instead of the URL you can also pass some options to the binder as a object by keypath or as ja json string</p>
+<p>Instead of the URL you can also pass some options to the binder as a object (by keypath) or as a json string</p>
 <table>
 <thead>
 <tr>
@@ -46,7 +46,7 @@ This binder is like a normal link in barba.js but allows a bit more control.</p>
 <tr>
 <td>viewId</td>
 <td><code>'main'</code></td>
-<td style="text-align:left">in which the content should be replaced</td>
+<td style="text-align:left">The id of the view in which the content should be replaced</td>
 </tr>
 <tr>
 <td>removeAfterActivation</td>
@@ -66,7 +66,92 @@ This binder is like a normal link in barba.js but allows a bit more control.</p>
     </rv-example-tabs>
   </template>
 </rv-bind-content>
-</section></section><section class="my-5" id="view-binder"><h3>view</h3><section><p>This binder is the heart of the router module. If you want to develop a <strong>single-page application</strong> then the main content should use this binder to dynamically exchange its content. This binder is what the <code>barba-wrapper</code> and <code>barba-container</code> are in barba.js (see <a href="https://barba.js.org/v1/installation.html">barba install documentation</a>). As a bigger example this site also uses this binder to dynamically load its content. Your application can also have multiple view binders, only the ids need to be different. In the example below we also use an additional view binder to demonstrate the functionality:</p>
+</section></section><section class="my-5" id="view-binder"><h3>view</h3><section><p>This binder is the heart of the router module. If you want to develop a <strong>single-page application</strong> then the main content should use this binder to dynamically exchange its content. This binder is what the <code>barba-wrapper</code> and <code>barba-container</code> are in barba.js (see <a href="https://barba.js.org/v1/installation.html">barba install documentation</a>). As a bigger example this site also uses this binder to dynamically load its content. Your application can also have multiple view binders, only the ids need to be different. In the example below we also use an additional view binder (next to our main view binder) to demonstrate the functionality.</p>
+<p>The binder attribute value accepts an object or json string with the following available options:</p>
+<table>
+<thead>
+<tr>
+<th>Option name</th>
+<th>Type</th>
+<th>Default</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>viewId</td>
+<td><code>string</code></td>
+<td><code>'main'</code></td>
+<td style="text-align:left">The id of the view, must be unique and is only needed with multiple view binders, should be set via the <code>id</code> attribute</td>
+</tr>
+<tr>
+<td>containerSelector</td>
+<td><code>string</code></td>
+<td><code>[data-namespace]</code> if viewId is <code>'main'</code> otherwise <code>#${viewId} &gt; *:first-child</code></td>
+<td style="text-align:left">Selector of the container child, here the HTML content is replace</td>
+</tr>
+<tr>
+<td>action</td>
+<td><code>string</code></td>
+<td><code>'replace'</code></td>
+<td style="text-align:left">Replaces the old container content with the new one</td>
+</tr>
+<tr>
+<td>scrollToTop</td>
+<td><code>boolean</code></td>
+<td><code>true</code> if viewId is <code>'main'</code> otherwise <code>false</code></td>
+<td style="text-align:left">Auto scrolls to the top of the page when the new page is loading</td>
+</tr>
+<tr>
+<td>listenAllLinks</td>
+<td><code>boolean</code></td>
+<td><code>true</code> if viewId is <code>'main'</code> otherwise <code>false</code></td>
+<td style="text-align:left">Loads the content of all links, even without the <code>route</code> binder</td>
+</tr>
+<tr>
+<td>listenPopstate</td>
+<td><code>boolean</code></td>
+<td><code>true</code> if viewId is <code>'main'</code> otherwise <code>false</code></td>
+<td style="text-align:left">Responds to the browsers go back button and loads the content of the previous page</td>
+</tr>
+<tr>
+<td>scrollToAnchorHash</td>
+<td><code>boolean</code></td>
+<td><code>true</code> if viewId is <code>'main'</code> otherwise <code>false</code></td>
+<td style="text-align:left">Auto scrolls to the anchor id passed by the url hash value</td>
+</tr>
+<tr>
+<td>datasetToModel</td>
+<td><code>boolean</code></td>
+<td><code>true</code> if viewId is <code>'main'</code> otherwise <code>false</code></td>
+<td style="text-align:left">Binds the values passed as data attributes to the model / scope of this binder</td>
+</tr>
+<tr>
+<td>parseTitle</td>
+<td><code>boolean</code></td>
+<td><code>true</code> if viewId is <code>'main'</code> otherwise <code>false</code></td>
+<td style="text-align:left">Parses the <code>&lt;title&gt;&lt;/title&gt;</code> and replace the tab name</td>
+</tr>
+<tr>
+<td>changeBrowserUrl</td>
+<td><code>boolean</code></td>
+<td><code>true</code> if viewId is <code>'main'</code> otherwise <code>false</code></td>
+<td style="text-align:left">Changes the browser URL when the new page is loading</td>
+</tr>
+<tr>
+<td>autoprefetchLinks</td>
+<td><code>boolean</code></td>
+<td><code>true</code> if listenAllLinks is <code>true</code> otherwise <code>false</code></td>
+<td style="text-align:left">Loads the content of the url on mouse over to speed up the page loading</td>
+</tr>
+<tr>
+<td>transition</td>
+<td><code>Transition</code></td>
+<td><code>HideShowTransition</code></td>
+<td style="text-align:left">The transition object e.g. for animations</td>
+</tr>
+</tbody>
+</table>
 <rv-bind-content class="pt-3">
   <template>
     <rv-example-tabs class="pt-3" handle="view-binder">
@@ -87,6 +172,42 @@ This binder is like a normal link in barba.js but allows a bit more control.</p>
   </template>
 </rv-bind-content>
 </section></section><section class="my-5" id="view-static-binder"><h3>view-static</h3><section><p>Loads the content of the url with pjax and replaces this with the inner html of the element</p>
+<table>
+<thead>
+<tr>
+<th>Option name</th>
+<th>Type</th>
+<th>Default</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td><code>string</code></td>
+<td></td>
+<td style="text-align:left">The url whose content you want to display</td>
+</tr>
+<tr>
+<td>viewId</td>
+<td><code>string</code></td>
+<td><code>handleized url</code></td>
+<td style="text-align:left">The id of the view, must be unique and is only needed with multiple view binders, should be set via the <code>id</code> attribute</td>
+</tr>
+<tr>
+<td>containerSelector</td>
+<td><code>string</code></td>
+<td><code>[data-namespace]</code></td>
+<td style="text-align:left">Selector of the container child, here the HTML content is replace</td>
+</tr>
+<tr>
+<td>transition</td>
+<td><code>Transition</code></td>
+<td><code>HideShowTransition</code></td>
+<td style="text-align:left">The transition object e.g. for animations</td>
+</tr>
+</tbody>
+</table>
 <rv-bind-content class="pt-3">
   <template>
     <rv-example-tabs class="pt-3" handle="view-static-binder">

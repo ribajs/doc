@@ -12,12 +12,12 @@ This binder is like a normal link in barba.js but allows a bit more control.
   </template>
 </rv-bind-content>
 
-Instead of the URL you can also pass some options to the binder as a object by keypath or as ja json string
+Instead of the URL you can also pass some options to the binder as a object (by keypath) or as a json string
 
 | Option name           | Default          | Description                                                                              |
 | --------------------- | ---------------- |:-----------------------------------------------------------------------------------------|
 | url                   |                  | The url you want to load on a click                                                      |
-| viewId                | `'main'`         | in which the content should be replaced                                                  |
+| viewId                | `'main'`         | The id of the view in which the content should be replaced                               |
 | removeAfterActivation | `false`          | If you wish to remove the element from the DOM after activation                          |
 
 <rv-bind-content class="pt-3">

@@ -12,7 +12,7 @@
                   </div>
               </div>
               <div class="row">
-                  <div class="col-12 text-center" rv-text="size"></div>
+                <div class="col-12 text-center" rv-text="size"></div>
               </div>
           </div>
       </div>
@@ -24,10 +24,10 @@
   <section#colors class="col-12">
     <h3>Colors</h3>
     <div class="row">
-      <div class="col-4 col-md-2 col-xl-2 py-2" rv-each-color="colors">
+      <div class="col-4 col-md-2 col-xl-2 py-2" rv-each-color="colors" rv-add-class="color | prepend 'example-color-'">
         <div class="row">
           <div class="col-12 d-flex justify-content-center flex-row">
-            <bs4-icon class='m-1' rv-src="src" size="32" rv-color='color'></bs4-icon>
+            <bs4-icon class='m-1' rv-src="src" size="32" rv-color="color"></bs4-icon>
           </div>
         </div>
         <div class="row">
