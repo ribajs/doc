@@ -4,7 +4,7 @@ import {
 
 import template from './file-tree.component.html';
 
-// interface IScope {}
+// interface Scope {}
 
 export class FileTreeComponent extends Component {
 
@@ -16,7 +16,7 @@ export class FileTreeComponent extends Component {
     return [];
   }
 
-  protected scope = {}; // : IScope = {};
+  protected scope = {}; // : Scope = {};
 
   constructor(element?: HTMLElement) {
     super(element);

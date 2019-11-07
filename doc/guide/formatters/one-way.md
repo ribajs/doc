@@ -11,9 +11,9 @@ This will generate the formatter (and a `.spec.ts` file for tests) in your `./sr
 Than you can change the implementation like this:
 
 ```typescript
-import { IFormatter } from '@ribajs/core';
+import { Formatter } from '@ribajs/core';
 
-export const dateFormatter: IFormatter = {
+export const dateFormatter: Formatter = {
   name: 'date',
   read(value: Date) {
     return moment(value).format('MMM DD, YYYY')

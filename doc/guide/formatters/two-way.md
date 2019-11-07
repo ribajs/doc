@@ -5,9 +5,9 @@ Instead of defining the formatter with the single `read` function, you define it
 Using the cent value example from above, let's say we want to store a monetary value as cents but let the user input it in a dollar amount and automatically round to two decimal places when setting the value on the model. For this we can define a two-way `currency` formatter.
 
 ```typescript
-import { IFormatter } from '@ribajs/core';
+import { Formatter } from '@ribajs/core';
 
-export const CurrencyFormatter: IFormatter = {
+export const CurrencyFormatter: Formatter = {
   name: 'currency',
   read(value: number) {
     return (value / 100).toFixed(2)

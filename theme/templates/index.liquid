@@ -40,7 +40,7 @@ export class EachItemExampleComponent extends Component {
 
   public static tagName: string = &#39;rv-each-item-example&#39;;
 
-  protected scope: IScope = {
+  protected scope: Scope = {
     items: this.getItems(),
     push: this.push,
     pop: this.pop,
@@ -86,7 +86,7 @@ export class EachItemExampleComponent extends Component {
     })
   }
 
-  private getItems(): IItem[] {
+  private getItems(): Item[] {
     return [{name: &#39;x&#39;, value: 2} ,{name: &#39;y&#39;, value: 1} , {name: &#39;z&#39;, value: 3}]
   }
 
@@ -102,13 +102,13 @@ export class EachItemExampleComponent extends Component {
   }
 }
 
-interface IItem {
+interface Item {
   name: string;
   value?: number;
 }
 
-interface IScope {
-  items: Array&lt;IItem&gt;,
+interface Scope {
+  items: Array&lt;Item&gt;,
   push: EachItemExampleComponent[&#39;push&#39;],
   pop: EachItemExampleComponent[&#39;pop&#39;],
   shift: EachItemExampleComponent[&#39;shift&#39;],
@@ -116,7 +116,8 @@ interface IScope {
   splice: EachItemExampleComponent[&#39;splice&#39;],
   reset: EachItemExampleComponent[&#39;reset&#39;],
   sort: EachItemExampleComponent[&#39;sort&#39;],
-}</code></pre></template><template title="index.html"><pre><code class="language-html">&lt;!DOCTYPE html&gt;
+}
+</code></pre></template><template title="index.html"><pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
   &lt;head&gt;
     &lt;title&gt;each-star-example&lt;/title&gt;

@@ -11,9 +11,9 @@ This will generate the binder (and a `.spec.ts` file) in your `./src/binders` di
 Than you can change the implementation like this:
 
 ```typescript
-import { IBinder } from '@ribajs/core';
+import { Binder } from '@ribajs/core';
 
-export const ColorBinder: IBinder<string> = {
+export const ColorBinder: Binder<string> = {
   name: 'color',
   routine(el: HTMLElement, value: string) {
     el.style.color = value;

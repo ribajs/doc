@@ -28,7 +28,7 @@ import {
 
 import template from './todo-item.component.html';
 
-interface IScope {
+interface Scope {
   description?: string;
 }
 
@@ -42,7 +42,7 @@ export class TodoItemComponent extends Component {
     return ['description'];
   }
 
-  protected scope: IScope = {
+  protected scope: Scope = {
     hello: undefined,
   };
 

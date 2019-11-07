@@ -1,5 +1,5 @@
 ```bash
-npm install --save-dev @ribajs/router
+npm install --save @ribajs/router
 ```
 
 ### Regist

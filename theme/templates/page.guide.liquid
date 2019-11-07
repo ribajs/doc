@@ -68,9 +68,9 @@ const view = riba.bind(document.getElementById(&quot;rv-app&quot;), model);
 </code></pre>
 <p>This will generate the binder (and a <code>.spec.ts</code> file) in your <code>./src/binders</code> directory and updates your <code>./src/binders/index.ts</code> file.</p>
 <p>Than you can change the implementation like this:</p>
-<pre><code class="language-typescript">import { IBinder } from '@ribajs/core';
+<pre><code class="language-typescript">import { Binder } from '@ribajs/core';
 
-export const ColorBinder: IBinder&lt;string&gt; = {
+export const ColorBinder: Binder&lt;string&gt; = {
   name: 'color',
   routine(el: HTMLElement, value: string) {
     el.style.color = value;
@@ -90,10 +90,10 @@ riba.module.binder.regist(ColorBinder);
 </code></pre>
 </section><section class="my-4"><h3 id="two-way-binders">Two-way Binders</h3><p>Two-way binders, like one-way binders, can update the DOM when a model property changes (model-to-view) but can also update the model when the user interacts with the DOM (view-to-model), such as updating a control input, clicking an element or interacting with a third-party widget.</p>
 <p>In order to update the model when the user interacts with the DOM, you need to tell Riba.js how to bind and unbind to that DOM element to set the value on the model. Instead of defining the binder with a single <code>routine</code> function, two-way binders are defined as an object containing a few extra functions.</p>
-<pre><code class="language-typescript">import { IBinder } from '@ribajs/core';
+<pre><code class="language-typescript">import { Binder } from '@ribajs/core';
 import $ from 'jquery';
 
-export const toggleBinder: IBinder&lt;string&gt; = {
+export const toggleBinder: Binder&lt;string&gt; = {
   bind(el) {
     adapter = this.config.adapters[this.key.interface]
     model = this.model
@@ -137,9 +137,9 @@ export const toggleBinder: IBinder&lt;string&gt; = {
 </code></pre>
 <p>This will generate the formatter (and a <code>.spec.ts</code> file for tests) in your <code>./src/formatters</code> directory and updates your <code>./src/formatters/index.ts</code> file.</p>
 <p>Than you can change the implementation like this:</p>
-<pre><code class="language-typescript">import { IFormatter } from '@ribajs/core';
+<pre><code class="language-typescript">import { Formatter } from '@ribajs/core';
 
-export const dateFormatter: IFormatter = {
+export const dateFormatter: Formatter = {
   name: 'date',
   read(value: Date) {
     return moment(value).format('MMM DD, YYYY')
@@ -161,9 +161,9 @@ riba.module.formatter.regist(dateFormatter);
 </section><section class="my-4"><h3 id="two-way-formatters">Two-way formatters</h3><p>Two-way formatters are useful when you want to store a value in a particular format, such as a unix epoch time or a cent value, but still let the user input the value in a different format.</p>
 <p>Instead of defining the formatter with the single <code>read</code> function, you define it as an object containing <code>read</code> and <code>publish</code> functions. When a formatter is defined only with a <code>read</code> function, riba assumes it to be in the read direction only. When the <code>read</code> and <code>publish</code> functions are defined, riba uses it's <code>read</code> and <code>publish</code> functions to effectively serialize and de-serialize the value.</p>
 <p>Using the cent value example from above, let's say we want to store a monetary value as cents but let the user input it in a dollar amount and automatically round to two decimal places when setting the value on the model. For this we can define a two-way <code>currency</code> formatter.</p>
-<pre><code class="language-typescript">import { IFormatter } from '@ribajs/core';
+<pre><code class="language-typescript">import { Formatter } from '@ribajs/core';
 
-export const CurrencyFormatter: IFormatter = {
+export const CurrencyFormatter: Formatter = {
   name: 'currency',
   read(value: number) {
     return (value / 100).toFixed(2)
@@ -181,9 +181,9 @@ export const CurrencyFormatter: IFormatter = {
 <pre><code class="language-html">&lt;span&gt;{ alarm.time | time user.timezone 'hh:mm' }&lt;/span&gt;
 </code></pre>
 <p>The value of each argument in the binding declaration will be evaluated and passed into the formatter function as an additional argument.</p>
-<pre><code class="language-typescript">import { IFormatter } from '@ribajs/core';
+<pre><code class="language-typescript">import { Formatter } from '@ribajs/core';
 
-export const TimeFormatter: IFormatter = {
+export const TimeFormatter: Formatter = {
   name: 'time',
   read(value: Date, timezone: string, format: string) {
     return moment(value).tz(timezone).format(format)
@@ -209,7 +209,7 @@ export const TimeFormatter: IFormatter = {
 
 import template from './todo-item.component.html';
 
-interface IScope {
+interface Scope {
   description?: string;
 }
 
@@ -223,7 +223,7 @@ export class TodoItemComponent extends Component {
     return ['description'];
   }
 
-  protected scope: IScope = {
+  protected scope: Scope = {
     hello: undefined,
   };
 

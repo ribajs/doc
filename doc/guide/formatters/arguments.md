@@ -7,9 +7,9 @@ Formatters can accept any number of arguments in the form of keypaths or primiti
 The value of each argument in the binding declaration will be evaluated and passed into the formatter function as an additional argument.
 
 ```typescript
-import { IFormatter } from '@ribajs/core';
+import { Formatter } from '@ribajs/core';
 
-export const TimeFormatter: IFormatter = {
+export const TimeFormatter: Formatter = {
   name: 'time',
   read(value: Date, timezone: string, format: string) {
     return moment(value).tz(timezone).format(format)

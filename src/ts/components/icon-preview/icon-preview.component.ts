@@ -7,7 +7,7 @@ import template from './icon-preview.component.html';
 
 import * as Prism from 'prismjs';
 
-interface IScope {
+interface Scope {
   assetPath: string;
   name: string;
   src: string;
@@ -27,7 +27,7 @@ export class IconPreviewComponent extends Component {
     return ['asset-path'];
   }
 
-  protected scope: IScope = {
+  protected scope: Scope = {
     assetPath: '',
     name: '',
     src: '',

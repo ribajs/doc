@@ -3,10 +3,10 @@ Two-way binders, like one-way binders, can update the DOM when a model property 
 In order to update the model when the user interacts with the DOM, you need to tell Riba.js how to bind and unbind to that DOM element to set the value on the model. Instead of defining the binder with a single `routine` function, two-way binders are defined as an object containing a few extra functions.
 
 ```typescript
-import { IBinder } from '@ribajs/core';
+import { Binder } from '@ribajs/core';
 import $ from 'jquery';
 
-export const toggleBinder: IBinder<string> = {
+export const toggleBinder: Binder<string> = {
   bind(el) {
     adapter = this.config.adapters[this.key.interface]
     model = this.model
