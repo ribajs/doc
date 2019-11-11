@@ -1,0 +1,36 @@
+extends ../_extends/generated-page.pug
+
+block content
+
+  //- section.my-5#about
+  //-   h2 About
+  //-   section
+  //-     include:markdown-it(html) ../../../doc/reference/i18n/about.md
+
+  section.my-5#install
+    h2 Install
+    section
+      include:markdown-it(html) ../../../doc/reference/i18n/install.md
+
+  section.my-5
+    h2#services Services
+
+    section.my-5#locales-base-service
+      h3 ALocalesService
+      include:markdown-it(html) ../../../doc/reference/i18n/services/locales-base-service.md
+
+    section.my-5#locales-static-service
+      h3 LocalesStaticService
+      include:markdown-it(html) ../../../doc/reference/i18n/services/locales-static-service.md
+      include ../../../doc/examples/i18n-static
+
+    section.my-5#locales-rest-service
+      h3 LocalesRestService
+      include:markdown-it(html) ../../../doc/reference/i18n/services/locales-rest-service.md
+
+  section.my-5
+    h2#binders Binders
+
+    section.my-5
+      h3#i18n-type i18n-[type]
+      include:markdown-it(html) ../../../doc/reference/i18n/binders/i18n-[type].md

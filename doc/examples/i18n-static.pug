@@ -1,0 +1,13 @@
+rv-bind-content
+  template
+    rv-example-tabs(handle="bs4-tabs-tpl")
+      template(title="main.ts")
+        include:prismjs(language = 'typescript') ../../../../examples/i18n-static/src/main.ts
+      template(title="component.html")
+        include:prismjs(language = 'html') ../../../../examples/i18n-static/src/components/i18n-static-example/i18n-static-example.component.html
+      template(title="component.ts")
+        include:prismjs(language = 'typescript') ../../../../examples/i18n-static/src/components/i18n-static-example/i18n-static-example.component.ts
+      template(title="Preview")
+        rv-i18n-static-example
+      //- template(title="README.md")
+      //-   include:markdown-it(html) ../../../../examples/i18n-static/README.md

@@ -6,9 +6,9 @@ import {
 } from '@ribajs/core';
 import shopifyModule from '@ribajs/shopify';
 import routerModule from '@ribajs/router';
-// import { i18nModule } from '@ribajs/i18n';
+import { i18nModule } from '@ribajs/i18n';
 import { bs4Module } from '@ribajs/bs4';
-// import { LocalesService } from '@ribajs/shopify-tda';
+import { LocalesService } from '@ribajs/shopify-tda';
 
 import * as CustomComponents from './components';
 
@@ -16,6 +16,7 @@ import * as CustomComponents from './components';
 import { EachItemExampleComponent } from '../../../../examples/each-item/src/components/each-item-example/each-item-example.component';
 import { Bs4TabsAttrExampleComponent } from '../../../../examples/bs4-tabs-attr/src/components/bs4-tabs-attr-example/bs4-tabs-attr-example.component';
 import { Bs4TabsTplExampleComponent } from '../../../../examples/bs4-tabs-tpl/src/components/bs4-tabs-tpl-example/bs4-tabs-tpl-example.component';
+import { I18nStaticExampleComponent } from '../../../../examples/i18n-static/src/components/i18n-static-example/i18n-static-example.component';
 
 import * as Prism from 'prismjs';
 import 'prismjs/components/prism-javascript';
@@ -28,11 +29,13 @@ export class Main {
 
   private dispatcher = new EventDispatcher('main');
 
+  private localesService = new LocalesService();
+
   constructor() {
     this.riba.module.regist(coreModule);
     this.riba.module.regist(routerModule);
     this.riba.module.regist(shopifyModule);
-    // this.riba.module.regist(i18nModule(this.localesService));
+    this.riba.module.regist(i18nModule(this.localesService));
     this.riba.module.regist(bs4Module);
 
     // Regist custom components
@@ -45,6 +48,7 @@ export class Main {
     this.riba.module.component.regist(EachItemExampleComponent);
     this.riba.module.component.regist(Bs4TabsAttrExampleComponent);
     this.riba.module.component.regist(Bs4TabsTplExampleComponent);
+    this.riba.module.component.regist(I18nStaticExampleComponent);
 
     this.dispatcher.on('newPageReady', () => {
       Prism.highlightAll();
