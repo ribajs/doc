@@ -2,15 +2,20 @@ extends ../_extends/generated-page.pug
 
 block content
 
-  //- section.my-5#about
-  //-   h2 About
-  //-   section
-  //-     include:markdown-it(html) ../../../doc/reference/i18n/about.md
+  section.my-5#about
+    h2 About
+    section
+      include:markdown-it(html) ../../../doc/reference/i18n/about.md
 
   section.my-5#install
     h2 Install
     section
       include:markdown-it(html) ../../../doc/reference/i18n/install.md
+
+  section.my-5#events
+    h2 Events
+    section
+      include:markdown-it(html) ../../../doc/reference/i18n/events.md
 
   section.my-5
     h2#services Services
@@ -34,3 +39,17 @@ block content
     section.my-5
       h3#i18n-type i18n-[type]
       include:markdown-it(html) ../../../doc/reference/i18n/binders/i18n-[type].md
+
+  section.my-5
+    h2#formatters Formatters
+
+    section.my-5
+      h3#t-formatter t
+      include:markdown-it(html) ../../../doc/reference/i18n/formatters/t.md
+
+  section.my-5
+    h2#components Components
+
+    section.my-5
+      h3#i18n-switcher-component i18n-switcher
+      include:markdown-it(html) ../../../doc/reference/i18n/components/i18n-switcher.md

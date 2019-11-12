@@ -13,6 +13,9 @@
       "description_html": "Abonnieren Sie unseren Newsletter und erhalten Sie <strong>10% Rabatt</strong> auf Ihren nächsten Einkauf.",
       "input_value": "Unbekannt",
       "placeholder_last_name": "Nachname"
+    },
+    "i18n": {
+      "switch_language": "Klicke auf eine Sprache um sie zu ändern"
     }
   }
 }

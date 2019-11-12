@@ -11,11 +11,17 @@ Generates a jumpable table of contents of all found headings.
 | scroll-offset          | No       | `0`        | Scroll offset after click on an element                                                                     |
 | scroll-element         | No       | `window`   | Container element which should be scrolled (default is `window`)                                            |
 
-#### Additional template properties
+#### Template properties
 
 | Name                             |  Description                                                                                                    |
 | -------------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | anchors                          | Array of found headers / anchors with the properties `element`, `href`, `title`, `childs`                       |
+| headersStart                     | Passed attribute value, see `headers-start` attribute                                                           |
+| headersDepth                     | Passed attribute value, see `headers-depth` attribute                                                           |
+| headersParentSelector            | Passed attribute value, see `headers-parent-selector` attribute                                                 |
+| findHeaderIdDepth                | Passed attribute value, see `find-header-id-depth` attribute                                                    |
+| scrollOffset                     | Passed attribute value, see `scroll-offset` attribute                                                           |
+| scrollEement                     | Passed attribute value, see `scroll-element` attribute                                                          |
 
 <rv-bind-content class="pt-3">
   <template>

@@ -1,13 +1,13 @@
 rv-bind-content
   template
     rv-example-tabs(handle="each-item")
-      template(title="each-item-example.component.html")
+      template(title="component.html")
         include:prismjs(language = 'html') ../../../../examples/each-item/src/components/each-item-example/each-item-example.component.html
-      template(title="each-item-example.component.ts")
+      template(title="component.ts")
         include:prismjs(language = 'typescript') ../../../../examples/each-item/src/components/each-item-example/each-item-example.component.ts
       template(title="index.html")
         include:prismjs(language = 'html') ../../../../examples/each-item/src/index.html
-      template(title="README.md")
+      template(title="Info")
         include:markdown-it(html) ../../../../examples/each-item/README.md
       template(title="Preview")
         rv-each-item-example

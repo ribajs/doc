@@ -13,12 +13,13 @@ This site itself uses the `bs4-toggle-button` to open or close the sidebar.
 | -------------------------------- |:---------:| ---------------------------------------------------------------------- |
 | toggle                           |           | Triggeres the toggle event                                             |
 
-#### Additional template properties
+#### Template properties
 
 | Name                             |  Description                                                                                                    |
 | -------------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | state                            | Can be 'hidden' or something else                                                                               |
 | isClosed                         | Is true if the state is 'hidden'                                                                                |
+| targetId                         | Passed attribute value, see `target-id` attribute                                                               |
 
 To react on the "toggle" event triggered by the `bs4-toggle-button` component you need to create a object of `EventDispatcher` like this:
 

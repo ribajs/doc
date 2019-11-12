@@ -24,11 +24,19 @@ You can use the `bs4-toggle-button` component to open or close the sidebar at an
 | show                             |           | Shows / opens the sidebar                                              |
 | toggle                           |           | Toggles (closes or opens) the sidebar                                  |
 
-#### Additional template properties
+#### Template properties
 
 | Name                             |  Description                                                                                                              |
 | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | state                            | The current state of the sidebar, can be `'hidden'`, `'side-left'`, `'side-right'`, `'overlay-left'` or `'overlay-right'` |
+| containerSelector                | Passed attribute value, see `container-selector` attribute                                                                |
+| position                         | Passed attribute value, see `position` attribute                                                                          |
+| width                            | Passed attribute value, see `width` attribute                                                                             |
+| autoShowInWiderThan              | Passed attribute value, see `auto-show-in-wider-than` attribute                                                           |
+| autoHideOnSlimmerThan            | Passed attribute value, see `auto-hide-on-slimmer-than` attribute                                                         |
+| forceHideOnLocationPathnames     | Passed attribute value, see `force-hide-on-location-pathnames` attribute                                                  |
+| force-show-on-location-pathnames | Passed attribute value, see `force-show-on-location-pathnames` attribute                                                  |
+| overlayOnSlimmerThan             | Passed attribute value, see `overlay-on-slimmer-than` attribute                                                           |
 
 <rv-bind-content class="pt-3">
   <template>
