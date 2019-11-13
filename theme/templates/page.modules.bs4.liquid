@@ -1,15 +1,4 @@
-
-<div class="container py-5 page {{template|handleize}}" id="page-content-{{page.handle}}">
-  <div class="row pt-5">
-    <div class="col-12">
-      <div class="row">
-        <div class="col-12">
-          <h1 class="page-title">{{ page.title }}
-          </h1>
-          <div class="rte">{{ page.content }}</div>
-          <div class="content">
-            <bs4-contents class="d-block d-lg-none top-contents" header-parent-selector="#main-container" headers-start="2" headers-depth="4" scroll-offset="80"></bs4-contents>
-            <section class="my-5"><h1>Bootstrap 4 Module</h1>
+<div class="container py-5 page {{template|handleize}}" id="page-content-{{page.handle}}"><div class="row pt-5"><div class="col-12"><div class="row"><div class="col-12"><h1 class="page-title">{{ page.title }}</h1><div class="rte">{{ page.content }}</div><div class="content"><bs4-contents class="d-block d-lg-none top-contents" header-parent-selector="#main-container" headers-start="2" headers-depth="4" scroll-offset="80"></bs4-contents><section class="my-5"><h1>Bootstrap 4 Module</h1>
 <h2>Install</h2>
 <pre><code class="language-bash">npm install --save @ribajs/bs4
 </code></pre>
@@ -24,13 +13,7 @@ Utils.domIsReady(() =&gt; {
   riba.bind(document.body, model);
 });
 </code></pre>
-
-            </section>
-            <section class="my-5" id="binders">
-              <h2>Binders</h2>
-              <section class="my-5" id="scroll-to-on-event">
-                <h3>scroll-to-on-[event]</h3>
-                <section><p>Scrolls to an element by event and selector</p>
+</section><section class="my-5" id="binders"><h2>Binders</h2><section class="my-5" id="scroll-to-on-event"><h3>scroll-to-on-[event]</h3><section><p>Scrolls to an element by event and selector</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs handle="scroll-to-on-event" class="pt-3">
@@ -42,15 +25,7 @@ Utils.domIsReady(() =&gt; {
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-                </section>
-              </section>
-            </section>
-            <section class="my-5" id="components">
-              <h2>Components</h2>
-              <section class="my-5" id="bs4-icon">
-                <h3>bs4-icon</h3>
-                <section><p>Loads and displays an svg icon.</p>
+</section></section></section><section class="my-5" id="components"><h2>Components</h2><section class="my-5" id="bs4-icon"><h3>bs4-icon</h3><section><p>Loads and displays an svg icon.</p>
 <h4>Attributes</h4>
 <table>
 <thead>
@@ -95,12 +70,7 @@ Utils.domIsReady(() =&gt; {
     </rv-example-tabs>
   </template>
 </rv-bind-content>
-
-                </section>
-              </section>
-              <section class="my-5" id="bs4-contents">
-                <h3>bs4-contents</h3>
-                <section><p>Generates a jumpable table of contents of all found headings.</p>
+</section></section><section class="my-5" id="bs4-contents"><h3>bs4-contents</h3><section><p>Generates a jumpable table of contents of all found headings.</p>
 <h4>Attributes</h4>
 <table>
 <thead>
@@ -237,71 +207,33 @@ Utils.domIsReady(() =&gt; {
     </rv-example-tabs>
   </template>
 </rv-bind-content>
-
-                </section>
-              </section>
-              <section class="my-5" id="bs4-tabs">
-                <h3>bs4-tabs</h3>
-                <section><p>You can define the tab tilte and content with the <code>tab-[index]-title</code> and <code>tab-[index]-content</code> attributes.</p>
-
-                  <rv-bind-content>
-                    <template>
-                      <rv-example-tabs handle="bs4-tabs-attr">
-                        <template title="Source"><pre><code class="language-html">&lt;bs4-tabs
+</section></section><section class="my-5" id="bs4-tabs"><h3>bs4-tabs</h3><section><p>You can define the tab tilte and content with the <code>tab-[index]-title</code> and <code>tab-[index]-content</code> attributes.</p>
+<rv-bind-content><template><rv-example-tabs handle="bs4-tabs-attr"><template title="Source"><pre><code class="language-html">&lt;bs4-tabs
   tab-0-title=&quot;Tab 0&quot;
   tab-0-content=&quot;&lt;p&gt;Hello from &lt;strong&gt;tab 0&lt;/strong&gt;&lt;/p&gt;&quot;
   tab-1-title=&quot;Tab 1&quot;
   tab-1-content=&quot;&lt;p&gt;Hello from &lt;strong&gt;tab 1&lt;/strong&gt;&lt;/p&gt;&quot;
-&gt;&lt;/bs4-tabs&gt;</code></pre>
-                        </template>
-                        <template title="Preview">
-                          <rv-bs4-tabs-attr-example></rv-bs4-tabs-attr-example>
-                        </template>
-                        <template title="Info"><h1>bs4-tabs-attr</h1>
+&gt;&lt;/bs4-tabs&gt;</code></pre></template><template title="Preview"><rv-bs4-tabs-attr-example></rv-bs4-tabs-attr-example></template><template title="Info"><h1>bs4-tabs-attr</h1>
 <pre><code class="language-bash">git clone --recurse-submodules https://github.com/ribajs/riba.git
 cd riba/examples/bs4-tabs-attr
 npm install
 npm run start
 </code></pre>
-
-                        </template>
-                      </rv-example-tabs>
-                    </template>
-                  </rv-bind-content>
-                </section>
-                <section class="mt-5"><p>Sometimes it is useful to define the tabs via templates, for example if the html content of the tabs are too complex.</p>
-
-                  <rv-bind-content>
-                    <template>
-                      <rv-example-tabs handle="bs4-tabs-tpl">
-                        <template title="Source"><pre><code class="language-html">&lt;bs4-tabs&gt;
+</template></rv-example-tabs></template></rv-bind-content></section><section class="mt-5"><p>Sometimes it is useful to define the tabs via templates, for example if the html content of the tabs are too complex.</p>
+<rv-bind-content><template><rv-example-tabs handle="bs4-tabs-tpl"><template title="Source"><pre><code class="language-html">&lt;bs4-tabs&gt;
   &lt;template title=&quot;Tab 0&quot;&gt;
     &lt;img class=&quot;img-fluid&quot; src=&quot;https://via.placeholder.com/150/7c00b5/FFFFFF?text=Tab%200&quot; alt=&quot;Tab 0&quot;&gt;
   &lt;/template&gt;
   &lt;template title=&quot;Tab 1&quot;&gt;
     &lt;img class=&quot;img-fluid&quot; src=&quot;https://via.placeholder.com/150/00b56a/FFFFFF?text=Tab%201&quot; alt=&quot;Tab 1&quot;&gt;
   &lt;/template&gt;
-&lt;/bs4-tabs&gt;</code></pre>
-                        </template>
-                        <template title="Preview">
-                          <rv-bs4-tabs-tpl-example></rv-bs4-tabs-tpl-example>
-                        </template>
-                        <template title="Info"><h1>bs4-tabs-tpl</h1>
+&lt;/bs4-tabs&gt;</code></pre></template><template title="Preview"><rv-bs4-tabs-tpl-example></rv-bs4-tabs-tpl-example></template><template title="Info"><h1>bs4-tabs-tpl</h1>
 <pre><code class="language-bash">git clone --recurse-submodules https://github.com/ribajs/riba.git
 cd riba/examples/bs4-tabs-tpl
 npm install
 npm run start
 </code></pre>
-
-                        </template>
-                      </rv-example-tabs>
-                    </template>
-                  </rv-bind-content>
-                </section>
-              </section>
-              <section class="my-5" id="bs4-toggle-button">
-                <h3>bs4-toggle-button</h3>
-                <section><p>This components is used to trigger a toggle event used in other components or parts of your project.
+</template></rv-example-tabs></template></rv-bind-content></section></section><section class="my-5" id="bs4-toggle-button"><h3>bs4-toggle-button</h3><section><p>This components is used to trigger a toggle event used in other components or parts of your project.
 This site itself uses the <code>bs4-toggle-button</code> to open or close the sidebar.</p>
 <h4>Attributes</h4>
 <table>
@@ -393,12 +325,7 @@ toggleButtonEvents.on('toggle', () =&gt; {
     </rv-example-tabs>
   </template>
 </rv-bind-content>
-
-                </section>
-              </section>
-              <section class="my-5" id="bs4-sidebar">
-                <h3>bs4-sidebar</h3>
-                <section><p>A sidebar component as it is also used for this Riba website.</p>
+</section></section><section class="my-5" id="bs4-sidebar"><h3>bs4-sidebar</h3><section><p>A sidebar component as it is also used for this Riba website.</p>
 <p>You can use the <code>bs4-toggle-button</code> component to open or close the sidebar at any point in the DOM.</p>
 <h4>Attributes</h4>
 <table>
@@ -568,14 +495,4 @@ toggleButtonEvents.on('toggle', () =&gt; {
     </rv-example-tabs>
   </template>
 </rv-bind-content>
-
-                </section>
-              </section>
-            </section>
-            <bs4-scrollspy class="d-none d-lg-block py-3 side-scrollspy scrollbar-primary-on-hover scrollbar-y-auto" header-parent-selector="#main-container" headers-start="2" headers-depth="4" offset="200" offset-bottom="80" scroll-offset="80"></bs4-scrollspy>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+</section></section></section><bs4-scrollspy class="d-none d-lg-block py-3 side-scrollspy scrollbar-primary-on-hover scrollbar-y-auto" header-parent-selector="#main-container" headers-start="2" headers-depth="4" offset="200" offset-bottom="80" scroll-offset="80"></bs4-scrollspy></div></div></div></div></div></div>
