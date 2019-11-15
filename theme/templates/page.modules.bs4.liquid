@@ -495,4 +495,103 @@ toggleButtonEvents.on('toggle', () =&gt; {
     </rv-example-tabs>
   </template>
 </rv-bind-content>
+</section></section><section class="my-5" id="bs4-navbar"><h3>bs4-navbar</h3><section><p>Component to collapse the Bootstrap 4 navbar.</p>
+<h4>Attributes</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Required</th>
+<th style="text-align:center">Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>collapse-selector</code></td>
+<td style="text-align:center">No</td>
+<td style="text-align:center"><code>'.navbar-collapse'</code></td>
+<td>The selector of the collabseable child element</td>
+</tr>
+</tbody>
+</table>
+<h4>Template methods</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Arguments</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hide</td>
+<td style="text-align:center"></td>
+<td>Hides / closes / collapses the navbar collabseable child element</td>
+</tr>
+<tr>
+<td>show</td>
+<td style="text-align:center"></td>
+<td>Shows / opens / expands the navbar collabseable child element</td>
+</tr>
+<tr>
+<td>toggle</td>
+<td style="text-align:center"></td>
+<td>Toggles (closes or opens) the navbar collabseable child element</td>
+</tr>
+</tbody>
+</table>
+<h4>Template properties</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>isCollapsed</td>
+<td><code>true</code> if navbar collabseable child element is collapsed, otherwise <code>false</code></td>
+</tr>
+<tr>
+<td>collapseSelector</td>
+<td>See <code>collapse-selector</code> attribute</td>
+</tr>
+</tbody>
+</table>
+<rv-bind-content class="pt-3">
+  <template>
+    <rv-example-tabs handle="bs4-navbar" class="pt-3">
+      <template type="single-html-file">
+        <bs4-navbar class="navbar navbar-dark bg-dark">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <div class="navbar-toggler" rv-show="isCollapsed" rv-on-click="toggle">
+            <bs4-icon src="{{ 'icon_menu.svg' | asset_url }}" size="32"></bs4-icon>
+          </div>
+          <div class="navbar-toggler" rv-hide="isCollapsed" rv-on-click="toggle">
+            <bs4-icon src="{{ 'icon_close.svg' | asset_url }}" size="32"></bs4-icon>
+          </div>
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              </li>
+            </ul>
+          </div>
+        </bs4-navbar>
+      </template>
+    </rv-example-tabs>
+  </template>
+</rv-bind-content>
 </section></section></section><bs4-scrollspy class="d-none d-lg-block py-3 side-scrollspy scrollbar-primary-on-hover scrollbar-y-auto" header-parent-selector="#main-container" headers-start="2" headers-depth="4" offset="200" offset-bottom="80" scroll-offset="80"></bs4-scrollspy></div></div></div></div></div></div>

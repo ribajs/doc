@@ -1,15 +1,17 @@
 Components let you define reusable views that can be used within any of your templates. For some perspective on where components fit into your templates in relation to binders; binders define custom attributes, while components define custom elements.
 
 ### Based on Custom Elements
+
 Unlike [Rivets.js components](http://rivetsjs.com/docs/guide/#components) in Riba.js components following the [custom elements specification](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements).
 
 #### Backward Compatible
-The components in Riba are having a additional small fallback implementation which makes it work also on browser that does not support custom elements. The fallback implementation has the advantage, that no large polyfills are needed. 
+
+The components in Riba are having a additional small fallback implementation which makes it work also on browser that does not support custom elements. The fallback implementation has the advantage, that no large polyfills are needed.
 
 Usually, custom elements require the ES2015 class syntax but in Riba.js we found a way that custom elements also working with the prototype class syntax. Therefore you can convert your Riba project (e.g. with Babel) also for old browsers and your custom elements are still working with modern browsers.
 
 ### Create a New Component
- 
+
 You can generate a new formatter with the Riba CLI.
 
 ```bash
