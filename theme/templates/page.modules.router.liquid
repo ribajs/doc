@@ -142,6 +142,28 @@ This binder is like a normal link in barba.js but allows a bit more control.</p>
     </rv-example-tabs>
   </template>
 </rv-bind-content>
+</section></section><section class="my-5" id="route-class-classname-binder"><h3>route-class-[classname]</h3><section><p>Tests the url with the current location, if the url is equal to the current location this element gets the class</p>
+<rv-bind-content class="pt-3">
+  <template>
+    <rv-example-tabs class="pt-3" handle="route-class-classname">
+      <template type="single-html-file">
+        <a href="/pages/router" class="nav-link" rv-route-class-active="'/pages/router'">Router</a>
+        <a href="/pages/core" class="nav-link" rv-route-class-active="'/pages/core'">Core</a>
+      </template>
+    </rv-example-tabs>
+  </template>
+</rv-bind-content>
+</section></section><section class="my-5" id="parent-route-class-classname-binder"><h3>parent-route-class-[classname]</h3><section><p>Tests the url with the current location, if the current location starts with the url this element gets the <code>[classname]</code> class</p>
+<rv-bind-content class="pt-3">
+  <template>
+    <rv-example-tabs class="pt-3" handle="parent-route-class-classname">
+      <template type="single-html-file">
+        <a href="/pages/router" class="nav-link" rv-parent-route-class-active="'/pages'">Router</a>
+        <a href="/pages/core" class="nav-link" rv-parent-route-class-active="'/pages'">Core</a>
+      </template>
+    </rv-example-tabs>
+  </template>
+</rv-bind-content>
 </section></section><section class="my-5" id="view-binder"><h3>view</h3><section><p>This binder is the heart of the router module. If you want to develop a <strong>single-page application</strong> then the main content should use this binder to dynamically exchange its content. This binder is what the <code>barba-wrapper</code> and <code>barba-container</code> are in barba.js (see <a href="https://barba.js.org/v1/installation.html">barba install documentation</a>). As a bigger example this site also uses this binder to dynamically load its content. Your application can also have multiple view binders, only the ids need to be different. In the example below we also use an additional view binder (next to our main view binder) to demonstrate the functionality.</p>
 <p>The binder attribute value accepts an object or json string with the following available options:</p>
 <table>
