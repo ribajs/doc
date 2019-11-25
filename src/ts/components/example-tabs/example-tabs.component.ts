@@ -1,8 +1,8 @@
 import {
-  TabsComponent,
+  Bs4TabsComponent,
   Tab,
   Scope as OriginalScope,
-} from '@ribajs/bs4/src/components/tabs/tabs.component';
+} from '@ribajs/bs4/src/components/bs4-tabs/bs4-tabs.component';
 
 import { Utils } from '@ribajs/core';
 
@@ -11,10 +11,10 @@ import * as Prism from 'prismjs';
 import template from './example-tabs.component.html';
 
 export interface Scope extends OriginalScope {
-  sum?: ExampleTabsComponent['sum'];
+  sum?: ExampleBs4TabsComponent['sum'];
 }
 
-export class ExampleTabsComponent extends TabsComponent {
+export class ExampleBs4TabsComponent extends Bs4TabsComponent {
 
   public static tagName: string = 'rv-example-tabs';
 
@@ -31,7 +31,7 @@ export class ExampleTabsComponent extends TabsComponent {
     super(element);
     // sum is used for examples
     (this.scope as any).sum = this.sum;
-    this.init(ExampleTabsComponent.observedAttributes);
+    this.init(ExampleBs4TabsComponent.observedAttributes);
   }
 
   /**

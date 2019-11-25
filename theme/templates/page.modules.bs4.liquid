@@ -15,15 +15,53 @@ Utils.domIsReady(() =&gt; {
 </code></pre>
 </section><section class="my-5" id="binders"><h2>Binders</h2><section class="my-5" id="scroll-to-on-event"><h3>scroll-to-on-[event]</h3><section><p>Scrolls to an element by event and selector</p>
 <rv-bind-content class="pt-3">
-<template>
-<rv-example-tabs handle="scroll-to-on-event" class="pt-3">
-<template type="single-html-file">
-<button class="btn btn-success" rv-scroll-to-on-click="'#bs4-tabs'" data-offset="80">
-  Scroll to bs4-tabs
-</button>
-</template>
-</rv-example-tabs>
-</template>
+  <template>
+    <rv-example-tabs handle="scroll-to-on-event" class="pt-3">
+      <template type="single-html-file">
+        <button class="btn btn-success" rv-scroll-to-on-click="'#bs4-tabs'" data-offset="80">
+          Scroll to bs4-tabs
+        </button>
+      </template>
+    </rv-example-tabs>
+  </template>
+</rv-bind-content>
+</section></section><section class="my-5" id="tooltip-binder"><h3>bs4-tooltip</h3><section><h4>Options</h4>
+<p>Options can be passed via data attributes, e.g <code>data-placement=&quot;right&quot;</code></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>placement</td>
+<td><code>'top'</code></td>
+<td>How to position the tooltip - <code>auto | top | bottom | left | right</code>. When auto is specified, it will dynamically reorient the tooltip.</td>
+</tr>
+</tbody>
+</table>
+<rv-bind-content class="pt-3">
+  <template>
+    <rv-example-tabs handle="bs4-tooltip-binder" class="pt-3">
+      <template type="single-html-file">
+        <button type="button" class="btn btn-secondary" rv-bs4-tooltip="'Tooltip on top'" data-placement="top">
+          Tooltip on top
+        </button>
+        <button type="button" class="btn btn-secondary" rv-bs4-tooltip="'Tooltip on right'" data-placement="right">
+          Tooltip on right
+        </button>
+        <button type="button" class="btn btn-secondary" rv-bs4-tooltip="'Tooltip on bottom'" data-placement="bottom">
+          Tooltip on bottom
+        </button>
+        <button type="button" class="btn btn-secondary" rv-bs4-tooltip="'Tooltip on left'" data-placement="left">
+          Tooltip on left
+        </button>
+      </template>
+    </rv-example-tabs>
+  </template>
 </rv-bind-content>
 </section></section></section><section class="my-5" id="components"><h2>Components</h2><section class="my-5" id="bs4-icon"><h3>bs4-icon</h3><section><p>Loads and displays an svg icon.</p>
 <h4>Attributes</h4>
@@ -590,6 +628,33 @@ toggleButtonEvents.on('toggle', () =&gt; {
             </ul>
           </div>
         </bs4-navbar>
+      </template>
+    </rv-example-tabs>
+  </template>
+</rv-bind-content>
+</section></section><section class="my-5" id="bs4-dropdown"><h3>bs4-dropdown</h3><section><p>Instead of adding <code>data-toggle=&quot;dropdown&quot;</code> to your html element (as it is with the original bootstrap 4) you need to set the wrapper element tag name to <code>&lt;bs4-dropdown class=&quot;dropup&quot;&gt;...&lt;/bs4-dropdown&gt;</code> and add the attribute <code>rv-on-click=&quot;toggle&quot;</code> to the element which should trigger the toggle.</p>
+<rv-bind-content class="pt-3">
+  <template>
+    <rv-example-tabs class="pt-3" handle="bs4-dropdown">
+      <template type="single-html-file">
+        <bs4-dropdown class="dropdown">
+          <a rv-on-click="toggle" class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+            Dropdown link
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+          </div>
+        </bs4-dropdown>
+        <bs4-dropdown class="dropup">
+          <a rv-on-click="toggle" class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropupMenuLink" aria-haspopup="true" aria-expanded="false">
+            Dropdown link
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropupMenuLink">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+          </div>
+        </bs4-dropdown>
       </template>
     </rv-example-tabs>
   </template>
