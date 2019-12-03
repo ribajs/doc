@@ -397,20 +397,26 @@ toggleButtonEvents.on('toggle', () =&gt; {
 <tr>
 <td>width</td>
 <td style="text-align:center">No</td>
-<td style="text-align:center">250</td>
-<td>The width of the sidebar</td>
+<td style="text-align:center">&quot;250px&quot;</td>
+<td>The width of the sidebar with unit (e.g. &quot;px&quot;)</td>
 </tr>
 <tr>
-<td>auto-show-in-wider-than</td>
+<td>auto-show-on-wider-than</td>
 <td style="text-align:center">No</td>
 <td style="text-align:center">1199</td>
-<td>Auto show the sidebar if the viewport width is wider than this value</td>
+<td>Auto show the sidebar if the viewport width is wider than this value, pass <code>-1</code> to disable auto show</td>
 </tr>
 <tr>
 <td>auto-hide-on-slimmer-than</td>
 <td style="text-align:center">No</td>
 <td style="text-align:center">1200</td>
-<td>Auto hide the sidebar if the viewport width is slimmer than this value</td>
+<td>Auto hide the sidebar if the viewport width is slimmer than this value, pass <code>-1</code> to disable auto hide</td>
+</tr>
+<tr>
+<td>watch-new-page-ready-event</td>
+<td style="text-align:center">No</td>
+<td style="text-align:center">true</td>
+<td>Watch the routers <code>newPageReady</code> event to update the sidebar state, e.g. hide on slime than after route changes</td>
 </tr>
 <tr>
 <td>force-hide-on-location-pathnames</td>
@@ -486,7 +492,7 @@ toggleButtonEvents.on('toggle', () =&gt; {
 </tr>
 <tr>
 <td>autoShowInWiderThan</td>
-<td>Passed attribute value, see <code>auto-show-in-wider-than</code> attribute</td>
+<td>Passed attribute value, see <code>auto-show-on-wider-than</code> attribute</td>
 </tr>
 <tr>
 <td>autoHideOnSlimmerThan</td>
