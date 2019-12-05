@@ -4,6 +4,7 @@ import {
   EventDispatcher,
   Utils,
 } from '@ribajs/core';
+import extrasModule from '@ribajs/extras';
 import shopifyModule from '@ribajs/shopify';
 import routerModule from '@ribajs/router';
 import { i18nModule } from '@ribajs/i18n';
@@ -33,6 +34,7 @@ export class Main {
 
   constructor() {
     this.riba.module.regist(coreModule);
+    this.riba.module.regist(extrasModule);
     this.riba.module.regist(routerModule);
     this.riba.module.regist(shopifyModule);
     this.riba.module.regist(i18nModule(this.localesService));

@@ -28,26 +28,6 @@ html(lang="{{'html.lang.code' |t}}")
             | {{ content_for_layout }}
           </div>
         #layout-bottom.pb-2.pb-lg-0
-      script(type='application/ld+json').
-        {
-        "@context": "http://schema.org",
-        "@type": "Organization",
-        "name": "{{ shop.name }}",
-        "logo": "https:{{ 'iconset-logo.svg' | asset_url }}",
-        {% comment %}
-        "sameAs": [
-        "{{ settings.social_twitter_link }}",
-        "{{ settings.social_facebook_link }}",
-        "{{ settings.social_pinterest_link }}",
-        "{{ settings.social_instagram_link }}",
-        "{{ settings.social_tumblr_link }}",
-        "{{ settings.social_snapchat_link }}",
-        "{{ settings.social_youtube_link }}",
-        "{{ settings.social_vimeo_link }}"
-        ],
-        {% endcomment %}
-        "url": "{{ shop.url }}{{ page.url }}"
-        }
       // content_for_header: start
       | {{ content_for_header }}
       // content_for_header: end
