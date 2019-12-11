@@ -50,7 +50,7 @@ export class LoremIpsumComponent extends Component {
 
   constructor(element?: HTMLElement) {
     super(element);
-    console.debug('constructor', this);
+    // console.debug('constructor', this);
   }
 
   protected connectedCallback() {
@@ -66,11 +66,11 @@ export class LoremIpsumComponent extends Component {
   }
 
   protected async beforeBind() {
-    console.debug('beforeBind');
+    // console.debug('beforeBind');
   }
 
   protected async afterBind() {
-    console.debug('afterBind', this.scope);
+    // console.debug('afterBind', this.scope);
     this.lorem = new LoremIpsum(this.options, this.scope.format);
     if (this.scope.generateWords) {
       this.el.innerHTML = this.lorem.generateWords(this.scope.generateWords);
