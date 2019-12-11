@@ -3,7 +3,7 @@
     <div
       role="tab"
       class="flex-grow-1 nav-item nav-link d-inline-block text-truncate text-center"
-      rv-each-tab="tabs"
+      rv-each-tab="items"
       rv-class-active="tab.active"
       rv-add-class="'tab-title-' | append tab.handle"
       {# rv-add-class="'tab-title-' | append handle" #}
@@ -19,7 +19,7 @@
     <div
       role="tabpanel"
       class="tab-pane"
-      rv-each-tab="tabs"
+      rv-each-tab="items"
       rv-class-active="tab.active"
       rv-class-show="tab.active"
       rv-add-class="'tab-content-' | append tab.handle"

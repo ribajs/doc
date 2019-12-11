@@ -90,7 +90,7 @@ export class ExampleBs4TabsComponent extends Bs4TabsComponent {
     return lines.join('\n').trim();
   }
 
-  protected addTabsByTemplate() {
+  protected addItemsByTemplate() {
     const templates = this.el.querySelectorAll<HTMLTemplateElement>('template');
     templates.forEach((tpl) => {
       const type = tpl.getAttribute('type');
@@ -100,28 +100,28 @@ export class ExampleBs4TabsComponent extends Bs4TabsComponent {
         sourceTemplate.setAttribute('title', 'Source');
         sourceTemplate.setAttribute('type', 'source');
         sourceTemplate.innerHTML = `<pre class="language-html"><code class="language-html">${Utils.escapeHtml(sourceCode)}</code></pre>`;
-        this.addTabByTemplate(sourceTemplate);
+        this.addItemByTemplate(sourceTemplate);
 
         const previewTemplate = document.createElement('template');
         previewTemplate.setAttribute('title', 'Preview');
         previewTemplate.setAttribute('type', 'preview');
         previewTemplate.innerHTML = sourceCode;
-        this.addTabByTemplate(previewTemplate);
+        this.addItemByTemplate(previewTemplate);
 
         const resultTemplate = document.createElement('template');
         resultTemplate.setAttribute('title', 'Rendered');
         resultTemplate.setAttribute('type', 'realtime-result');
         resultTemplate.innerHTML = '';
-        this.addTabByTemplate(resultTemplate);
+        this.addItemByTemplate(resultTemplate);
       } else {
-        this.addTabByTemplate(tpl);
+        this.addItemByTemplate(tpl);
       }
     });
   }
 
   protected template() {
     // Only set the component template if there no childs or the childs are templates
-    if (!this.el.hasChildNodes() || this.onlyTemplateChilds()) {
+    if (!this.el.hasChildNodes() || this.hasOnlyTemplateChilds()) {
       return template;
     } else {
       return null;
