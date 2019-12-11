@@ -2,9 +2,10 @@ Component to collapse the Bootstrap 4 navbar.
 
 #### Attributes
 
-| Name                             | Required | Default             |  Description                                                   |
-| -------------------------------- |:--------:|:-------------------:| -------------------------------------------------------------- |
-| `collapse-selector`              | No       | `'.navbar-collapse'`| The selector of the collabseable child element                 |
+| Name                             | Required | Default             |  Description                                                           |
+| -------------------------------- |:--------:|:-------------------:| ---------------------------------------------------------------------- |
+| `collapse-selector`              | No       | `'.navbar-collapse'`| The selector of the collabseable child element                         |
+| `animated`                       | No       | `true`              | Set the attribute to `animated="false"` to disable collapse animations |
 
 #### Template methods
 

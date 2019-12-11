@@ -1,15 +1,4 @@
-
-<div class="container py-5 page {{template|handleize}}" id="page-content-{{page.handle}}">
-  <div class="row pt-5">
-    <div class="col-12">
-      <div class="row">
-        <div class="col-12">
-          <h1 class="page-title">{{ page.title }}
-          </h1>
-          <div class="rte">{{ page.content }}</div>
-          <div class="content">
-            <bs4-contents class="d-block d-lg-none top-contents" header-parent-selector="#main-container" headers-start="2" headers-depth="4" scroll-offset="80"></bs4-contents>
-            <section class="my-5"><h1>Extras Module</h1>
+<div class="container py-5 page {{template|handleize}}" id="page-content-{{page.handle}}"><div class="row pt-5"><div class="col-12"><div class="row"><div class="col-12"><h1 class="page-title">{{ page.title }}</h1><div class="rte">{{ page.content }}</div><div class="content"><bs4-contents class="d-block d-lg-none top-contents" header-parent-selector="#main-container" headers-start="2" headers-depth="4" scroll-offset="80"></bs4-contents><section class="my-5"><h1>Extras Module</h1>
 <h2>Install</h2>
 <pre><code class="language-bash">npm install --save @ribajs/extras
 </code></pre>
@@ -25,12 +14,7 @@ Utils.domIsReady(() =&gt; {
   riba.bind(document.body, model);
 });
 </code></pre>
-
-            </section>
-            <section class="my-5">
-              <h2 id="binders">Binders</h2>
-              <section class="my-5">
-                <h3 id="data-scroll-position-y">data-scroll-position-y</h3><p>Sets the scroll position (<code>&quot;top&quot;</code>, <code>&quot;scrolled&quot;</code>, <code>&quot;bottom&quot;</code>) to the element as a data attribute, useful if you want to define styles depending on the scroll position.</p>
+</section><section class="my-5" id="binders"><h2>Binders</h2><section class="my-5" id="data-scroll-position-y"><h3>data-scroll-position-y</h3><p>Sets the scroll position (<code>&quot;top&quot;</code>, <code>&quot;scrolled&quot;</code>, <code>&quot;bottom&quot;</code>) to the element as a data attribute, useful if you want to define styles depending on the scroll position.</p>
 <p>Options can be passed via data attributes, e.g <code>data-placement=&quot;right&quot;</code></p>
 <table>
 <thead>
@@ -85,13 +69,4 @@ Utils.domIsReady(() =&gt; {
     </rv-example-tabs>
   </template>
 </rv-bind-content>
-
-              </section>
-            </section>
-            <bs4-scrollspy class="d-none d-lg-block py-3 side-scrollspy scrollbar-primary-on-hover scrollbar-y-auto" header-parent-selector="#main-container" headers-start="2" headers-depth="4" offset="200" offset-bottom="80" scroll-offset="80"></bs4-scrollspy>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+</section></section><bs4-scrollspy class="d-none d-lg-block py-3 side-scrollspy scrollbar-primary-on-hover scrollbar-y-auto" header-parent-selector="#main-container" headers-start="2" headers-depth="4" offset="200" offset-bottom="80" scroll-offset="80"></bs4-scrollspy></div></div></div></div></div></div>

@@ -1,18 +1,4 @@
-
-<div class="container py-5 page {{template|handleize}}" id="page-content-{{page.handle}}">
-  <div class="row pt-5">
-    <div class="col-12">
-      <div class="row">
-        <div class="col-12">
-          <h1 class="page-title">{{ page.title }}
-          </h1>
-          <div class="rte">{{ page.content }}</div>
-          <div class="content">
-            <bs4-contents class="d-block d-lg-none top-contents" header-parent-selector="#main-container" headers-start="2" headers-depth="4" scroll-offset="80"></bs4-contents>
-            <section class="my-5" id="array-formatters">
-              <h2>Array formatters</h2>
-              <section class="my-5" id="contains-formatter">
-                <h3>contains</h3><p>Returns true if an object, array or string contains an object, property or substring.</p>
+<div class="container py-5 page {{template|handleize}}" id="page-content-{{page.handle}}"><div class="row pt-5"><div class="col-12"><div class="row"><div class="col-12"><h1 class="page-title">{{ page.title }}</h1><div class="rte">{{ page.content }}</div><div class="content"><bs4-contents class="d-block d-lg-none top-contents" header-parent-selector="#main-container" headers-start="2" headers-depth="4" scroll-offset="80"></bs4-contents><section class="my-5" id="array-formatters"><h2>Array formatters</h2><section class="my-5" id="contains-formatter"><h3>contains</h3><p>Returns true if an object, array or string contains an object, property or substring.</p>
 <rv-bind-content class="pt-3">
   <template>
     <rv-example-tabs class="pt-3" handle="contains-formatter">
@@ -31,10 +17,7 @@
     </rv-example-tabs>
   </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="empty-formatter">
-                <h3>empty</h3><p>Returns <code>true</code> if a string or array is empty</p>
+</section><section class="my-5" id="empty-formatter"><h3>empty</h3><p>Returns <code>true</code> if a string or array is empty</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="empty-formatter">
@@ -45,10 +28,7 @@
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="first-formatter">
-                <h3>first</h3><p>Array formatter to get the first element of an array</p>
+</section><section class="my-5" id="first-formatter"><h3>first</h3><p>Array formatter to get the first element of an array</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="first-formatter">
@@ -58,10 +38,7 @@ I like <span rv-text="['cracker', 'muffin', 'cake'] | first" ></span>.
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="get-formatter">
-                <h3>get</h3><p>Get property of object or array by key or index</p>
+</section><section class="my-5" id="get-formatter"><h3>get</h3><p>Get property of object or array by key or index</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="get-formatter">
@@ -71,10 +48,7 @@ I like <span rv-text="['cracker', 'muffin', 'cake'] | get 1" ></span>.
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="is-last-formatter">
-                <h3>is-last</h3><p>Returns true if value index is the last index of the array and returns false if it is not the last index</p>
+</section><section class="my-5" id="is-last-formatter"><h3>is-last</h3><p>Returns true if value index is the last index of the array and returns false if it is not the last index</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="bs4-icon">
@@ -86,10 +60,7 @@ I like <span rv-text="['cracker', 'muffin', 'cake'] | get 1" ></span>.
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="last-formatter">
-                <h3>last</h3><p>Array formatter to get the first element of an array</p>
+</section><section class="my-5" id="last-formatter"><h3>last</h3><p>Array formatter to get the first element of an array</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="last-formatter">
@@ -99,10 +70,7 @@ I like <span rv-text="['cracker', 'muffin', 'cake'] | last" ></span>.
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="random-formatter">
-                <h3>random</h3><p>Formatter to get back a random value of an array</p>
+</section><section class="my-5" id="random-formatter"><h3>random</h3><p>Formatter to get back a random value of an array</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="random-array-formatter">
@@ -126,10 +94,7 @@ I like <span rv-text="['cracker', 'muffin', 'cake'] | last" ></span>.
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="set-formatter">
-                <h3>set</h3><p>Sets property of object, array or value</p>
+</section><section class="my-5" id="set-formatter"><h3>set</h3><p>Sets property of object, array or value</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="bs4-icon">
@@ -144,10 +109,7 @@ I like <span rv-text="['cracker', 'muffin', 'cake'] | last" ></span>.
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="size-formatter">
-                <h3>size</h3><p>Returns the size of a string (the number of characters) or an array (the number of elements)</p>
+</section><section class="my-5" id="size-formatter"><h3>size</h3><p>Returns the size of a string (the number of characters) or an array (the number of elements)</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="size-formatter">
@@ -162,13 +124,7 @@ I like <span rv-text="['cracker', 'muffin', 'cake'] | last" ></span>.
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-            </section>
-            <section class="my-5" id="compare-formatters">
-              <h2>Compare formatters</h2>
-              <section class="my-5" id="and-formatter">
-                <h3>and</h3><p>This formatter corresponds to the <code>&amp;&amp;</code> operator: <code>a &amp;&amp; b</code>.</p>
+</section></section><section class="my-5" id="compare-formatters"><h2>Compare formatters</h2><section class="my-5" id="and-formatter"><h3>and</h3><p>This formatter corresponds to the <code>&amp;&amp;</code> operator: <code>a &amp;&amp; b</code>.</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="bs4-icon">
@@ -179,10 +135,7 @@ I like <span rv-text="['cracker', 'muffin', 'cake'] | last" ></span>.
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="between-formatter">
-                <h3>between</h3><p>Formatter to check if a value is between two values.
+</section><section class="my-5" id="between-formatter"><h3>between</h3><p>Formatter to check if a value is between two values.
 This formatter corresponds to the expression: <code>a &gt;= b &amp;&amp; a &lt;= c</code>.</p>
 <rv-bind-content class="pt-3">
 <template>
@@ -194,10 +147,7 @@ This formatter corresponds to the expression: <code>a &gt;= b &amp;&amp; a &lt;=
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="egt-formatter">
-                <h3>egt</h3><p>Formatter to check if value is equal or greater than another value.
+</section><section class="my-5" id="egt-formatter"><h3>egt</h3><p>Formatter to check if value is equal or greater than another value.
 This formatter corresponds to the <code>&gt;=</code> operator: <code>a &gt;= b</code>.</p>
 <rv-bind-content class="pt-3">
 <template>
@@ -210,10 +160,7 @@ This formatter corresponds to the <code>&gt;=</code> operator: <code>a &gt;= b</
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="elt-formatter">
-                <h3>elt</h3><p>Formatter to check if value is equal or lower than another value.
+</section><section class="my-5" id="elt-formatter"><h3>elt</h3><p>Formatter to check if value is equal or lower than another value.
 This formatter corresponds to the <code>&lt;=</code> operator: <code>a &lt;= b</code>.</p>
 <rv-bind-content class="pt-3">
 <template>
@@ -226,10 +173,7 @@ This formatter corresponds to the <code>&lt;=</code> operator: <code>a &lt;= b</
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="eq-formatter">
-                <h3>eq</h3><p>Formatter to check if value is equal than another value.
+</section><section class="my-5" id="eq-formatter"><h3>eq</h3><p>Formatter to check if value is equal than another value.
 This formatter corresponds to the <code>===</code> operator: <code>a === b</code>.</p>
 <rv-bind-content class="pt-3">
 <template>
@@ -241,10 +185,7 @@ This formatter corresponds to the <code>===</code> operator: <code>a === b</code
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="lt-formatter">
-                <h3>lt</h3><p>Formatter to check if value is lower than another value.
+</section><section class="my-5" id="lt-formatter"><h3>lt</h3><p>Formatter to check if value is lower than another value.
 This formatter corresponds to the <code>&lt;</code> operator: <code>a &lt; b</code>.</p>
 <rv-bind-content class="pt-3">
 <template>
@@ -256,10 +197,7 @@ This formatter corresponds to the <code>&lt;</code> operator: <code>a &lt; b</co
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="ne-formatter">
-                <h3>ne</h3><p>Formatter to check if value is <strong>not</strong> equal than another value.
+</section><section class="my-5" id="ne-formatter"><h3>ne</h3><p>Formatter to check if value is <strong>not</strong> equal than another value.
 This formatter corresponds to the <code>!==</code> operator: <code>a !== b</code>.</p>
 <rv-bind-content class="pt-3">
 <template>
@@ -271,10 +209,7 @@ This formatter corresponds to the <code>!==</code> operator: <code>a !== b</code
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="not-formatter">
-                <h3>not</h3><p>Formatter to check if value is <strong>not</strong> <code>true</code>.
+</section><section class="my-5" id="not-formatter"><h3>not</h3><p>Formatter to check if value is <strong>not</strong> <code>true</code>.
 This formatter corresponds to the <code>!</code> expression: <code>!a</code>.</p>
 <rv-bind-content class="pt-3">
 <template>
@@ -287,10 +222,7 @@ This formatter corresponds to the <code>!</code> expression: <code>!a</code>.</p
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="or-formatter">
-                <h3>or</h3><p>Formatter to check if the first value is <code>true</code> or the second value is true.
+</section><section class="my-5" id="or-formatter"><h3>or</h3><p>Formatter to check if the first value is <code>true</code> or the second value is true.
 This formatter corresponds to the <code>||</code> expression: <code>a || b</code>.</p>
 <rv-bind-content class="pt-3">
 <template>
@@ -303,13 +235,7 @@ This formatter corresponds to the <code>||</code> expression: <code>a || b</code
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-            </section>
-            <section class="my-5" id="math-formatters">
-              <h2>Math formatters</h2>
-              <section class="my-5" id="digits-formatter">
-                <h3>digits</h3><p>Just get the digits of a string, useful to remove px from css value.</p>
+</section></section><section class="my-5" id="math-formatters"><h2>Math formatters</h2><section class="my-5" id="digits-formatter"><h3>digits</h3><p>Just get the digits of a string, useful to remove px from css value.</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="bs4-icon">
@@ -319,10 +245,7 @@ This formatter corresponds to the <code>||</code> expression: <code>a || b</code
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="divided-by-formatter">
-                <h3>dividedBy</h3><p>Divides an output by a number. The output is rounded down to the nearest integer.</p>
+</section><section class="my-5" id="divided-by-formatter"><h3>dividedBy</h3><p>Divides an output by a number. The output is rounded down to the nearest integer.</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="bs4-icon">
@@ -332,10 +255,7 @@ This formatter corresponds to the <code>||</code> expression: <code>a || b</code
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="even-formatter">
-                <h3>even / uneven</h3><p><strong>even</strong> returns <code>true</code> if the number is even.
+</section><section class="my-5" id="even-formatter"><h3>even / uneven</h3><p><strong>even</strong> returns <code>true</code> if the number is even.
 <strong>uneven</strong> returns <code>true</code> if the number is uneven.</p>
 <rv-bind-content class="pt-3">
 <template>
@@ -348,10 +268,7 @@ This formatter corresponds to the <code>||</code> expression: <code>a || b</code
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="gcd-formatter">
-                <h3>gcd</h3><p>Greatest common divisor (GCD) useful to calculate a ratio.</p>
+</section><section class="my-5" id="gcd-formatter"><h3>gcd</h3><p>Greatest common divisor (GCD) useful to calculate a ratio.</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="bs4-icon">
@@ -367,10 +284,7 @@ This formatter corresponds to the <code>||</code> expression: <code>a || b</code
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="minus-formatter">
-                <h3>minus</h3><p>Formatter to subtracts a number.</p>
+</section><section class="my-5" id="minus-formatter"><h3>minus</h3><p>Formatter to subtracts a number.</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="bs4-icon">
@@ -381,10 +295,7 @@ This formatter corresponds to the <code>||</code> expression: <code>a || b</code
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="modulo-formatter">
-                <h3>modulo</h3><p>Divides an value by a number and returns the remainder.</p>
+</section><section class="my-5" id="modulo-formatter"><h3>modulo</h3><p>Divides an value by a number and returns the remainder.</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="bs4-icon">
@@ -395,10 +306,7 @@ This formatter corresponds to the <code>||</code> expression: <code>a || b</code
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="number-formatter">
-                <h3>number</h3><p>Formatter to parse a string to number.</p>
+</section><section class="my-5" id="number-formatter"><h3>number</h3><p>Formatter to parse a string to number.</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="bs4-icon">
@@ -408,10 +316,7 @@ This formatter corresponds to the <code>||</code> expression: <code>a || b</code
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="plus-formatter">
-                <h3>plus</h3><p>Formatter to add a number to an value.</p>
+</section><section class="my-5" id="plus-formatter"><h3>plus</h3><p>Formatter to add a number to an value.</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="bs4-icon">
@@ -422,10 +327,7 @@ This formatter corresponds to the <code>||</code> expression: <code>a || b</code
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="times-formatter">
-                <h3>times</h3><p>Formatter to multiplies an value by a number.</p>
+</section><section class="my-5" id="times-formatter"><h3>times</h3><p>Formatter to multiplies an value by a number.</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="bs4-icon">
@@ -437,13 +339,7 @@ This formatter corresponds to the <code>||</code> expression: <code>a || b</code
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-            </section>
-            <section class="my-5" id="special-formatters">
-              <h2>Special formatters</h2>
-              <section class="my-5" id="args-formatter">
-                <h3>args</h3><p>This special formatter sets his arguments to a function without call them directly</p>
+</section></section><section class="my-5" id="special-formatters"><h2>Special formatters</h2><section class="my-5" id="args-formatter"><h3>args</h3><p>This special formatter sets his arguments to a function without call them directly</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="args-formatter">
@@ -455,10 +351,7 @@ This formatter corresponds to the <code>||</code> expression: <code>a || b</code
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="call-formatter">
-                <h3>call</h3><p>Calls a function with arguments</p>
+</section><section class="my-5" id="call-formatter"><h3>call</h3><p>Calls a function with arguments</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="args-formatter">
@@ -470,10 +363,7 @@ This formatter corresponds to the <code>||</code> expression: <code>a || b</code
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="debug-formatter">
-                <h3>debug</h3><p>Prints a value to web developer console</p>
+</section><section class="my-5" id="debug-formatter"><h3>debug</h3><p>Prints a value to web developer console</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="args-formatter">
@@ -483,10 +373,7 @@ This formatter corresponds to the <code>||</code> expression: <code>a || b</code
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="default-formatter">
-                <h3>default</h3><p>Sets a default value if the first value is not set</p>
+</section><section class="my-5" id="default-formatter"><h3>default</h3><p>Sets a default value if the first value is not set</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="default-formatter">
@@ -503,13 +390,7 @@ This formatter corresponds to the <code>||</code> expression: <code>a || b</code
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-            </section>
-            <section class="my-5" id="string-formatters">
-              <h2>String formatters</h2>
-              <section class="my-5" id="append-formatter">
-                <h3>append</h3><p>Appends a string to an existing string</p>
+</section></section><section class="my-5" id="string-formatters"><h2>String formatters</h2><section class="my-5" id="append-formatter"><h3>append</h3><p>Appends a string to an existing string</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="append-formatter">
@@ -519,10 +400,7 @@ This formatter corresponds to the <code>||</code> expression: <code>a || b</code
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="downcase-formatter">
-                <h3>downcase</h3><p>Converts a string into lowercase</p>
+</section><section class="my-5" id="downcase-formatter"><h3>downcase</h3><p>Converts a string into lowercase</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="args-formatter">
@@ -532,10 +410,7 @@ This formatter corresponds to the <code>||</code> expression: <code>a || b</code
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="filled-formatter">
-                <h3>filled</h3><p>Check if value is a string and not empty</p>
+</section><section class="my-5" id="filled-formatter"><h3>filled</h3><p>Check if value is a string and not empty</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="filled-formatter">
@@ -552,10 +427,7 @@ This formatter corresponds to the <code>||</code> expression: <code>a || b</code
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="handleize-formatter">
-                <h3>handleize</h3><p>Formats a string into a handle, useful to use a title string as an id or class attribute</p>
+</section><section class="my-5" id="handleize-formatter"><h3>handleize</h3><p>Formats a string into a handle, useful to use a title string as an id or class attribute</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="handleize-formatter">
@@ -567,10 +439,7 @@ This formatter corresponds to the <code>||</code> expression: <code>a || b</code
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="match-formatter">
-                <h3>match</h3><p>Checks if a string matchs regular expression</p>
+</section><section class="my-5" id="match-formatter"><h3>match</h3><p>Checks if a string matchs regular expression</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="match-formatter">
@@ -582,10 +451,7 @@ This formatter corresponds to the <code>||</code> expression: <code>a || b</code
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="pluralize-formatter">
-                <h3>pluralize</h3><p>Gets the singular or plural version of a string based on the value of a number. The first parameter is the singular string and the second parameter is the plural string</p>
+</section><section class="my-5" id="pluralize-formatter"><h3>pluralize</h3><p>Gets the singular or plural version of a string based on the value of a number. The first parameter is the singular string and the second parameter is the plural string</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="pluralize-formatter">
@@ -600,10 +466,7 @@ This formatter corresponds to the <code>||</code> expression: <code>a || b</code
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="prepend-formatter">
-                <h3>prepend</h3><p>Prepends a string to an existing string</p>
+</section><section class="my-5" id="prepend-formatter"><h3>prepend</h3><p>Prepends a string to an existing string</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="prepend-formatter">
@@ -613,10 +476,7 @@ This formatter corresponds to the <code>||</code> expression: <code>a || b</code
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="replace-first-formatter">
-                <h3>replaceFirst</h3><p>Replaces the first occurrence of a string with a substring</p>
+</section><section class="my-5" id="replace-first-formatter"><h3>replaceFirst</h3><p>Replaces the first occurrence of a string with a substring</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="replace-first-formatter">
@@ -626,10 +486,7 @@ This formatter corresponds to the <code>||</code> expression: <code>a || b</code
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="replace-formatter">
-                <h3>replace</h3><p>Replaces all occurrences of a string with a substring</p>
+</section><section class="my-5" id="replace-formatter"><h3>replace</h3><p>Replaces all occurrences of a string with a substring</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="replace-first-formatter">
@@ -639,10 +496,7 @@ This formatter corresponds to the <code>||</code> expression: <code>a || b</code
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="slice-formatter">
-                <h3>slice</h3><p>The <code>slice</code> formatter returns a substring, starting at the specified index.
+</section><section class="my-5" id="slice-formatter"><h3>slice</h3><p>The <code>slice</code> formatter returns a substring, starting at the specified index.
 An optional second parameter can be passed to specify the length of the substring.
 If no second parameter is given, a substring until the end will be returned.</p>
 <rv-bind-content class="pt-3">
@@ -655,10 +509,7 @@ If no second parameter is given, a substring until the end will be returned.</p>
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="strip-html-formatter">
-                <h3>strip-html</h3><p>Strips all HTML tags from a string</p>
+</section><section class="my-5" id="strip-html-formatter"><h3>strip-html</h3><p>Strips all HTML tags from a string</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="replace-first-formatter">
@@ -668,10 +519,7 @@ If no second parameter is given, a substring until the end will be returned.</p>
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="strip-formatter">
-                <h3>strip</h3><p>Strips tabs, spaces, and newlines (all whitespace) from the left and right side of a string</p>
+</section><section class="my-5" id="strip-formatter"><h3>strip</h3><p>Strips tabs, spaces, and newlines (all whitespace) from the left and right side of a string</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="replace-first-formatter">
@@ -681,10 +529,7 @@ If no second parameter is given, a substring until the end will be returned.</p>
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="upcase-formatter">
-                <h3>upcase</h3><p>Converts a string into uppercase</p>
+</section><section class="my-5" id="upcase-formatter"><h3>upcase</h3><p>Converts a string into uppercase</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="args-formatter">
@@ -694,13 +539,7 @@ If no second parameter is given, a substring until the end will be returned.</p>
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-            </section>
-            <section class="my-5" id="type-formatters">
-              <h2>Type formatters</h2>
-              <section class="my-5" id="boolean-formatter">
-                <h3>boolean</h3><p>Strips tabs, spaces, and newlines (all whitespace) from the left and right side of a string</p>
+</section></section><section class="my-5" id="type-formatters"><h2>Type formatters</h2><section class="my-5" id="boolean-formatter"><h3>boolean</h3><p>Strips tabs, spaces, and newlines (all whitespace) from the left and right side of a string</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="replace-first-formatter">
@@ -715,10 +554,7 @@ If no second parameter is given, a substring until the end will be returned.</p>
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="is-array-formatter">
-                <h3>isArray</h3><p>Checks if value is an array</p>
+</section><section class="my-5" id="is-array-formatter"><h3>isArray</h3><p>Checks if value is an array</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="is-array-formatter">
@@ -734,10 +570,7 @@ If no second parameter is given, a substring until the end will be returned.</p>
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="is-boolean-formatter">
-                <h3>isBoolean</h3><p>Checks if value is a boolean</p>
+</section><section class="my-5" id="is-boolean-formatter"><h3>isBoolean</h3><p>Checks if value is a boolean</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="is-boolean-formatter">
@@ -753,10 +586,7 @@ If no second parameter is given, a substring until the end will be returned.</p>
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="is-defined-formatter">
-                <h3>isDefined</h3><p>Checks if value is defined</p>
+</section><section class="my-5" id="is-defined-formatter"><h3>isDefined</h3><p>Checks if value is defined</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="is-defined-formatter">
@@ -772,10 +602,7 @@ If no second parameter is given, a substring until the end will be returned.</p>
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="is-number-formatter">
-                <h3>isNumber</h3><p>Checks if value is a number</p>
+</section><section class="my-5" id="is-number-formatter"><h3>isNumber</h3><p>Checks if value is a number</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="is-number-formatter">
@@ -791,10 +618,7 @@ If no second parameter is given, a substring until the end will be returned.</p>
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="is-object-formatter">
-                <h3>isObject</h3><p>Checks if value is a object</p>
+</section><section class="my-5" id="is-object-formatter"><h3>isObject</h3><p>Checks if value is a object</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="is-boolean-formatter">
@@ -810,10 +634,7 @@ If no second parameter is given, a substring until the end will be returned.</p>
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="is-string-formatter">
-                <h3>isString</h3><p>Checks if value is a string</p>
+</section><section class="my-5" id="is-string-formatter"><h3>isString</h3><p>Checks if value is a string</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="is-number-formatter">
@@ -829,10 +650,7 @@ If no second parameter is given, a substring until the end will be returned.</p>
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="is-undefined-formatter">
-                <h3>isUndefined</h3><p>Checks if value is undefined</p>
+</section><section class="my-5" id="is-undefined-formatter"><h3>isUndefined</h3><p>Checks if value is undefined</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="is-boolean-formatter">
@@ -848,10 +666,7 @@ If no second parameter is given, a substring until the end will be returned.</p>
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="json-formatter">
-                <h3>json</h3><p>Converts a string into a JSON string</p>
+</section><section class="my-5" id="json-formatter"><h3>json</h3><p>Converts a string into a JSON string</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="json-formatter">
@@ -861,10 +676,7 @@ If no second parameter is given, a substring until the end will be returned.</p>
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="parse-formatter">
-                <h3>parse</h3><p>Parses a json string to object</p>
+</section><section class="my-5" id="parse-formatter"><h3>parse</h3><p>Parses a json string to object</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="json-formatter">
@@ -878,10 +690,7 @@ If no second parameter is given, a substring until the end will be returned.</p>
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-              <section class="my-5" id="string-formatter">
-                <h3>string</h3><p>Parses a value to string</p>
+</section><section class="my-5" id="string-formatter"><h3>string</h3><p>Parses a value to string</p>
 <rv-bind-content class="pt-3">
 <template>
 <rv-example-tabs class="pt-3" handle="json-formatter">
@@ -892,13 +701,4 @@ If no second parameter is given, a substring until the end will be returned.</p>
 </rv-example-tabs>
 </template>
 </rv-bind-content>
-
-              </section>
-            </section>
-            <bs4-scrollspy class="d-none d-lg-block py-3 side-scrollspy scrollbar-primary-on-hover scrollbar-y-auto" header-parent-selector="#main-container" headers-start="2" headers-depth="4" offset="200" offset-bottom="80" scroll-offset="80"></bs4-scrollspy>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+</section></section><bs4-scrollspy class="d-none d-lg-block py-3 side-scrollspy scrollbar-primary-on-hover scrollbar-y-auto" header-parent-selector="#main-container" headers-start="2" headers-depth="4" offset="200" offset-bottom="80" scroll-offset="80"></bs4-scrollspy></div></div></div></div></div></div>
