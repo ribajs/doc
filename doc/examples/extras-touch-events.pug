@@ -1,0 +1,13 @@
+rv-bind-content
+  template
+    rv-example-tabs(handle="extras-touch-events")
+      template(title="main.ts")
+        include:prismjs(language = 'typescript') ../../../../examples/touch-events/src/main.ts
+      template(title="component.html")
+        include:prismjs(language = 'html') ../../../../examples/touch-events/src/components/touch-events-example/touch-events-example.component.html
+      template(title="component.ts")
+        include:prismjs(language = 'typescript') ../../../../examples/touch-events/src/components/touch-events-example/touch-events-example.component.ts
+      template(title="Preview")
+        rv-touch-events-example
+      //- template(title="README.md")
+      //-   include:markdown-it(html) ../../../../examples/i18n-static/README.md

@@ -1,4 +1,3 @@
-// iMPORTANT do not use .babelrc: https://github.com/babel/babel/issues/8711#issuecomment-421918023
 module.exports = {
   "presets": [
     [
@@ -8,15 +7,15 @@ module.exports = {
     ],
     [
       "@babel/preset-env", {
-        // see https://www.sumcumo.com/tree-shaking-eine-einfuehrung
-        modules: false
+        corejs: 3,
+        useBuiltIns: "entry",
       }
     ]
   ],
   "plugins": [
     [
       "@babel/plugin-transform-runtime", {
-        "corejs": 2
+        corejs: 3,
       }
     ],
     "@babel/plugin-syntax-export-default-from",

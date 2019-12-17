@@ -14,7 +14,7 @@ Utils.domIsReady(() =&gt; {
   riba.bind(document.body, model);
 });
 </code></pre>
-</section><section class="my-5" id="binders"><h2>Binders</h2><section class="my-5" id="data-scroll-position-y"><h3>data-scroll-position-y</h3><p>Sets the scroll position (<code>&quot;top&quot;</code>, <code>&quot;scrolled&quot;</code>, <code>&quot;bottom&quot;</code>) to the element as a data attribute, useful if you want to define styles depending on the scroll position.</p>
+</section><section class="my-5" id="binders"><h2>Binders</h2><section class="my-5" id="data-scroll-position-y-binder"><h3>data-scroll-position-y</h3><p>Sets the scroll position (<code>&quot;top&quot;</code>, <code>&quot;scrolled&quot;</code>, <code>&quot;bottom&quot;</code>) to the element as a data attribute, useful if you want to define styles depending on the scroll position.</p>
 <p>Options can be passed via data attributes, e.g <code>data-placement=&quot;right&quot;</code></p>
 <table>
 <thead>
@@ -69,4 +69,102 @@ Utils.domIsReady(() =&gt; {
     </rv-example-tabs>
   </template>
 </rv-bind-content>
-</section></section><bs4-scrollspy class="d-none d-lg-block py-3 side-scrollspy scrollbar-primary-on-hover scrollbar-y-auto" header-parent-selector="#main-container" headers-start="2" headers-depth="4" offset="200" offset-bottom="80" scroll-offset="80"></bs4-scrollspy></div></div></div></div></div></div>
+</section><section class="my-5" id="touch-events-binder"><h3>touch-events</h3><rv-bind-content><template><rv-example-tabs handle="extras-touch-events"><template title="main.ts"><pre><code class="language-typescript">import { coreModule, Riba } from &#39;@ribajs/core&#39;;
+import { extrasModule } from &#39;@ribajs/extras&#39;;
+import { TouchEventsModule } from &#39;./touch-events.module&#39;;
+
+const riba = new Riba();
+const model = {};
+
+// Register modules
+riba.module.regist(coreModule);
+riba.module.regist(extrasModule);
+riba.module.regist(TouchEventsModule);
+
+riba.bind(document.body, model);
+</code></pre></template><template title="component.html"><pre><code class="language-html">&lt;div class=&quot;row flex-column flex-md-row d-flex flex-nowrap h-100&quot;&gt;
+  &lt;!--rv-on-tapmove=&quot;log | args &#39;tapmove&#39;&quot;--&gt;
+  &lt;div
+    class=&quot;col-md-8 bg-light text-dark py-3 d-flex justify-content-center align-items-center touch-zone&quot;
+    rv-touch-events
+    rv-on-tapstart=&quot;log | args &#39;tapstart&#39;&quot;
+    rv-on-tapend=&quot;log | args &#39;tapend&#39;&quot;
+    rv-on-tap=&quot;log | args &#39;tap&#39;&quot;
+    rv-on-tap2=&quot;log | args &#39;tap2&#39;&quot;
+    rv-on-tap3=&quot;log | args &#39;tap3&#39;&quot;
+    rv-on-singletap=&quot;log | args &#39;singletap&#39;&quot;
+    rv-on-doubletap=&quot;log | args &#39;doubletap&#39;&quot;
+    rv-on-taphold=&quot;log | args &#39;taphold&#39;&quot;
+    rv-on-swipe=&quot;log | args &#39;swipe&#39;&quot;
+    rv-on-swipeup=&quot;log | args &#39;swipeup&#39;&quot;
+    rv-on-swiperight=&quot;log | args &#39;swiperight&#39;&quot;
+    rv-on-swipedown=&quot;log | args &#39;swipedown&#39;&quot;
+    rv-on-swipeleft=&quot;log | args &#39;swipeleft&#39;&quot;
+    rv-on-swipeend=&quot;log | args &#39;swipeend&#39;&quot;
+  &gt;
+    &lt;span&gt;Touch here&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-md-4 bg-dark text-light py-3 h-100 console&quot;&gt;
+    &lt;p class=&quot;log&quot;&gt;
+      &lt;span class=&quot;no-data&quot;&gt;Start touching to send data to this console.&lt;/span&gt;
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre></template><template title="component.ts"><pre><code class="language-typescript">import {
+  Component,
+} from &#39;@ribajs/core&#39;;
+
+import template from &#39;./touch-events-example.component.html&#39;;
+
+export class TouchEventsExampleComponent extends Component {
+
+  public static tagName: string = &#39;rv-touch-events-example&#39;;
+
+  protected autobind = true;
+
+  protected consoleElement: HTMLDivElement | null = null;
+  protected touchZoneElement: HTMLDivElement | null = null;
+
+  protected scope: any = {
+    log: this.log,
+  };
+
+  constructor(element?: HTMLElement) {
+    super(element);
+  }
+
+  public log(eventName: string, binder: any, event: Event) {
+    // console.debug(eventName + &#39; called&#39;, event.type, (event as any), (event as any).detail);
+    if (this.consoleElement) {
+      let html = `&lt;p class=&quot;log&quot;&gt;&lt;span class=&quot;name&quot;&gt;${eventName}&lt;/span&gt;`;
+      if ((event as any).detail &amp;&amp; (event as any).detail.offset) {
+        html += `&lt;span class=&quot;detail&quot;&gt;(X: ${(event as any).detail.offset.x} Y: ${(event as any).detail.offset.y})&lt;/span&gt;`;
+      }
+      html += &#39;&lt;span class=&quot;time&quot;&gt;&#39; + new Date().toLocaleTimeString() + &#39;&lt;/span&gt;&lt;/p&gt;&#39;;
+      this.consoleElement.insertAdjacentHTML(&#39;afterbegin&#39;, html);
+    }
+  }
+
+  protected connectedCallback() {
+    super.connectedCallback();
+    this.init([]);
+  }
+
+  protected async beforeBind() {
+    super.beforeBind()
+    .then(() =&gt; {
+      this.consoleElement = this.el.querySelector(&#39;.console&#39;);
+      this.touchZoneElement = this.el.querySelector(&#39;.touch-zone&#39;);
+    });
+  }
+
+  protected template() {
+    // Only set the component template if there no childs already
+    if (this.el.hasChildNodes()) {
+      return null;
+    } else {
+      return template;
+    }
+  }
+}
+</code></pre></template><template title="Preview"><rv-touch-events-example></rv-touch-events-example></template></rv-example-tabs></template></rv-bind-content></section></section><bs4-scrollspy class="d-none d-lg-block py-3 side-scrollspy scrollbar-primary-on-hover scrollbar-y-auto" header-parent-selector="#main-container" headers-start="2" headers-depth="4" offset="200" offset-bottom="80" scroll-offset="80"></bs4-scrollspy></div></div></div></div></div></div>
