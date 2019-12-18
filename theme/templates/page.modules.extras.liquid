@@ -69,7 +69,15 @@ Utils.domIsReady(() =&gt; {
     </rv-example-tabs>
   </template>
 </rv-bind-content>
-</section><section class="my-5" id="touch-events-binder"><h3>touch-events</h3><rv-bind-content><template><rv-example-tabs handle="extras-touch-events"><template title="main.ts"><pre><code class="language-typescript">import { coreModule, Riba } from &#39;@ribajs/core&#39;;
+</section><section class="my-5" id="touch-events-binder"><h3>touch-events</h3><p>Add this binder to an element to trigger additional touch events.</p>
+<p>Then you can react to the events with the <code>on-[event]</code> binder like this:</p>
+<pre><code class="language-html">&lt;div rv-touch-events rv-on-swiperight=&quot;nextPage&quot;&gt;
+  ...
+&lt;/div&gt;
+</code></pre>
+<p>This binder uses <code>TouchEventService</code> to trigger the additional events, check out the <a rv-scroll-to-on-click="'#touch-events-service'" href="#touch-events-service" data-offset="80">TouchEventService</a> to find out what additional events are available.</p>
+<h4>Example</h4>
+<rv-bind-content><template><rv-example-tabs handle="extras-touch-events"><template title="main.ts"><pre><code class="language-typescript">import { coreModule, Riba } from &#39;@ribajs/core&#39;;
 import { extrasModule } from &#39;@ribajs/extras&#39;;
 import { TouchEventsModule } from &#39;./touch-events.module&#39;;
 
@@ -85,7 +93,7 @@ riba.bind(document.body, model);
 </code></pre></template><template title="component.html"><pre><code class="language-html">&lt;div class=&quot;row flex-column flex-md-row d-flex flex-nowrap h-100&quot;&gt;
   &lt;!--rv-on-tapmove=&quot;log | args &#39;tapmove&#39;&quot;--&gt;
   &lt;div
-    class=&quot;col-md-8 bg-light text-dark py-3 d-flex justify-content-center align-items-center touch-zone&quot;
+    class=&quot;col-md-7 col-lg-8 col-xl-9 bg-light text-dark py-3 d-flex justify-content-center align-items-center touch-zone&quot;
     rv-touch-events
     rv-on-tapstart=&quot;log | args &#39;tapstart&#39;&quot;
     rv-on-tapend=&quot;log | args &#39;tapend&#39;&quot;
@@ -104,7 +112,7 @@ riba.bind(document.body, model);
   &gt;
     &lt;span&gt;Touch here&lt;/span&gt;
   &lt;/div&gt;
-  &lt;div class=&quot;col-md-4 bg-dark text-light py-3 h-100 console&quot;&gt;
+  &lt;div class=&quot;col-md-5 col-lg-4 col-xl-3 bg-dark text-light py-3 h-100 console&quot;&gt;
     &lt;p class=&quot;log&quot;&gt;
       &lt;span class=&quot;no-data&quot;&gt;Start touching to send data to this console.&lt;/span&gt;
     &lt;/p&gt;
@@ -167,4 +175,101 @@ export class TouchEventsExampleComponent extends Component {
     }
   }
 }
-</code></pre></template><template title="Preview"><rv-touch-events-example></rv-touch-events-example></template></rv-example-tabs></template></rv-bind-content></section></section><bs4-scrollspy class="d-none d-lg-block py-3 side-scrollspy scrollbar-primary-on-hover scrollbar-y-auto" header-parent-selector="#main-container" headers-start="2" headers-depth="4" offset="200" offset-bottom="80" scroll-offset="80"></bs4-scrollspy></div></div></div></div></div></div>
+</code></pre></template><template title="Preview"><rv-touch-events-example></rv-touch-events-example></template></rv-example-tabs></template></rv-bind-content></section></section><section class="my-5" id="services"><h2>Services</h2><section class="my-5" id="touch-events-service"><h3>TouchEventService</h3><section><p>The <code>TouchEventService</code> is a re-implementation of the beautiful <a href="https://github.com/benmajor/jQuery-Touch-Events">jQuery Touch Events</a> module in vanilla JavaScript.</p>
+<h4>Usage</h4>
+<p>Create a new instance of the <code>TouchEventService</code> with an Element as argument to trigger the touch events on this element:</p>
+<pre><code class="language-ts">import { TouchEventService } from '@ribajs/extras';
+const element = document.querySelector('.trigger-touch-events');
+const touchEventService = new TouchEventService(element);
+element.addEventListener('swiperight' as any, (swipeEvent: CustomEvent) =&gt; {
+  console.debug('swiperight x amount', swipeEvent.detail.xAmount);
+});
+</code></pre>
+<h4>The Events</h4>
+<ul>
+<li><strong><code>tapstart</code></strong><br>
+Fired as soon as the user begins touching an element (or clicking, for desktop environments).</li>
+<li><strong><code>tapend</code></strong><br>
+Fired after the user releases their finger from the target element (or releases their mouse button on desktops).</li>
+<li><strong><code>tapmove</code></strong><br>
+Fired as soon as the user begins moving their finger on an element (or moving their mouse, for desktop environments).</li>
+<li><strong><code>tap</code></strong><br>
+This event is fired whenever the user taps and releases their finger on the target element. Caution should be observed when using this event in conjunction with tap events, especially <code>doubletap</code>. This event will be fired twice when <code>doubletap</code> is used, so it is recommended to use <code>singletap</code> in this case.</li>
+<li><strong><code>singletap</code></strong><br>
+Unlike <code>tap</code> this event is only triggered once we are certain the user has only tapped the target element a single time. This will not be triggered by <code>doubletap</code> or <code>taphold</code>, unlike <code>tap</code>. Since we need to run some tests to make sure the user isn't double tapping or holding a tap on the target element, this event is fired with a short delay (currently of 500 milliseconds).</li>
+<li><strong><code>doubletap</code></strong><br>
+Triggered whenever the user double taps on the target element. The threshold (time between taps) is currently set at 500 milliseconds.</li>
+<li><strong><code>taphold</code></strong><br>
+This event is triggered whenever the user taps on the target element and leaves their finger on the element for at least <em>750 milliseconds</em>.</li>
+<li><strong><code>swipe</code></strong><br>
+This is called whenever the user swipes their finger on the target element. It is not direction-dependent, and is fired regardless of the direction the user swiped.</li>
+<li><strong><code>swipeup</code></strong><br>
+Similar to <code>swipe</code>, except only called when the user swipes their finger in an upward direction on the target element (i.e. bottom to top)</li>
+<li><strong><code>swiperight</code></strong><br>
+Similar to <code>swipe</code>, but triggered only when the user swipes their finger left to right on the target element.</li>
+<li><strong><code>swipedown</code></strong><br>
+Similar to <code>swipe</code>, but triggered only when the user swipes their finger top to bottom on the target element.</li>
+<li><strong><code>swipeleft</code></strong><br>
+Similar to <code>swipe</code>, but triggered only when the user swipes their finger from right to left.</li>
+<li><strong><code>swipeend</code></strong><br>
+The <code>swipeend</code> event is trigged whenever a swipe event ends (i.e. the user finished moving their finger / cursor and released it). This event should be used to handle custom functions, since it will be triggered only when the swipe ends, rather than triggering immediately when the threshold has been met.</li>
+<li><strong><code>scrollstart</code></strong><br>
+Triggered as soon as scrolling begins on the target element.</li>
+<li><strong><code>scrollend</code></strong><br>
+Triggered as soon as scrolling is stopped on the target element.</li>
+</ul>
+<h4>Event detail properties</h4>
+<p>Each event now features detail properties that can be accessed via the detail property. The detail property includes some basic data relating specifically to the event, and can be accessed as a standard JavaScript object. To hook into this properties, you should use the following code:</p>
+<pre><code class="language-ts">element.addEventListener('swipeend' as any, (event: CustomEvent) =&gt; {
+  console.debug('swipeend extra data', event.detail);
+});
+</code></pre>
+<p>Given the example above, the detail object will now contain some basic data that can be accessed through <code>event.detail</code>.. The <code>event.detail.originalEvent</code>  will represent the last native event that occurred.</p>
+<p>Each event provides different extra data. The following shows the numerous data that has been assigned to the detail object:</p>
+<h4><code>tapstart</code>, <code>tapend</code>, <code>tapmove</code>, <code>tap</code>, <code>singletap</code></h4>
+<p><code>offset</code> - object containing the X and Y positions of the event relative to the element to which is was bound. Accessed through <code>offset.x</code> and <code>offset.y</code> respectively.</p>
+<p><code>position</code> - object containing the X and Y positions of the event relative to the screen. Accessed through <code>position.x</code> and <code>position.y</code> respectively.</p>
+<p><code>time</code> - JavaScript timestamp the event occurred (milliseconds since the Unix Epoch)</p>
+<p><code>target</code> - the element from which the event was triggered.</p>
+<p><code>originalEvent</code> - the the last native event that occurred.</p>
+<h4><code>taphold</code></h4>
+<p><code>duration</code>: the time in milliseconds that the user tapped for.</p>
+<p><code>endOffset</code> - object containing the X and Y positions of the end event (i.e. when the user released their finger or mouse) relative to the element to which the event was bound. Accessed through <code>endOffset.x</code> and <code>endOffset.y</code> respectively.</p>
+<p><code>endPosition</code> - object containing the X and Y positions of the end event (i.e. when the user released their finger or mouse) relative to the screen. Accessed through <code>endPosition.x</code> and <code>endPosition.y</code> respectively.</p>
+<p><code>endTime</code> - JavaScript timestamp the <code>taphold</code> was triggered (milliseconds since the Unix Epoch). This will ordinarily be equal to the <code>startTime</code> + <code>taphold</code> threshold.</p>
+<p><code>startOffset</code> - object containing the X and Y positions of the start event (i.e. when the user pressed their finger or mouse) relative to the element to which the event was bound. Accessed through <code>endOffset.x</code> and <code>endOffset.y</code> respectively.</p>
+<p><code>startPosition</code> - object containing the X and Y positions of the start event (i.e. when the user pressed their finger or mouse) relative to the screen. Accessed through <code>endPosition.x</code> and <code>endPosition.y</code> respectively.</p>
+<p><code>startTime</code> - JavaScript timestamp the <code>taphold</code> started (milliseconds since the Unix Epoch).</p>
+<p><code>target</code> - the element from which the event was triggered.</p>
+<p><code>originalEvent</code> - the the last native event that occurred.</p>
+<h4><code>doubletap</code></h4>
+<p><code>firstTap</code> - Object containing the same data as a <code>tap</code> event, but for the first tap to occur.</p>
+<p><code>secondTap</code> - Object containing the same data as a <code>tap</code> event, but for the second (i.e. final) tap to occur.</p>
+<p><code>interval</code> - the time in milliseconds between the two tap.</p>
+<p><code>target</code> - the element from which the event was triggered.</p>
+<p><code>originalEvent</code> - the the last native event that occurred.</p>
+<h4><code>swipe</code>, <code>swipeup</code>, <code>swiperight</code>, <code>swipedown</code>, <code>swipeleft</code>, <code>swipeend</code></h4>
+<p><code>direction</code> - string representing the swipe direction (either <code>up</code>, <code>right</code>, <code>down</code> or <code>left</code>).</p>
+<p><code>duration</code> - the time in milliseconds over which the swipe took place (for best results, use with <code>swipeend</code> only, as this will typically be equal to the defined <code>swipe-threshold</code>.</p>
+<p><code>xAmount</code> - number of pixels the swipe occupied on the X-axis (returned regardless of direction).</p>
+<p><code>yAmount</code> - number of pixels the swipe occupied on the Y-axis (returned regardless of direction).</p>
+<p><code>startEvnt</code> - Object containing the same data as a <code>tap</code> event, but captured when swiping begins.</p>
+<p><code>endEvnt</code> - Object containing the same data as a <code>tap</code> event, but captured when swiping is complete.</p>
+<p><code>target</code> - the element from which the event was triggered.</p>
+<p><code>originalEvent</code> - the the last native event that occurred.</p>
+<h4>Properties</h4>
+<ul>
+<li><code>isTouchCapable</code>:<br>
+<code>true</code> or <code>false</code> depending upon whether touch events are supported.</li>
+<li><code>startEvent</code>:<br>
+<code>touchstart</code> for touch-enabled devices, or <code>mousedown</code> for standard environments.</li>
+<li><code>endEvent</code>:<br>
+<code>touchend</code> for touch-enabled devices, or <code>mouseup</code> for standard environments.</li>
+<li><code>moveEvent</code>:<br>
+<code>touchmove</code> for touch-enabled devices, or <code>mousemove</code> for standard environments.</li>
+<li><code>tapEvent</code>:<br>
+<code>tap</code> for touch-enabled devices, or <code>click</code> for standard environments.</li>
+<li><code>scrollEvent</code>:<br>
+<code>touchmove</code> for touch-enabled devices, or <code>scroll</code> for standard environments. <strong>Caution should be exercised when using this function, since some mobile browsers will correctly bind to <code>scroll</code> as well as <code>touchmove</code>.</strong></li>
+</ul>
+</section></section></section><bs4-scrollspy class="d-none d-lg-block py-3 side-scrollspy scrollbar-primary-on-hover scrollbar-y-auto" header-parent-selector="#main-container" headers-start="2" headers-depth="4" offset="200" offset-bottom="80" scroll-offset="80"></bs4-scrollspy></div></div></div></div></div></div>
