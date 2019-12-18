@@ -60,7 +60,7 @@ Given the example above, the detail object will now contain some basic data that
 
 Each event provides different extra data. The following shows the numerous data that has been assigned to the detail object:
 
-#### `tapstart`, `tapend`, `tapmove`, `tap`, `singletap`
+#### `tapstart`, `tapend`, `tapmove`, `singletap`
 
 `offset` - object containing the X and Y positions of the event relative to the element to which is was bound. Accessed through `offset.x` and `offset.y` respectively.
 
@@ -72,21 +72,31 @@ Each event provides different extra data. The following shows the numerous data 
 
 `originalEvent` - the the last native event that occurred.
 
+#### `tap`
+
+`touches` - Array of object containing `position` and `offset`.
+
+`touches[i].offset` - object containing the X and Y positions of the event relative to the element to which is was bound. Accessed through `offset.x` and `offset.y` respectively.
+
+`touches[i].position` - object containing the X and Y positions of the event relative to the screen. Accessed through `position.x` and `position.y` respectively.
+
+`time` - JavaScript timestamp the event occurred (milliseconds since the Unix Epoch)
+
+`target` - the element from which the event was triggered.
+
+`originalEvent` - the the last native event that occurred.
+
 #### `taphold`
+
+`touches` - Array of object containing `position` and `offset`.
+
+`touches[i].offset` - object containing the X and Y positions of the event relative to the element to which is was bound. Accessed through `offset.x` and `offset.y` respectively.
+
+`touches[i].position` - object containing the X and Y positions of the event relative to the screen. Accessed through `position.x` and `position.y` respectively.
 
 `duration`: the time in milliseconds that the user tapped for.
 
-`endOffset` - object containing the X and Y positions of the end event (i.e. when the user released their finger or mouse) relative to the element to which the event was bound. Accessed through `endOffset.x` and `endOffset.y` respectively.
-
-`endPosition` - object containing the X and Y positions of the end event (i.e. when the user released their finger or mouse) relative to the screen. Accessed through `endPosition.x` and `endPosition.y` respectively.
-
-`endTime` - JavaScript timestamp the `taphold` was triggered (milliseconds since the Unix Epoch). This will ordinarily be equal to the `startTime` + `taphold` threshold.
-
-`startOffset` - object containing the X and Y positions of the start event (i.e. when the user pressed their finger or mouse) relative to the element to which the event was bound. Accessed through `endOffset.x` and `endOffset.y` respectively.
-
-`startPosition` - object containing the X and Y positions of the start event (i.e. when the user pressed their finger or mouse) relative to the screen. Accessed through `endPosition.x` and `endPosition.y` respectively.
-
-`startTime` - JavaScript timestamp the `taphold` started (milliseconds since the Unix Epoch).
+`time` - JavaScript timestamp the event occurred (milliseconds since the Unix Epoch)
 
 `target` - the element from which the event was triggered.
 

@@ -175,7 +175,7 @@ export class TouchEventsExampleComponent extends Component {
     }
   }
 }
-</code></pre></template><template title="Preview"><rv-touch-events-example></rv-touch-events-example></template></rv-example-tabs></template></rv-bind-content></section></section><section class="my-5" id="services"><h2>Services</h2><section class="my-5" id="touch-events-service"><h3>TouchEventService</h3><section><p>The <code>TouchEventService</code> is a re-implementation of the beautiful <a href="https://github.com/benmajor/jQuery-Touch-Events">jQuery Touch Events</a> module in vanilla JavaScript.</p>
+</code></pre></template><template title="Preview"><rv-touch-events-example></rv-touch-events-example></template></rv-example-tabs></template></rv-bind-content></section></section><section class="my-5" id="services"><h2>Services</h2><section class="my-5" id="touch-events-service"><h3>TouchEventService</h3><section><p>The <code>TouchEventService</code> is a re-implementation of the beautiful <a href="https://github.com/benmajor/jQuery-Touch-Events">jQuery Touch Events</a> module in vanilla JavaScript (JQuery free).</p>
 <h4>Usage</h4>
 <p>Create a new instance of the <code>TouchEventService</code> with an Element as argument to trigger the touch events on this element:</p>
 <pre><code class="language-ts">import { TouchEventService } from '@ribajs/extras';
@@ -226,20 +226,25 @@ Triggered as soon as scrolling is stopped on the target element.</li>
 </code></pre>
 <p>Given the example above, the detail object will now contain some basic data that can be accessed through <code>event.detail</code>.. The <code>event.detail.originalEvent</code>  will represent the last native event that occurred.</p>
 <p>Each event provides different extra data. The following shows the numerous data that has been assigned to the detail object:</p>
-<h4><code>tapstart</code>, <code>tapend</code>, <code>tapmove</code>, <code>tap</code>, <code>singletap</code></h4>
+<h4><code>tapstart</code>, <code>tapend</code>, <code>tapmove</code>, <code>singletap</code></h4>
 <p><code>offset</code> - object containing the X and Y positions of the event relative to the element to which is was bound. Accessed through <code>offset.x</code> and <code>offset.y</code> respectively.</p>
 <p><code>position</code> - object containing the X and Y positions of the event relative to the screen. Accessed through <code>position.x</code> and <code>position.y</code> respectively.</p>
 <p><code>time</code> - JavaScript timestamp the event occurred (milliseconds since the Unix Epoch)</p>
 <p><code>target</code> - the element from which the event was triggered.</p>
 <p><code>originalEvent</code> - the the last native event that occurred.</p>
+<h4><code>tap</code></h4>
+<p><code>touches</code> - Array of object containing <code>position</code> and <code>offset</code>.</p>
+<p><code>touches[i].offset</code> - object containing the X and Y positions of the event relative to the element to which is was bound. Accessed through <code>offset.x</code> and <code>offset.y</code> respectively.</p>
+<p><code>touches[i].position</code> - object containing the X and Y positions of the event relative to the screen. Accessed through <code>position.x</code> and <code>position.y</code> respectively.</p>
+<p><code>time</code> - JavaScript timestamp the event occurred (milliseconds since the Unix Epoch)</p>
+<p><code>target</code> - the element from which the event was triggered.</p>
+<p><code>originalEvent</code> - the the last native event that occurred.</p>
 <h4><code>taphold</code></h4>
+<p><code>touches</code> - Array of object containing <code>position</code> and <code>offset</code>.</p>
+<p><code>touches[i].offset</code> - object containing the X and Y positions of the event relative to the element to which is was bound. Accessed through <code>offset.x</code> and <code>offset.y</code> respectively.</p>
+<p><code>touches[i].position</code> - object containing the X and Y positions of the event relative to the screen. Accessed through <code>position.x</code> and <code>position.y</code> respectively.</p>
 <p><code>duration</code>: the time in milliseconds that the user tapped for.</p>
-<p><code>endOffset</code> - object containing the X and Y positions of the end event (i.e. when the user released their finger or mouse) relative to the element to which the event was bound. Accessed through <code>endOffset.x</code> and <code>endOffset.y</code> respectively.</p>
-<p><code>endPosition</code> - object containing the X and Y positions of the end event (i.e. when the user released their finger or mouse) relative to the screen. Accessed through <code>endPosition.x</code> and <code>endPosition.y</code> respectively.</p>
-<p><code>endTime</code> - JavaScript timestamp the <code>taphold</code> was triggered (milliseconds since the Unix Epoch). This will ordinarily be equal to the <code>startTime</code> + <code>taphold</code> threshold.</p>
-<p><code>startOffset</code> - object containing the X and Y positions of the start event (i.e. when the user pressed their finger or mouse) relative to the element to which the event was bound. Accessed through <code>endOffset.x</code> and <code>endOffset.y</code> respectively.</p>
-<p><code>startPosition</code> - object containing the X and Y positions of the start event (i.e. when the user pressed their finger or mouse) relative to the screen. Accessed through <code>endPosition.x</code> and <code>endPosition.y</code> respectively.</p>
-<p><code>startTime</code> - JavaScript timestamp the <code>taphold</code> started (milliseconds since the Unix Epoch).</p>
+<p><code>time</code> - JavaScript timestamp the event occurred (milliseconds since the Unix Epoch)</p>
 <p><code>target</code> - the element from which the event was triggered.</p>
 <p><code>originalEvent</code> - the the last native event that occurred.</p>
 <h4><code>doubletap</code></h4>
