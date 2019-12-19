@@ -367,10 +367,27 @@ Each accordion item is added by an <code>&lt;template&gt;</code> element with a 
 </section></section><section class="my-5" id="bs4-tabs"><h3>bs4-tabs</h3><section><p>You can define the tab tilte and content with the <code>tab-[index]-title</code> and <code>tab-[index]-content</code> attributes.</p>
 <rv-bind-content><template><rv-example-tabs handle="bs4-tabs-attr"><template title="Source"><pre><code class="language-html">&lt;bs4-tabs
   tab-0-title=&quot;Tab 0&quot;
-  tab-0-content=&quot;&lt;p&gt;Hello from &lt;strong&gt;tab 0&lt;/strong&gt;&lt;/p&gt;&quot;
+  tab-0-content=&quot;&lt;p class=&#39;my-3&#39;&gt;Hello from &lt;strong&gt;tab 0&lt;/strong&gt;&lt;/p&gt;&quot;
   tab-1-title=&quot;Tab 1&quot;
-  tab-1-content=&quot;&lt;p&gt;Hello from &lt;strong&gt;tab 1&lt;/strong&gt;&lt;/p&gt;&quot;
-&gt;&lt;/bs4-tabs&gt;</code></pre></template><template title="Preview"><rv-bs4-tabs-attr-example></rv-bs4-tabs-attr-example></template><template title="Info"><h1>bs4-tabs-attr</h1>
+  tab-1-content=&quot;&lt;p class=&#39;my-3&#39;&gt;Hello from &lt;strong&gt;tab 1&lt;/strong&gt;&lt;/p&gt;&quot;
+  tab-2-title=&quot;Tab 2&quot;
+  tab-2-content=&quot;&lt;p class=&#39;my-3&#39;&gt;Hello from &lt;strong&gt;tab 2&lt;/strong&gt;&lt;/p&gt;&quot;
+  tab-3-title=&quot;Tab 3&quot;
+  tab-3-content=&quot;&lt;p class=&#39;my-3&#39;&gt;Hello from &lt;strong&gt;tab 3&lt;/strong&gt;&lt;/p&gt;&quot;
+  tab-4-title=&quot;Tab 4&quot;
+  tab-4-content=&quot;&lt;p class=&#39;my-3&#39;&gt;Hello from &lt;strong&gt;tab 4&lt;/strong&gt;&lt;/p&gt;&quot;
+  tab-5-title=&quot;Tab 5&quot;
+  tab-5-content=&quot;&lt;p class=&#39;my-3&#39;&gt;Hello from &lt;strong&gt;tab 5&lt;/strong&gt;&lt;/p&gt;&quot;
+  tab-6-title=&quot;Tab 6&quot;
+  tab-6-content=&quot;&lt;p class=&#39;my-3&#39;&gt;Hello from &lt;strong&gt;tab 6&lt;/strong&gt;&lt;/p&gt;&quot;
+  tab-7-title=&quot;Tab 7&quot;
+  tab-7-content=&quot;&lt;p class=&#39;my-3&#39;&gt;Hello from &lt;strong&gt;tab 7&lt;/strong&gt;&lt;/p&gt;&quot;
+  tab-8-title=&quot;Tab 8&quot;
+  tab-8-content=&quot;&lt;p class=&#39;my-3&#39;&gt;Hello from &lt;strong&gt;tab 8&lt;/strong&gt;&lt;/p&gt;&quot;
+  tab-9-title=&quot;Tab 9&quot;
+  tab-9-content=&quot;&lt;p class=&#39;my-3&#39;&gt;Hello from &lt;strong&gt;tab 9&lt;/strong&gt;&lt;/p&gt;&quot;
+&gt;&lt;/bs4-tabs&gt;
+</code></pre></template><template title="Preview"><rv-bs4-tabs-attr-example></rv-bs4-tabs-attr-example></template><template title="Info"><h1>bs4-tabs-attr</h1>
 <pre><code class="language-bash">git clone --recurse-submodules https://github.com/ribajs/riba.git
 cd riba/examples/bs4-tabs-attr
 npm install
@@ -378,13 +395,46 @@ npm run start
 </code></pre>
 </template></rv-example-tabs></template></rv-bind-content></section><section class="mt-5"><p>Sometimes it is useful to define the tabs via templates, for example if the html content of the tabs are too complex.</p>
 <rv-bind-content><template><rv-example-tabs handle="bs4-tabs-tpl"><template title="Source"><pre><code class="language-html">&lt;bs4-tabs&gt;
+  &lt;ul rv-scrollbar-dragable role=&quot;tablist&quot; class=&quot;nav nav-tabs scrollbar-y-hidden flex-scrollbar-x-visible scrollbar-warning-on-hover scrollbar-y-auto&quot;&gt;
+    &lt;li class=&quot;nav-item&quot; rv-each-tab=&quot;items&quot;&gt;
+      &lt;button role=&quot;tab&quot; class=&quot;btn btn-link nav-link&quot; rv-class-active=&quot;tab.active&quot; rv-id=&quot;&#39;tab-title-&#39; | append tab.handle&quot; rv-aria-controls=&quot;&#39;tab-content-&#39; | append tab.handle&quot; rv-on-click=&quot;activate | args tab&quot; rv-html=&quot;tab.title&quot;&gt;&lt;/button&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;div class=&quot;tab-content&quot;&gt;
+    &lt;div rv-each-tab=&quot;items&quot; role=&quot;tabpanel&quot; class=&quot;tab-pane&quot; rv-class-show=&quot;tab.active&quot; rv-class-active=&quot;tab.active&quot; rv-id=&quot;&#39;tab-content-&#39; | append tab.handle&quot; rv-aria-labelledby=&quot;&#39;tab-title-&#39; | append tab.handle&quot; rv-html=&quot;tab.content&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;  
   &lt;template title=&quot;Tab 0&quot;&gt;
-    &lt;img class=&quot;img-fluid&quot; src=&quot;https://via.placeholder.com/150/7c00b5/FFFFFF?text=Tab%200&quot; alt=&quot;Tab 0&quot;&gt;
+    &lt;img class=&quot;img-fluid my-3&quot; src=&quot;https://via.placeholder.com/150/7c00b5/FFFFFF?text=Tab%200&quot; alt=&quot;Tab 0&quot;&gt;
   &lt;/template&gt;
   &lt;template title=&quot;Tab 1&quot;&gt;
-    &lt;img class=&quot;img-fluid&quot; src=&quot;https://via.placeholder.com/150/00b56a/FFFFFF?text=Tab%201&quot; alt=&quot;Tab 1&quot;&gt;
+    &lt;img class=&quot;img-fluid my-3&quot; src=&quot;https://via.placeholder.com/150/00b56a/FFFFFF?text=Tab%201&quot; alt=&quot;Tab 1&quot;&gt;
   &lt;/template&gt;
-&lt;/bs4-tabs&gt;</code></pre></template><template title="Preview"><rv-bs4-tabs-tpl-example></rv-bs4-tabs-tpl-example></template><template title="Info"><h1>bs4-tabs-tpl</h1>
+  &lt;template title=&quot;Tab 2&quot;&gt;
+    &lt;img class=&quot;img-fluid my-3&quot; src=&quot;https://via.placeholder.com/150/001f3f/FFFFFF?text=Tab%202&quot; alt=&quot;Tab 2&quot;&gt;
+  &lt;/template&gt;
+  &lt;template title=&quot;Tab 3&quot;&gt;
+    &lt;img class=&quot;img-fluid my-3&quot; src=&quot;https://via.placeholder.com/150/0074D9/FFFFFF?text=Tab%203&quot; alt=&quot;Tab 3&quot;&gt;
+  &lt;/template&gt;
+  &lt;template title=&quot;Tab 4&quot;&gt;
+    &lt;img class=&quot;img-fluid my-3&quot; src=&quot;https://via.placeholder.com/150/7FDBFF/FFFFFF?text=Tab%204&quot; alt=&quot;Tab 4&quot;&gt;
+  &lt;/template&gt;
+  &lt;template title=&quot;Tab 5&quot;&gt;
+    &lt;img class=&quot;img-fluid my-3&quot; src=&quot;https://via.placeholder.com/150/39CCCC/FFFFFF?text=Tab%205&quot; alt=&quot;Tab 5&quot;&gt;
+  &lt;/template&gt;
+  &lt;template title=&quot;Tab 6&quot;&gt;
+    &lt;img class=&quot;img-fluid my-3&quot; src=&quot;https://via.placeholder.com/150/3D9970/FFFFFF?text=Tab%206&quot; alt=&quot;Tab 6&quot;&gt;
+  &lt;/template&gt;
+  &lt;template title=&quot;Tab 7&quot;&gt;
+    &lt;img class=&quot;img-fluid my-3&quot; src=&quot;https://via.placeholder.com/150/2ECC40/FFFFFF?text=Tab%207&quot; alt=&quot;Tab 7&quot;&gt;
+  &lt;/template&gt;
+  &lt;template title=&quot;Tab 8&quot;&gt;
+    &lt;img class=&quot;img-fluid my-3&quot; src=&quot;https://via.placeholder.com/150/FF851B/FFFFFF?text=Tab%208&quot; alt=&quot;Tab 8&quot;&gt;
+  &lt;/template&gt;
+  &lt;template title=&quot;Tab 9&quot;&gt;
+    &lt;img class=&quot;img-fluid my-3&quot; src=&quot;https://via.placeholder.com/150/85144b/FFFFFF?text=Tab%209&quot; alt=&quot;Tab 9&quot;&gt;
+  &lt;/template&gt;
+&lt;/bs4-tabs&gt;
+</code></pre></template><template title="Preview"><rv-bs4-tabs-tpl-example></rv-bs4-tabs-tpl-example></template><template title="Info"><h1>bs4-tabs-tpl</h1>
 <pre><code class="language-bash">git clone --recurse-submodules https://github.com/ribajs/riba.git
 cd riba/examples/bs4-tabs-tpl
 npm install
