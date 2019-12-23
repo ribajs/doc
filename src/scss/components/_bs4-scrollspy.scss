@@ -1,13 +1,14 @@
 $bs4-scrollspy-dot-size: 5px;
 $bs4-scrollspy-line-left: 10px;
 $bs4-scrollspy-line-width: 2px;
+$bs4-scrollspy-width: 200px;
 $bs4-scrollspy-dot-left: $bs4-scrollspy-line-left - ($bs4-scrollspy-dot-size - ($bs4-scrollspy-line-width / 2));
 
 bs4-scrollspy.side-scrollspy {
   position: fixed;
   right: 0;
   top: 64px;
-  width: 200px;
+  width: $bs4-scrollspy-width + 50px;
   height: calc(100vw - 64px);
   .nav-item {
     > ul.list-scrollspy {
@@ -54,13 +55,14 @@ bs4-scrollspy.side-scrollspy {
         }
       }
       .nav-link {
-        padding-top: 0;
-        padding-bottom: 0;
+        padding: 0;
       }
     }
   }
   ul.list-scrollspy-level-1 {
     position: relative;
+    padding-left: 20px;
+    width: $bs4-scrollspy-width;
     // line
     &:before {
       content: "";
