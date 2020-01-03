@@ -2,7 +2,7 @@
   <template>
     <rv-example-tabs handle="bs4-slideshow-1" class="pt-3">
       <template type="single-html-file">
-        <bs4-slideshow control-prev-icon-src="{{ 'arrow_carrot_alt.svg' | asset_url }}" control-next-icon-src="{{ 'arrow_carrot_alt.svg' | asset_url }}" indicator-inactive-icon-src="{{ 'icon_circle-empty.svg' | asset_url }}" indicator-active-icon-src="{{ 'icon_circle-selected.svg' | asset_url }}" sticky="true" autoplay="false" autoplay-interval="10000">
+        <bs4-slideshow control-prev-icon-src="{{ 'arrow_carrot_alt.svg' | asset_url }}" control-next-icon-src="{{ 'arrow_carrot_alt.svg' | asset_url }}" indicator-inactive-icon-src="{{ 'icon_circle-empty.svg' | asset_url }}" indicator-active-icon-src="{{ 'icon_circle-selected.svg' | asset_url }}" sticky="true" autoplay="true" autoplay-interval="10000">
           <div class="slideshow-inner">
             <div class="slide col-12 p-0">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=1" alt="Static Random Image from https://picsum.photos/">
@@ -99,7 +99,7 @@
           <div class="slideshow-inner align-items-center">
             <div class="slide-placeholder col-3">&nbsp;</div>
             <div class="slide col-6">
-              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/600/600?random=1" alt="Static Random Image from https://picsum.photos/">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=1" alt="Static Random Image from https://picsum.photos/">
             </div>
             <div class="slide col-4">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=2" alt="Static Random Image from https://picsum.photos/">
@@ -136,7 +136,7 @@
   <template>
     <rv-example-tabs handle="bs4-slideshow-1" class="pt-3">
       <template type="single-html-file">
-        <bs4-slideshow autoplay="false" autoplay-velocity="0.05" control-prev-icon-src="{{ 'arrow_carrot.svg' | asset_url }}" indicator-inactive-icon-src="{{ 'icon_circle-empty.svg' | asset_url }}" indicator-active-icon-src="{{ 'icon_circle-selected.svg' | asset_url }}" control-next-icon-src="{{ 'arrow_carrot.svg' | asset_url }}">
+        <bs4-slideshow autoplay="true" autoplay-velocity="0.05" control-prev-icon-src="{{ 'arrow_carrot.svg' | asset_url }}" indicator-inactive-icon-src="{{ 'icon_circle-empty.svg' | asset_url }}" indicator-active-icon-src="{{ 'icon_circle-selected.svg' | asset_url }}" control-next-icon-src="{{ 'arrow_carrot.svg' | asset_url }}">
           <div class="slideshow-inner">
             <div class="slide-placeholder col-4">&nbsp;</div>
             <div class="slide col-4">
@@ -178,7 +178,7 @@
     <rv-example-tabs handle="bs4-slideshow-1" class="pt-3">
       <template type="single-html-file">
         <h2 class="text-center"></h2>
-        <bs4-slideshow autoplay="false" autoplay-interval="4000" control-prev-icon-src="{{ 'arrow_carrot.svg' | asset_url }}" indicator-inactive-icon-src="{{ 'icon_circle-empty.svg' | asset_url }}" indicator-active-icon-src="{{ 'icon_circle-selected.svg' | asset_url }}" control-next-icon-src="{{ 'arrow_carrot.svg' | asset_url }}">
+        <bs4-slideshow autoplay="true" autoplay-interval="4000" control-prev-icon-src="{{ 'arrow_carrot.svg' | asset_url }}" indicator-inactive-icon-src="{{ 'icon_circle-empty.svg' | asset_url }}" indicator-active-icon-src="{{ 'icon_circle-selected.svg' | asset_url }}" control-next-icon-src="{{ 'arrow_carrot.svg' | asset_url }}">
           <div class="slideshow-inner">
             <div class="slide-placeholder col-4">&nbsp;</div>
             <div class="slide col-4">

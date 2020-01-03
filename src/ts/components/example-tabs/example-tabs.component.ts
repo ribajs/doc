@@ -64,7 +64,6 @@ export class ExampleBs4TabsComponent extends Bs4TabsComponent {
 
   public activate(tab: Tab, binding?: any, event?: Event) {
     super.activate(tab, binding, event);
-    console.debug('activate tab', tab);
     if (tab.type === 'realtime-result') {
       // Get content of preview tab and insirt this as the source
       const previewElement = this.el.querySelector('.tab-content-preview');
@@ -74,17 +73,15 @@ export class ExampleBs4TabsComponent extends Bs4TabsComponent {
       }
     }
 
-    // if (tab.type === 'preview') {
-    //   // Bind preview tab
-    //   const previewElement = this.el.querySelector('.tab-content-preview') as HTMLElement;
-    //   if (previewElement) {
-    //     this.riba?.bind(previewElement, this.scope);
-    //   }
-    // }
+    // WORKAROUND for components that need to be visible to work
+    if (tab.type === 'preview') {
+      setTimeout(() => {
+        window.dispatchEvent(new Event('resize'));
+      }, 200);
+    }
   }
 
   protected async bindIfReady() {
-    console.debug(`[${ExampleBs4TabsComponent.tagName}] bind if ready, ready: ${this.ready()} templateReady: ${this.templateReady}`);
     return super.bindIfReady();
   }
 
