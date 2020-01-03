@@ -11,20 +11,24 @@ given attribute and not by the star value.</p>
 <pre><code class="language-html">&lt;img class=&quot;loading&quot; rv-src=&quot;img.src&quot; rv-remove-class=&quot;loadingClass&quot;&gt;
 </code></pre>
 </section><section class="my-5" id="assign-binder"><h2>assign</h2><p>Assign a value in your model. The value you want to assign must be an object and will be concatenate with your model. You can also pass a JSON string.</p>
-<pre><code class="language-html">&lt;div rv-assign='{&quot;newValue&quot;: &quot;hello&quot;, &quot;anotherNewValue&quot;: &quot;world&quot;}'&gt;{newValue} {anotherNewValue}!&lt;/div&gt;
-</code></pre>
-<!--
-<rv-example-tabs class="pt-3" handle="bs4-icon">
-<template type="single-html-file"><div rv-assign='{"newValue": "hello", "anotherNewValue": "world"}'>{newValue} {anotherNewValue}!</div></template>
-</rv-example-tabs>
--->
+<rv-bind-content class="pt-3">
+  <template>
+    <rv-example-tabs class="pt-3" handle="assing-binder">
+      <template type="single-html-file">
+        <div rv-assign="{'newValue': 'hello', 'anotherNewValue': 'world'}">{newValue} {anotherNewValue}!</div>
+      </template>
+    </rv-example-tabs>
+  </template>
+</rv-bind-content>
 </section><section class="my-5" id="assign-property-binder"><h2>assign-[property]</h2><p>Assign a value in your model, sets or overwrites a value by his property name (named whatever value is in place of <code>[property]</code>) in your model.</p>
 <rv-bind-content class="pt-3">
-<template>
-<rv-example-tabs class="pt-3" handle="bs4-icon">
-<template type="single-html-file"><div rv-assign-new-value="'Hello World'">{newValue}!</div></template>
-</rv-example-tabs>
-</template>
+  <template>
+    <rv-example-tabs class="pt-3" handle="bs4-icon">
+      <template type="single-html-file">
+        <div rv-assign-new-value="'Hello World'">{newValue}!</div>
+      </template>
+    </rv-example-tabs>
+  </template>
 </rv-bind-content>
 </section><section class="my-5" id="attribute-binder"><h2>[attribute]</h2><p>Sets the value of an attribute (whatever value is in place of <code>[attribute]</code>) on the element.</p>
 <p><em>If your binding declaration does not match any of the above routines, it will fallback to use this binding.</em></p>
@@ -71,7 +75,7 @@ given attribute and not by the star value.</p>
   &lt;/li&gt;
 &lt;ul&gt;
 </code></pre>
-<rv-bind-content><template><rv-example-tabs handle="each-item"><template title="component.html"><pre><code class="language-html">&lt;nav&gt;
+<rv-bind-content><template><rv-example-tabs handle="each-item"><template title="component.html" type="source"><pre><code class="language-html">&lt;nav&gt;
   &lt;button rv-on-click=&quot;push&quot;&gt;Push&lt;/button&gt;
   &lt;button rv-on-click=&quot;pop&quot;&gt;Pop&lt;/button&gt;
   &lt;button rv-on-click=&quot;shift&quot;&gt;Shift&lt;/button&gt;
@@ -85,7 +89,7 @@ given attribute and not by the star value.</p>
     &lt;div&gt;Item { %item% } / { item.name }&lt;/div&gt;
   &lt;/div&gt;
 &lt;/section&gt;
-</code></pre></template><template title="component.ts"><pre><code class="language-typescript">import { Component } from &#39;@ribajs/core&#39;;
+</code></pre></template><template title="component.ts" type="source"><pre><code class="language-typescript">import { Component } from &#39;@ribajs/core&#39;;
 import template from &#39;./each-item-example.component.html&#39;;
 
 export class EachItemExampleComponent extends Component {
@@ -94,17 +98,18 @@ export class EachItemExampleComponent extends Component {
 
   protected scope: Scope = {
     items: this.getItems(),
-    push: this.push,
     pop: this.pop,
-    shift: this.shift,
-    unshift: this.unshift,
-    splice: this.splice,
+    push: this.push,
     reset: this.reset,
+    shift: this.shift,
     sort: this.sort,
+    splice: this.splice,
+    unshift: this.unshift,
   };
 
   constructor(element?: HTMLElement) {
     super(element);
+    console.debug(&#39;[EachItemExampleComponent] constructor&#39;, this.scope);
   }
 
   public push() {
@@ -112,38 +117,39 @@ export class EachItemExampleComponent extends Component {
   }
 
   public pop() {
-    this.scope.items.pop()
+    this.scope.items.pop();
   }
 
   public shift() {
-    this.scope.items.shift()
+    this.scope.items.shift();
   }
 
   public unshift() {
-    this.scope.items.unshift({name: &#39;shifted&#39;})
+    this.scope.items.unshift({name: &#39;shifted&#39;});
   }
 
   public splice() {
-    this.scope.items.splice(1, 1, {name: &#39;spliced1&#39;}, {name: &#39;spliced2&#39;})
+    this.scope.items.splice(1, 1, {name: &#39;spliced1&#39;}, {name: &#39;spliced2&#39;});
   }
 
   public reset() {
-    this.scope.items = this.getItems()
+    this.scope.items = this.getItems();
   }
 
   public sort() {
     this.scope.items.sort((a, b) =&gt; {
-      return (a.value || 0) - (b.value || 0)
-    })
+      return (a.value || 0) - (b.value || 0);
+    });
   }
 
   protected connectedCallback() {
     super.connectedCallback();
     this.init([]);
+    console.debug(&#39;[EachItemExampleComponent] connectedCallback&#39;, this.scope);
   }
 
   protected getItems(): Item[] {
-    return [{name: &#39;x&#39;, value: 2} ,{name: &#39;y&#39;, value: 1} , {name: &#39;z&#39;, value: 3}]
+    return [{name: &#39;x&#39;, value: 2}, {name: &#39;y&#39;, value: 1}, {name: &#39;z&#39;, value: 3}];
   }
 
   protected async init(observedAttributes: string[]) {
@@ -164,21 +170,19 @@ interface Item {
 }
 
 interface Scope {
-  items: Array&lt;Item&gt;,
-  push: EachItemExampleComponent[&#39;push&#39;],
-  pop: EachItemExampleComponent[&#39;pop&#39;],
-  shift: EachItemExampleComponent[&#39;shift&#39;],
-  unshift: EachItemExampleComponent[&#39;unshift&#39;],
-  splice: EachItemExampleComponent[&#39;splice&#39;],
-  reset: EachItemExampleComponent[&#39;reset&#39;],
-  sort: EachItemExampleComponent[&#39;sort&#39;],
+  items: Item[];
+  push: EachItemExampleComponent[&#39;push&#39;];
+  pop: EachItemExampleComponent[&#39;pop&#39;];
+  shift: EachItemExampleComponent[&#39;shift&#39;];
+  unshift: EachItemExampleComponent[&#39;unshift&#39;];
+  splice: EachItemExampleComponent[&#39;splice&#39;];
+  reset: EachItemExampleComponent[&#39;reset&#39;];
+  sort: EachItemExampleComponent[&#39;sort&#39;];
 }
-</code></pre></template><template title="index.html"><pre><code class="language-html">&lt;!DOCTYPE html&gt;
+</code></pre></template><template title="index.html" type="source"><pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
   &lt;head&gt;
     &lt;title&gt;each-star-example&lt;/title&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;./main.scss&quot;&gt;
-    &lt;script src=&quot;./main.ts&quot;&gt;&lt;/script&gt;
   &lt;/head&gt;
   &lt;body&gt;
     &lt;div id=&quot;rv-app&quot;&gt;
@@ -186,13 +190,13 @@ interface Scope {
     &lt;/div&gt;
   &lt;/body&gt;
 &lt;/html&gt;
-</code></pre></template><template title="Info"><h1>each-item-example</h1>
+</code></pre></template><template title="Info" type="info"><h1>each-item-example</h1>
 <pre><code class="language-bash">git clone --recurse-submodules https://github.com/ribajs/riba.git
 cd riba/examples/each-item
 npm install
 npm run start
 </code></pre>
-</template><template title="Preview"><rv-each-item-example></rv-each-item-example></template></rv-example-tabs></template></rv-bind-content></section><section class="my-5" id="nested-each-item-binder"><h2>Nested each-[item]</h2><p>By nesting elements bound by <code>rv-each</code>, a scope is created for each nest level. The variables from parent scopes can be acessed by child ones, using a resolution algorithm similar to JavaScript prototype chain, i.e., looks for current scope if not found, look in parent scope repeating until find.</p>
+</template><template title="Preview" type="preview"><rv-each-item-example> </rv-each-item-example></template></rv-example-tabs></template></rv-bind-content></section><section class="my-5" id="nested-each-item-binder"><h2>Nested each-[item]</h2><p>By nesting elements bound by <code>rv-each</code>, a scope is created for each nest level. The variables from parent scopes can be acessed by child ones, using a resolution algorithm similar to JavaScript prototype chain, i.e., looks for current scope if not found, look in parent scope repeating until find.</p>
 <pre><code class="language-html">&lt;ul&gt;
   &lt;li rv-each-category=&quot;categories&quot;&gt;
     { category.name }
@@ -224,6 +228,18 @@ npm run start
 <p>You can also bind text using interpolation.</p>
 <pre><code class="language-html">&lt;p&gt;{ user.name } is { user.age } years old.&lt;/p&gt;
 </code></pre>
+</section><section class="my-5" id="template-binder"><h2>template</h2><p>Sets the element's HTML content like <code>rv-html</code>, but also binds the HTML content so you can also use binders and componentes in such html templates.</p>
+<rv-bind-content class="pt-3">
+  <template>
+    <rv-example-tabs class="pt-3" handle="assing-binder">
+      <template type="single-html-file">
+        <div rv-assign-tpl="'<li rv-each-item='items'>{item}</li>'" rv-assign-items="['a', 'b', 'c', 'd']">
+          <ul rv-template="tpl"></ul>
+        </div>
+      </template>
+    </rv-example-tabs>
+  </template>
+</rv-bind-content>
 </section><section class="my-5" id="if-binder"><h2>if</h2><p>Inserts and binds the element as well as it's child nodes into the DOM when the value evaluates to true and removes / unbinds the element when the value evaluates to false.</p>
 <pre><code class="language-html">&lt;section rv-if=&quot;item.editable&quot;&gt;&lt;/section&gt;
 </code></pre>
@@ -266,4 +282,4 @@ npm run start
 </section><section class="my-5" id="value-binder"><h2>value</h2><p>Sets the element's value when the attribute changes and sets the bound object's value when the input element changes from user input (two-way).</p>
 <pre><code class="language-html">&lt;input rv-value=&quot;item.name&quot;&gt;
 </code></pre>
-</section><bs4-scrollspy class="d-none d-lg-block py-3 side-scrollspy scrollbar-primary-on-hover scrollbar-y-auto scrollbar-x-hidden" rv-scrollbar-dragable="rv-scrollbar-dragable" header-parent-selector="#main-container" headers-start="2" headers-depth="4" offset="200" offset-bottom="80" scroll-offset="80"></bs4-scrollspy></div></div></div></div></div></div>
+</section><bs4-scrollspy class="d-none d-lg-block py-3 side-scrollspy scrollbar-primary-on-hover scrollbar-y-auto scrollbar-x-hidden" rv-scrollbar-draggable="rv-scrollbar-draggable" header-parent-selector="#main-container" headers-start="2" headers-depth="4" offset="200" offset-bottom="80" scroll-offset="80"></bs4-scrollspy></div></div></div></div></div></div>

@@ -137,7 +137,7 @@ const locales = {
 
 const localesService = new LocalesStaticService(locales);
 </code></pre>
-<rv-bind-content><template><rv-example-tabs handle="bs4-tabs-tpl"><template title="main.ts"><pre><code class="language-typescript">import { coreModule, Riba, Utils } from &#39;@ribajs/core&#39;;
+<rv-bind-content><template><rv-example-tabs handle="bs4-tabs-tpl"><template title="main.ts" type="source"><pre><code class="language-typescript">import { coreModule, Riba, Utils } from &#39;@ribajs/core&#39;;
 import { i18nModule, LocalesStaticService } from &#39;@ribajs/i18n&#39;;
 import I18nStaticModule from &#39;./i18n-static.module&#39;;
 
@@ -179,7 +179,7 @@ riba.module.regist(I18nStaticModule);
 Utils.domIsReady(() =&gt; {
   riba.bind(document.body, model);
 });
-</code></pre></template><template title="component.html"><pre><code class="language-html">&lt;i18n-switcher&gt;
+</code></pre></template><template title="component.html" type="source"><pre><code class="language-html">&lt;i18n-switcher&gt;
   &lt;p&gt;&lt;strong rv-i18n-text=&quot;&#39;examples.i18n.switch_language&#39;&quot;&gt;&lt;/strong&gt;&lt;/p&gt;
   &lt;div class=&quot;nav-item&quot; rv-each-langcode=&quot;langcodes&quot;&gt;
     &lt;button
@@ -195,7 +195,7 @@ Utils.domIsReady(() =&gt; {
 &lt;p rv-i18n-html=&quot;&#39;examples.newsletter.description_html&#39;&quot;&gt;&lt;/p&gt;
 &lt;input type=&quot;text&quot; rv-i18n-value=&quot;&#39;examples.newsletter.input_value&#39;&quot; /&gt;
 &lt;input type=&quot;text&quot; rv-i18n-placeholder=&quot;&#39;examples.newsletter.placeholder_last_name&#39;&quot; /&gt;
-</code></pre></template><template title="component.ts"><pre><code class="language-typescript">import {
+</code></pre></template><template title="component.ts" type="source"><pre><code class="language-typescript">import {
   Component,
 } from &#39;@ribajs/core&#39;;
 
@@ -237,7 +237,7 @@ export class I18nStaticExampleComponent extends Component {
     return template;
   }
 }
-</code></pre></template><template title="Preview"><rv-i18n-static-example></rv-i18n-static-example></template></rv-example-tabs></template></rv-bind-content></section><section class="my-5" id="locales-rest-service"><h3>LocalesRestService</h3><p>The LocalesRestService can be used to get the translation json object with a REST API call:</p>
+</code></pre></template><template title="Preview" type="preview"><rv-i18n-static-example></rv-i18n-static-example></template></rv-example-tabs></template></rv-bind-content></section><section class="my-5" id="locales-rest-service"><h3>LocalesRestService</h3><p>The LocalesRestService can be used to get the translation json object with a REST API call:</p>
 <pre><code class="language-typescript">import { LocalesRestService } from '@ribajs/i18n';
 
 const url = 'https://localhost/api/locales'
@@ -356,4 +356,4 @@ If the type is not known, the translation is instead set as an attribute with th
     </rv-example-tabs>
   </template>
 </rv-bind-content>
-</section></section><bs4-scrollspy class="d-none d-lg-block py-3 side-scrollspy scrollbar-primary-on-hover scrollbar-y-auto scrollbar-x-hidden" rv-scrollbar-dragable="rv-scrollbar-dragable" header-parent-selector="#main-container" headers-start="2" headers-depth="4" offset="200" offset-bottom="80" scroll-offset="80"></bs4-scrollspy></div></div></div></div></div></div>
+</section></section><bs4-scrollspy class="d-none d-lg-block py-3 side-scrollspy scrollbar-primary-on-hover scrollbar-y-auto scrollbar-x-hidden" rv-scrollbar-draggable="rv-scrollbar-draggable" header-parent-selector="#main-container" headers-start="2" headers-depth="4" offset="200" offset-bottom="80" scroll-offset="80"></bs4-scrollspy></div></div></div></div></div></div>

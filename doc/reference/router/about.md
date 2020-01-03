@@ -14,7 +14,7 @@ Here is a walkthrough of what happens when the user clicks a link (or the `route
 2. Change the URL using the push state API.
 3. Start fetching the new page via a XMLHttpRequest.
 4. Create a **new** transition instance.
-5. As soon the new page is loaded, barba.js parses the new HTML (taking the content of the `view` binder) and puts the new content on the DOM inside container element (passed as the `containerSelector` option on the `view` binder wich is `[data-namespace]` by default).
+5. As soon the new page is loaded, the router module parses the new HTML (taking the content of the `view` binder) and puts the new content on the DOM inside container element (passed as the `containerSelector` option on the `view` binder wich is `[data-namespace]` by default).
 6. The transition instance will take care of hiding the old container and showing the new one.
 7. As soon the transition is finished, the old container element is removed from the DOM.
 

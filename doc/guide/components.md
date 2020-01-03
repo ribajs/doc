@@ -60,9 +60,13 @@ export class TodoItemComponent extends Component {
     });
   }
 
-  protected async beforeBind() {}
+  protected async beforeBind() {
+    await super.beforeBind();
+  }
 
-  protected async afterBind() {}
+  protected async afterBind() {
+    await super.afterBind();
+  }
 
   protected requiredAttributes() {
     return [];

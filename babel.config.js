@@ -21,6 +21,7 @@ module.exports = {
     "@babel/plugin-syntax-export-default-from",
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-proposal-optional-chaining",
     "array-includes"
   ],
   "ignore": [

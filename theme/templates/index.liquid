@@ -19,7 +19,7 @@ $ riba new project</code></pre></div></div></div></section>{{ content_for_index 
 <pre><code class="language-html">&lt;toggle-item on=&quot;item.complete&quot;&gt;&lt;/toggle-item&gt;
 </code></pre>
 <p>Define reusable views, instantiable as a custom element. Each web component gets its own isolated, augmentable scope and are based on the <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements">custom elements</a> browser standard.</p>
-</section></div><div class="row"><div class="separator col-12"><h2>Example</h2></div><section class="example col-12 my-3"><rv-bind-content><template><rv-example-tabs handle="each-item"><template title="component.html"><pre><code class="language-html">&lt;nav&gt;
+</section></div><div class="row"><div class="separator col-12"><h2>Example</h2></div><section class="example col-12 my-3"><rv-bind-content><template><rv-example-tabs handle="each-item"><template title="component.html" type="source"><pre><code class="language-html">&lt;nav&gt;
   &lt;button rv-on-click=&quot;push&quot;&gt;Push&lt;/button&gt;
   &lt;button rv-on-click=&quot;pop&quot;&gt;Pop&lt;/button&gt;
   &lt;button rv-on-click=&quot;shift&quot;&gt;Shift&lt;/button&gt;
@@ -33,7 +33,7 @@ $ riba new project</code></pre></div></div></div></section>{{ content_for_index 
     &lt;div&gt;Item { %item% } / { item.name }&lt;/div&gt;
   &lt;/div&gt;
 &lt;/section&gt;
-</code></pre></template><template title="component.ts"><pre><code class="language-typescript">import { Component } from &#39;@ribajs/core&#39;;
+</code></pre></template><template title="component.ts" type="source"><pre><code class="language-typescript">import { Component } from &#39;@ribajs/core&#39;;
 import template from &#39;./each-item-example.component.html&#39;;
 
 export class EachItemExampleComponent extends Component {
@@ -42,17 +42,18 @@ export class EachItemExampleComponent extends Component {
 
   protected scope: Scope = {
     items: this.getItems(),
-    push: this.push,
     pop: this.pop,
-    shift: this.shift,
-    unshift: this.unshift,
-    splice: this.splice,
+    push: this.push,
     reset: this.reset,
+    shift: this.shift,
     sort: this.sort,
+    splice: this.splice,
+    unshift: this.unshift,
   };
 
   constructor(element?: HTMLElement) {
     super(element);
+    console.debug(&#39;[EachItemExampleComponent] constructor&#39;, this.scope);
   }
 
   public push() {
@@ -60,38 +61,39 @@ export class EachItemExampleComponent extends Component {
   }
 
   public pop() {
-    this.scope.items.pop()
+    this.scope.items.pop();
   }
 
   public shift() {
-    this.scope.items.shift()
+    this.scope.items.shift();
   }
 
   public unshift() {
-    this.scope.items.unshift({name: &#39;shifted&#39;})
+    this.scope.items.unshift({name: &#39;shifted&#39;});
   }
 
   public splice() {
-    this.scope.items.splice(1, 1, {name: &#39;spliced1&#39;}, {name: &#39;spliced2&#39;})
+    this.scope.items.splice(1, 1, {name: &#39;spliced1&#39;}, {name: &#39;spliced2&#39;});
   }
 
   public reset() {
-    this.scope.items = this.getItems()
+    this.scope.items = this.getItems();
   }
 
   public sort() {
     this.scope.items.sort((a, b) =&gt; {
-      return (a.value || 0) - (b.value || 0)
-    })
+      return (a.value || 0) - (b.value || 0);
+    });
   }
 
   protected connectedCallback() {
     super.connectedCallback();
     this.init([]);
+    console.debug(&#39;[EachItemExampleComponent] connectedCallback&#39;, this.scope);
   }
 
   protected getItems(): Item[] {
-    return [{name: &#39;x&#39;, value: 2} ,{name: &#39;y&#39;, value: 1} , {name: &#39;z&#39;, value: 3}]
+    return [{name: &#39;x&#39;, value: 2}, {name: &#39;y&#39;, value: 1}, {name: &#39;z&#39;, value: 3}];
   }
 
   protected async init(observedAttributes: string[]) {
@@ -112,21 +114,19 @@ interface Item {
 }
 
 interface Scope {
-  items: Array&lt;Item&gt;,
-  push: EachItemExampleComponent[&#39;push&#39;],
-  pop: EachItemExampleComponent[&#39;pop&#39;],
-  shift: EachItemExampleComponent[&#39;shift&#39;],
-  unshift: EachItemExampleComponent[&#39;unshift&#39;],
-  splice: EachItemExampleComponent[&#39;splice&#39;],
-  reset: EachItemExampleComponent[&#39;reset&#39;],
-  sort: EachItemExampleComponent[&#39;sort&#39;],
+  items: Item[];
+  push: EachItemExampleComponent[&#39;push&#39;];
+  pop: EachItemExampleComponent[&#39;pop&#39;];
+  shift: EachItemExampleComponent[&#39;shift&#39;];
+  unshift: EachItemExampleComponent[&#39;unshift&#39;];
+  splice: EachItemExampleComponent[&#39;splice&#39;];
+  reset: EachItemExampleComponent[&#39;reset&#39;];
+  sort: EachItemExampleComponent[&#39;sort&#39;];
 }
-</code></pre></template><template title="index.html"><pre><code class="language-html">&lt;!DOCTYPE html&gt;
+</code></pre></template><template title="index.html" type="source"><pre><code class="language-html">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
   &lt;head&gt;
     &lt;title&gt;each-star-example&lt;/title&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;./main.scss&quot;&gt;
-    &lt;script src=&quot;./main.ts&quot;&gt;&lt;/script&gt;
   &lt;/head&gt;
   &lt;body&gt;
     &lt;div id=&quot;rv-app&quot;&gt;
@@ -134,13 +134,13 @@ interface Scope {
     &lt;/div&gt;
   &lt;/body&gt;
 &lt;/html&gt;
-</code></pre></template><template title="Info"><h1>each-item-example</h1>
+</code></pre></template><template title="Info" type="info"><h1>each-item-example</h1>
 <pre><code class="language-bash">git clone --recurse-submodules https://github.com/ribajs/riba.git
 cd riba/examples/each-item
 npm install
 npm run start
 </code></pre>
-</template><template title="Preview"><rv-each-item-example></rv-each-item-example></template></rv-example-tabs></template></rv-bind-content></section></div></div><section class="author py-5"><div class="container"><div class="row"><div class="col-12"><h2>Authors</h2><p>Pascal Garber by <a href="https://artandcode.studio/">Art+Code Studio</a><br/>Luiz Américo Pereira Câmara, author of <a href="https://blikblum.github.io/tinybind/">tinybind</a><br/>Michael Richards, original author of <a href="http://rivetsjs.com/">Rivets.js</a></p></div></div></div></section><script type="application/ld+json">{
+</template><template title="Preview" type="preview"><rv-each-item-example> </rv-each-item-example></template></rv-example-tabs></template></rv-bind-content></section></div></div><section class="author py-5"><div class="container"><div class="row"><div class="col-12"><h2>Authors</h2><p>Pascal Garber by <a href="https://artandcode.studio/">Art+Code Studio</a><br/>Luiz Américo Pereira Câmara, author of <a href="https://blikblum.github.io/tinybind/">tinybind</a><br/>Michael Richards, original author of <a href="http://rivetsjs.com/">Rivets.js</a></p></div></div></div></section><script type="application/ld+json">{
   "@context": "http://schema.org",
   "@type": "WebSite",
   "name": "{{ shop.name }}",

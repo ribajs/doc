@@ -1,5 +1,5 @@
 <div class="col-12 px-0">
-  <div rv-scrollbar-dragable role="tablist" class="tab-list nav nav-tabs nav-tabs-underline d-flex flex-scrollbar-x-auto scrollbar-y-hidden scrollbar-primary-on-hover" role="tablist">
+  <div rv-scrollbar-draggable role="tablist" class="tab-list nav nav-tabs nav-tabs-underline d-flex flex-scrollbar-x-auto scrollbar-y-hidden scrollbar-primary-on-hover" role="tablist">
     <div
       role="tab"
       class="flex-grow-1 nav-item nav-link d-inline-block text-nowrap text-center"
@@ -23,7 +23,7 @@
       rv-class-show="tab.active"
       rv-add-class="'tab-content-' | append tab.handle"
       rv-id="'tab-content-' | append handle | append '-' | append tab.handle"
-      rv-html="tab.content"
+      rv-template="tab.content"
       rv-aria-labelledby="'tab-title-' | append handle | append '-' | append tab.handle"
     >
     </div>

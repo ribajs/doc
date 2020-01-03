@@ -66,10 +66,12 @@ export class LoremIpsumComponent extends Component {
   }
 
   protected async beforeBind() {
+    await super.beforeBind();
     // console.debug('beforeBind');
   }
 
   protected async afterBind() {
+    await super.afterBind();
     // console.debug('afterBind', this.scope);
     this.lorem = new LoremIpsum(this.options, this.scope.format);
     if (this.scope.generateWords) {

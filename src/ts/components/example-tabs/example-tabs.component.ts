@@ -20,6 +20,25 @@ export class ExampleBs4TabsComponent extends Bs4TabsComponent {
 
   protected autobind = true;
 
+  protected templateAttributes = [
+    {
+      name: 'title',
+      required: true,
+    },
+    {
+      name: 'handle',
+      required: false,
+    },
+    {
+      name: 'type',
+      required: false,
+    },
+    {
+      name: 'active',
+      required: false,
+    },
+  ];
+
   static get observedAttributes() {
     return [
       'option-tabs-auto-height',
@@ -31,7 +50,6 @@ export class ExampleBs4TabsComponent extends Bs4TabsComponent {
     super(element);
     // sum is used for examples
     (this.scope as any).sum = this.sum;
-    this.init(ExampleBs4TabsComponent.observedAttributes);
   }
 
   /**
@@ -46,17 +64,39 @@ export class ExampleBs4TabsComponent extends Bs4TabsComponent {
 
   public activate(tab: Tab, binding?: any, event?: Event) {
     super.activate(tab, binding, event);
+    console.debug('activate tab', tab);
     if (tab.type === 'realtime-result') {
+      // Get content of preview tab and insirt this as the source
       const previewElement = this.el.querySelector('.tab-content-preview');
       if (previewElement) {
         tab.content = `<pre class="language-html"><code class="language-html">${Utils.escapeHtml(previewElement.innerHTML.trim())}</code></pre>`;
         Prism.highlightAll();
       }
     }
+
+    // if (tab.type === 'preview') {
+    //   // Bind preview tab
+    //   const previewElement = this.el.querySelector('.tab-content-preview') as HTMLElement;
+    //   if (previewElement) {
+    //     this.riba?.bind(previewElement, this.scope);
+    //   }
+    // }
+  }
+
+  protected async bindIfReady() {
+    console.debug(`[${ExampleBs4TabsComponent.tagName}] bind if ready, ready: ${this.ready()} templateReady: ${this.templateReady}`);
+    return super.bindIfReady();
+  }
+
+  protected connectedCallback() {
+    super.connectedCallback();
+    this.initTabs();
+    this.activateFirstTab();
+    this.init(Bs4TabsComponent.observedAttributes);
   }
 
   protected async afterBind() {
-    super.afterBind();
+    await super.afterBind();
     Prism.highlightAll();
   }
 
@@ -92,7 +132,7 @@ export class ExampleBs4TabsComponent extends Bs4TabsComponent {
 
   protected addItemsByTemplate() {
     const templates = this.el.querySelectorAll<HTMLTemplateElement>('template');
-    templates.forEach((tpl) => {
+    templates.forEach((tpl, index) => {
       const type = tpl.getAttribute('type');
       if (type === 'single-html-file') {
         const sourceTemplate = document.createElement('template');
@@ -100,23 +140,24 @@ export class ExampleBs4TabsComponent extends Bs4TabsComponent {
         sourceTemplate.setAttribute('title', 'Source');
         sourceTemplate.setAttribute('type', 'source');
         sourceTemplate.innerHTML = `<pre class="language-html"><code class="language-html">${Utils.escapeHtml(sourceCode)}</code></pre>`;
-        this.addItemByTemplate(sourceTemplate);
+        this.addItemByTemplate(sourceTemplate, index);
 
         const previewTemplate = document.createElement('template');
         previewTemplate.setAttribute('title', 'Preview');
         previewTemplate.setAttribute('type', 'preview');
         previewTemplate.innerHTML = sourceCode;
-        this.addItemByTemplate(previewTemplate);
+        this.addItemByTemplate(previewTemplate, index);
 
         const resultTemplate = document.createElement('template');
         resultTemplate.setAttribute('title', 'Rendered');
         resultTemplate.setAttribute('type', 'realtime-result');
         resultTemplate.innerHTML = '';
-        this.addItemByTemplate(resultTemplate);
+        this.addItemByTemplate(resultTemplate, index);
       } else {
-        this.addItemByTemplate(tpl);
+        this.addItemByTemplate(tpl, index);
       }
     });
+    this.templateReady = true;
   }
 
   protected template() {

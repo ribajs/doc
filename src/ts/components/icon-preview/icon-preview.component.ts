@@ -59,7 +59,7 @@ export class IconPreviewComponent extends Component {
   }
 
   protected async afterBind() {
-    super.afterBind();
+    await super.afterBind();
     Prism.highlightAll();
   }
 

@@ -408,7 +408,8 @@ Each accordion item is added by an <code>&lt;template&gt;</code> element with a 
 </tbody>
 </table>
 <p>You can define the tab tilte and content with the <code>tab-[index]-title</code> and <code>tab-[index]-content</code> attributes.</p>
-<rv-bind-content><template><rv-example-tabs handle="bs4-tabs-attr"><template title="Source"><pre><code class="language-html">&lt;bs4-tabs
+<rv-bind-content><template><rv-example-tabs handle="bs4-tabs-attr"><template title="Source" type="source"><pre><code class="language-html">&lt;bs4-tabs
+  option-tabs-angle=&quot;vertical&quot;
   tab-0-title=&quot;Tab 0&quot;
   tab-0-content=&quot;&lt;p class=&#39;my-3&#39;&gt;Hello from &lt;strong&gt;tab 0&lt;/strong&gt;&lt;/p&gt;&quot;
   tab-1-title=&quot;Tab 1&quot;
@@ -430,14 +431,14 @@ Each accordion item is added by an <code>&lt;template&gt;</code> element with a 
   tab-9-title=&quot;Tab 9&quot;
   tab-9-content=&quot;&lt;p class=&#39;my-3&#39;&gt;Hello from &lt;strong&gt;tab 9&lt;/strong&gt;&lt;/p&gt;&quot;
 &gt;&lt;/bs4-tabs&gt;
-</code></pre></template><template title="Preview"><rv-bs4-tabs-attr-example></rv-bs4-tabs-attr-example></template><template title="Info"><h1>bs4-tabs-attr</h1>
+</code></pre></template><template title="Preview" type="preview"><rv-bs4-tabs-attr-example></rv-bs4-tabs-attr-example></template><template title="Info" type="info"><h1>bs4-tabs-attr</h1>
 <pre><code class="language-bash">git clone --recurse-submodules https://github.com/ribajs/riba.git
 cd riba/examples/bs4-tabs-attr
 npm install
 npm run start
 </code></pre>
 </template></rv-example-tabs></template></rv-bind-content></section><section class="mt-5"><p>Sometimes it is useful to define the tabs via templates, for example if the html content of the tabs are too complex.</p>
-<rv-bind-content><template><rv-example-tabs handle="bs4-tabs-tpl"><template title="Source"><pre><code class="language-html">&lt;bs4-tabs&gt;
+<rv-bind-content><template><rv-example-tabs handle="bs4-tabs-tpl"><template title="Source" type="source"><pre><code class="language-html">&lt;bs4-tabs&gt;
   &lt;template title=&quot;Tab 0&quot;&gt;
     &lt;img class=&quot;img-fluid my-3&quot; src=&quot;https://via.placeholder.com/150/7c00b5/FFFFFF?text=Tab%200&quot; alt=&quot;Tab 0&quot;&gt;
   &lt;/template&gt;
@@ -469,7 +470,7 @@ npm run start
     &lt;img class=&quot;img-fluid my-3&quot; src=&quot;https://via.placeholder.com/150/85144b/FFFFFF?text=Tab%209&quot; alt=&quot;Tab 9&quot;&gt;
   &lt;/template&gt;
 &lt;/bs4-tabs&gt;
-</code></pre></template><template title="Preview"><rv-bs4-tabs-tpl-example></rv-bs4-tabs-tpl-example></template><template title="Info"><h1>bs4-tabs-tpl</h1>
+</code></pre></template><template title="Preview" type="preview"><rv-bs4-tabs-tpl-example></rv-bs4-tabs-tpl-example></template><template title="Info" type="info"><h1>bs4-tabs-tpl</h1>
 <pre><code class="language-bash">git clone --recurse-submodules https://github.com/ribajs/riba.git
 cd riba/examples/bs4-tabs-tpl
 npm install
@@ -875,4 +876,297 @@ toggleButtonEvents.on('toggle', () =&gt; {
     </rv-example-tabs>
   </template>
 </rv-bind-content>
-</section></section></section><bs4-scrollspy class="d-none d-lg-block py-3 side-scrollspy scrollbar-primary-on-hover scrollbar-y-auto scrollbar-x-hidden" rv-scrollbar-dragable="rv-scrollbar-dragable" header-parent-selector="#main-container" headers-start="2" headers-depth="4" offset="200" offset-bottom="80" scroll-offset="80"></bs4-scrollspy></div></div></div></div></div></div>
+</section></section><section class="my-5" id="bs4-slideshow"><h3>bs4-slideshow</h3><section><rv-bind-content class="pt-3">
+  <template>
+    <rv-example-tabs handle="bs4-slideshow-1" class="pt-3">
+      <template type="single-html-file">
+        <bs4-slideshow control-prev-icon-src="{{ 'arrow_carrot_alt.svg' | asset_url }}" control-next-icon-src="{{ 'arrow_carrot_alt.svg' | asset_url }}" indicator-inactive-icon-src="{{ 'icon_circle-empty.svg' | asset_url }}" indicator-active-icon-src="{{ 'icon_circle-selected.svg' | asset_url }}" sticky="true" autoplay="false" autoplay-interval="10000">
+          <div class="slideshow-inner">
+            <div class="slide col-12 p-0">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=1" alt="Static Random Image from https://picsum.photos/">
+              <div class="slide-caption">
+                <h1>bs4-slideshow<br><small>The last bootstrap carousel you'll ever need</small></h1>
+              </div>
+            </div>
+            <div class="slide col-12 p-0">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=2" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-12 p-0">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=3" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-12 p-0">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=4" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-12 p-0">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=5" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-12 p-0">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=6" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-12 p-0">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=7" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-12 p-0">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=8" alt="Static Random Image from https://picsum.photos/">
+            </div>
+          </div>
+        </bs4-slideshow>
+      </template>
+    </rv-example-tabs>
+  </template>
+</rv-bind-content>
+<h4>Multiple Items</h4>
+<rv-bind-content class="pt-3">
+  <template>
+    <rv-example-tabs handle="bs4-slideshow-1" class="pt-3">
+      <template type="single-html-file">
+        <bs4-slideshow control-prev-icon-src="{{ 'arrow_carrot.svg' | asset_url }}" control-next-icon-src="{{ 'arrow_carrot.svg' | asset_url }}" indicator-inactive-icon-src="{{ 'icon_circle-empty.svg' | asset_url }}" indicator-active-icon-src="{{ 'icon_circle-selected.svg' | asset_url }}" slides-to-scroll="3" indicators="false">
+          <div class="slideshow-inner">
+            <div class="slide col-4">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=1" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-4">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=2" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-4">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=3" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-4">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=4" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-4">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=5" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-4">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=6" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-4">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=7" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-4">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=8" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-4">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=9" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-4">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=10" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-4">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=11" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-4">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=12" alt="Static Random Image from https://picsum.photos/">
+            </div>
+          </div>
+        </bs4-slideshow>
+      </template>
+    </rv-example-tabs>
+  </template>
+</rv-bind-content>
+<h4>Variable Width</h4>
+<rv-bind-content class="pt-3">
+  <template>
+    <rv-example-tabs handle="bs4-slideshow-1" class="pt-3">
+      <template type="single-html-file">
+        <bs4-slideshow control-prev-icon-src="{{ 'arrow_carrot.svg' | asset_url }}" control-next-icon-src="{{ 'arrow_carrot.svg' | asset_url }}" indicator-inactive-icon-src="{{ 'icon_circle-empty.svg' | asset_url }}" indicator-active-icon-src="{{ 'icon_circle-selected.svg' | asset_url }}">
+          <div class="slideshow-inner align-items-center">
+            <div class="slide-placeholder col-3">&nbsp;</div>
+            <div class="slide col-6">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/600/600?random=1" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-4">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=2" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-2">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=3" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-6">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=4" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-3">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=5" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-8">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=6" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-5">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=7" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-4">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=8" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide-placeholder col-4">&nbsp;</div>
+          </div>
+        </bs4-slideshow>
+      </template>
+    </rv-example-tabs>
+  </template>
+</rv-bind-content>
+<h4>Autoplay</h4>
+<rv-bind-content class="pt-3">
+  <template>
+    <rv-example-tabs handle="bs4-slideshow-1" class="pt-3">
+      <template type="single-html-file">
+        <bs4-slideshow autoplay="false" autoplay-velocity="0.05" control-prev-icon-src="{{ 'arrow_carrot.svg' | asset_url }}" indicator-inactive-icon-src="{{ 'icon_circle-empty.svg' | asset_url }}" indicator-active-icon-src="{{ 'icon_circle-selected.svg' | asset_url }}" control-next-icon-src="{{ 'arrow_carrot.svg' | asset_url }}">
+          <div class="slideshow-inner">
+            <div class="slide-placeholder col-4">&nbsp;</div>
+            <div class="slide col-4">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=1" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-4">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=2" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-4">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=3" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-4">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=4" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-4">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=5" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-4">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=6" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-4">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=7" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-4">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=8" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide-placeholder col-4">&nbsp;</div>
+          </div>
+        </bs4-slideshow>
+      </template>
+    </rv-example-tabs>
+  </template>
+</rv-bind-content>
+<h4>Autoplay with interval</h4>
+<rv-bind-content class="pt-3">
+  <template>
+    <rv-example-tabs handle="bs4-slideshow-1" class="pt-3">
+      <template type="single-html-file">
+        <h2 class="text-center"></h2>
+        <bs4-slideshow autoplay="false" autoplay-interval="4000" control-prev-icon-src="{{ 'arrow_carrot.svg' | asset_url }}" indicator-inactive-icon-src="{{ 'icon_circle-empty.svg' | asset_url }}" indicator-active-icon-src="{{ 'icon_circle-selected.svg' | asset_url }}" control-next-icon-src="{{ 'arrow_carrot.svg' | asset_url }}">
+          <div class="slideshow-inner">
+            <div class="slide-placeholder col-4">&nbsp;</div>
+            <div class="slide col-4">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=1" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-4">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=2" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-4">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=3" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-4">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=4" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-4">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=5" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-4">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=6" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-4">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=7" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-4">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=8" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide-placeholder col-4">&nbsp;</div>
+          </div>
+        </bs4-slideshow>
+      </template>
+    </rv-example-tabs>
+  </template>
+</rv-bind-content>
+<h4>With captions</h4>
+<rv-bind-content class="pt-3">
+  <template>
+    <rv-example-tabs handle="bs4-slideshow-1" class="pt-3">
+      <template type="single-html-file">
+        <bs4-slideshow control-prev-icon-src="{{ 'arrow_carrot.svg' | asset_url }}" control-next-icon-src="{{ 'arrow_carrot.svg' | asset_url }}" indicator-inactive-icon-src="{{ 'icon_circle-empty.svg' | asset_url }}" indicator-active-icon-src="{{ 'icon_circle-selected.svg' | asset_url }}" sticky="true">
+          <div class="slideshow-inner">
+            <div class="slide col-12">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=1" alt="Static Random Image from https://picsum.photos/">
+              <div class="slide-caption">
+                <h5>First slide label</h5>
+                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              </div>
+            </div>
+            <div class="slide col-12">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=2" alt="Static Random Image from https://picsum.photos/">
+              <div class="slide-caption">
+                <h5>Second slide label</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
+            </div>
+            <div class="slide col-12">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=3" alt="Static Random Image from https://picsum.photos/">
+              <div class="slide-caption">
+                <h5>Third slide label</h5>
+                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+              </div>
+            </div>
+          </div>
+        </bs4-slideshow>
+      </template>
+    </rv-example-tabs>
+  </template>
+</rv-bind-content>
+<h4>Custom Templates</h4>
+<rv-bind-content class="pt-3">
+  <template>
+    <rv-example-tabs handle="bs4-slideshow-1" class="pt-3">
+      <template type="single-html-file">
+        <bs4-slideshow sticky="true">
+          <div class="slideshow-inner">
+            <div class="slide-placeholder col-2">&nbsp;</div>
+            <div class="slide col-7 p-2">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=1" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-7 p-2">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=2" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-7 p-2">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=3" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-7 p-2">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=4" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-7 p-2">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=5" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-7 p-2">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=6" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-7 p-2">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=7" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide col-7 p-2">
+              <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=8" alt="Static Random Image from https://picsum.photos/">
+            </div>
+            <div class="slide-placeholder col-2">&nbsp;</div>
+          </div>
+          <template type="controls">
+            <button class="btn btn-link carousel-control-prev" role="button" data-slide="prev" rv-on-click="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            <button class="btn btn-link carousel-control-next" role="button" data-slide="next" rv-on-click="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </button>
+          </template>
+          <template type="indicators">
+            <ol class="carousel-indicators">
+              <li rv-each-slide="items" rv-class-active="slide.active" rv-on-click="goTo | args slide.index"></li>
+            </ol>
+          </template>
+        </bs4-slideshow>
+      </template>
+    </rv-example-tabs>
+  </template>
+</rv-bind-content>
+</section></section></section><bs4-scrollspy class="d-none d-lg-block py-3 side-scrollspy scrollbar-primary-on-hover scrollbar-y-auto scrollbar-x-hidden" rv-scrollbar-draggable="rv-scrollbar-draggable" header-parent-selector="#main-container" headers-start="2" headers-depth="4" offset="200" offset-bottom="80" scroll-offset="80"></bs4-scrollspy></div></div></div></div></div></div>

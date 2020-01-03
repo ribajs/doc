@@ -43,7 +43,7 @@ Similar to ``swipe``, but triggered only when the user swipes their finger from 
 The ``swipeend`` event is trigged whenever a swipe event ends (i.e. the user finished moving their finger / cursor and released it). This event should be used to handle custom functions, since it will be triggered only when the swipe ends, rather than triggering immediately when the threshold has been met. 
 + **`scrollstart`**  
 Triggered as soon as scrolling begins on the target element.
-+ **`scrollend`**  
++ **`scrollended`**  
 Triggered as soon as scrolling is stopped on the target element.
 
 #### Event detail properties

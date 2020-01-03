@@ -54,7 +54,8 @@ export class Main {
       Prism.highlightAll();
     });
 
-    this.riba.bind(document.body, window.model);
+    const view = this.riba.bind(document.body, window.model);
+    // view.registComponents();
   }
 }
 

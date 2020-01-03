@@ -16,8 +16,6 @@ export class BindContentComponent extends Component {
 
   constructor(element?: HTMLElement) {
     super(element);
-    this.el.addEventListener('click', this.bindContent);
-    this.init([]);
   }
 
   public bindContent() {
@@ -25,6 +23,11 @@ export class BindContentComponent extends Component {
     this.el.innerHTML = this.content;
     this.el.removeEventListener('click', this.bindContent);
     this.bind();
+  }
+
+  protected connectedCallback() {
+    this.el.addEventListener('click', this.bindContent);
+    this.init([]);
   }
 
   protected template() {
