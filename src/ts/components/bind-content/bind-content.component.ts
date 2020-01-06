@@ -6,7 +6,7 @@ import template from './bind-content.component.html';
 
 export class BindContentComponent extends Component {
 
-  public static tagName: string = 'rv-bind-content';
+  public static tagName = 'rv-bind-content';
 
   protected autobind = false;
 

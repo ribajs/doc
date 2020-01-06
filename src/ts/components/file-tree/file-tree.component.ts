@@ -8,7 +8,7 @@ import template from './file-tree.component.html';
 
 export class FileTreeComponent extends Component {
 
-  public static tagName: string = 'rv-file-tree';
+  public static tagName = 'rv-file-tree';
 
   protected autobind = false;
 

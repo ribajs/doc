@@ -16,7 +16,7 @@ export interface Scope extends OriginalScope {
 
 export class ExampleBs4TabsComponent extends Bs4TabsComponent {
 
-  public static tagName: string = 'rv-example-tabs';
+  public static tagName = 'rv-example-tabs';
 
   protected autobind = true;
 

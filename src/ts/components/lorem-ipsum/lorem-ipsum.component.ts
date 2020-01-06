@@ -12,7 +12,7 @@ interface Scope {
 
 export class LoremIpsumComponent extends Component {
 
-  public static tagName: string = 'rv-lorem-ipsum';
+  public static tagName = 'rv-lorem-ipsum';
 
   protected options: IGeneratorOptions = {
     sentencesPerParagraph: {
@@ -29,7 +29,7 @@ export class LoremIpsumComponent extends Component {
 
   protected autobind = true;
 
-  static get observedAttributes() {
+  static get observedAttributes(): string[] {
     return [
       'sentences-per-paragraph-max',
       'sentences-per-paragraph-min',

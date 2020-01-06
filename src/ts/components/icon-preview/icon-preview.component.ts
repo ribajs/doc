@@ -19,7 +19,7 @@ interface Scope {
 
 export class IconPreviewComponent extends Component {
 
-  public static tagName: string = 'rv-icon-preview';
+  public static tagName = 'rv-icon-preview';
 
   protected autobind = true;
 

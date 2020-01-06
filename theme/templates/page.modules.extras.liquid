@@ -75,11 +75,10 @@ Utils.domIsReady(() =&gt; {
   ...
 &lt;/div&gt;
 </code></pre>
-<p>This binder uses <code>TouchEventService</code> to trigger the additional events, check out the <a rv-scroll-to-on-click="'#touch-events-service'" href="#touch-events-service" data-offset="80">TouchEventService</a> to find out what additional events are available.</p>
-<h4>Example</h4>
+<p>This binder uses <code>TouchsEventService</code> to trigger the additional events, check out the <a rv-scroll-to-on-click="'#touch-events-service'" href="#touch-events-service" data-offset="80">TouchEventsService</a> to find out what additional events are available.</p>
 <rv-bind-content><template><rv-example-tabs handle="extras-touch-events"><template title="main.ts" type="source"><pre><code class="language-typescript">import { coreModule, Riba } from &#39;@ribajs/core&#39;;
 import { extrasModule } from &#39;@ribajs/extras&#39;;
-import { TouchEventsModule } from &#39;./touch-events.module&#39;;
+import { touchEventsModule } from &#39;./touch-events.module&#39;;
 
 const riba = new Riba();
 const model = {};
@@ -87,7 +86,7 @@ const model = {};
 // Register modules
 riba.module.regist(coreModule);
 riba.module.regist(extrasModule);
-riba.module.regist(TouchEventsModule);
+riba.module.regist(touchEventsModule);
 
 riba.bind(document.body, model);
 </code></pre></template><template title="component.html" type="source"><pre><code class="language-html">&lt;div class=&quot;row flex-column flex-md-row d-flex flex-nowrap h-100&quot;&gt;
@@ -175,7 +174,14 @@ export class TouchEventsExampleComponent extends Component {
     }
   }
 }
-</code></pre></template><template title="Preview" type="preview"><rv-touch-events-example></rv-touch-events-example></template></rv-example-tabs></template></rv-bind-content></section></section><section class="my-5" id="services"><h2>Services</h2><section class="my-5" id="touch-events-service"><h3>TouchEventService</h3><section><p>The <code>TouchEventService</code> is a re-implementation of the beautiful <a href="https://github.com/benmajor/jQuery-Touch-Events">jQuery Touch Events</a> module in vanilla JavaScript (JQuery free).</p>
+</code></pre></template><template title="Preview" type="preview"><rv-touch-events-example></rv-touch-events-example></template></rv-example-tabs></template></rv-bind-content></section><section class="my-5" id="scroll-events-binder"><h3>scroll-events</h3><p>Add this binder to an element to trigger additional scroll events.</p>
+<p>Then you can react to the events with the <code>on-[event]</code> binder like this:</p>
+<pre><code class="language-html">&lt;div rv-scroll-events rv-on-scrollended=&quot;showPopup&quot;&gt;
+  ...
+&lt;/div&gt;
+</code></pre>
+<p>This binder uses <code>ScrollEventsService</code> to trigger the additional events, check out the <a rv-scroll-to-on-click="'#scroll-events-service'" href="#scroll-events-service" data-offset="80">ScrollEventsService</a> to find out what additional events are available.</p>
+</section></section><section class="my-5" id="services"><h2>Services</h2><section class="my-5" id="touch-events-service"><h3>TouchEventService</h3><section><p>The <code>TouchEventService</code> is a re-implementation of the beautiful <a href="https://github.com/benmajor/jQuery-Touch-Events">jQuery Touch Events</a> module in vanilla JavaScript (JQuery free).</p>
 <h4>Usage</h4>
 <p>Create a new instance of the <code>TouchEventService</code> with an Element as argument to trigger the touch events on this element:</p>
 <pre><code class="language-ts">import { TouchEventService } from '@ribajs/extras';

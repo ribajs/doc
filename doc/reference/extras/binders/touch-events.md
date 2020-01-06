@@ -8,6 +8,4 @@ Then you can react to the events with the `on-[event]` binder like this:
 </div>
 ```
 
-This binder uses `TouchEventService` to trigger the additional events, check out the <a rv-scroll-to-on-click="'#touch-events-service'" href="#touch-events-service" data-offset="80">TouchEventService</a> to find out what additional events are available.
-
-#### Example
+This binder uses `TouchsEventService` to trigger the additional events, check out the <a rv-scroll-to-on-click="'#touch-events-service'" href="#touch-events-service" data-offset="80">TouchEventsService</a> to find out what additional events are available.

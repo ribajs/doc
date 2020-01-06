@@ -14,11 +14,11 @@ import { LocalesService } from '@ribajs/shopify-tda';
 import * as CustomComponents from './components';
 
 // Examples
-import { EachItemExampleComponent } from '../../../../examples/each-item/src/components/each-item-example/each-item-example.component';
-import { Bs4TabsAttrExampleComponent } from '../../../../examples/bs4-tabs-attr/src/components/bs4-tabs-attr-example/bs4-tabs-attr-example.component';
-import { Bs4TabsTplExampleComponent } from '../../../../examples/bs4-tabs-tpl/src/components/bs4-tabs-tpl-example/bs4-tabs-tpl-example.component';
-import { I18nStaticExampleComponent } from '../../../../examples/i18n-static/src/components/i18n-static-example/i18n-static-example.component';
-import { TouchEventsExampleComponent } from '../../../../examples/touch-events/src/components/touch-events-example/touch-events-example.component';
+import { EachItemExampleComponent } from '../../../../demos/core-each-item/src/components/each-item-example/each-item-example.component';
+import { Bs4TabsAttrExampleComponent } from '../../../../demos/bs4-tabs-attr/src/components/bs4-tabs-attr-example/bs4-tabs-attr-example.component';
+import { Bs4TabsTplExampleComponent } from '../../../../demos/bs4-tabs-tpl/src/components/bs4-tabs-tpl-example/bs4-tabs-tpl-example.component';
+import { I18nStaticExampleComponent } from '../../../../demos/i18n-static/src/components/i18n-static-example/i18n-static-example.component';
+import { TouchEventsExampleComponent } from '../../../../demos/extras-touch-events/src/components/touch-events-example/touch-events-example.component';
 
 import * as Prism from 'prismjs';
 import 'prismjs/components/prism-javascript';
@@ -54,11 +54,11 @@ export class Main {
       Prism.highlightAll();
     });
 
-    const view = this.riba.bind(document.body, window.model);
+    this.riba.bind(document.body, window.model);
     // view.registComponents();
   }
 }
 
 Utils.domIsReady(() => {
-  const main = new Main();
+  new Main();
 });

@@ -46,40 +46,40 @@
       <template type="single-html-file">
         <bs4-slideshow control-prev-icon-src="{{ 'arrow_carrot.svg' | asset_url }}" control-next-icon-src="{{ 'arrow_carrot.svg' | asset_url }}" indicator-inactive-icon-src="{{ 'icon_circle-empty.svg' | asset_url }}" indicator-active-icon-src="{{ 'icon_circle-selected.svg' | asset_url }}" slides-to-scroll="3" indicators="false">
           <div class="slideshow-inner">
-            <div class="slide col-4">
+            <div class="slide col-12 col-sm-6 col-xl-4">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=1" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-4">
+            <div class="slide col-12 col-sm-6 col-xl-4">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=2" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-4">
+            <div class="slide col-12 col-sm-6 col-xl-4">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=3" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-4">
+            <div class="slide col-12 col-sm-6 col-xl-4">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=4" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-4">
+            <div class="slide col-12 col-sm-6 col-xl-4">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=5" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-4">
+            <div class="slide col-12 col-sm-6 col-xl-4">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=6" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-4">
+            <div class="slide col-12 col-sm-6 col-xl-4">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=7" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-4">
+            <div class="slide col-12 col-sm-6 col-xl-4">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=8" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-4">
+            <div class="slide col-12 col-sm-6 col-xl-4">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=9" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-4">
+            <div class="slide col-12 col-sm-6 col-xl-4">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=10" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-4">
+            <div class="slide col-12 col-sm-6 col-xl-4">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=11" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-4">
+            <div class="slide col-12 col-sm-6 col-xl-4">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=12" alt="Static Random Image from https://picsum.photos/">
             </div>
           </div>
@@ -98,28 +98,28 @@
         <bs4-slideshow control-prev-icon-src="{{ 'arrow_carrot.svg' | asset_url }}" control-next-icon-src="{{ 'arrow_carrot.svg' | asset_url }}" indicator-inactive-icon-src="{{ 'icon_circle-empty.svg' | asset_url }}" indicator-active-icon-src="{{ 'icon_circle-selected.svg' | asset_url }}">
           <div class="slideshow-inner align-items-center">
             <div class="slide-placeholder col-3">&nbsp;</div>
-            <div class="slide col-6">
+            <div class="slide col-6 col-xl-6">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=1" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-4">
+            <div class="slide col-12 col-xl-4">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=2" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-2">
+            <div class="slide col-6 col-xl-2">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=3" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-6">
+            <div class="slide col-12 col-xl-6">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=4" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-3">
+            <div class="slide col-6 col-xl-3">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=5" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-8">
+            <div class="slide col-12 col-xl-8">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=6" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-5">
+            <div class="slide col-6 col-xl-5">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=7" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-4">
+            <div class="slide col-12 col-xl-4">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=8" alt="Static Random Image from https://picsum.photos/">
             </div>
             <div class="slide-placeholder col-4">&nbsp;</div>
@@ -138,32 +138,32 @@
       <template type="single-html-file">
         <bs4-slideshow autoplay="true" autoplay-velocity="0.05" control-prev-icon-src="{{ 'arrow_carrot.svg' | asset_url }}" indicator-inactive-icon-src="{{ 'icon_circle-empty.svg' | asset_url }}" indicator-active-icon-src="{{ 'icon_circle-selected.svg' | asset_url }}" control-next-icon-src="{{ 'arrow_carrot.svg' | asset_url }}">
           <div class="slideshow-inner">
-            <div class="slide-placeholder col-4">&nbsp;</div>
-            <div class="slide col-4">
+            <div class="slide-placeholder col-12 col-sm-6 col-xl-4">&nbsp;</div>
+            <div class="slide col-12 col-sm-6 col-xl-4">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=1" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-4">
+            <div class="slide col-12 col-sm-6 col-xl-4">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=2" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-4">
+            <div class="slide col-12 col-sm-6 col-xl-4">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=3" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-4">
+            <div class="slide col-12 col-sm-6 col-xl-4">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=4" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-4">
+            <div class="slide col-12 col-sm-6 col-xl-4">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=5" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-4">
+            <div class="slide col-12 col-sm-6 col-xl-4">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=6" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-4">
+            <div class="slide col-12 col-sm-6 col-xl-4">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=7" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-4">
+            <div class="slide col-12 col-sm-6 col-xl-4">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=8" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide-placeholder col-4">&nbsp;</div>
+            <div class="slide-placeholder col-12 col-sm-6 col-xl-4">&nbsp;</div>
           </div>
         </bs4-slideshow>
       </template>
@@ -180,32 +180,32 @@
         <h2 class="text-center"></h2>
         <bs4-slideshow autoplay="true" autoplay-interval="4000" control-prev-icon-src="{{ 'arrow_carrot.svg' | asset_url }}" indicator-inactive-icon-src="{{ 'icon_circle-empty.svg' | asset_url }}" indicator-active-icon-src="{{ 'icon_circle-selected.svg' | asset_url }}" control-next-icon-src="{{ 'arrow_carrot.svg' | asset_url }}">
           <div class="slideshow-inner">
-            <div class="slide-placeholder col-4">&nbsp;</div>
-            <div class="slide col-4">
+            <div class="slide-placeholder col-12 col-sm-6 col-xl-4">&nbsp;</div>
+            <div class="slide col-12 col-sm-6 col-xl-4">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=1" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-4">
+            <div class="slide col-12 col-sm-6 col-xl-4">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=2" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-4">
+            <div class="slide col-12 col-sm-6 col-xl-4">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=3" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-4">
+            <div class="slide col-12 col-sm-6 col-xl-4">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=4" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-4">
+            <div class="slide col-12 col-sm-6 col-xl-4">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=5" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-4">
+            <div class="slide col-12 col-sm-6 col-xl-4">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=6" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-4">
+            <div class="slide col-12 col-sm-6 col-xl-4">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=7" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-4">
+            <div class="slide col-12 col-sm-6 col-xl-4">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=8" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide-placeholder col-4">&nbsp;</div>
+            <div class="slide-placeholder col-12 col-sm-6 col-xl-4">&nbsp;</div>
           </div>
         </bs4-slideshow>
       </template>
@@ -257,32 +257,32 @@
       <template type="single-html-file">
         <bs4-slideshow sticky="true">
           <div class="slideshow-inner">
-            <div class="slide-placeholder col-2">&nbsp;</div>
-            <div class="slide col-7 p-2">
+            <div class="slide-placeholder col-12 col-sm-6 col-xl-2">&nbsp;</div>
+            <div class="slide col-12 col-sm-6 col-xl-7 p-2">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=1" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-7 p-2">
+            <div class="slide col-12 col-sm-6 col-xl-7 p-2">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=2" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-7 p-2">
+            <div class="slide col-12 col-sm-6 col-xl-7 p-2">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=3" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-7 p-2">
+            <div class="slide col-12 col-sm-6 col-xl-7 p-2">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=4" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-7 p-2">
+            <div class="slide col-12 col-sm-6 col-xl-7 p-2">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=5" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-7 p-2">
+            <div class="slide col-12 col-sm-6 col-xl-7 p-2">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=6" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-7 p-2">
+            <div class="slide col-12 col-sm-6 col-xl-7 p-2">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=7" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide col-7 p-2">
+            <div class="slide col-12 col-sm-6 col-xl-7 p-2">
               <img lazyload="lazy" class="img-fluid w-100" src="https://picsum.photos/1000/400?random=8" alt="Static Random Image from https://picsum.photos/">
             </div>
-            <div class="slide-placeholder col-2">&nbsp;</div>
+            <div class="slide-placeholder col-12 col-sm-6 col-xl-2">&nbsp;</div>
           </div>
           <template type="controls">
             <button class="btn btn-link carousel-control-prev" role="button" data-slide="prev" rv-on-click="prev">
