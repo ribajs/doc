@@ -37,6 +37,10 @@ export class ExampleBs4TabsComponent extends Bs4TabsComponent {
       name: 'active',
       required: false,
     },
+    {
+      name: 'index',
+      required: false,
+    },
   ];
 
   static get observedAttributes() {
@@ -62,23 +66,15 @@ export class ExampleBs4TabsComponent extends Bs4TabsComponent {
     return (this.scope as any).result;
   }
 
-  public activate(tab: Tab, binding?: any, event?: Event) {
-    super.activate(tab, binding, event);
+  public activate(tab: Tab) {
+    super.activate(tab);
     if (tab.type === 'realtime-result') {
-      // Get content of preview tab and insirt this as the source
+      // Get content of preview tab and insert this as the source tab content
       const previewElement = this.el.querySelector('.tab-content-preview');
       if (previewElement) {
         tab.content = `<pre class="language-html"><code class="language-html">${Utils.escapeHtml(previewElement.innerHTML.trim())}</code></pre>`;
         Prism.highlightAll();
       }
-    }
-
-    // WORKAROUND for components that need to be visible to work
-    if (tab.type === 'preview') {
-      // TODO alternative version
-      setTimeout(() => {
-        window.dispatchEvent(new Event('resize'));
-      }, 200);
     }
   }
 
@@ -130,7 +126,8 @@ export class ExampleBs4TabsComponent extends Bs4TabsComponent {
 
   protected addItemsByTemplate() {
     const templates = this.el.querySelectorAll<HTMLTemplateElement>('template');
-    templates.forEach((tpl, index) => {
+    for (let index = 0; index < templates.length; index++) {
+      const tpl = templates[index];
       const type = tpl.getAttribute('type');
       if (type === 'single-html-file') {
         const sourceTemplate = document.createElement('template');
@@ -144,17 +141,17 @@ export class ExampleBs4TabsComponent extends Bs4TabsComponent {
         previewTemplate.setAttribute('title', 'Preview');
         previewTemplate.setAttribute('type', 'preview');
         previewTemplate.innerHTML = sourceCode;
-        this.addItemByTemplate(previewTemplate, index);
+        this.addItemByTemplate(previewTemplate, index + 1);
 
         const resultTemplate = document.createElement('template');
         resultTemplate.setAttribute('title', 'Rendered');
         resultTemplate.setAttribute('type', 'realtime-result');
         resultTemplate.innerHTML = '';
-        this.addItemByTemplate(resultTemplate, index);
+        this.addItemByTemplate(resultTemplate, index + 2);
       } else {
         this.addItemByTemplate(tpl, index);
       }
-    });
+    }
     this.templateReady = true;
   }
 
