@@ -75,6 +75,7 @@ export class ExampleBs4TabsComponent extends Bs4TabsComponent {
 
     // WORKAROUND for components that need to be visible to work
     if (tab.type === 'preview') {
+      // TODO alternative version
       setTimeout(() => {
         window.dispatchEvent(new Event('resize'));
       }, 200);

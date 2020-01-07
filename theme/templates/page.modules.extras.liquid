@@ -75,7 +75,7 @@ Utils.domIsReady(() =&gt; {
   ...
 &lt;/div&gt;
 </code></pre>
-<p>This binder uses <code>TouchsEventService</code> to trigger the additional events, check out the <a rv-scroll-to-on-click="'#touch-events-service'" href="#touch-events-service" data-offset="80">TouchEventsService</a> to find out what additional events are available.</p>
+<p>This binder uses <code>TouchEventsService</code> to trigger the additional events, check out the <a rv-scroll-to-on-click="'#touch-events-service'" href="#touch-events-service" data-offset="80">TouchEventsService</a> to find out what additional events are available.</p>
 <rv-bind-content><template><rv-example-tabs handle="extras-touch-events"><template title="main.ts" type="source"><pre><code class="language-typescript">import { coreModule, Riba } from &#39;@ribajs/core&#39;;
 import { extrasModule } from &#39;@ribajs/extras&#39;;
 import { touchEventsModule } from &#39;./touch-events.module&#39;;
@@ -180,13 +180,103 @@ export class TouchEventsExampleComponent extends Component {
   ...
 &lt;/div&gt;
 </code></pre>
-<p>This binder uses <code>ScrollEventsService</code> to trigger the additional events, check out the <a rv-scroll-to-on-click="'#scroll-events-service'" href="#scroll-events-service" data-offset="80">ScrollEventsService</a> to find out what additional events are available.</p>
-</section></section><section class="my-5" id="services"><h2>Services</h2><section class="my-5" id="touch-events-service"><h3>TouchEventService</h3><section><p>The <code>TouchEventService</code> is a re-implementation of the beautiful <a href="https://github.com/benmajor/jQuery-Touch-Events">jQuery Touch Events</a> module in vanilla JavaScript (JQuery free).</p>
+<p>This binder uses <code>ScrollEventsService</code> to trigger additional scroll events on the element, check out the <a rv-scroll-to-on-click="'#scroll-events-service'" href="#scroll-events-service" data-offset="80">ScrollEventsService</a> to find out what additional events are available.</p>
+<rv-bind-content><template><rv-example-tabs handle="extras-scroll-events"><template title="main.ts" type="source"><pre><code class="language-typescript">import { coreModule, Riba } from &#39;@ribajs/core&#39;;
+import { extrasModule } from &#39;@ribajs/extras&#39;;
+import { extrasScrollEventsModule } from &#39;./extras-scroll-events.module&#39;;
+
+const riba = new Riba();
+const model = {};
+
+// Register modules
+riba.module.regist(coreModule);
+riba.module.regist(extrasModule);
+riba.module.regist(extrasScrollEventsModule);
+
+riba.bind(document.body, model);
+</code></pre></template><template title="component.html" type="source"><pre><code class="language-html">&lt;div class=&quot;row flex-column flex-md-row d-flex flex-nowrap h-100&quot;&gt;
+  &lt;div
+    class=&quot;col-md-7 col-lg-8 col-xl-8 bg-light text-dark touch-zone&quot;
+    rv-touch-events
+    rv-scrollbar-draggable
+    rv-on-scrollstart=&quot;log | args &#39;scrollstart&#39;&quot;
+    rv-on-scrollended=&quot;log | args &#39;scrollended&#39;&quot;
+    rv-on-scrollend=&quot;log | args &#39;(native scrollend)&#39;&quot;
+    rv-on-scroll=&quot;log | args &#39;(native scroll)&#39;&quot;
+  &gt;
+    &lt;div class=&quot;touch-zone-background d-flex justify-content-center align-items-center h-100 w-100&quot;&gt;Scroll here&lt;/div&gt;
+    &lt;div class=&quot;touch-space&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-md-6 col-lg-4 col-xl-4 bg-dark text-light py-3 h-100 console&quot;&gt;
+    &lt;p class=&quot;log&quot;&gt;
+      &lt;span class=&quot;no-data&quot;&gt;Start touching to send data to this console.&lt;/span&gt;
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre></template><template title="component.ts" type="source"><pre><code class="language-typescript">import {
+  Component,
+} from &#39;@ribajs/core&#39;;
+
+import template from &#39;./extras-scroll-events-example.component.html&#39;;
+
+export class ExtrasScrollEventsExampleComponent extends Component {
+
+  public static tagName = &#39;rv-extras-scroll-events-example&#39;;
+
+  protected autobind = true;
+
+  protected consoleElement: HTMLDivElement | null = null;
+  protected touchZoneElement: HTMLDivElement | null = null;
+
+  protected scope: any = {
+    log: this.log,
+  };
+
+  constructor(element?: HTMLElement) {
+    super(element);
+  }
+
+  public log(eventName: string, binder: any, event: Event) {
+    // console.debug(eventName + &#39; called&#39;, event.type, (event as any), (event as any).detail);
+    if (this.consoleElement) {
+      let html = `&lt;p class=&quot;log&quot;&gt;&lt;span class=&quot;name&quot;&gt;${eventName}&lt;/span&gt;`;
+      const detail = (event as CustomEvent).detail;
+      if (detail &amp;&amp; detail.position) {
+        html += `&lt;span class=&quot;detail&quot;&gt;(x: ${detail.position.x} y: ${detail.position.y} maxX: ${detail.position.maxX} maxY: ${detail.position.maxY})&lt;/span&gt;`;
+      }
+      html += &#39;&lt;span class=&quot;time&quot;&gt;&#39; + new Date().toLocaleTimeString() + &#39;&lt;/span&gt;&lt;/p&gt;&#39;;
+      this.consoleElement.insertAdjacentHTML(&#39;afterbegin&#39;, html);
+    }
+  }
+
+  protected connectedCallback() {
+    super.connectedCallback();
+    this.init([]);
+  }
+
+  protected async beforeBind() {
+    return super.beforeBind()
+    .then(() =&gt; {
+      this.consoleElement = this.el.querySelector(&#39;.console&#39;);
+      this.touchZoneElement = this.el.querySelector(&#39;.touch-zone&#39;);
+    });
+  }
+
+  protected template() {
+    // Only set the component template if there no childs already
+    if (this.el.hasChildNodes()) {
+      return null;
+    } else {
+      return template;
+    }
+  }
+}
+</code></pre></template><template title="Preview" type="preview"><rv-extras-scroll-events-example></rv-extras-scroll-events-example></template></rv-example-tabs></template></rv-bind-content></section></section><section class="my-5" id="services"><h2>Services</h2><section class="my-5" id="touch-events-service"><h3>TouchEventsService</h3><section><p>The <code>TouchEventsService</code> is a re-implementation of the beautiful <a href="https://github.com/benmajor/jQuery-Touch-Events">jQuery Touch Events</a> module in vanilla JavaScript (JQuery free).</p>
 <h4>Usage</h4>
-<p>Create a new instance of the <code>TouchEventService</code> with an Element as argument to trigger the touch events on this element:</p>
-<pre><code class="language-ts">import { TouchEventService } from '@ribajs/extras';
+<p>Create a new instance of the <code>TouchEventsService</code> with an Element as argument to trigger the touch events on this element:</p>
+<pre><code class="language-ts">import { TouchEventsService } from '@ribajs/extras';
 const element = document.querySelector('.trigger-touch-events');
-const touchEventService = new TouchEventService(element);
+const touchEventService = new TouchEventsService(element);
 element.addEventListener('swiperight' as any, (swipeEvent: CustomEvent) =&gt; {
   console.debug('swiperight x amount', swipeEvent.detail.xAmount);
 });
@@ -219,10 +309,6 @@ Similar to <code>swipe</code>, but triggered only when the user swipes their fin
 Similar to <code>swipe</code>, but triggered only when the user swipes their finger from right to left.</li>
 <li><strong><code>swipeend</code></strong><br>
 The <code>swipeend</code> event is trigged whenever a swipe event ends (i.e. the user finished moving their finger / cursor and released it). This event should be used to handle custom functions, since it will be triggered only when the swipe ends, rather than triggering immediately when the threshold has been met.</li>
-<li><strong><code>scrollstart</code></strong><br>
-Triggered as soon as scrolling begins on the target element.</li>
-<li><strong><code>scrollended</code></strong><br>
-Triggered as soon as scrolling is stopped on the target element.</li>
 </ul>
 <h4>Event detail properties</h4>
 <p>Each event now features detail properties that can be accessed via the detail property. The detail property includes some basic data relating specifically to the event, and can be accessed as a standard JavaScript object. To hook into this properties, you should use the following code:</p>
@@ -280,7 +366,22 @@ Triggered as soon as scrolling is stopped on the target element.</li>
 <code>touchmove</code> for touch-enabled devices, or <code>mousemove</code> for standard environments.</li>
 <li><code>tapEvent</code>:<br>
 <code>tap</code> for touch-enabled devices, or <code>click</code> for standard environments.</li>
-<li><code>scrollEvent</code>:<br>
-<code>touchmove</code> for touch-enabled devices, or <code>scroll</code> for standard environments. <strong>Caution should be exercised when using this function, since some mobile browsers will correctly bind to <code>scroll</code> as well as <code>touchmove</code>.</strong></li>
+</ul>
+</section></section><section class="my-5" id="scroll-events-service"><h3>ScrollEventsService</h3><section><p>The <code>ScrollEventsService</code> adds additional scroll events to your element.</p>
+<h4>Usage</h4>
+<p>Create a new instance of the <code>ScrollEventsService</code> with an Element as argument to trigger the touch events on this element:</p>
+<pre><code class="language-ts">import { ScrollEventsService } from '@ribajs/extras';
+const element = document.querySelector('.trigger-touch-events');
+const ScrollEventsService = new ScrollEventsService(element);
+element.addEventListener('scrollended' as any, (scrollEvent: CustomEvent) =&gt; {
+  console.debug('the user has stopped scrolling', scrollEvent);
+});
+</code></pre>
+<h4>The Events</h4>
+<ul>
+<li><strong><code>scrollstart</code></strong><br>
+Triggered as soon as scrolling begins on the target element.</li>
+<li><strong><code>scrollended</code></strong><br>
+Triggered as soon as scrolling is stopped on the target element.</li>
 </ul>
 </section></section></section><bs4-scrollspy class="d-none d-lg-block py-3 side-scrollspy scrollbar-primary-on-hover scrollbar-y-auto scrollbar-x-hidden" rv-scrollbar-draggable="rv-scrollbar-draggable" header-parent-selector="#main-container" headers-start="2" headers-depth="4" offset="200" offset-bottom="80" scroll-offset="80"></bs4-scrollspy></div></div></div></div></div></div>

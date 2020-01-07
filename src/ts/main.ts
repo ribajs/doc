@@ -19,6 +19,7 @@ import { Bs4TabsAttrExampleComponent } from '../../../../demos/bs4-tabs-attr/src
 import { Bs4TabsTplExampleComponent } from '../../../../demos/bs4-tabs-tpl/src/components/bs4-tabs-tpl-example/bs4-tabs-tpl-example.component';
 import { I18nStaticExampleComponent } from '../../../../demos/i18n-static/src/components/i18n-static-example/i18n-static-example.component';
 import { TouchEventsExampleComponent } from '../../../../demos/extras-touch-events/src/components/touch-events-example/touch-events-example.component';
+import { ExtrasScrollEventsExampleComponent } from '../../../../demos/extras-scroll-events/src/components/extras-scroll-events-example/extras-scroll-events-example.component';
 
 import * as Prism from 'prismjs';
 import 'prismjs/components/prism-javascript';
@@ -48,7 +49,14 @@ export class Main {
     });
 
     // Regist examples‚
-    this.riba.module.component.regists({ EachItemExampleComponent, Bs4TabsAttrExampleComponent, Bs4TabsTplExampleComponent, I18nStaticExampleComponent, TouchEventsExampleComponent });
+    this.riba.module.component.regists({
+      EachItemExampleComponent,
+      Bs4TabsAttrExampleComponent,
+      Bs4TabsTplExampleComponent,
+      I18nStaticExampleComponent,
+      TouchEventsExampleComponent,
+      ExtrasScrollEventsExampleComponent,
+    });
 
     this.dispatcher.on('newPageReady', () => {
       Prism.highlightAll();

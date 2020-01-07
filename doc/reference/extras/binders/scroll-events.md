@@ -8,4 +8,4 @@ Then you can react to the events with the `on-[event]` binder like this:
 </div>
 ```
 
-This binder uses `ScrollEventsService` to trigger the additional events, check out the <a rv-scroll-to-on-click="'#scroll-events-service'" href="#scroll-events-service" data-offset="80">ScrollEventsService</a> to find out what additional events are available.
+This binder uses `ScrollEventsService` to trigger additional scroll events on the element, check out the <a rv-scroll-to-on-click="'#scroll-events-service'" href="#scroll-events-service" data-offset="80">ScrollEventsService</a> to find out what additional events are available.

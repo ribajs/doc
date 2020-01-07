@@ -1,13 +1,13 @@
-The `TouchEventService` is a re-implementation of the beautiful [jQuery Touch Events](https://github.com/benmajor/jQuery-Touch-Events) module in vanilla JavaScript (JQuery free).
+The `TouchEventsService` is a re-implementation of the beautiful [jQuery Touch Events](https://github.com/benmajor/jQuery-Touch-Events) module in vanilla JavaScript (JQuery free).
 
 #### Usage
 
-Create a new instance of the `TouchEventService` with an Element as argument to trigger the touch events on this element:
+Create a new instance of the `TouchEventsService` with an Element as argument to trigger the touch events on this element:
 
 ```ts
-import { TouchEventService } from '@ribajs/extras';
+import { TouchEventsService } from '@ribajs/extras';
 const element = document.querySelector('.trigger-touch-events');
-const touchEventService = new TouchEventService(element);
+const touchEventService = new TouchEventsService(element);
 element.addEventListener('swiperight' as any, (swipeEvent: CustomEvent) => {
   console.debug('swiperight x amount', swipeEvent.detail.xAmount);
 });
@@ -40,11 +40,7 @@ Similar to ``swipe``, but triggered only when the user swipes their finger top t
 + **`swipeleft`**  
 Similar to ``swipe``, but triggered only when the user swipes their finger from right to left.
 + **`swipeend`**  
-The ``swipeend`` event is trigged whenever a swipe event ends (i.e. the user finished moving their finger / cursor and released it). This event should be used to handle custom functions, since it will be triggered only when the swipe ends, rather than triggering immediately when the threshold has been met. 
-+ **`scrollstart`**  
-Triggered as soon as scrolling begins on the target element.
-+ **`scrollended`**  
-Triggered as soon as scrolling is stopped on the target element.
+The ``swipeend`` event is trigged whenever a swipe event ends (i.e. the user finished moving their finger / cursor and released it). This event should be used to handle custom functions, since it will be triggered only when the swipe ends, rather than triggering immediately when the threshold has been met.
 
 #### Event detail properties
 
@@ -144,5 +140,4 @@ Each event provides different extra data. The following shows the numerous data 
 `touchmove` for touch-enabled devices, or `mousemove` for standard environments.
 + `tapEvent`:  
 `tap` for touch-enabled devices, or `click` for standard environments.
-+ `scrollEvent`:  
-`touchmove` for touch-enabled devices, or `scroll` for standard environments. **Caution should be exercised when using this function, since some mobile browsers will correctly bind to `scroll` as well as `touchmove`.**
+
