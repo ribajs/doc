@@ -256,7 +256,7 @@ This demo shows how you can start autoplay on small devices and stop on medium d
   <template>
     <rv-example-tabs handle="bs4-slideshow-1" class="pt-3">
       <template type="single-html-file">
-        <bs4-slideshow autoplay="false" md-autoplay="true" controls="false" lg-controls="true" indicators="false" lg-indicators="true" control-prev-icon-src="{{ 'arrow_carrot.svg' | asset_url }}" indicator-inactive-icon-src="{{ 'icon_circle-empty.svg' | asset_url }}" indicator-active-icon-src="{{ 'icon_circle-selected.svg' | asset_url }}" control-next-icon-src="{{ 'arrow_carrot.svg' | asset_url }}">
+        <bs4-slideshow autoplay="false" md-autoplay="true" autoplay-velocity="0.03" controls="false" lg-controls="true" indicators="false" lg-indicators="true" control-prev-icon-src="{{ 'arrow_carrot.svg' | asset_url }}" indicator-inactive-icon-src="{{ 'icon_circle-empty.svg' | asset_url }}" indicator-active-icon-src="{{ 'icon_circle-selected.svg' | asset_url }}" control-next-icon-src="{{ 'arrow_carrot.svg' | asset_url }}">
           <div class="slideshow-inner">
             <div class="slide-placeholder d-none d-sm-block col-sm-6 col-xl-4">&nbsp;</div>
             <div class="slide col-12 col-sm-6 col-xl-4">
