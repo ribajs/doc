@@ -92,7 +92,7 @@ module.exports = env => {
         }
       ]
     },
-    plugins:  [
+    plugins: [
       new ConsoleNotifierPlugin(),
       new DuplicatesPlugin(),
     ],
