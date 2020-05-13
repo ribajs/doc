@@ -45,17 +45,17 @@ You can use the `bs4-toggle-button` component to open or close the sidebar at an
       <template type="single-html-file">
         <div>
           <bs4-sidebar id="example-sidebar" container-selector="#example-sidebar-container" position="right" class="p-3">
-            <div rv-hide="isClosed" rv-on-click="hide" class="d-flex justify-content-center">
+            <div rv-show="isActive" rv-on-click="hide" class="d-flex justify-content-center">
               <bs4-icon src="{{ 'icon_close.svg' | asset_url }}" size="32"></bs4-icon>
             </div>
             <p class="text-center">Hello World!</p>
           </bs4-sidebar>
           <div id="example-sidebar-container">
             <bs4-toggle-button target-id="example-sidebar" class="d-flex justify-content-center">
-              <div rv-show="isClosed" rv-on-click="toggle">
+              <div rv-hide="isActive" rv-on-click="toggle">
                 <bs4-icon src="{{ 'icon_menu.svg' | asset_url }}" size="32"></bs4-icon>
               </div>
-              <div rv-hide="isClosed" rv-on-click="toggle">
+              <div rv-show="isActive" rv-on-click="toggle">
                 <bs4-icon src="{{ 'icon_close.svg' | asset_url }}" size="32"></bs4-icon>
               </div>
             </bs4-toggle-button>

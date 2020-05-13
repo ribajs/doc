@@ -1,14 +1,11 @@
-import {
-  Component,
-} from '@ribajs/core';
+import { Component } from "@ribajs/core";
 
-import template from './file-tree.component.html';
+import template from "./file-tree.component.html";
 
 // interface Scope {}
 
 export class FileTreeComponent extends Component {
-
-  public static tagName = 'rv-file-tree';
+  public static tagName = "rv-file-tree";
 
   protected autobind = false;
 

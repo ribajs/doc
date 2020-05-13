@@ -1,18 +1,15 @@
-import {
-  Component,
-} from '@ribajs/core';
-import { LoremIpsum } from 'lorem-ipsum';
-import { IGeneratorOptions } from 'lorem-ipsum/src/lib/generator';
+import { Component } from "@ribajs/core";
+import { LoremIpsum } from "lorem-ipsum";
+import { IGeneratorOptions } from "lorem-ipsum/src/lib/generator";
 interface Scope {
   generateWords?: number;
   generateSentences?: number;
   generateParagraphs?: number;
-  format: 'plain' | 'html';
+  format: "plain" | "html";
 }
 
 export class LoremIpsumComponent extends Component {
-
-  public static tagName = 'rv-lorem-ipsum';
+  public static tagName = "rv-lorem-ipsum";
 
   protected options: IGeneratorOptions = {
     sentencesPerParagraph: {
@@ -31,21 +28,21 @@ export class LoremIpsumComponent extends Component {
 
   static get observedAttributes(): string[] {
     return [
-      'sentences-per-paragraph-max',
-      'sentences-per-paragraph-min',
-      'words-per-sentence-max',
-      'words-per-sentence-min',
-      'words',
-      'generate-words',
-      'generate-sentences',
-      'generate-paragraphs',
-      'format',
+      "sentences-per-paragraph-max",
+      "sentences-per-paragraph-min",
+      "words-per-sentence-max",
+      "words-per-sentence-min",
+      "words",
+      "generate-words",
+      "generate-sentences",
+      "generate-paragraphs",
+      "format",
     ];
   }
 
   protected scope: Scope = {
     generateParagraphs: 1,
-    format: 'html',
+    format: "html",
   };
 
   constructor(element?: HTMLElement) {
@@ -59,8 +56,7 @@ export class LoremIpsumComponent extends Component {
   }
 
   protected async init(observedAttributes: string[]) {
-    return super.init(observedAttributes)
-    .then((view) => {
+    return super.init(observedAttributes).then((view) => {
       return view;
     });
   }
@@ -77,9 +73,13 @@ export class LoremIpsumComponent extends Component {
     if (this.scope.generateWords) {
       this.el.innerHTML = this.lorem.generateWords(this.scope.generateWords);
     } else if (this.scope.generateSentences) {
-      this.el.innerHTML = this.lorem.generateSentences(this.scope.generateSentences);
+      this.el.innerHTML = this.lorem.generateSentences(
+        this.scope.generateSentences
+      );
     } else if (this.scope.generateParagraphs) {
-      this.el.innerHTML = this.lorem.generateParagraphs(this.scope.generateParagraphs);
+      this.el.innerHTML = this.lorem.generateParagraphs(
+        this.scope.generateParagraphs
+      );
     }
   }
 
@@ -87,30 +87,40 @@ export class LoremIpsumComponent extends Component {
     return [];
   }
 
-  protected parsedAttributeChangedCallback(attributeName: string, oldValue: any, newValue: any, namespace: string | null) {
-    super.parsedAttributeChangedCallback(attributeName, oldValue, newValue, namespace);
+  protected parsedAttributeChangedCallback(
+    attributeName: string,
+    oldValue: any,
+    newValue: any,
+    namespace: string | null
+  ) {
+    super.parsedAttributeChangedCallback(
+      attributeName,
+      oldValue,
+      newValue,
+      namespace
+    );
     switch (attributeName) {
-      case 'sentencesPerParagraphMax':
+      case "sentencesPerParagraphMax":
         if (this.options.sentencesPerParagraph) {
           this.options.sentencesPerParagraph.max = newValue;
         }
         break;
-      case 'sentencesPerParagraphMin':
+      case "sentencesPerParagraphMin":
         if (this.options.sentencesPerParagraph) {
           this.options.sentencesPerParagraph.min = newValue;
         }
         break;
-      case 'wordsPerSentenceMax':
-          if (this.options.wordsPerSentence) {
-            this.options.wordsPerSentence.max = newValue;
-          }
-          break;
-      case 'wordsPerSentenceMin':
+      case "wordsPerSentenceMax":
+        if (this.options.wordsPerSentence) {
+          this.options.wordsPerSentence.max = newValue;
+        }
+        break;
+      case "wordsPerSentenceMin":
         if (this.options.wordsPerSentence) {
           this.options.wordsPerSentence.min = newValue;
         }
         break;
-      case 'words':
+      case "words":
         if (this.options.words) {
           this.options.words = newValue;
         }

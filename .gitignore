@@ -3,6 +3,11 @@
 /lib
 /node_modules
 /.cache
+# vendors
+/src/iconset/
+/src/ts/demos/
+/src/scss/vendors/@ribajs/
+/src/scss/vendors/bootstrap/
 # Logs
 logs
 *.log
@@ -30,8 +35,6 @@ lerna-debug.log*
 !.vscode/launch.json
 !.vscode/extensions.json
 # Yarn
-yarn.lock
-.pnp.js
 .yarn/cache/
 .yarn/unplugged/
 .yarn/build-state.yml

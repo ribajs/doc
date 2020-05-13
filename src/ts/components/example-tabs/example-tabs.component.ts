@@ -2,52 +2,48 @@ import {
   Bs4TabsComponent,
   Tab,
   Scope as OriginalScope,
-} from '@ribajs/bs4/src/components/bs4-tabs/bs4-tabs.component';
+} from "@ribajs/bs4/src/components/bs4-tabs/bs4-tabs.component";
 
-import { Utils } from '@ribajs/core';
+import { escapeHtml } from "@ribajs/utils/src/type";
 
-import * as Prism from 'prismjs';
+import * as Prism from "prismjs";
 
-import template from './example-tabs.component.html';
+import template from "./example-tabs.component.html";
 
 export interface Scope extends OriginalScope {
-  sum?: ExampleBs4TabsComponent['sum'];
+  sum?: ExampleBs4TabsComponent["sum"];
 }
 
 export class ExampleBs4TabsComponent extends Bs4TabsComponent {
-
-  public static tagName = 'rv-example-tabs';
+  public static tagName = "rv-example-tabs";
 
   protected autobind = true;
 
   protected templateAttributes = [
     {
-      name: 'title',
+      name: "title",
       required: true,
     },
     {
-      name: 'handle',
+      name: "handle",
       required: false,
     },
     {
-      name: 'type',
+      name: "type",
       required: false,
     },
     {
-      name: 'active',
+      name: "active",
       required: false,
     },
     {
-      name: 'index',
+      name: "index",
       required: false,
     },
   ];
 
   static get observedAttributes() {
-    return [
-      'option-tabs-auto-height',
-      'handle',
-    ];
+    return ["option-tabs-auto-height", "handle"];
   }
 
   constructor(element?: HTMLElement) {
@@ -68,11 +64,13 @@ export class ExampleBs4TabsComponent extends Bs4TabsComponent {
 
   public activate(tab: Tab) {
     super.activate(tab);
-    if (tab.type === 'realtime-result') {
+    if (tab.type === "realtime-result") {
       // Get content of preview tab and insert this as the source tab content
-      const previewElement = this.el.querySelector('.tab-content-preview');
+      const previewElement = this.el.querySelector(".tab-content-preview");
       if (previewElement) {
-        tab.content = `<pre class="language-html"><code class="language-html">${Utils.escapeHtml(previewElement.innerHTML.trim())}</code></pre>`;
+        tab.content = `<pre class="language-html"><code class="language-html">${escapeHtml(
+          previewElement.innerHTML.trim()
+        )}</code></pre>`;
         Prism.highlightAll();
       }
     }
@@ -121,32 +119,34 @@ export class ExampleBs4TabsComponent extends Bs4TabsComponent {
       }
     }
 
-    return lines.join('\n').trim();
+    return lines.join("\n").trim();
   }
 
   protected addItemsByTemplate() {
-    const templates = this.el.querySelectorAll<HTMLTemplateElement>('template');
+    const templates = this.el.querySelectorAll<HTMLTemplateElement>("template");
     for (let index = 0; index < templates.length; index++) {
       const tpl = templates[index];
-      const type = tpl.getAttribute('type');
-      if (type === 'single-html-file') {
-        const sourceTemplate = document.createElement('template');
+      const type = tpl.getAttribute("type");
+      if (type === "single-html-file") {
+        const sourceTemplate = document.createElement("template");
         const sourceCode = this.removeIndentsOfSource(tpl.innerHTML);
-        sourceTemplate.setAttribute('title', 'Source');
-        sourceTemplate.setAttribute('type', 'source');
-        sourceTemplate.innerHTML = `<pre class="language-html"><code class="language-html">${Utils.escapeHtml(sourceCode)}</code></pre>`;
+        sourceTemplate.setAttribute("title", "Source");
+        sourceTemplate.setAttribute("type", "source");
+        sourceTemplate.innerHTML = `<pre class="language-html"><code class="language-html">${escapeHtml(
+          sourceCode
+        )}</code></pre>`;
         this.addItemByTemplate(sourceTemplate, index);
 
-        const previewTemplate = document.createElement('template');
-        previewTemplate.setAttribute('title', 'Preview');
-        previewTemplate.setAttribute('type', 'preview');
+        const previewTemplate = document.createElement("template");
+        previewTemplate.setAttribute("title", "Preview");
+        previewTemplate.setAttribute("type", "preview");
         previewTemplate.innerHTML = sourceCode;
         this.addItemByTemplate(previewTemplate, index + 1);
 
-        const resultTemplate = document.createElement('template');
-        resultTemplate.setAttribute('title', 'Rendered');
-        resultTemplate.setAttribute('type', 'realtime-result');
-        resultTemplate.innerHTML = '';
+        const resultTemplate = document.createElement("template");
+        resultTemplate.setAttribute("title", "Rendered");
+        resultTemplate.setAttribute("type", "realtime-result");
+        resultTemplate.innerHTML = "";
         this.addItemByTemplate(resultTemplate, index + 2);
       } else {
         this.addItemByTemplate(tpl, index);

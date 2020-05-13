@@ -14,7 +14,7 @@ The binder attribute value accepts an object or json string with the following a
 | datasetToModel |`boolean` |`true` if viewId is `'main'` otherwise `false` | Binds the values passed as data attributes to the model / scope of this binder |
 | parseTitle            | `boolean` |`true` if viewId is `'main'` otherwise `false` | Parses the `<title></title>` and replace the tab name                  |
 | changeBrowserUrl      | `boolean` |`true` if viewId is `'main'` otherwise `false` | Changes the browser URL when the new page is loading                   |
-| autoprefetchLinks| `boolean` |`true` if listenAllLinks is `true` otherwise `false`| Loads the content of the url on mouse over to speed up the page loading|
+| prefetchLinks| `boolean` |`true` if listenAllLinks is `true` otherwise `false`| Loads the content of the url on mouse over to speed up the page loading|
 | transition            | `Transition` | `HideShowTransition`                       | The transition object e.g. for animations                              |
 
 <rv-bind-content class="pt-3">

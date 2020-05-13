@@ -18,7 +18,7 @@ You can generate a new formatter with the Riba CLI.
 riba generate component todo-item
 ```
 
-This will create a new directory with a new component (and a `.spec.ts` file for tests) in your `./src/component` directory and updates your `./src/components/index.ts` file.
+This will create a new directory with a new component (and a `.spec.ts` file for tests) in your `./src/ts/component` directory and updates your `./src/ts/components/index.ts` file.
 
 A component object must define a `template` function, which returns the template for the component (this can be an HTML string or the actual element). It must also define an `initialize` function, which returns the scope object to bind the view with (this will likely be a controller / viewmodel / presenter).
 

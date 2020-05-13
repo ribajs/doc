@@ -18,7 +18,7 @@ This site itself uses the `bs4-toggle-button` to open or close the sidebar.
 | Name                             |  Description                                                                                                    |
 | -------------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | state                            | Can be 'hidden' or something else                                                                               |
-| isClosed                         | Is true if the state is 'hidden'                                                                                |
+| isActive                         | Is false if the state is 'hidden' or 'removed'                                                                  |
 | targetId                         | Passed attribute value, see `target-id` attribute                                                               |
 
 To react on the "toggle" event triggered by the `bs4-toggle-button` component you need to create a object of `EventDispatcher` like this:
@@ -45,12 +45,12 @@ toggleButtonEvents.trigger('toggled', 'hidden');
       <template type="single-html-file">
         <bs4-toggle-button target-id="main-sidebar" class="p-3">
           <button rv-on-click="toggle" class="btn btn-warning">
-            Click to toggle the main sidebar <span rv-show="isClosed">(Closed)</span><span rv-hide="isClosed">(Open)</span>
+            Click to toggle the main sidebar <span rv-hide="isActive">(Inactive)</span><span rv-show="isActive">(Active)</span>
           </button>
         </bs4-toggle-button>
         <bs4-toggle-button target-id="example-sidebar" class="p-3">
           <button rv-on-click="toggle" class="btn btn-info">
-            Click to toggle the sidebar in the example below <span rv-show="isClosed">(Closed)</span><span rv-hide="isClosed">(Open)</span>
+            Click to toggle the sidebar in the example below <span rv-hide="isActive">(Inactive)</span><span rv-show="isActive">(Active)</span>
           </button>
           <p class="m-3"><em>Before you click on this button, make sure that the preview of the sidebar component example is open.</em></p>
         </bs4-toggle-button>

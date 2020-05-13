@@ -4,10 +4,10 @@
 @import 'bootstrap';
 
 // Bootstrap style extensions from @ribajs/bs4
-@import "../../node_modules/@ribajs/bs4/src/index";
+@import "./vendors/@ribajs/bs4/index";
 
 // vendors
-@import 'vendors/index';
+@import 'vendors/prism';
 
 // bootstrap overwrites
 @import 'colors';
