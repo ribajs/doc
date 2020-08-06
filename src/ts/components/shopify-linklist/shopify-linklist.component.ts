@@ -1,4 +1,5 @@
 import { ShopifyLinklistComponent as OriginalShopifyLinklistComponent } from "@ribajs/shopify/src/components/shopify-linklist/shopify-linklist.component";
+import { hasChildNodesTrim } from "@ribajs/utils/src/dom";
 import template from "./shopify-linklist.component.html";
 
 /**
@@ -15,7 +16,7 @@ export class ShopifyLinklistComponent extends OriginalShopifyLinklistComponent {
    * Only set the component template if there no childs already
    */
   protected template() {
-    if (this.el.hasChildNodes()) {
+    if (hasChildNodesTrim(this.el)) {
       return null;
     } else {
       return template;

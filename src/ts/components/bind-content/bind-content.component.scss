@@ -15,7 +15,8 @@ rv-bind-content {
     border-radius: $code-border-radius;
 
     .icon {
-      background-image: url(arrow_triangle.svg);
+      // FIXME webpack css-loader config.url == true
+      // background-image: url(arrow_triangle.svg);
       background-repeat: no-repeat;
       background-position: center center;
       width: 50px;

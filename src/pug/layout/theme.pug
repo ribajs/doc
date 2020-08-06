@@ -16,6 +16,7 @@ html(lang="{{'html.lang.code' |t}}")
     | {% include 'utils-js-variables' %}
     | {% include 'favicons' %}
     | {% include 'open-graph-tags' %}
+    link(rel='stylesheet', href="{{ 'fonts.css' | asset_url }}")
     link(rel='stylesheet', href="{{ 'main.css' | asset_url }}")
     body(id="{% include 'utils-get-namespace' %}" rv-id="dataset.namespace")
       bs4-sidebar#main-sidebar(container-selector="#main-container" force-hide-on-location-pathnames="['/']")

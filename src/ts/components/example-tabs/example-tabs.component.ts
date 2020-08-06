@@ -3,6 +3,7 @@ import {
   Tab,
   Scope as OriginalScope,
 } from "@ribajs/bs4/src/components/bs4-tabs/bs4-tabs.component";
+import { hasChildNodesTrim } from "@ribajs/utils/src/dom";
 
 import { escapeHtml } from "@ribajs/utils/src/type";
 
@@ -157,7 +158,7 @@ export class ExampleBs4TabsComponent extends Bs4TabsComponent {
 
   protected template() {
     // Only set the component template if there no childs or the childs are templates
-    if (!this.el.hasChildNodes() || this.hasOnlyTemplateChilds()) {
+    if (!hasChildNodesTrim(this.el) || this.hasOnlyTemplateChilds()) {
       return template;
     } else {
       return null;

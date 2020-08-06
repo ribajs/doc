@@ -1,5 +1,5 @@
 import { Component } from "@ribajs/core";
-
+import { hasChildNodesTrim } from "@ribajs/utils/src/dom";
 import { escapeHtml } from "@ribajs/utils/src/type";
 
 import template from "./icon-preview.component.html";
@@ -116,7 +116,7 @@ export class IconPreviewComponent extends Component {
 
   protected template() {
     // Only set the component template if there no childs already
-    if (this.el.hasChildNodes()) {
+    if (hasChildNodesTrim(this.el)) {
       return null;
     } else {
       return template;
