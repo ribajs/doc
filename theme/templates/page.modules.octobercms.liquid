@@ -23,13 +23,13 @@ The <code>build-scss-and-yml</code> task consists of three other gulp tasks whic
 <p>The build-yml task takes every file matching <code>./assets/**/*.scss</code>, and transforms them using the scssToOctoberYml gulp plugin. The output is stored with the respective file name in the <code>./build/tmp/</code> directory.</p>
 <p>The <code>./build/</code> directory can be added safely to any .gitignore file.</p>
 <p>Currently the only option to change the directories is editing the riba.js source files, but that might change in future releases.</p>
-<h3>merge-yml</h3>
+<h3><code>merge-yml</code></h3>
 <p>The merge-yml task takes every file matching <code>./build/tmp/**/*.yml</code> (usually all temporary files created by the build-yml task), and merges them into a single big <code>./build/bundle.yml</code>. If there are any duplicates of yaml keys, this task is supposed to print a warnining. (not happening yet)</p>
-<h3>merge-with-october-yml</h3>
+<h3><code>merge-with-october-yml</code></h3>
 <p>The merge-with-october-yml task combines the content of the <code>./build/bundle.yml</code> file with a file named <code>./default_theme.yaml</code>. The bundle.yml content is added under the yaml key <code>input.form.tabs.fields</code>, which is the default octobercms config field key using the tabs configuration.</p>
 
               <h2 id="plugin">Gulp scssToOctoberYml plugin</h2><p>The scssToOctoberYml gulp plugin extracts octobercms config fields from a scss file, and returns it as a yaml configuration string.</p>
-<p>Currently, there are no options but the input and output files can be specified using the gulp src() function and the dest() pipe:</p>
+<p>Currently, there are no options but the input and output files can be specified using the gulp <code>src()</code> function and the <code>dest()</code> pipe:</p>
 <pre><code class="language-ts">import { src, dest, task } from &quot;gulp&quot;;
 import { scssToOctoberYml } from &quot;./includes/scss-to-october&quot;;
 
@@ -39,11 +39,11 @@ task(&quot;build-yml&quot;, function buildExampleYmlFromScss() {
 </code></pre>
 <p>The plugin tries to match scss variables and to transform their values into the octobercms theme settings format. Currently it is only possible to export one scss variable per line, lines containing more than one variable will be ignored.</p>
 <p>To mark a variable for export, the following comment is required after the variable declaration:</p>
-<h6>Input</h6>
+<h5>Input</h5>
 <pre><code class="language-scss">$my-scss-variable: #123123 !default; // octoberyml: {}
 </code></pre>
 <p>If no further options are supplied, the scssToOctoberYml plugin tries to guess default options.</p>
-<h6>Compiled output for the example above</h6>
+<h5>Compiled output for the example above</h5>
 <pre><code class="language-yml">my_scss_variable:
   default: &quot;#123123&quot;
   assetVar: my-scss-variable
@@ -52,15 +52,15 @@ task(&quot;build-yml&quot;, function buildExampleYmlFromScss() {
 </code></pre>
 <p>The type is guessed by using the default value, currently it either defaults to colorpicker or text, depending on the content.</p>
 <p>Further options can be supplied through the brackets. Custom options always overwrite the default guess of the plugin, and can be used to further customize the output.</p>
-<p>The content of the brackets is parsed using Function() object which also allows to use loose json for the options string:</p>
-<h6>Input</h6>
+<p>The content of the brackets is parsed using <code>Function()</code> object which also allows to use loose json for the options string:</p>
+<h5>Input</h5>
 <pre><code class="language-scss">$my-scss-variable: #123123 !default; // octoberyml: {key: &quot;value&quot;}
 </code></pre>
 <p>Any (octobercms configuration value) can be used, to allow a high extent of customization:</p>
-<h6>Input</h6>
+<h5>Input</h5>
 <pre><code class="language-scss">$navigation-font: &quot;primary&quot; !default; // octoberyml: {tab: &quot;Font options&quot;, type: &quot;balloon-selector&quot;, label: &quot;Navigation Font&quot;, options: {primary: &quot;Primary&quot;, secondary: &quot;Secondary&quot;, tertiary: &quot;Tertiary&quot;}}
 </code></pre>
-<h6>Compiled output:</h6>
+<h5>Compiled output:</h5>
 <pre><code class="language-yml">navigation_font:
   default: '&quot;primary&quot;'
   assetVar: navigation-font
