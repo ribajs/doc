@@ -15,7 +15,7 @@ The plugin tries to match scss variables and to transform their values into the 
 
 To mark a variable for export, the following comment is required after the variable declaration:
 
-#### Input
+###### Input
 
 ```scss
 $my-scss-variable: #123123 !default; // octoberyml: {}
@@ -23,7 +23,7 @@ $my-scss-variable: #123123 !default; // octoberyml: {}
 
 If no further options are supplied, the scssToOctoberYml plugin tries to guess default options.
 
-#### Compiled output for the example above
+###### Compiled output for the example above
 
 ```yml
 my_scss_variable:
@@ -39,7 +39,7 @@ Further options can be supplied through the brackets. Custom options always over
 
 The content of the brackets is parsed using Function() object which also allows to use loose json for the options string:
 
-#### Input
+###### Input
 
 ```scss
 $my-scss-variable: #123123 !default; // octoberyml: {key: "value"}
@@ -47,13 +47,13 @@ $my-scss-variable: #123123 !default; // octoberyml: {key: "value"}
 
 Any (octobercms configuration value) can be used, to allow a high extent of customization:
 
-#### Input
+###### Input
 
 ```scss
 $navigation-font: "primary" !default; // octoberyml: {tab: "Font options", type: "balloon-selector", label: "Navigation Font", options: {primary: "Primary", secondary: "Secondary", tertiary: "Tertiary"}}
 ```
 
-#### Compiled output:
+###### Compiled output:
 
 ```yml
 navigation_font:
