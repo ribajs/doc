@@ -3,7 +3,8 @@
 </code></pre>
 <h3>Regist</h3>
 <p>To regist the module import <code>import i18nModule from '@ribajs/i18n';</code> and any <code>LocalesService</code> in your <code>main.ts</code> file and regist the module with <code>riba.module.regist(i18nModule(localesService));</code>:</p>
-<pre><code class="language-ts">import { coreModule, Riba, Utils } from '@ribajs/core';
+<pre><code class="language-ts">import { coreModule, Riba } from '@ribajs/core';
+import { ready } from '@ribajs/utils/src/dom';
 import { LocalesService } from '@ribajs/shopify-tda';
 import i18nModule from '@ribajs/i18n';
 const riba = new Riba();
@@ -11,7 +12,7 @@ const localesService = new LocalesService();
 const model = {};
 riba.module.regist(coreModule);
 riba.module.regist(i18nModule(localesService));
-Utils.domIsReady(() =&gt; {
+ready(() =&gt; {
   riba.bind(document.body, model);
 });
 </code></pre>
@@ -137,35 +138,37 @@ const locales = {
 
 const localesService = new LocalesStaticService(locales);
 </code></pre>
-<rv-bind-content><template><rv-example-tabs handle="bs4-tabs-tpl"><template title="main.ts" type="source"><pre><code class="language-typescript">import { coreModule, Riba, Utils } from &#39;@ribajs/core&#39;;
-import { ready } from &#39;@ribajs/utils/src/dom&#39;;
-import { i18nModule, LocalesStaticService } from &#39;@ribajs/i18n&#39;;
-import I18nStaticModule from &#39;./i18n-static.module&#39;;
+<rv-bind-content><template><rv-example-tabs handle="bs4-tabs-tpl"><template title="main.ts" type="source"><pre><code class="language-typescript">import { coreModule, Riba } from &quot;@ribajs/core&quot;;
+import { ready } from &quot;@ribajs/utils/src/dom&quot;;
+import { i18nModule, LocalesStaticService } from &quot;@ribajs/i18n&quot;;
+import I18nStaticModule from &quot;./i18n-static.module&quot;;
 
 const locales = {
   de: {
     examples: {
       i18n: {
-        switch_language: &#39;Klicke auf eine Sprache um sie zu ändern&#39;,
+        switch_language: &quot;Klicke auf eine Sprache um sie zu ändern&quot;,
       },
       newsletter: {
-        description_html: &#39;Abonnieren Sie unseren Newsletter und erhalten Sie &lt;strong&gt;10% Rabatt&lt;/strong&gt; auf Ihren nächsten Einkauf.&#39;,
-        input_value: &#39;Unbekannt&#39;,
-        placeholder_last_name: &#39;Nachname&#39;,
-        title: &#39;Melde dich für den Newsletter an&#39;,
+        description_html:
+          &quot;Abonnieren Sie unseren Newsletter und erhalten Sie &lt;strong&gt;10% Rabatt&lt;/strong&gt; auf Ihren nächsten Einkauf.&quot;,
+        input_value: &quot;Unbekannt&quot;,
+        placeholder_last_name: &quot;Nachname&quot;,
+        title: &quot;Melde dich für den Newsletter an&quot;,
       },
     },
   },
   en: {
     examples: {
       i18n: {
-        switch_language: &#39;Click on a language to change it&#39;,
+        switch_language: &quot;Click on a language to change it&quot;,
       },
       newsletter: {
-        description_html: &#39;Subscribe to our newsletter and get &lt;strong&gt;10% off&lt;/strong&gt; your next purchase.&#39;,
-        input_value: &#39;Unknown&#39;,
-        placeholder_last_name: &#39;Surname&#39;,
-        title: &#39;Sign up for the newsletter&#39;,
+        description_html:
+          &quot;Subscribe to our newsletter and get &lt;strong&gt;10% off&lt;/strong&gt; your next purchase.&quot;,
+        input_value: &quot;Unknown&quot;,
+        placeholder_last_name: &quot;Surname&quot;,
+        title: &quot;Sign up for the newsletter&quot;,
       },
     },
   },

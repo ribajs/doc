@@ -4,12 +4,14 @@
 </code></pre>
 <h2>Regist</h2>
 <p>To regist the module include <code>import bs4Module from '@ribajs/bs4';</code> in your <code>main.ts</code> file and regist the module with <code>riba.module.regist(bs4Module);</code>:</p>
-<pre><code class="language-ts">import { Riba, Utils } from '@ribajs/core';
+<pre><code class="language-ts">import { Riba, coreModule } from '@ribajs/core';
+import { ready } from '@ribajs/utils/src/dom';
 import bs4Module from '@ribajs/bs4';
 const riba = new Riba();
 const model = {};
+riba.module.regist(coreModule);
 riba.module.regist(bs4Module);
-Utils.domIsReady(() =&gt; {
+ready(() =&gt; {
   riba.bind(document.body, model);
 });
 </code></pre>

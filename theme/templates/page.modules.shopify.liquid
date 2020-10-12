@@ -4,12 +4,14 @@
 </code></pre>
 <h2>Regist</h2>
 <p>To regist the module include <code>import shopifyModule from '@ribajs/shopify';</code> in your <code>main.ts</code> file and regist the module with <code>riba.module.regist(shopifyModule);</code>:</p>
-<pre><code class="language-ts">import { Riba, Utils } from '@ribajs/core';
-import shopifyModule from '@ribajs/shopify';
+<pre><code class="language-ts">import { Riba, coreModule } from '@ribajs/core';
+import { shopifyModule } from '@ribajs/shopify';
+import { ready } from '@ribajs/utils/src/dom';
 const riba = new Riba();
 const model = {};
+riba.module.regist(coreModule);
 riba.module.regist(shopifyModule);
-Utils.domIsReady(() =&gt; {
+ready(() =&gt; {
   riba.bind(document.body, model);
 });
 </code></pre>

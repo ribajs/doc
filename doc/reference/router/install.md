@@ -7,12 +7,13 @@ npm install --save @ribajs/router
 To regist the module include `import routerModule from '@ribajs/router';` in your `main.ts` file and regist the module with `riba.module.regist(routerModule);`:
 
 ```ts
-import { Riba, Utils } from '@ribajs/core';
+import { Riba } from '@ribajs/core';
+import { ready } from '@ribajs/utils/src/dom';
 import routerModule from '@ribajs/router';
 const riba = new Riba();
 const model = {};
 riba.module.regist(routerModule);
-Utils.domIsReady(() => {
+ready(() => {
   riba.bind(document.body, model);
 });
 ```
