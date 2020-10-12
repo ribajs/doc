@@ -98,7 +98,7 @@
     "@typescript-eslint/parser": "^4.4.1",
     "@yarnpkg/pnpify": "^2.1.0",
     "abbrev": "^1.1.1",
-    "autoprefixer": "^9.8.6",
+    "postcss-preset-env": "^6.7.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-array-includes": "^2.0.3",
     "babelify": "^10.0.0",
