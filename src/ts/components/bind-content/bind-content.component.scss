@@ -16,7 +16,7 @@ rv-bind-content {
 
     .icon {
       // FIXME webpack css-loader config.url == true
-      // background-image: url(arrow_triangle.svg);
+      background-image: url("../../../../packages/iconset/src/svg/arrow_triangle.svg");
       background-repeat: no-repeat;
       background-position: center center;
       width: 50px;
@@ -31,12 +31,11 @@ rv-bind-content {
       // arrow to right
       transform: rotate(90deg);
     }
-  
+
     p {
       color: white;
       text-align: center;
       padding-top: 25px;
     }
-
   }
 }

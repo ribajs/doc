@@ -1,4 +1,15 @@
-<div class="container py-5 page {{template|handleize}}" id="page-content-{{page.handle}}"><div class="row pt-5"><div class="col-12"><div class="row"><div class="col-12"><h1 class="page-title">{{ page.title }}</h1><div class="rte">{{ page.content }}</div><div class="content"><bs4-contents class="d-block d-lg-none top-contents" header-parent-selector="#main-container" headers-start="2" headers-depth="4" scroll-offset="80"></bs4-contents><section class="my-5"><h1>Extras Module</h1>
+
+<div class="container py-5 page {{template|handleize}}" id="page-content-{{page.handle}}">
+  <div class="row pt-5">
+    <div class="col-12">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="page-title">{{ page.title }}
+          </h1>
+          <div class="rte">{{ page.content }}</div>
+          <div class="content">
+            <bs4-contents class="d-block d-lg-none top-contents" header-parent-selector="#main-container" headers-start="2" headers-depth="4" scroll-offset="80"></bs4-contents>
+            <section class="my-5"><h1>Extras Module</h1>
 <h2>Install</h2>
 <pre><code class="language-bash">npm install --save @ribajs/extras
 </code></pre>
@@ -15,7 +26,12 @@ ready(() =&gt; {
   riba.bind(document.body, model);
 });
 </code></pre>
-</section><section class="my-5" id="binders"><h2>Binders</h2><section class="my-5" id="data-scroll-position-y-binder"><h3>data-scroll-position-y</h3><p>Sets the scroll position (<code>&quot;top&quot;</code>, <code>&quot;scrolled&quot;</code>, <code>&quot;bottom&quot;</code>) to the element as a data attribute, useful if you want to define styles depending on the scroll position.</p>
+
+            </section>
+            <section class="my-5" id="binders">
+              <h2>Binders</h2>
+              <section class="my-5" id="data-scroll-position-y-binder">
+                <h3>data-scroll-position-y</h3><p>Sets the scroll position (<code>&quot;top&quot;</code>, <code>&quot;scrolled&quot;</code>, <code>&quot;bottom&quot;</code>) to the element as a data attribute, useful if you want to define styles depending on the scroll position.</p>
 <p>Options can be passed via data attributes, e.g <code>data-placement=&quot;right&quot;</code></p>
 <table>
 <thead>
@@ -70,14 +86,21 @@ ready(() =&gt; {
     </rv-example-tabs>
   </template>
 </rv-bind-content>
-</section><section class="my-5" id="touch-events-binder"><h3>touch-events</h3><p>Add this binder to an element to trigger additional touch events.</p>
+
+              </section>
+              <section class="my-5" id="touch-events-binder">
+                <h3>touch-events</h3><p>Add this binder to an element to trigger additional touch events.</p>
 <p>Then you can react to the events with the <code>on-[event]</code> binder like this:</p>
 <pre><code class="language-html">&lt;div rv-touch-events rv-on-swiperight=&quot;nextPage&quot;&gt;
   ...
 &lt;/div&gt;
 </code></pre>
 <p>This binder uses <code>TouchEventsService</code> to trigger the additional events, check out the <a rv-scroll-to-on-click="'#touch-events-service'" href="#touch-events-service" data-offset="80">TouchEventsService</a> to find out what additional events are available.</p>
-<rv-bind-content><template><rv-example-tabs handle="extras-touch-events"><template title="main.ts" type="source"><pre><code class="language-typescript">import { coreModule, Riba } from &#39;@ribajs/core&#39;;
+
+                <rv-bind-content>
+                  <template>
+                    <rv-example-tabs handle="extras-touch-events">
+                      <template title="main.ts" type="source"><pre><code class="language-typescript">import { coreModule, Riba } from &#39;@ribajs/core&#39;;
 import { extrasModule } from &#39;@ribajs/extras&#39;;
 import { touchEventsModule } from &#39;./touch-events.module&#39;;
 
@@ -90,7 +113,9 @@ riba.module.regist(extrasModule);
 riba.module.regist(touchEventsModule);
 
 riba.bind(document.body, model);
-</code></pre></template><template title="component.html" type="source"><pre><code class="language-html">&lt;div class=&quot;row flex-column flex-md-row d-flex flex-nowrap h-100&quot;&gt;
+</code></pre>
+                      </template>
+                      <template title="component.html" type="source"><pre><code class="language-html">&lt;div class=&quot;row flex-column flex-md-row d-flex flex-nowrap h-100&quot;&gt;
   &lt;!--rv-on-tapmove=&quot;log | args &#39;tapmove&#39;&quot;--&gt;
   &lt;div
     class=&quot;col-md-7 col-lg-8 col-xl-9 bg-light text-dark py-3 d-flex justify-content-center align-items-center touch-zone&quot;
@@ -118,7 +143,9 @@ riba.bind(document.body, model);
     &lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
-</code></pre></template><template title="component.ts" type="source"><pre><code class="language-typescript">import { Component } from &quot;@ribajs/core&quot;;
+</code></pre>
+                      </template>
+                      <template title="component.ts" type="source"><pre><code class="language-typescript">import { Component } from &quot;@ribajs/core&quot;;
 import { hasChildNodesTrim } from &quot;@ribajs/utils/src/dom&quot;;
 import template from &quot;./touch-events-example.component.html&quot;;
 
@@ -174,14 +201,28 @@ export class TouchEventsExampleComponent extends Component {
     }
   }
 }
-</code></pre></template><template title="Preview" type="preview"><rv-touch-events-example></rv-touch-events-example></template></rv-example-tabs></template></rv-bind-content></section><section class="my-5" id="scroll-events-binder"><h3>scroll-events</h3><p>Add this binder to an element to trigger additional scroll events.</p>
+</code></pre>
+                      </template>
+                      <template title="Preview" type="preview">
+                        <rv-touch-events-example></rv-touch-events-example>
+                      </template>
+                    </rv-example-tabs>
+                  </template>
+                </rv-bind-content>
+              </section>
+              <section class="my-5" id="scroll-events-binder">
+                <h3>scroll-events</h3><p>Add this binder to an element to trigger additional scroll events.</p>
 <p>Then you can react to the events with the <code>on-[event]</code> binder like this:</p>
 <pre><code class="language-html">&lt;div rv-scroll-events rv-on-scrollended=&quot;showPopup&quot;&gt;
   ...
 &lt;/div&gt;
 </code></pre>
 <p>This binder uses <code>ScrollEventsService</code> to trigger additional scroll events on the element, check out the <a rv-scroll-to-on-click="'#scroll-events-service'" href="#scroll-events-service" data-offset="80">ScrollEventsService</a> to find out what additional events are available.</p>
-<rv-bind-content><template><rv-example-tabs handle="extras-scroll-events"><template title="main.ts" type="source"><pre><code class="language-typescript">import { coreModule, Riba } from &#39;@ribajs/core&#39;;
+
+                <rv-bind-content>
+                  <template>
+                    <rv-example-tabs handle="extras-scroll-events">
+                      <template title="main.ts" type="source"><pre><code class="language-typescript">import { coreModule, Riba } from &#39;@ribajs/core&#39;;
 import { extrasModule } from &#39;@ribajs/extras&#39;;
 import { extrasScrollEventsModule } from &#39;./extras-scroll-events.module&#39;;
 
@@ -194,7 +235,9 @@ riba.module.regist(extrasModule);
 riba.module.regist(extrasScrollEventsModule);
 
 riba.bind(document.body, model);
-</code></pre></template><template title="component.html" type="source"><pre><code class="language-html">&lt;div class=&quot;row flex-column flex-md-row d-flex flex-nowrap h-100&quot;&gt;
+</code></pre>
+                      </template>
+                      <template title="component.html" type="source"><pre><code class="language-html">&lt;div class=&quot;row flex-column flex-md-row d-flex flex-nowrap h-100&quot;&gt;
   &lt;div
     class=&quot;col-md-7 col-lg-8 col-xl-8 bg-light text-dark touch-zone&quot;
     rv-scroll-events
@@ -213,7 +256,9 @@ riba.bind(document.body, model);
     &lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
-</code></pre></template><template title="component.ts" type="source"><pre><code class="language-typescript">import { Component } from &quot;@ribajs/core&quot;;
+</code></pre>
+                      </template>
+                      <template title="component.ts" type="source"><pre><code class="language-typescript">import { Component } from &quot;@ribajs/core&quot;;
 import { hasChildNodesTrim } from &quot;@ribajs/utils/src/dom&quot;;
 import template from &quot;./extras-scroll-events-example.component.html&quot;;
 
@@ -268,7 +313,21 @@ export class ExtrasScrollEventsExampleComponent extends Component {
     }
   }
 }
-</code></pre></template><template title="Preview" type="preview"><rv-extras-scroll-events-example></rv-extras-scroll-events-example></template></rv-example-tabs></template></rv-bind-content></section></section><section class="my-5" id="services"><h2>Services</h2><section class="my-5" id="touch-events-service"><h3>TouchEventsService</h3><section><p>The <code>TouchEventsService</code> is a re-implementation of the beautiful <a href="https://github.com/benmajor/jQuery-Touch-Events">jQuery Touch Events</a> module in vanilla JavaScript (JQuery free).</p>
+</code></pre>
+                      </template>
+                      <template title="Preview" type="preview">
+                        <rv-extras-scroll-events-example></rv-extras-scroll-events-example>
+                      </template>
+                    </rv-example-tabs>
+                  </template>
+                </rv-bind-content>
+              </section>
+            </section>
+            <section class="my-5" id="services">
+              <h2>Services</h2>
+              <section class="my-5" id="touch-events-service">
+                <h3>TouchEventsService</h3>
+                <section><p>The <code>TouchEventsService</code> is a re-implementation of the beautiful <a href="https://github.com/benmajor/jQuery-Touch-Events">jQuery Touch Events</a> module in vanilla JavaScript (JQuery free).</p>
 <h4>Usage</h4>
 <p>Create a new instance of the <code>TouchEventsService</code> with an Element as argument to trigger the touch events on this element:</p>
 <pre><code class="language-ts">import { TouchEventsService } from '@ribajs/extras';
@@ -364,7 +423,12 @@ The <code>swipeend</code> event is trigged whenever a swipe event ends (i.e. the
 <li><code>tapEvent</code>:<br>
 <code>tap</code> for touch-enabled devices, or <code>click</code> for standard environments.</li>
 </ul>
-</section></section><section class="my-5" id="scroll-events-service"><h3>ScrollEventsService</h3><section><p>The <code>ScrollEventsService</code> adds additional scroll events to your element.</p>
+
+                </section>
+              </section>
+              <section class="my-5" id="scroll-events-service">
+                <h3>ScrollEventsService</h3>
+                <section><p>The <code>ScrollEventsService</code> adds additional scroll events to your element.</p>
 <h4>Usage</h4>
 <p>Create a new instance of the <code>ScrollEventsService</code> with an Element as argument to trigger the touch events on this element:</p>
 <pre><code class="language-ts">import { ScrollEventsService } from '@ribajs/extras';
@@ -381,4 +445,14 @@ Triggered as soon as scrolling begins on the target element.</li>
 <li><strong><code>scrollended</code></strong><br>
 Triggered as soon as scrolling is stopped on the target element.</li>
 </ul>
-</section></section></section><bs4-scrollspy class="d-none d-lg-block py-3 side-scrollspy scrollbar-primary-on-hover scrollbar-y-auto scrollbar-x-hidden" rv-scrollbar-draggable="rv-scrollbar-draggable" header-parent-selector="#main-container" headers-start="2" headers-depth="4" offset="200" offset-bottom="80" scroll-offset="80"></bs4-scrollspy></div></div></div></div></div></div>
+
+                </section>
+              </section>
+            </section>
+            <bs4-scrollspy class="d-none d-lg-block py-3 side-scrollspy scrollbar-primary-on-hover scrollbar-y-auto scrollbar-x-hidden" rv-scrollbar-draggable="rv-scrollbar-draggable" header-parent-selector="#main-container" headers-start="2" headers-depth="4" offset="200" offset-bottom="80" scroll-offset="80"></bs4-scrollspy>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
