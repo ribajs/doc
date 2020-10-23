@@ -175,7 +175,7 @@
   },
   "resolutions": {
     "webpack": "5.0.0-beta.22",
-    "terser-webpack-plugin": "3.0.7",
+    "terser-webpack-plugin": "3.1.0",
     "ribajs": "portal:../..",
     "@ribajs/bs4": "portal:../../packages/bs4",
     "@ribajs/cache": "portal:../../packages/cache",
