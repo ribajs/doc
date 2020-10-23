@@ -2,5 +2,5 @@
   "extends": [
     "config:base"
   ],
-  ignorePaths: [".yarn"]
+  "ignorePaths": [".yarn"]
 }
