@@ -149,7 +149,7 @@
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
     "watchify": "^3.11.1",
-    "webpack": "^5.0.0",
+    "webpack": "5.2.0",
     "webpack-cli": "^3.3.12",
     "webpack-stream": "^5.2.1",
     "yargs": "^16.0.3"
@@ -174,7 +174,7 @@
     "three": "^0.121.1"
   },
   "resolutions": {
-    "webpack": "5.0.0-beta.22",
+    "webpack": "5.2.0",
     "terser-webpack-plugin": "3.1.0",
     "ribajs": "portal:../..",
     "@ribajs/bs4": "portal:../../packages/bs4",
