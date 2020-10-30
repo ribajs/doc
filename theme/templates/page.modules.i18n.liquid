@@ -1,23 +1,5 @@
-
-<div class="container py-5 page {{template|handleize}}" id="page-content-{{page.handle}}">
-  <div class="row pt-5">
-    <div class="col-12">
-      <div class="row">
-        <div class="col-12">
-          <h1 class="page-title">{{ page.title }}
-          </h1>
-          <div class="rte">{{ page.content }}</div>
-          <div class="content">
-            <bs4-contents class="d-block d-lg-none top-contents" header-parent-selector="#main-container" headers-start="2" headers-depth="4" scroll-offset="80"></bs4-contents>
-            <section class="my-5" id="about">
-              <h2>About</h2>
-              <section><p>The localisation module allows you to translate content on client side. This is especially useful if the used (CMS) system is not able to translate the content server side or if no hard reload should happen if the language was changed.</p>
-
-              </section>
-            </section>
-            <section class="my-5" id="install">
-              <h2>Install</h2>
-              <section><pre><code class="language-bash">npm install --save @ribajs/i18n
+<div class="container py-5 page {{template|handleize}}" id="page-content-{{page.handle}}"><div class="row pt-5"><div class="col-12"><div class="row"><div class="col-12"><h1 class="page-title">{{ page.title }}</h1><div class="rte">{{ page.content }}</div><div class="content"><bs4-contents class="d-block d-lg-none top-contents" header-parent-selector="#main-container" headers-start="2" headers-depth="4" scroll-offset="80"></bs4-contents><section class="my-5" id="about"><h2>About</h2><section><p>The localisation module allows you to translate content on client side. This is especially useful if the used (CMS) system is not able to translate the content server side or if no hard reload should happen if the language was changed.</p>
+</section></section><section class="my-5" id="install"><h2>Install</h2><section><pre><code class="language-bash">npm install --save @ribajs/i18n
 </code></pre>
 <h3>Regist</h3>
 <p>To regist the module import <code>import i18nModule from '@ribajs/i18n';</code> and any <code>LocalesService</code> in your <code>main.ts</code> file and regist the module with <code>riba.module.regist(i18nModule(localesService));</code>:</p>
@@ -46,12 +28,7 @@ ready(() =&gt; {
   &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-
-              </section>
-            </section>
-            <section class="my-5" id="events">
-              <h2>Events</h2>
-              <section><p>To subscribe events from the i18n module create a new instance of the <code>EventDispatcher</code> with <code>'i18n'</code> as his namespace:</p>
+</section></section><section class="my-5" id="events"><h2>Events</h2><section><p>To subscribe events from the i18n module create a new instance of the <code>EventDispatcher</code> with <code>'i18n'</code> as his namespace:</p>
 <pre><code class="language-typescript">import { EventDispatcher } from '@ribajs/core';
 const event = new EventDispatcher('i18n');
 event.on('changed', () =&gt; {
@@ -82,13 +59,7 @@ event.on('ready', () =&gt; {
 </tr>
 </tbody>
 </table>
-
-              </section>
-            </section>
-            <section class="my-5" id="services">
-              <h2>Services</h2>
-              <section class="my-5" id="locales-base-service">
-                <h3>ALocalesService</h3><p>The <code>ALocalesService</code> is a abstract class extended from all locales services, a static LocalesService could look like this:</p>
+</section></section><section class="my-5" id="services"><h2>Services</h2><section class="my-5" id="locales-base-service"><h3>ALocalesService</h3><p>The <code>ALocalesService</code> is a abstract class extended from all locales services, a static LocalesService could look like this:</p>
 <pre><code class="language-typescript">import { ALocalesService } from '@ribajs/i18n';
 
 export class MyStaticLocalesService extends ALocalesService {
@@ -138,10 +109,7 @@ export class MyStaticLocalesService extends ALocalesService {
   }
 }
 </code></pre>
-
-              </section>
-              <section class="my-5" id="locales-static-service">
-                <h3>LocalesStaticService</h3><p>The LocalesStaticService can be used to integrate and define the translations directly in the source code:</p>
+</section><section class="my-5" id="locales-static-service"><h3>LocalesStaticService</h3><p>The LocalesStaticService can be used to integrate and define the translations directly in the source code:</p>
 <pre><code class="language-typescript">import { LocalesStaticService } from '@ribajs/i18n';
 
 // Your static locales
@@ -170,11 +138,7 @@ const locales = {
 
 const localesService = new LocalesStaticService(locales);
 </code></pre>
-
-                <rv-bind-content>
-                  <template>
-                    <rv-example-tabs handle="bs4-tabs-tpl">
-                      <template title="main.ts" type="source"><pre><code class="language-typescript">import { coreModule, Riba } from &quot;@ribajs/core&quot;;
+<rv-bind-content><template><rv-example-tabs handle="bs4-tabs-tpl"><template title="main.ts" type="source"><pre><code class="language-typescript">import { coreModule, Riba } from &quot;@ribajs/core&quot;;
 import { ready } from &quot;@ribajs/utils/src/dom&quot;;
 import { i18nModule, LocalesStaticService } from &quot;@ribajs/i18n&quot;;
 import I18nStaticModule from &quot;./i18n-static.module&quot;;
@@ -219,9 +183,7 @@ riba.module.regist(I18nStaticModule);
 ready(() =&gt; {
   riba.bind(document.body, model);
 });
-</code></pre>
-                      </template>
-                      <template title="component.html" type="source"><pre><code class="language-html">&lt;i18n-switcher&gt;
+</code></pre></template><template title="component.html" type="source"><pre><code class="language-html">&lt;i18n-switcher&gt;
   &lt;p&gt;&lt;strong rv-i18n-text=&quot;&#39;examples.i18n.switch_language&#39;&quot;&gt;&lt;/strong&gt;&lt;/p&gt;
   &lt;div class=&quot;btn-group&quot; role=&quot;group&quot;&gt;
     &lt;button
@@ -247,9 +209,7 @@ ready(() =&gt; {
     &lt;input type=&quot;text&quot; class=&quot;form-control&quot; rv-i18n-placeholder=&quot;&#39;examples.newsletter.placeholder_last_name&#39;&quot; /&gt;
   &lt;/div&gt;
 &lt;/div&gt;
-</code></pre>
-                      </template>
-                      <template title="component.ts" type="source"><pre><code class="language-typescript">import {
+</code></pre></template><template title="component.ts" type="source"><pre><code class="language-typescript">import {
   Component,
 } from &#39;@ribajs/core&#39;;
 
@@ -291,31 +251,14 @@ export class I18nStaticExampleComponent extends Component {
     return template;
   }
 }
-</code></pre>
-                      </template>
-                      <template title="Preview" type="preview">
-                        <rv-i18n-static-example></rv-i18n-static-example>
-                      </template>
-                    </rv-example-tabs>
-                  </template>
-                </rv-bind-content>
-              </section>
-              <section class="my-5" id="locales-rest-service">
-                <h3>LocalesRestService</h3><p>The LocalesRestService can be used to get the translation json object with a REST API call:</p>
+</code></pre></template><template title="Preview" type="preview"><rv-i18n-static-example></rv-i18n-static-example></template></rv-example-tabs></template></rv-bind-content></section><section class="my-5" id="locales-rest-service"><h3>LocalesRestService</h3><p>The LocalesRestService can be used to get the translation json object with a REST API call:</p>
 <pre><code class="language-typescript">import { LocalesRestService } from '@ribajs/i18n';
 
 const url = 'https://localhost/api/locales'
 
 const localesService = new LocalesRestService(url);
 </code></pre>
-
-              </section>
-            </section>
-            <section class="my-5" id="binders">
-              <h2>Binders</h2>
-              <section class="my-5" id="i18n-type">
-                <h3>i18n-[type]</h3>
-                <section><p>Gets the (current selected) translation of a keypath string from your locales object (over the TranslationService).
+</section></section><section class="my-5" id="binders"><h2>Binders</h2><section class="my-5" id="i18n-type"><h3>i18n-[type]</h3><section><p>Gets the (current selected) translation of a keypath string from your locales object (over the TranslationService).
 The translation is set as <code>html</code>, <code>text</code> or <code>value</code> depending on the passed type, available types are <code>html</code>, <code>text</code> and <code>value</code>.
 If the type is not known, the translation is instead set as an attribute with the given name, a useful example for this could be the <code>placeholder</code> attribute.</p>
 <h3>i18n-text</h3>
@@ -358,14 +301,7 @@ If the type is not known, the translation is instead set as an attribute with th
     </rv-example-tabs>
   </template>
 </rv-bind-content>
-
-                </section>
-              </section>
-            </section>
-            <section class="my-5" id="components">
-              <h2>Components</h2>
-              <section class="my-5" id="i18n-switcher-component">
-                <h3>i18n-switcher</h3><p>Use this component to switch to another available language, this component does not have its own template, so you neet to set this as child elements of this component by yourself.</p>
+</section></section></section><section class="my-5" id="components"><h2>Components</h2><section class="my-5" id="i18n-switcher-component"><h3>i18n-switcher</h3><p>Use this component to switch to another available language, this component does not have its own template, so you neet to set this as child elements of this component by yourself.</p>
 <h4>Types</h4>
 <pre><code class="language-typescript">export interface Langcode {
   code: string;
@@ -434,13 +370,4 @@ If the type is not known, the translation is instead set as an attribute with th
     </rv-example-tabs>
   </template>
 </rv-bind-content>
-
-              </section>
-            </section>
-            <bs4-scrollspy class="d-none d-lg-block py-3 side-scrollspy scrollbar-primary-on-hover scrollbar-y-auto scrollbar-x-hidden" rv-scrollbar-draggable="rv-scrollbar-draggable" header-parent-selector="#main-container" headers-start="2" headers-depth="4" offset="200" offset-bottom="80" scroll-offset="80"></bs4-scrollspy>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+</section></section><bs4-scrollspy class="d-none d-lg-block py-3 side-scrollspy scrollbar-primary-on-hover scrollbar-y-auto scrollbar-x-hidden" rv-scrollbar-draggable="rv-scrollbar-draggable" header-parent-selector="#main-container" headers-start="2" headers-depth="4" offset="200" offset-bottom="80" scroll-offset="80"></bs4-scrollspy></div></div></div></div></div></div>
