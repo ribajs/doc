@@ -17,6 +17,10 @@ export class FileTreeComponent extends Component {
 
   constructor(element?: HTMLElement) {
     super(element);
+  }
+
+  protected connectedCallback() {
+    super.connectedCallback();
     this.init(FileTreeComponent.observedAttributes);
   }
 

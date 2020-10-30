@@ -67,13 +67,15 @@ export class IconPreviewComponent extends Component {
       throw new Error('Query url parameter "name" is required!');
     }
     this.scope.name = name;
+  }
+
+  protected connectedCallback() {
+    super.connectedCallback();
     this.init(IconPreviewComponent.observedAttributes);
   }
 
   protected async init(observedAttributes: string[]) {
-    return super.init(observedAttributes).then((view) => {
-      return view;
-    });
+    return super.init(observedAttributes);
   }
 
   protected async afterBind() {
