@@ -6,6 +6,7 @@
 <script>
   window.model = window.model || {};
   window.model.system = {};
+
   {% comment %}
    * Covert adhesive keys like 
    *
@@ -71,7 +72,16 @@
    */
   // window.model.system.cart = window.cart || {{ cart | json }};
   {% endcomment %}
-  window.model.system.linklists = {% include 'utils-json-linklists' %}; // {{ linklists | json }} not allowed for this object
+
+  {% comment %}
+    {{ customer | json }} is not allowed but we have our own implementation
+  {% endcomment %}
+  window.model.system.customer = {% render 'utils-json-customer' %};
+
+  {% comment %}
+    {{ linklists | json }} is not allowed but we have our own implementation
+  {% endcomment %}
+  window.model.system.linklists = {% include 'utils-json-linklists' %};
 
   {% comment %}
   * Money / Currency

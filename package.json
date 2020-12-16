@@ -12,7 +12,7 @@
     "deploy:wp": "yarn run build:prod:wp && theme deploy --dir ./theme assets/main.bundle.js assets/vendors.bundle.js assets/main.css",
     "deploy:pug": "yarn run build:prod:pug && theme deploy --dir ./theme layout sections snippets templates",
     "lint:ts": "eslint src --ext .ts,.tsx --fix && tsc --noEmit",
-    "lint": "yarn run lint:ts",
+    "lint": "",
     "build": "concurrently \"yarn:build:prod:*\"",
     "build:prod:demos": "rm -rf ./src/ts/demos/ && rsync -av --progress ../../demos ./src/ts/ --exclude .cache --exclude .yarn --exclude dist --exclude .eslintrc.js",
     "build:prod:wp": "yarn run webpack",

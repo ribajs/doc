@@ -1,13 +1,11 @@
-import { Component } from "@ribajs/core";
+import { BasicComponent } from "@ribajs/core";
 import { hasChildNodesTrim } from "@ribajs/utils/src/dom";
 import template from "./file-tree.component.html";
 
 // interface Scope {}
 
-export class FileTreeComponent extends Component {
+export class FileTreeComponent extends BasicComponent {
   public static tagName = "rv-file-tree";
-
-  protected autobind = false;
 
   static get observedAttributes() {
     return [];

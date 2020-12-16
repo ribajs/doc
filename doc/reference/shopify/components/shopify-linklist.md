@@ -32,5 +32,5 @@ If a link should be collapseable, `#collapse` must be entered as the URL for thi
 #### Example
 
 ```html
-{% raw %}<shopify-linklist linklist='{% include 'utils-json-linklist', linklist: linklists.main-menu %}'></shopify-linklist>{% endraw %}
+{% raw %}<shopify-linklist linklist='{% render 'utils-json-linklist', linklist: linklists.main-menu %}'></shopify-linklist>{% endraw %}
 ```

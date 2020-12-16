@@ -1,11 +1,9 @@
-import { Component } from "@ribajs/core";
+import { BasicComponent } from "@ribajs/core";
 
 import template from "./bind-content.component.html";
 
-export class BindContentComponent extends Component {
+export class BindContentComponent extends BasicComponent {
   public static tagName = "rv-bind-content";
-
-  protected autobind = false;
 
   protected content = "";
 
