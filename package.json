@@ -107,7 +107,7 @@
     "config-chain": "^1.1.12",
     "core-js": "^3.6.5",
     "css-flip": "^0.5.0",
-    "css-loader": "^5.0.0",
+    "css-loader": "5.2.4",
     "csso-cli": "^3.0.0",
     "eslint": "^7.12.1",
     "eslint-config-prettier": "^6.15.0",
