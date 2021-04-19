@@ -167,7 +167,7 @@
     "@ribajs/shopify-tda": "^1.9.0",
     "@ribajs/utils": "^1.9.0",
     "bootstrap": "^4.5.3",
-    "debug": "^4.3.0",
+    "debug": "4.3.1",
     "jquery": "^3.5.1",
     "lorem-ipsum": "^2.0.3",
     "popper.js": "^1.16.1",
