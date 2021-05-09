@@ -97,7 +97,7 @@
     "@types/prismjs": "^1.16.2",
     "@typescript-eslint/eslint-plugin": "^4.6.0",
     "@typescript-eslint/parser": "^4.6.0",
-    "@yarnpkg/pnpify": "^2.3.3",
+    "@yarnpkg/pnpify": "^2.4.0",
     "abbrev": "^1.1.1",
     "babel-loader": "^8.1.0",
     "babel-plugin-array-includes": "^2.0.3",
