@@ -168,7 +168,7 @@
     "@ribajs/utils": "^1.9.0",
     "bootstrap": "^4.5.3",
     "debug": "^4.3.0",
-    "jquery": "^3.5.1",
+    "jquery": "^3.6.0",
     "lorem-ipsum": "^2.0.3",
     "popper.js": "^1.16.1",
     "semver": "^7.3.2",
