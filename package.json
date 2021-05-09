@@ -109,7 +109,7 @@
     "css-flip": "^0.5.0",
     "css-loader": "^5.0.0",
     "csso-cli": "^3.0.0",
-    "eslint": "^7.12.1",
+    "eslint": "^7.26.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.1.4",
     "extract-loader": "^5.1.0",
