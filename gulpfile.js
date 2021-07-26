@@ -1,12 +1,28 @@
-/* eslint-disable no-undef */
-/* eslint-disable @typescript-eslint/no-var-requires */
-/*jslint node: true */
+// require("source-map-support").install(); // Used to inspect the code for debugging
+const path = require("path");
+const gutil = require("gulp-util");
+const argv = require("yargs").argv;
+const requireDir = require("require-dir");
 
-"use strict";
+// Gets the gulp tasks path of shared-code
+const ribaShopifyTaskDir = path.resolve(
+  path.dirname(require.resolve("@ribajs/shopify/package.json")),
+  "build-system",
+  "dist"
+);
+
+if (argv.environment && argv.environment !== "undefined") {
+  console.log(`setting tkEnvironments to ${argv.environment}`);
+  gutil.env.environments = argv.environment;
+}
+
+// imports gulp tasks from the shared-code's `build-system/tasks` directory
+requireDir(ribaShopifyTaskDir);
+
+// ===================== Old part ====================
+// TODO move to shopify build system?
 
 const gulp = require("gulp");
-const pkg = require("./package.json");
-const zip = require("gulp-zip");
 const print = require("gulp-print").default;
 const jsoncombine = require("gulp-jsoncombine");
 
@@ -14,34 +30,10 @@ const jsoncombine = require("gulp-jsoncombine");
 const settingsSchemas = ["theme_info", "general", "home", "shopify_module"];
 
 const files = {
-  zip: [
-    "theme/assets/*",
-    "theme/config/*",
-    "theme/layout/*",
-    "theme/locales/*",
-    "theme/sections/*",
-    "theme/snippets/*",
-    "theme/templates/*",
-    "theme/templates/customers/*",
-  ],
   theme_settings: "./settings_schema/*.json",
-  iconset: "./node_modules/@ribajs/iconset/dest/svg/*.svg",
+  iconset: require.resolve("@ribajs/iconset") + "/dest/svg/*.svg",
   favicons: "./src/assets/favicons/*",
 };
-
-/**
- * Cretae a zipped file of the theme that can be uploaded to Shopify
- */
-gulp.task("build:zip", () => {
-  return gulp
-    .src(files.zip, { base: "." })
-    .pipe(zip(pkg.name.replace("/", "-") + "-" + pkg.version + ".zip"))
-    .pipe(gulp.dest("./"));
-});
-
-gulp.task("watch:zip", () => {
-  return gulp.watch(files.zip, gulp.series("build:zip"));
-});
 
 /**
  * Create settings_schema.json
@@ -77,7 +69,7 @@ gulp.task("build:assets:favicons", function () {
     .pipe(gulp.dest("./theme/assets"));
 });
 
-gulp.task("build:assets", function () {
+gulp.task("build:assets:custom", function () {
   return gulp
     .src([files.iconset, files.favicons])
     .pipe(print())

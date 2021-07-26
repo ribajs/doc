@@ -10,7 +10,7 @@
   "examples": {
     "newsletter": {
       "title": "Melde dich für den Newsletter an",
-      "description_html": "Abonnieren Sie unseren Newsletter und erhalten Sie <strong>10% Rabatt</strong> auf Ihren nächsten Einkauf.",
+      "description_html": "Abonnieren Sie unseren Newsletter und erhalten Sie <strong>10% Rabatt<\/strong> auf Ihren nächsten Einkauf.",
       "input_value": "Unbekannt",
       "placeholder_last_name": "Nachname"
     },
