@@ -1,9 +1,35 @@
 <div class="container py-5 page {{template|handleize}}" id="page-content-{{page.handle}}"><div class="row pt-5"><div class="col-12"><div class="row"><div class="col-12"><h1 class="page-title">{{ page.title }}</h1><div class="rte">{{ page.content }}</div><div class="content"><bs4-contents class="d-block d-lg-none top-contents" header-parent-selector="#main-container" headers-start="2" headers-depth="4" scroll-offset="80"></bs4-contents><section class="my-5"><h1>Shopify Module</h1>
 <h2>Install</h2>
-<pre><code class="language-bash">npm install --save @ribajs/shopify
+<h3>Riba and Riba Shopify</h3>
+<p>To install Riba and the Riba Shopify module:</p>
+<pre><code class="language-bash">npm install --save @ribajs/core @ribajs/utils @ribajs/shopify
 </code></pre>
-<h2>Regist</h2>
-<p>To regist the module include <code>import shopifyModule from '@ribajs/shopify';</code> in your <code>main.ts</code> file and regist the module with <code>riba.module.regist(shopifyModule);</code>:</p>
+<h3>Babel</h3>
+<pre><code class="language-bash">yarn add -D @babel/core @babel/plugin-proposal-class-properties @babel/plugin-proposal-object-rest-spread @babel/plugin-proposal-optional-chaining @babel/plugin-syntax-export-default-from @babel/plugin-transform-runtime @babel/preset-env @babel/preset-typescript @babel/runtime-corejs3 babel-plugin-array-includes
+</code></pre>
+<h3>ESLint and Prettier</h3>
+<pre><code class="language-bash">yarn add -D eslint prettier eslint-config-prettier eslint-plugin-prettier @typescript-eslint/eslint-plugin @typescript-eslint/experimental-utils @typescript-eslint/parser @typescript-eslint/typescript-estree
+</code></pre>
+<p>If you use Visual Studio code it is recommended to install the following plugins:</p>
+<ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint">ESLint</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode">Prettier - Code formatter</a></li>
+</ul>
+<p>These two plugins automatically use the .eslintrc.js from thisk repository, the first plugin shows you possible errors, the second one formats your code automatically when you save it.</p>
+<h3>Webpack, Yarn PnP and TypeScript</h3>
+<pre><code class="language-bash">yarn add -D webpack webpack-cli webpack-stream typescript @yarnpkg/pnpify html-loader babel-loader
+</code></pre>
+<p>Add webpack to <code>resolutions</code> in your package.json to be shure to use the latest Webpack v4 version:</p>
+<pre><code class="language-json">&quot;resolutions&quot;: {
+  &quot;webpack&quot;: &quot;^4.42.1&quot;
+}
+</code></pre>
+<h3>Gulp 4 and (Slate) tools</h3>
+<pre><code class="language-bash">yarn add -D gul gulp-cheerio gulp-cssimport gulp-eslint gulp-ext-replace gulp-include gulp-plumber gulp-rename gulp-size gulp-sourcemaps gulp-svgmin gulp-terser gulp-uglify gulp-util gulp-zip @shopify/slate-tools @shopify/theme-lint @shopify/themekit archiver bitbucket bluebird browser-sync chokidar cross-spawn debug del find-root graceful-fs inspectpack js-yaml lodash moment open pnp-webpack-plugin require-dir run-sequence source-map-support terser-webpack-plugin vinyl-paths yargs got chalk
+</code></pre>
+<h2>Regist Riba</h2>
+<p>To regist the module create a <code>src/ts/main.ts</code> and insert <code>import shopifyModule from '@ribajs/shopify';</code>, than you can regist the module with <code>riba.module.regist(shopifyModule);</code>:</p>
+<p>The main.ts could look like this:</p>
 <pre><code class="language-ts">import { Riba, coreModule } from '@ribajs/core';
 import { shopifyModule } from '@ribajs/shopify';
 import { ready } from '@ribajs/utils/src/dom';
@@ -15,6 +41,130 @@ ready(() =&gt; {
   riba.bind(document.body, model);
 });
 </code></pre>
+<h2>Gulp</h2>
+<p>Add a gulp file to your theme project like this</p>
+<pre><code class="language-js">/**
+ * For this reason the slate is depricated this is a own gulpfile like the original gulpfile used in slate but with some customisations
+ * @see https://github.com/Shopify/slate/blob/0.x/packages/slate-tools/src/gulpfile.js
+ */
+require('source-map-support').install(); // Used to inspect the code for debugging
+const path = require(&quot;path&quot;);
+const gutil = require(&quot;gulp-util&quot;);
+const argv = require(&quot;yargs&quot;).argv;
+const requireDir = require(&quot;require-dir&quot;);
+
+// Gets the gulp tasks path of @ribajs/shopify
+const ribaShopifyTaskDir = path.resolve(
+  path.dirname(require.resolve(&quot;@ribajs/shopify/package.json&quot;)),
+  &quot;build-system&quot;,
+  &quot;dist&quot;,
+  &quot;tasks&quot;
+);
+
+if (argv.environment &amp;&amp; argv.environment !== &quot;undefined&quot;) {
+  console.log(`setting tkEnvironments to ${argv.environment}`);
+  gutil.env.environments = argv.environment;
+}
+
+// imports gulp tasks from the @ribajs/shopify's `build-system/dist/tasks` directory
+requireDir(ribaShopifyTaskDir);
+</code></pre>
+<h3>Gulp tasks</h3>
+<h4>Generate config.deploy.yml</h4>
+<p>After you have create a basic <code>config.deploy.yml</code> you can run the command below to insert the latest created themes (which are usually the next release themes) in your <code>config.deploy.yml</code>.</p>
+<pre><code class="language-bash">gulp generate:config:deploy
+</code></pre>
+<h4>Get a list of the youngest / next release themes</h4>
+<p>To make it easier to publish the current preview links of the release themes in the chat you can use the following command:</p>
+<pre><code class="language-bash">gulp themes:list:youngest
+</code></pre>
+<p>Example output:</p>
+<pre><code class="language-text">...
+
+======  UK  ======
+Name:   release/1.3.17 | New variant switcher
+ID:     81177935933
+Store:  my-store.myshopify.com
+Created:        Today at 9:10 AM
+Updated:        Today at 10:03 AM
+Edit settings:   https://my-store.myshopify.com/admin/themes/81177935933/editor
+Edit code:       https://my-store.myshopify.com/admin/themes/81177935933
+Preview:         https://my-store.myshopify.com/?_ab=0&amp;_fd=0&amp;_sc=1&amp;preview_theme_id=81177935933
+
+...
+</code></pre>
+<h3>Config files</h3>
+<p><code>config.deploy.yml</code>:</p>
+<pre><code class="language-yaml"># Rename this file to config.deploy.yml to use it with `npm run deploy`
+staging:
+  password:
+  theme_id: 80030728250 # release/april-21-2020
+  store: my-store-staging.myshopify.com
+  ignore_files:
+    - config/settings_data.json
+    - locales/*
+de:
+  password:
+  theme_id: 79757934703 # release/april-21-2020
+  store: my-store-de.myshopify.com
+  ignore_files:
+    - config/settings_data.json
+    - locales/*
+eu:
+  password:
+  theme_id: 81227481159 # release/april-21-2020
+  store: my-store-au.myshopify.com
+  ignore_files:
+    - config/settings_data.json
+    - locales/*
+fr:
+  password:
+  theme_id: 79767437399 # release/april-21-2020
+  store: my-store-fr.myshopify.com
+  ignore_files:
+    - config/settings_data.json
+    - locales/*
+uk:
+  password:
+  theme_id: 79777366077 # release/april-21-2020
+  store: my-store-uk.myshopify.com
+  ignore_files:
+    - config/settings_data.json
+    - locales/*
+us:
+  password:
+  theme_id: 80021160036 # release/april-21-2020
+  store: my-store-us.myshopify.com
+  ignore_files:
+    - config/settings_data.json
+    - locales/*
+</code></pre>
+<p><code>release.yml</code>:</p>
+<pre><code class="language-yaml">bitbucket:
+  username: # your bitbucket userbame
+  password: # your bitbucket password
+  workspace: # ee.g. rfd
+  repo_slug: # e.g. my-store
+
+</code></pre>
+<h2>Deploy</h2>
+<p>To deploy this branch to all shops just create a <code>config.deploy.yml</code> with an environment for each shop like in the <code>config-sample.deploy.yml</code> and run</p>
+<pre><code class="language-bash">gulp deploy
+</code></pre>
+<p>You can pass a custom config.yml file name like this:</p>
+<pre><code class="language-bash">gulp deploy:prod -- --config=&quot;config.deploy.yml&quot;
+gulp watch:dev -- --config=&quot;config.staging.yml&quot;
+</code></pre>
+<h2>Build @ribajs/shopify</h2>
+<p>Some files are written in TypeScript. To build the files to JavaScript run</p>
+<pre><code class="language-bash">yarn run build
+</code></pre>
+<h3>Build postal codes</h3>
+<p>To build the exclude postalcode run</p>
+<pre><code class="language-bash">yarn run build:postalcodes
+</code></pre>
+<p>this will generate the JavaScript files localed in <code>src/js/checkout_exclude-express-postalcodes_XY.js</code>.
+These files are used in the checkout to detect whether express shipping is allowed or not for the customer postal code.</p>
 </section><section class="my-5" id="binders"><h2>Binders</h2><section class="my-5" id="shopify-img"><h3>shopify-img</h3><section><p>Loads an shopify image with the exact size for the current <code>img</code> element without the need to get the right size manually over the <code>img_url</code> filter / formatter. The image source path is set by the <code>srcset</code> and <code>sizes</code> attributes to make them responsive.</p>
 <p><em>You should prefer to set the <code>srcset</code> attribute server-site (with liquid) (but if you want to use the <code>shopify-img</code> binder anyway the <code>src</code> attribute should not be set server-site, as this causes problems for some browsers if the srcset attribute is set afterwards the <code>src</code> attribute) but if your images are generated anyway with riba e.g. within a <code>rv-each-item</code> binder then you can safely use the <code>shopify-img</code> binder.</em></p>
 <p><rv-bind-content class="pt-3"><template>
@@ -114,7 +264,7 @@ ready(() =&gt; {
 <p>If a link should be collapseable, <code>#collapse</code> must be entered as the URL for this link in the Shopify administration:</p>
 <img class="img-fluid img-thumbnail" src="{{ settings.shopify-linklist-collapse | img_url: 'master' }}" alt="shopify-linklist: Collapseable link" />
 <h4>Example</h4>
-<pre><code class="language-html">{% raw %}&lt;shopify-linklist linklist='{% include 'utils-json-linklist', linklist: linklists.main-menu %}'&gt;&lt;/shopify-linklist&gt;{% endraw %}
+<pre><code class="language-html">{% raw %}&lt;shopify-linklist linklist='{% render 'utils-json-linklist', linklist: linklists.main-menu %}'&gt;&lt;/shopify-linklist&gt;{% endraw %}
 </code></pre>
 </section></section></section><section class="my-5" id="snippets"><h2>Snippets</h2><section class="my-5" id="utils-json-linklists"><h3>utils-json-linklists.liquid</h3><section><p>Copy the snippets</p>
 <ul>
@@ -137,7 +287,7 @@ window.model = {
 </code></pre>
 </section></section><section class="my-5" id="utils-json-linklist"><h3>utils-json-linklist.liquid</h3><section><p>If you only want a specific linklist you can use <code>utils-json-linklist.liquid</code>:</p>
 <pre><code class="language-html">{% raw %}&lt;script&gt;
-var mainMenu = {% include 'utils-json-linklist', linklist: linklists.main-menu %};
+var mainMenu = {% render 'utils-json-linklist', linklist: linklists.main-menu %};
 &lt;/script&gt;{% endraw %}
 </code></pre>
 </section></section></section><bs4-scrollspy class="d-none d-lg-block py-3 side-scrollspy scrollbar-primary-on-hover scrollbar-y-auto scrollbar-x-hidden" rv-scrollbar-draggable="rv-scrollbar-draggable" header-parent-selector="#main-container" headers-start="2" headers-depth="4" offset="200" offset-bottom="80" scroll-offset="80"></bs4-scrollspy></div></div></div></div></div></div>

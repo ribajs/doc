@@ -3,9 +3,9 @@ $font-family-sans-serif: "Proxima Nova", -apple-system, BlinkMacSystemFont, "Seg
 $green: #37a07e;
 $primary: $green;
 
-@import './vendors/bootstrap/functions';
-@import './vendors/bootstrap/variables';
-@import './vendors/bootstrap/mixins';
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
 
 $navbar-brand-font-size: $font-size-base;
 

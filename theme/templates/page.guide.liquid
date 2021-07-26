@@ -206,7 +206,7 @@ export const TimeFormatter: Formatter = {
   Component,
   Debug,
 } from '@ribajs/core';
-
+import { hasChildNodesTrim } from &quot;@ribajs/utils/src/dom&quot;;
 import template from './todo-item.component.html';
 
 interface Scope {
@@ -223,11 +223,11 @@ export class TodoItemComponent extends Component {
     return ['description'];
   }
 
-  protected scope: Scope = {
+  public scope: Scope = {
     hello: undefined,
   };
 
-  constructor(element?: HTMLElement) {
+  constructor() {
     super(element);
     this.init(TodoItemComponent.observedAttributes);
   }
@@ -262,7 +262,7 @@ export class TodoItemComponent extends Component {
 
   protected template() {
     // Only set the component template if there no childs already
-    if (this.el.hasChildNodes()) {
+    if (this.el &amp;&amp; hasChildNodesTrim(this.el)) {
       return null;
     } else {
       return template;

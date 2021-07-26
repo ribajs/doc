@@ -11,10 +11,10 @@ export class FileTreeComponent extends BasicComponent {
     return [];
   }
 
-  protected scope = {}; // : Scope = {};
+  public scope = {}; // : Scope = {};
 
-  constructor(element?: HTMLElement) {
-    super(element);
+  constructor() {
+    super();
   }
 
   protected connectedCallback() {
@@ -24,7 +24,7 @@ export class FileTreeComponent extends BasicComponent {
 
   protected template() {
     // Only set the component template if there no childs already
-    if (hasChildNodesTrim(this.el)) {
+    if (hasChildNodesTrim(this)) {
       return null;
     } else {
       return template;

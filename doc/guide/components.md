@@ -44,11 +44,11 @@ export class TodoItemComponent extends Component {
     return ['description'];
   }
 
-  protected scope: Scope = {
+  public scope: Scope = {
     hello: undefined,
   };
 
-  constructor(element?: HTMLElement) {
+  constructor() {
     super(element);
     this.init(TodoItemComponent.observedAttributes);
   }

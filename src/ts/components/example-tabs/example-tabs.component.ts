@@ -47,8 +47,8 @@ export class ExampleBs4TabsComponent extends Bs4TabsComponent {
     return ["option-tabs-auto-height", "handle"];
   }
 
-  constructor(element?: HTMLElement) {
-    super(element);
+  constructor() {
+    super();
     // sum is used for examples
     (this.scope as any).sum = this.sum;
   }
@@ -67,7 +67,7 @@ export class ExampleBs4TabsComponent extends Bs4TabsComponent {
     super.activate(tab);
     if (tab.type === "realtime-result") {
       // Get content of preview tab and insert this as the source tab content
-      const previewElement = this.el.querySelector(".tab-content-preview");
+      const previewElement = this.querySelector(".tab-content-preview");
       if (previewElement) {
         tab.content = `<pre class="language-html"><code class="language-html">${escapeHtml(
           previewElement.innerHTML.trim()
@@ -89,8 +89,8 @@ export class ExampleBs4TabsComponent extends Bs4TabsComponent {
   }
 
   protected async afterBind() {
-    await super.afterBind();
     Prism.highlightAll();
+    await super.afterBind();
   }
 
   protected countOfFirstWhitespaces(str: string) {
@@ -124,7 +124,7 @@ export class ExampleBs4TabsComponent extends Bs4TabsComponent {
   }
 
   protected addItemsByTemplate() {
-    const templates = this.el.querySelectorAll<HTMLTemplateElement>("template");
+    const templates = this.querySelectorAll<HTMLTemplateElement>("template");
     for (let index = 0; index < templates.length; index++) {
       const tpl = templates[index];
       const type = tpl.getAttribute("type");
@@ -158,7 +158,7 @@ export class ExampleBs4TabsComponent extends Bs4TabsComponent {
 
   protected template() {
     // Only set the component template if there no childs or the childs are templates
-    if (!hasChildNodesTrim(this.el) || this.hasOnlyTemplateChilds()) {
+    if (!hasChildNodesTrim(this) || this.hasOnlyTemplateChilds()) {
       return template;
     } else {
       return null;

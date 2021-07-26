@@ -1,32 +1,33 @@
-import { BasicComponent } from "@ribajs/core";
+import { Component } from "@ribajs/core";
 
 import template from "./bind-content.component.html";
 
-export class BindContentComponent extends BasicComponent {
+export class BindContentComponent extends Component {
   public static tagName = "rv-bind-content";
 
   protected content = "";
 
-  protected scope = {};
+  public scope = {};
+  protected autobind = false;
 
-  constructor(element?: HTMLElement) {
-    super(element);
+  constructor() {
+    super();
   }
 
   public bindContent() {
-    this.el.classList.add("bound");
-    this.el.innerHTML = this.content;
-    this.el.removeEventListener("click", this.bindContent);
+    this.classList.add("bound");
+    this.innerHTML = this.content;
+    this.removeEventListener("click", this.bindContent);
     this.bind();
   }
 
   protected connectedCallback() {
-    this.el.addEventListener("click", this.bindContent);
+    this.addEventListener("click", this.bindContent);
     this.init([]);
   }
 
   protected template() {
-    const firstElementChild = this.el.firstElementChild;
+    const firstElementChild = this.firstElementChild;
     if (!firstElementChild || firstElementChild.tagName !== "TEMPLATE") {
       console.error("The child element must be a template");
       return null;

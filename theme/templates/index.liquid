@@ -33,13 +33,13 @@ $ riba new project</code></pre></div></div></div></section>{{ content_for_index 
     &lt;div&gt;Item { %item% } / { item.name }&lt;/div&gt;
   &lt;/div&gt;
 &lt;/section&gt;
-</code></pre></template><template title="component.ts" type="source"><pre><code class="language-typescript">import { Component } from &quot;@ribajs/core&quot;;
+</code></pre></template><template title="component.ts" type="source"><pre><code class="language-typescript">import { Component, TemplateFunction } from &quot;@ribajs/core&quot;;
 import template from &quot;./each-item-example.component.html&quot;;
 
 export class EachItemExampleComponent extends Component {
   public static tagName = &quot;rv-each-item-example&quot;;
 
-  protected scope: Scope = {
+  public scope: Scope = {
     items: this.getItems(),
     pop: this.pop,
     push: this.push,
@@ -50,8 +50,8 @@ export class EachItemExampleComponent extends Component {
     unshift: this.unshift,
   };
 
-  constructor(element?: HTMLElement) {
-    super(element);
+  constructor() {
+    super();
   }
 
   public push() {
@@ -103,7 +103,7 @@ export class EachItemExampleComponent extends Component {
     });
   }
 
-  protected template() {
+  protected template(): ReturnType&lt;TemplateFunction&gt; {
     return template;
   }
 }
@@ -134,11 +134,11 @@ interface Scope {
     &lt;/div&gt;
   &lt;/body&gt;
 &lt;/html&gt;
-</code></pre></template><template title="Info" type="info"><h1>each-item-example</h1>
+</code></pre></template><template title="Info" type="info"><h1>core each-item binder demo</h1>
 <pre><code class="language-bash">git clone --recurse-submodules https://github.com/ribajs/riba.git
-cd riba/examples/each-item
-npm install
-npm run start
+cd riba/demos/core-each-item
+yarn install
+yarn run start
 </code></pre>
 </template><template title="Preview" type="preview"><rv-each-item-example> </rv-each-item-example></template></rv-example-tabs></template></rv-bind-content></section></div></div><section class="author py-5"><div class="container"><div class="row"><div class="col-12"><h2>Authors</h2><p>Pascal Garber by <a href="https://artandcode.studio/">Art+Code Studio</a><br/>Luiz Américo Pereira Câmara, author of <a href="https://blikblum.github.io/tinybind/">tinybind</a><br/>Michael Richards, original author of <a href="http://rivetsjs.com/">Rivets.js</a></p></div></div></div></section><script type="application/ld+json">{
   "@context": "http://schema.org",

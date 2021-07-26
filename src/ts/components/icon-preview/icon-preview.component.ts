@@ -25,7 +25,7 @@ export class IconPreviewComponent extends Component {
     return ["asset-path"];
   }
 
-  protected scope: Scope = {
+  public scope: Scope = {
     assetPath: "",
     name: "",
     src: "",
@@ -59,8 +59,8 @@ export class IconPreviewComponent extends Component {
     example: "string",
   };
 
-  constructor(element?: HTMLElement) {
-    super(element);
+  constructor() {
+    super();
     const urlParams = new URLSearchParams(window.location.search);
     const name = urlParams.get("name");
     if (!name) {
@@ -79,8 +79,8 @@ export class IconPreviewComponent extends Component {
   }
 
   protected async afterBind() {
-    await super.afterBind();
     Prism.highlightAll();
+    await super.afterBind();
   }
 
   protected parsedAttributeChangedCallback(
@@ -118,7 +118,7 @@ export class IconPreviewComponent extends Component {
 
   protected template() {
     // Only set the component template if there no childs already
-    if (hasChildNodesTrim(this.el)) {
+    if (hasChildNodesTrim(this)) {
       return null;
     } else {
       return template;

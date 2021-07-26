@@ -1,10 +1,11 @@
 @import 'charset';
 @import 'custom-variables';
 @import 'variables';
-@import 'bootstrap';
+// Original Bootstrap 4 Styles
+@import '~bootstrap/scss/bootstrap';
 
 // Bootstrap style extensions from @ribajs/bs4
-@import "./vendors/@ribajs/bs4/index";
+@import '~@ribajs/bs4/src/index';
 
 // vendors
 @import 'vendors/prism';

@@ -27,21 +27,20 @@ export class Main {
 
   private dispatcher = new EventDispatcher("main");
 
-  private localesService = new LocalesService();
+  private localesService = LocalesService.getInstance();
 
   constructor() {
-    this.riba.module.regist(coreModule);
-    this.riba.module.regist(extrasModule);
-    this.riba.module.regist(routerModule);
-    this.riba.module.regist(shopifyModule);
-    this.riba.module.regist(i18nModule(this.localesService));
-    this.riba.module.regist(bs4Module);
+    this.riba.module.regist(coreModule.init());
+    this.riba.module.regist(extrasModule.init());
+    this.riba.module.regist(routerModule.init());
+    this.riba.module.regist(shopifyModule.init());
+    this.riba.module.regist(
+      i18nModule.init({ localesService: this.localesService })
+    );
+    this.riba.module.regist(bs4Module.init());
 
-    // Regist custom components
-    this.riba.module.regist({
-      components: CustomComponents,
-      // binders: {...customBinders},
-    });
+    // Register custom components
+    this.riba.module.component.regists(CustomComponents);
 
     // Regist examples‚
     this.riba.module.component.regists({

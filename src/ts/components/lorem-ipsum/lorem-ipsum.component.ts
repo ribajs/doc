@@ -40,13 +40,13 @@ export class LoremIpsumComponent extends Component {
     ];
   }
 
-  protected scope: Scope = {
+  public scope: Scope = {
     generateParagraphs: 1,
     format: "html",
   };
 
-  constructor(element?: HTMLElement) {
-    super(element);
+  constructor() {
+    super();
     // console.debug('constructor', this);
   }
 
@@ -67,20 +67,20 @@ export class LoremIpsumComponent extends Component {
   }
 
   protected async afterBind() {
-    await super.afterBind();
     // console.debug('afterBind', this.scope);
     this.lorem = new LoremIpsum(this.options, this.scope.format);
     if (this.scope.generateWords) {
-      this.el.innerHTML = this.lorem.generateWords(this.scope.generateWords);
+      this.innerHTML = this.lorem.generateWords(this.scope.generateWords);
     } else if (this.scope.generateSentences) {
-      this.el.innerHTML = this.lorem.generateSentences(
+      this.innerHTML = this.lorem.generateSentences(
         this.scope.generateSentences
       );
     } else if (this.scope.generateParagraphs) {
-      this.el.innerHTML = this.lorem.generateParagraphs(
+      this.innerHTML = this.lorem.generateParagraphs(
         this.scope.generateParagraphs
       );
     }
+    await super.afterBind();
   }
 
   protected requiredAttributes() {
