@@ -4,24 +4,24 @@
 {% assign _translated = translateString | t %}
 
 {% capture translated %}
-  <span rv-i18n-html="'{{translateString}}'">
+  <span rv-i18n-html="'{{ translateString }}'">
     {% if _translated contains 'translation missing' %}
       {% if default != blank %}
-        {{default}}
+        {{ default }}
       {% else %}
-        {{translate}}
+        {{ translate }}
       {% endif %}
     {% else %}
-      {{_translated}}
+      {{ _translated }}
     {% endif %}
     {% if de != blank %}
-      <template lang="de">{{de}}</template>
+      <template lang="de">{{ de }}</template>
     {% endif %}
     {% if en != blank %}
-      <template lang="en">{{en}}</template>
+      <template lang="en">{{ en }}</template>
     {% endif %}
     {% if default != blank %}
-      <template lang="default">{{default}}</template>
+      <template lang="default">{{ default }}</template>
     {% endif %}
   </span>
 {% endcapture %}

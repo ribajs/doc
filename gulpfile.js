@@ -23,7 +23,7 @@ requireDir(ribaShopifyTaskDir);
 // TODO move to shopify build system?
 
 const gulp = require("gulp");
-const print = require("gulp-print").default;
+// const print = require("gulp-print").default;
 const jsoncombine = require("gulp-jsoncombine");
 
 // list of settings files to include, in order of inclusion
@@ -31,12 +31,13 @@ const settingsSchemas = ["theme_info", "general", "home", "shopify_module"];
 
 const files = {
   theme_settings: "./settings_schema/*.json",
-  iconset: require.resolve("@ribajs/iconset") + "/dest/svg/*.svg",
-  favicons: "./src/assets/favicons/*",
+  // iconset: require.resolve("@ribajs/iconset") + "/dest/svg/*.svg",
+  // favicons: "./src/assets/favicons/*",
 };
 
 /**
  * Create settings_schema.json
+ * TODO move to riba shopify build system
  */
 gulp.task("build:theme_settings", () => {
   return gulp
@@ -55,23 +56,23 @@ gulp.task("build:theme_settings", () => {
     .pipe(gulp.dest("./theme/config/"));
 });
 
-gulp.task("build:assets:iconset", function () {
-  return gulp
-    .src(files.iconset)
-    .pipe(print())
-    .pipe(gulp.dest("./theme/assets"));
-});
+// gulp.task("build:assets:iconset", function () {
+//   return gulp
+//     .src(files.iconset)
+//     .pipe(print())
+//     .pipe(gulp.dest("./theme/assets"));
+// });
 
-gulp.task("build:assets:favicons", function () {
-  return gulp
-    .src(files.favicons)
-    .pipe(print())
-    .pipe(gulp.dest("./theme/assets"));
-});
+// gulp.task("build:assets:favicons", function () {
+//   return gulp
+//     .src(files.favicons)
+//     .pipe(print())
+//     .pipe(gulp.dest("./theme/assets"));
+// });
 
-gulp.task("build:assets:custom", function () {
-  return gulp
-    .src([files.iconset, files.favicons])
-    .pipe(print())
-    .pipe(gulp.dest("./theme/assets"));
-});
+// gulp.task("build:assets:custom", function () {
+//   return gulp
+//     .src([files.iconset, files.favicons])
+//     .pipe(print())
+//     .pipe(gulp.dest("./theme/assets"));
+// });
