@@ -5,7 +5,7 @@ Tests the url with the current location, if the current location starts with the
     <rv-example-tabs class="pt-3" handle="parent-route-class-classname">
       <template type="single-html-file">
         <a href="/pages/router" class="nav-link" rv-parent-route-class-active="'/pages'">Router</a>
-        <a href="/pages/core" class="nav-link" rv-parent-route-class-active="'/pages'">Core</a>
+        <a href="/pages/iconset" class="nav-link" rv-parent-route-class-active="'/iconset'">Iconset</a>
       </template>
     </rv-example-tabs>
   </template>

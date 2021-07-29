@@ -29,10 +29,10 @@ Component to collapse the Bootstrap 4 navbar.
         <bs4-navbar class="navbar navbar-dark bg-dark">
           <a class="navbar-brand" href="#">Navbar</a>
           <div class="navbar-toggler" rv-show="isCollapsed" rv-on-click="toggle">
-            <bs4-icon src="{{ 'icon_menu.svg' | asset_url }}" size="32"></bs4-icon>
+            <bs4-icon src="{{ 'iconset_icon_menu.svg' | asset_url }}" size="32"></bs4-icon>
           </div>
           <div class="navbar-toggler" rv-hide="isCollapsed" rv-on-click="toggle">
-            <bs4-icon src="{{ 'icon_close.svg' | asset_url }}" size="32"></bs4-icon>
+            <bs4-icon src="{{ 'iconset_icon_close.svg' | asset_url }}" size="32"></bs4-icon>
           </div>
           <div class="collapse navbar-collapse">
             <ul class="navbar-nav">

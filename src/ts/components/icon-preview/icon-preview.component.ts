@@ -100,7 +100,7 @@ export class IconPreviewComponent extends Component {
       this.scope.assetPath = urlParts[0];
       const cacheQueryParam = urlParts[1];
       this.scope.src = this.scope.assetPath +=
-        this.scope.name + ".svg?" + cacheQueryParam;
+        "iconset_" + this.scope.name + ".svg?" + cacheQueryParam;
 
       this.scope.example = escapeHtml(
         `

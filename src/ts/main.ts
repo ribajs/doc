@@ -1,6 +1,7 @@
-import { Riba, coreModule, EventDispatcher } from "@ribajs/core";
-import { ready } from "@ribajs/utils/src/dom";
+import { Riba, coreModule, EventDispatcher, View } from "@ribajs/core";
+import { ready } from "@ribajs/utils";
 import { extrasModule } from "@ribajs/extras";
+import type { State } from "@ribajs/history";
 import { shopifyModule } from "@ribajs/shopify";
 import { routerModule } from "@ribajs/router";
 import { i18nModule } from "@ribajs/i18n";
@@ -24,10 +25,26 @@ import "prismjs/components/prism-scss";
 
 export class Main {
   private riba = new Riba();
+  private view?: View;
 
   private dispatcher = new EventDispatcher("main");
 
   private localesService = LocalesService.getInstance();
+
+  protected onPageReady(
+    viewId: string,
+    currentStatus: State,
+    prevStatus: State,
+    container: HTMLElement,
+    newPageRawHTML: string,
+    dataset: any
+    // isInit: boolean
+  ) {
+    Prism.highlightAll();
+    if (this.view) {
+      this.view.models.dataset = dataset;
+    }
+  }
 
   constructor() {
     this.riba.module.regist(coreModule.init());
@@ -52,11 +69,12 @@ export class Main {
       ExtrasScrollEventsExampleComponent,
     });
 
-    this.dispatcher.on("newPageReady", () => {
-      Prism.highlightAll();
-    });
+    this.dispatcher.on("newPageReady", this.onPageReady, this);
 
-    this.riba.bind(document.body, window.model);
+    window.model = window.model || {};
+    window.model.dataset = window.model.dataset || {};
+
+    this.view = this.riba.bind(document.body, window.model);
     // view.registComponents();
   }
 }

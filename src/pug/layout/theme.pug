@@ -24,8 +24,8 @@ html(lang="{{'html.lang.code' |t}}")
       #main-container
         #layout-top
           | {% include 'navigation' %}
-        #main(rv-view='{"listenAllLinks": false, "datasetToModel": true}')
-          <div {% include 'utils-riba-container-attributes' %}>
+        router-view#main(listen-all-links="true", dataset-to-model="true")
+          <div {% include 'utils-view-attributes' %}>
             | {{ content_for_layout }}
           </div>
         #layout-bottom.pb-2.pb-lg-0

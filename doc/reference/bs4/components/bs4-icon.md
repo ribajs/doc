@@ -15,7 +15,7 @@ Loads and displays an svg icon.
   <template>
     <rv-example-tabs class="pt-3" handle="bs4-icon">
       <template type="single-html-file">
-        <bs4-icon color="danger" rv-src="'{{ 'icon_close.svg' | asset_url }}'" size="32"></bs4-icon>
+        <bs4-icon color="danger" rv-src="'{{ 'iconset_icon_close.svg' | asset_url }}'" size="32"></bs4-icon>
       </template>
     </rv-example-tabs>
   </template>

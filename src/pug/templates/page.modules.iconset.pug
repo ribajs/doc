@@ -6,7 +6,7 @@ block content
     include:markdown-it(html) ../../../doc/reference/iconset/icons.md
   .row
     each icon in icons
-      - var iconSrc = "{{ '" + icon + ".svg' | asset_url }}";
+      - var iconSrc = "{{ 'iconset_" + icon + ".svg' | asset_url }}";
       section.col-4.col-md-3.col-xl-2.py-2
         a.row(rv-route="" href="/pages/icon?name=" + icon, title=icon)
           .col-auto.mx-auto.d-flex.align-items-center

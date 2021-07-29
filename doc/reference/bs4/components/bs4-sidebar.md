@@ -46,17 +46,17 @@ You can use the `bs4-toggle-button` component to open or close the sidebar at an
         <div>
           <bs4-sidebar id="example-sidebar" container-selector="#example-sidebar-container" position="right" class="p-3">
             <div rv-show="isActive" rv-on-click="hide" class="d-flex justify-content-center">
-              <bs4-icon src="{{ 'icon_close.svg' | asset_url }}" size="32"></bs4-icon>
+              <bs4-icon src="{{ 'iconset_icon_close.svg' | asset_url }}" size="32"></bs4-icon>
             </div>
             <p class="text-center">Hello World!</p>
           </bs4-sidebar>
           <div id="example-sidebar-container">
             <bs4-toggle-button target-id="example-sidebar" class="d-flex justify-content-center">
               <div rv-hide="isActive" rv-on-click="toggle">
-                <bs4-icon src="{{ 'icon_menu.svg' | asset_url }}" size="32"></bs4-icon>
+                <bs4-icon src="{{ 'iconset_icon_menu.svg' | asset_url }}" size="32"></bs4-icon>
               </div>
               <div rv-show="isActive" rv-on-click="toggle">
-                <bs4-icon src="{{ 'icon_close.svg' | asset_url }}" size="32"></bs4-icon>
+                <bs4-icon src="{{ 'iconset_icon_close.svg' | asset_url }}" size="32"></bs4-icon>
               </div>
             </bs4-toggle-button>
             <p class="text-center">Brownie marshmallow powder apple pie bear claw jujubes. Cake sweet roll marzipan. Chocolate cake carrot cake ice cream cake ice cream sesame snaps cake. Jelly-o biscuit jelly beans sweet roll soufflé apple pie. Powder soufflé sugar plum soufflé chocolate bar liquorice oat cake. Halvah powder pudding tart marshmallow. Cake jujubes cookie ice cream danish chupa chups bear claw candy croissant. Caramels fruitcake bonbon bonbon. Fruitcake marshmallow sesame snaps icing oat cake apple pie gummies toffee. Icing bear claw chocolate bar oat cake chocolate dragée apple pie. Jelly-o jelly-o macaroon jujubes lollipop carrot cake lemon drops cake biscuit. Cotton candy muffin gingerbread chupa chups.</p>
