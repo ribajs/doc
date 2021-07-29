@@ -1,13 +1,5 @@
 [
   {
-    "name": "theme_info",
-    "theme_name": "Art+Code Studio",
-    "theme_author": "Art + Code Studio",
-    "theme_version": "0.0.1",
-    "theme_documentation_url": "https://artandcode.studio/",
-    "theme_support_email": "pascal@artandcode.studio"
-  },
-  {
     "name": "General",
     "settings": [
       {
@@ -41,5 +33,13 @@
         "label": "Shopify-linklist collapse image"
       }
     ]
+  },
+  {
+    "name": "theme_info",
+    "theme_name": "Art+Code Studio",
+    "theme_author": "Art + Code Studio",
+    "theme_version": "0.0.1",
+    "theme_documentation_url": "https://artandcode.studio/",
+    "theme_support_email": "pascal@artandcode.studio"
   }
 ]
