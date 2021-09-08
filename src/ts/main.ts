@@ -29,7 +29,7 @@ export class Main {
 
   private dispatcher = new EventDispatcher("main");
 
-  private localesService = LocalesService.getInstance();
+  private localesService = LocalesService.getSingleton();
 
   protected onPageReady(
     viewId: string,
