@@ -6,7 +6,7 @@ In order to update the model when the user interacts with the DOM, you need to t
 import { Binder } from '@ribajs/core';
 import $ from 'jquery';
 
-export const toggleBinder: Binder<string> = {
+export const toggleBinder: BinderDeprecated<string> = {
   bind(el) {
     adapter = this.config.adapters[this.key.interface]
     model = this.model

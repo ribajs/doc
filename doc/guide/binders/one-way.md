@@ -13,7 +13,7 @@ Than you can change the implementation like this:
 ```typescript
 import { Binder } from '@ribajs/core';
 
-export const ColorBinder: Binder<string> = {
+export const ColorBinder: BinderDeprecated<string> = {
   name: 'color',
   routine(el: HTMLElement, value: string) {
     el.style.color = value;
