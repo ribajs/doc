@@ -70,7 +70,7 @@ const view = riba.bind(document.getElementById(&quot;rv-app&quot;), model);
 <p>Than you can change the implementation like this:</p>
 <pre><code class="language-typescript">import { Binder } from '@ribajs/core';
 
-export const ColorBinder: Binder&lt;string&gt; = {
+export const ColorBinder: BinderDeprecated&lt;string&gt; = {
   name: 'color',
   routine(el: HTMLElement, value: string) {
     el.style.color = value;
@@ -93,7 +93,7 @@ riba.module.binder.regist(ColorBinder);
 <pre><code class="language-typescript">import { Binder } from '@ribajs/core';
 import $ from 'jquery';
 
-export const toggleBinder: Binder&lt;string&gt; = {
+export const toggleBinder: BinderDeprecated&lt;string&gt; = {
   bind(el) {
     adapter = this.config.adapters[this.key.interface]
     model = this.model
