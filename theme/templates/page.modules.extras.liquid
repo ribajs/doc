@@ -3,14 +3,14 @@
 <pre><code class="language-bash">npm install --save @ribajs/extras
 </code></pre>
 <h2>Regist</h2>
-<p>To regist the module include <code>import extrasModule from '@ribajs/extras';</code> in your <code>main.ts</code> file and regist the module with <code>riba.module.regist(extrasModule);</code>:</p>
+<p>To regist the module include <code>import extrasModule from '@ribajs/extras';</code> in your <code>main.ts</code> file and regist the module with <code>riba.module.regist(extrasModule.init());</code>:</p>
 <pre><code class="language-ts">import { Riba, coreModule } from '@ribajs/core';
 import { extrasModule } from '@ribajs/extras';
 import { ready } from '@ribajs/utils/src/dom';
 const riba = new Riba();
 const model = {};
-riba.module.regist(coreModule);
-riba.module.regist(extrasModule);
+riba.module.regist(coreModule.init());
+riba.module.regist(extrasModule.init());
 ready(() =&gt; {
   riba.bind(document.body, model);
 });
@@ -139,7 +139,6 @@ export class TouchEventsExampleComponent extends Component {
   }
 
   public log(eventName: string, event: Event) {
-    // console.debug(eventName + &#39; called&#39;, event.type, (event as any), (event as any).detail);
     if (this.consoleElement) {
       let html = `&lt;p class=&quot;log&quot;&gt;&lt;span class=&quot;name&quot;&gt;${eventName}&lt;/span&gt;`;
       if ((event as any).detail &amp;&amp; (event as any).detail.offset) {
@@ -239,7 +238,6 @@ export class ExtrasScrollEventsExampleComponent extends Component {
   }
 
   public log(eventName: string, event: Event) {
-    // console.debug(eventName + &#39; called&#39;, event.type, (event as any), (event as any).detail);
     if (this.consoleElement) {
       let html = `&lt;p class=&quot;log&quot;&gt;&lt;span class=&quot;name&quot;&gt;${eventName}&lt;/span&gt;`;
       const detail = (event as CustomEvent).detail;

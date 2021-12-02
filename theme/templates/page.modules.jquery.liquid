@@ -3,13 +3,13 @@
 <pre><code class="language-bash">npm install --save @ribajs/jquery
 </code></pre>
 <h2>Regist</h2>
-<p>To regist the module include <code>import jqueryModule from '@ribajs/jquery';</code> in your <code>main.ts</code> file and regist the module with <code>riba.module.regist(jqueryModule);</code>:</p>
+<p>To regist the module include <code>import jqueryModule from '@ribajs/jquery';</code> in your <code>main.ts</code> file and regist the module with <code>riba.module.regist(jqueryModule.init());</code>:</p>
 <pre><code class="language-ts">import { Riba, coreModule } from '@ribajs/core';
 import { JQuery, jqueryModule } from '@ribajs/jquery';
 const riba = new Riba();
 const model = {};
-riba.module.regist(coreModule);
-riba.module.regist(jqueryModule);
+riba.module.regist(coreModule.init());
+riba.module.regist(jqueryModule.init());
 JQuery(() =&gt; {
   riba.bind(document.body, model);
 });

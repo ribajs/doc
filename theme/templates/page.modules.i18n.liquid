@@ -2,7 +2,7 @@
 </section></section><section class="my-5" id="install"><h2>Install</h2><section><pre><code class="language-bash">npm install --save @ribajs/i18n
 </code></pre>
 <h3>Regist</h3>
-<p>To regist the module import <code>import i18nModule from '@ribajs/i18n';</code> and any <code>LocalesService</code> in your <code>main.ts</code> file and regist the module with <code>riba.module.regist(i18nModule(localesService));</code>:</p>
+<p>To regist the module import <code>import i18nModule from '@ribajs/i18n';</code> and any <code>LocalesService</code> in your <code>main.ts</code> file and regist the module with <code>riba.module.regist(i18nModule.init({localesService}));</code>:</p>
 <pre><code class="language-ts">import { coreModule, Riba } from '@ribajs/core';
 import { ready } from '@ribajs/utils/src/dom';
 import { LocalesService } from '@ribajs/shopify-tda';
@@ -10,8 +10,8 @@ import i18nModule from '@ribajs/i18n';
 const riba = new Riba();
 const localesService = new LocalesService();
 const model = {};
-riba.module.regist(coreModule);
-riba.module.regist(i18nModule(localesService));
+riba.module.regist(coreModule.init());
+riba.module.regist(i18nModule.init({localesService}));
 ready(() =&gt; {
   riba.bind(document.body, model);
 });

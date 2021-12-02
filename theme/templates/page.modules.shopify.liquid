@@ -28,15 +28,15 @@
 <pre><code class="language-bash">yarn add -D gulp gulp-cheerio gulp-ext-replace gulp-plumber gulp-rename gulp-size gulp-svgmin gulp-util gulp-zip @ribajs/webpack-config
 </code></pre>
 <h2>Regist Riba</h2>
-<p>To regist the module create a <code>src/ts/main.ts</code> and insert <code>import shopifyModule from '@ribajs/shopify';</code>, than you can regist the module with <code>riba.module.regist(shopifyModule);</code>:</p>
+<p>To regist the module create a <code>src/ts/main.ts</code> and insert <code>import shopifyModule from '@ribajs/shopify';</code>, than you can regist the module with <code>riba.module.regist(shopifyModule.init());</code>:</p>
 <p>The main.ts could look like this:</p>
 <pre><code class="language-ts">import { Riba, coreModule } from '@ribajs/core';
 import { shopifyModule } from '@ribajs/shopify';
 import { ready } from '@ribajs/utils/src/dom';
 const riba = new Riba();
 const model = {};
-riba.module.regist(coreModule);
-riba.module.regist(shopifyModule);
+riba.module.regist(coreModule.init());
+riba.module.regist(shopifyModule.init());
 ready(() =&gt; {
   riba.bind(document.body, model);
 });
