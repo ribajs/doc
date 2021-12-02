@@ -1,4 +1,5 @@
-import { Riba, coreModule, EventDispatcher, View } from "@ribajs/core";
+import { Riba, coreModule, View } from "@ribajs/core";
+import { EventDispatcher } from "@ribajs/events";
 import { ready } from "@ribajs/utils";
 import { extrasModule } from "@ribajs/extras";
 import type { State } from "@ribajs/history";
