@@ -5,6 +5,8 @@
   ],
   "compilerOptions": {
     "outDir": "dist",
-    "typeRoots": ["./node_modules/@types", "./src/ts/types"]
+    "typeRoots": ["./node_modules/@types", "./src/ts/types"],
+    // node is required by npm:lorem-ipsum
+    "types": ["node"]
   }
 }
