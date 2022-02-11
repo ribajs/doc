@@ -92,7 +92,7 @@
     "@ribajs/tsconfig": "workspace:^",
     "@ribajs/webpack-config": "workspace:infra/webpack-config",
     "@types/debug": "^4.1.7",
-    "@types/node": "^17.0.16",
+    "@types/node": "^17.0.17",
     "@types/prismjs": "^1.26.0",
     "@typescript-eslint/eslint-plugin": "^5.11.0",
     "@typescript-eslint/parser": "^5.11.0",
