@@ -93,7 +93,7 @@
     "@ribajs/tsconfig": "workspace:^",
     "@ribajs/webpack-config": "workspace:infra/webpack-config",
     "@types/debug": "^4.1.7",
-    "@types/node": "^17.0.19",
+    "@types/node": "^17.0.21",
     "@types/prismjs": "^1.26.0",
     "@typescript-eslint/eslint-plugin": "^5.12.1",
     "@typescript-eslint/parser": "^5.12.1",
@@ -135,7 +135,7 @@
     "postcss": "^8.4.6",
     "postcss-cli": "^9.1.0",
     "postcss-loader": "^6.2.1",
-    "postcss-modules": "^4.3.0",
+    "postcss-modules": "^4.3.1",
     "postcss-preset-env": "^7.4.1",
     "prettier": "^2.5.1",
     "prismjs": "^1.27.0",
@@ -183,6 +183,6 @@
     "popper.js": "^1.16.1",
     "require-dir": "^1.2.0",
     "semver": "^7.3.5",
-    "three": "^0.137.5"
+    "three": "^0.138.0"
   }
 }
