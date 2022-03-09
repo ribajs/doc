@@ -138,8 +138,8 @@ const locales = {
 
 const localesService = new LocalesStaticService(locales);
 </code></pre>
-<rv-bind-content><template><rv-example-tabs handle="bs4-tabs-tpl"><template title="main.ts" type="source"><pre><code class="language-typescript">import { coreModule, Riba } from &quot;@ribajs/core&quot;;
-import { ready } from &quot;@ribajs/utils/src/dom&quot;;
+<rv-bind-content><template><rv-example-tabs handle="bs4-tabs-tpl"><template title="main.ts" type="source"><pre><code class="language-typescript">import { coreModule, Riba } from &quot;@ribajs/core/src/index.js&quot;;
+import { ready } from &quot;@ribajs/utils/src/dom.js&quot;;
 import { i18nModule, LocalesStaticService } from &quot;@ribajs/i18n&quot;;
 import I18nStaticModule from &quot;./i18n-static.module&quot;;
 
@@ -209,7 +209,7 @@ ready(() =&gt; {
     &lt;input type=&quot;text&quot; class=&quot;form-control&quot; rv-i18n-placeholder=&quot;&#39;examples.newsletter.placeholder_last_name&#39;&quot; /&gt;
   &lt;/div&gt;
 &lt;/div&gt;
-</code></pre></template><template title="component.ts" type="source"><pre><code class="language-typescript">import { Component, TemplateFunction } from &quot;@ribajs/core&quot;;
+</code></pre></template><template title="component.ts" type="source"><pre><code class="language-typescript">import { Component, TemplateFunction } from &quot;@ribajs/core/src/index.js&quot;;
 
 import template from &quot;./i18n-static-example.component.html&quot;;
 

@@ -1,6 +1,6 @@
-import { Component } from "@ribajs/core";
-import { hasChildNodesTrim } from "@ribajs/utils/src/dom";
-import { escapeHtml } from "@ribajs/utils/src/type";
+import { Component } from "@ribajs/core/src/index.js";
+import { hasChildNodesTrim } from "@ribajs/utils/src/dom.js";
+import { escapeHtml } from "@ribajs/utils/src/type.js";
 
 import template from "./icon-preview.component.html";
 

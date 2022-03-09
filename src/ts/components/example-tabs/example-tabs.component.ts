@@ -2,10 +2,10 @@ import {
   Bs4TabsComponent,
   Tab,
   Scope as OriginalScope,
-} from "@ribajs/bs4/src/components/bs4-tabs/bs4-tabs.component";
-import { hasChildNodesTrim } from "@ribajs/utils/src/dom";
+} from "@ribajs/bs4/src/components/bs4-tabs/bs4-tabs.component.js";
+import { hasChildNodesTrim } from "@ribajs/utils/src/dom.js";
 
-import { escapeHtml } from "@ribajs/utils/src/type";
+import { escapeHtml } from "@ribajs/utils/src/type.js";
 
 import * as Prism from "prismjs";
 

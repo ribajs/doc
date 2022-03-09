@@ -1,5 +1,5 @@
 import { ShopifyLinklistComponent as OriginalShopifyLinklistComponent } from "@ribajs/shopify";
-import { hasChildNodesTrim } from "@ribajs/utils/src/dom";
+import { hasChildNodesTrim } from "@ribajs/utils/src/dom.js";
 import template from "./shopify-linklist.component.html";
 
 /**
