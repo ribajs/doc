@@ -25,7 +25,7 @@
 }
 </code></pre>
 <h3>Gulp 4 and (Slate) tools</h3>
-<pre><code class="language-bash">yarn add -D gulp gulp-cheerio gulp-ext-replace gulp-plumber gulp-rename gulp-size gulp-svgmin gulp-util gulp-zip @ribajs/webpack-config
+<pre><code class="language-bash">yarn add -D @ribajs/shopify-gulp gulp gulp-cheerio gulp-ext-replace gulp-plumber gulp-rename gulp-size gulp-svgmin gulp-util gulp-zip @ribajs/webpack-config
 </code></pre>
 <h2>Regist Riba</h2>
 <p>To regist the module create a <code>src/ts/main.ts</code> and insert <code>import shopifyModule from '@ribajs/shopify';</code>, than you can regist the module with <code>riba.module.regist(shopifyModule.init());</code>:</p>
@@ -55,9 +55,7 @@ const requireDir = require(&quot;require-dir&quot;);
 
 // Gets the gulp tasks path of @ribajs/shopify
 const ribaShopifyTaskDir = path.resolve(
-  path.dirname(require.resolve(&quot;@ribajs/shopify/package.json&quot;)),
-  &quot;build-system&quot;,
-  &quot;dist&quot;,
+  path.dirname(require.resolve(&quot;@ribajs/shopify-gulp&quot;)),
   &quot;tasks&quot;
 );
 
@@ -67,7 +65,7 @@ if (argv.environment &amp;&amp; argv.environment !== &quot;undefined&quot;) {
 }
 
 // imports gulp tasks from the @ribajs/shopify's `build-system/dist/tasks` directory
-requireDir(ribaShopifyTaskDir);
+requireDir(ribaShopifyTaskDir, { extensions: [&quot;.js&quot;, &quot;.cjs&quot;] });
 </code></pre>
 <h3>Gulp tasks</h3>
 <h4>Generate config.deploy.yml</h4>
