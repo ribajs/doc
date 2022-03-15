@@ -14,12 +14,12 @@ export class LoremIpsumComponent extends Component {
   protected options: IGeneratorOptions = {
     sentencesPerParagraph: {
       max: 8,
-      min: 4,
+      min: 4
     },
     wordsPerSentence: {
       max: 16,
-      min: 4,
-    },
+      min: 4
+    }
   };
 
   protected lorem?: LoremIpsum;
@@ -36,13 +36,13 @@ export class LoremIpsumComponent extends Component {
       "generate-words",
       "generate-sentences",
       "generate-paragraphs",
-      "format",
+      "format"
     ];
   }
 
   public scope: Scope = {
     generateParagraphs: 1,
-    format: "html",
+    format: "html"
   };
 
   constructor() {

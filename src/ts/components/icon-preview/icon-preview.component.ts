@@ -44,7 +44,7 @@ export class IconPreviewComponent extends Component {
       ["stroke-success", "white"],
       ["stroke-info", "white"],
       ["stroke-warning", "white"],
-      ["stroke-danger", "white"],
+      ["stroke-danger", "white"]
     ],
     directions: [
       "left",
@@ -54,9 +54,9 @@ export class IconPreviewComponent extends Component {
       "right",
       "right-down",
       "down",
-      "down-left",
+      "down-left"
     ],
-    example: "string",
+    example: "string"
   };
 
   constructor() {

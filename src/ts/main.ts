@@ -67,7 +67,7 @@ export class Main {
       Bs4TabsTplExampleComponent,
       I18nStaticExampleComponent,
       TouchEventsExampleComponent,
-      ExtrasScrollEventsExampleComponent,
+      ExtrasScrollEventsExampleComponent
     });
 
     this.dispatcher.on("newPageReady", this.onPageReady, this);
