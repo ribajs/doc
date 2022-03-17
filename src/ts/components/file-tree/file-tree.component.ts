@@ -1,4 +1,4 @@
-import { BasicComponent } from "@ribajs/core/src/index.js";
+import { BasicComponent } from "@ribajs/core";
 import { hasChildNodesTrim } from "@ribajs/utils/src/dom.js";
 import template from "./file-tree.component.html";
 

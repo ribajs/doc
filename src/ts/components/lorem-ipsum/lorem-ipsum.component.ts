@@ -1,4 +1,4 @@
-import { Component } from "@ribajs/core/src/index.js";
+import { Component } from "@ribajs/core";
 import { LoremIpsum } from "lorem-ipsum";
 import { IGeneratorOptions } from "lorem-ipsum/src/lib/generator";
 interface Scope {

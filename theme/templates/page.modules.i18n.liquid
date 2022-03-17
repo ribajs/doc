@@ -138,7 +138,7 @@ const locales = {
 
 const localesService = new LocalesStaticService(locales);
 </code></pre>
-<rv-bind-content><template><rv-example-tabs handle="bs4-tabs-tpl"><template title="main.ts" type="source"><pre><code class="language-typescript">import { coreModule, Riba } from &quot;@ribajs/core/src/index.js&quot;;
+<rv-bind-content><template><rv-example-tabs handle="bs4-tabs-tpl"><template title="main.ts" type="source"><pre><code class="language-typescript">import { coreModule, Riba } from &quot;@ribajs/core&quot;;
 import { ready } from &quot;@ribajs/utils/src/dom.js&quot;;
 import { i18nModule, LocalesStaticService } from &quot;@ribajs/i18n&quot;;
 import I18nStaticModule from &quot;./i18n-static.module&quot;;
@@ -147,31 +147,31 @@ const locales = {
   de: {
     examples: {
       i18n: {
-        switch_language: &quot;Klicke auf eine Sprache um sie zu ändern&quot;,
+        switch_language: &quot;Klicke auf eine Sprache um sie zu ändern&quot;
       },
       newsletter: {
         description_html:
           &quot;Abonnieren Sie unseren Newsletter und erhalten Sie &lt;strong&gt;10% Rabatt&lt;/strong&gt; auf Ihren nächsten Einkauf.&quot;,
         input_value: &quot;Unbekannt&quot;,
         placeholder_last_name: &quot;Nachname&quot;,
-        title: &quot;Melde dich für den Newsletter an&quot;,
-      },
-    },
+        title: &quot;Melde dich für den Newsletter an&quot;
+      }
+    }
   },
   en: {
     examples: {
       i18n: {
-        switch_language: &quot;Click on a language to change it&quot;,
+        switch_language: &quot;Click on a language to change it&quot;
       },
       newsletter: {
         description_html:
           &quot;Subscribe to our newsletter and get &lt;strong&gt;10% off&lt;/strong&gt; your next purchase.&quot;,
         input_value: &quot;Unknown&quot;,
         placeholder_last_name: &quot;Surname&quot;,
-        title: &quot;Sign up for the newsletter&quot;,
-      },
-    },
-  },
+        title: &quot;Sign up for the newsletter&quot;
+      }
+    }
+  }
 };
 
 const riba = new Riba();
@@ -209,7 +209,7 @@ ready(() =&gt; {
     &lt;input type=&quot;text&quot; class=&quot;form-control&quot; rv-i18n-placeholder=&quot;&#39;examples.newsletter.placeholder_last_name&#39;&quot; /&gt;
   &lt;/div&gt;
 &lt;/div&gt;
-</code></pre></template><template title="component.ts" type="source"><pre><code class="language-typescript">import { Component, TemplateFunction } from &quot;@ribajs/core/src/index.js&quot;;
+</code></pre></template><template title="component.ts" type="source"><pre><code class="language-typescript">import { Component, TemplateFunction } from &quot;@ribajs/core&quot;;
 
 import template from &quot;./i18n-static-example.component.html&quot;;
 

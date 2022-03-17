@@ -1,4 +1,4 @@
-import { Riba, coreModule, View } from "@ribajs/core/src/index.js";
+import { Riba, coreModule, View } from "@ribajs/core";
 import { EventDispatcher } from "@ribajs/events";
 import { ready } from "@ribajs/utils/src/index.js";
 import { extrasModule } from "@ribajs/extras";

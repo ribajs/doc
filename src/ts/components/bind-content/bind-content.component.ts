@@ -1,4 +1,4 @@
-import { Component } from "@ribajs/core/src/index.js";
+import { Component } from "@ribajs/core";
 
 import template from "./bind-content.component.html";
 

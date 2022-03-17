@@ -89,7 +89,7 @@ given attribute and not by the star value.</p>
     &lt;div&gt;Item { %item% } / { item.name }&lt;/div&gt;
   &lt;/div&gt;
 &lt;/section&gt;
-</code></pre></template><template title="component.ts" type="source"><pre><code class="language-typescript">import { Component, TemplateFunction } from &quot;@ribajs/core/src/index.js&quot;;
+</code></pre></template><template title="component.ts" type="source"><pre><code class="language-typescript">import { Component, TemplateFunction } from &quot;@ribajs/core&quot;;
 import template from &quot;./each-item-example.component.html&quot;;
 
 export class EachItemExampleComponent extends Component {
@@ -103,7 +103,7 @@ export class EachItemExampleComponent extends Component {
     shift: this.shift,
     sort: this.sort,
     splice: this.splice,
-    unshift: this.unshift,
+    unshift: this.unshift
   };
 
   constructor() {
@@ -149,7 +149,7 @@ export class EachItemExampleComponent extends Component {
     return [
       { name: &quot;x&quot;, value: 2 },
       { name: &quot;y&quot;, value: 1 },
-      { name: &quot;z&quot;, value: 3 },
+      { name: &quot;z&quot;, value: 3 }
     ];
   }
 
