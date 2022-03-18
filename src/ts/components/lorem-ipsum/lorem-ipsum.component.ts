@@ -1,7 +1,7 @@
-import { Component } from "@ribajs/core";
+import { Component, ScopeBase } from "@ribajs/core";
 import { LoremIpsum } from "lorem-ipsum";
 import { IGeneratorOptions } from "lorem-ipsum/src/lib/generator";
-interface Scope {
+interface Scope extends ScopeBase {
   generateWords?: number;
   generateSentences?: number;
   generateParagraphs?: number;

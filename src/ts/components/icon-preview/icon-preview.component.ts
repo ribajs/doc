@@ -1,4 +1,4 @@
-import { Component } from "@ribajs/core";
+import { Component, ScopeBase } from "@ribajs/core";
 import { hasChildNodesTrim } from "@ribajs/utils/src/dom.js";
 import { escapeHtml } from "@ribajs/utils/src/type.js";
 
@@ -6,7 +6,7 @@ import template from "./icon-preview.component.html";
 
 import * as Prism from "prismjs";
 
-interface Scope {
+interface Scope extends ScopeBase {
   assetPath: string;
   name: string;
   src: string;

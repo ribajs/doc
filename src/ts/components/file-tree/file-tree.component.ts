@@ -2,7 +2,7 @@ import { BasicComponent } from "@ribajs/core";
 import { hasChildNodesTrim } from "@ribajs/utils/src/dom.js";
 import template from "./file-tree.component.html";
 
-// interface Scope {}
+// interface Scope extends ScopeBase {}
 
 export class FileTreeComponent extends BasicComponent {
   public static tagName = "rv-file-tree";
