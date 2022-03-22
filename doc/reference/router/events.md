@@ -2,7 +2,7 @@ During all the lifecycle of the page transition, the router module will emit a s
 
 | Name                | Arguments                        | Description                                                                                                 |
 | ------------------- | -------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| linkClicked         | `HTMLElement`, `MouseEvent`      | The user click on a link elegible for PJAX.                                                                 |
+| linkClicked         | `HTMLElement`, `MouseEvent`      | The user has clicked on a link eligible for PJAX.                                                           |
 | initStateChange     | `currentStatus`                  | The link has just been changed.                                                                             |
 | newPageReady        | `viewId`, `currentStatus`, `prevStatus`, `HTMLElementContainer`, `newPageRawHTML`, `containerDataset` `isFirstPageLoad`| The new container has been loaded and was injected |
 | transitionCompleted | `viewId`, `currentStatus` [, `prevStatus`] | The transition has just finished and the old Container has been removed from the DOM.             |
