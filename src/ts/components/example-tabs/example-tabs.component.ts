@@ -1,7 +1,7 @@
 import {
   Bs4TabsComponent,
   Tab,
-  Scope as OriginalScope
+  Scope as OriginalScope,
 } from "@ribajs/bs4/src/components/bs4-tabs/bs4-tabs.component.js";
 import { hasChildNodesTrim } from "@ribajs/utils/src/dom.js";
 
@@ -23,24 +23,24 @@ export class ExampleBs4TabsComponent extends Bs4TabsComponent {
   protected templateAttributes = [
     {
       name: "title",
-      required: true
+      required: true,
     },
     {
       name: "handle",
-      required: false
+      required: false,
     },
     {
       name: "type",
-      required: false
+      required: false,
     },
     {
       name: "active",
-      required: false
+      required: false,
     },
     {
       name: "index",
-      required: false
-    }
+      required: false,
+    },
   ];
 
   static get observedAttributes() {
