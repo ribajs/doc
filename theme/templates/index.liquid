@@ -33,7 +33,7 @@ $ riba new project</code></pre></div></div></div></section>{{ content_for_index 
     &lt;div&gt;Item { %item% } / { item.name }&lt;/div&gt;
   &lt;/div&gt;
 &lt;/section&gt;
-</code></pre></template><template title="component.ts" type="source"><pre><code class="language-typescript">import { Component, TemplateFunction } from &quot;@ribajs/core&quot;;
+</code></pre></template><template title="component.ts" type="source"><pre><code class="language-typescript">import { Component, TemplateFunction, ScopeBase } from &quot;@ribajs/core&quot;;
 import template from &quot;./each-item-example.component.html&quot;;
 
 export class EachItemExampleComponent extends Component {
@@ -47,7 +47,7 @@ export class EachItemExampleComponent extends Component {
     shift: this.shift,
     sort: this.sort,
     splice: this.splice,
-    unshift: this.unshift
+    unshift: this.unshift,
   };
 
   constructor() {
@@ -93,7 +93,7 @@ export class EachItemExampleComponent extends Component {
     return [
       { name: &quot;x&quot;, value: 2 },
       { name: &quot;y&quot;, value: 1 },
-      { name: &quot;z&quot;, value: 3 }
+      { name: &quot;z&quot;, value: 3 },
     ];
   }
 
@@ -113,7 +113,7 @@ interface Item {
   value?: number;
 }
 
-interface Scope {
+interface Scope extends ScopeBase {
   items: Item[];
   push: EachItemExampleComponent[&quot;push&quot;];
   pop: EachItemExampleComponent[&quot;pop&quot;];
