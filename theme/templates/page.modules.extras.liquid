@@ -118,9 +118,8 @@ riba.bind(document.body, model);
     &lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
-</code></pre></template><template title="component.ts" type="source"><pre><code class="language-typescript">import { Component, TemplateFunction } from &quot;@ribajs/core&quot;;
+</code></pre></template><template title="component.ts" type="source"><pre><code class="language-typescript">import { Component } from &quot;@ribajs/core&quot;;
 import { hasChildNodesTrim } from &quot;@ribajs/utils/src/dom.js&quot;;
-import template from &quot;./touch-events-example.component.html&quot;;
 
 export class TouchEventsExampleComponent extends Component {
   public static tagName = &quot;rv-touch-events-example&quot;;
@@ -163,11 +162,14 @@ export class TouchEventsExampleComponent extends Component {
     this.touchZoneElement = this.querySelector(&quot;.touch-zone&quot;);
   }
 
-  protected template(): ReturnType&lt;TemplateFunction&gt; {
+  protected async template() {
     // Only set the component template if there no childs already
     if (hasChildNodesTrim(this)) {
       return null;
     } else {
+      const { default: template } = await import(
+        &quot;./touch-events-example.component.html&quot;
+      );
       return template;
     }
   }
@@ -216,9 +218,8 @@ riba.bind(document.body, model);
     &lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;
-</code></pre></template><template title="component.ts" type="source"><pre><code class="language-typescript">import { Component, TemplateFunction } from &quot;@ribajs/core&quot;;
+</code></pre></template><template title="component.ts" type="source"><pre><code class="language-typescript">import { Component } from &quot;@ribajs/core&quot;;
 import { hasChildNodesTrim } from &quot;@ribajs/utils/src/dom.js&quot;;
-import template from &quot;./extras-scroll-events-example.component.html&quot;;
 
 export class ExtrasScrollEventsExampleComponent extends Component {
   public static tagName = &quot;rv-extras-scroll-events-example&quot;;
@@ -260,11 +261,14 @@ export class ExtrasScrollEventsExampleComponent extends Component {
     this.touchZoneElement = this.querySelector(&quot;.touch-zone&quot;);
   }
 
-  protected template(): ReturnType&lt;TemplateFunction&gt; {
+  protected async template() {
     // Only set the component template if there no childs already
     if (hasChildNodesTrim(this)) {
       return null;
     } else {
+      const { default: template } = await import(
+        &quot;./extras-scroll-events-example.component.html&quot;
+      );
       return template;
     }
   }

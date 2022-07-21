@@ -1,6 +1,5 @@
 import { ShopifyLinklistComponent as OriginalShopifyLinklistComponent } from "@ribajs/shopify";
 import { hasChildNodesTrim } from "@ribajs/utils/src/dom.js";
-import template from "./shopify-linklist.component.html";
 
 /**
  * shopify-filter
@@ -15,10 +14,13 @@ export class ShopifyLinklistComponent extends OriginalShopifyLinklistComponent {
   /**
    * Only set the component template if there no childs already
    */
-  protected template() {
+  protected async template() {
     if (hasChildNodesTrim(this)) {
       return null;
     } else {
+      const { default: template } = await import(
+        "./shopify-linklist.component.html"
+      );
       return template;
     }
   }
