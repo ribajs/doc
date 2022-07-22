@@ -207,7 +207,6 @@ export const TimeFormatter: Formatter = {
   Debug,
 } from '@ribajs/core';
 import { hasChildNodesTrim } from &quot;@ribajs/utils/src/dom&quot;;
-import template from './todo-item.component.html';
 
 interface Scope {
   description?: string;
@@ -260,11 +259,14 @@ export class TodoItemComponent extends Component {
     super.disconnectedCallback();
   }
 
-  protected template() {
+  protected async template() {
     // Only set the component template if there no childs already
     if (this.el &amp;&amp; hasChildNodesTrim(this.el)) {
       return null;
     } else {
+      const { default: template } = await import(
+        './todo-item.component.html'
+      );
       return template;
     }
   }
