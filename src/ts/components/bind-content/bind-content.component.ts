@@ -1,7 +1,5 @@
 import { Component } from "@ribajs/core";
 
-import template from "./bind-content.component.html";
-
 export class BindContentComponent extends Component {
   public static tagName = "rv-bind-content";
 
@@ -26,13 +24,16 @@ export class BindContentComponent extends Component {
     this.init([]);
   }
 
-  protected template() {
+  protected async template() {
     const firstElementChild = this.firstElementChild;
     if (!firstElementChild || firstElementChild.tagName !== "TEMPLATE") {
       console.error("The child element must be a template");
       return null;
     }
     this.content = firstElementChild.innerHTML;
+
+    const { default: template } = await import("./bind-content.component.html");
+
     return template;
   }
 }

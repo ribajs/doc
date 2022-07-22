@@ -9,8 +9,6 @@ import { escapeHtml } from "@ribajs/utils/src/type.js";
 
 import * as Prism from "prismjs";
 
-import template from "./example-tabs.component.html";
-
 export interface Scope extends OriginalScope {
   sum?: ExampleBs4TabsComponent["sum"];
 }
@@ -156,9 +154,12 @@ export class ExampleBs4TabsComponent extends Bs4TabsComponent {
     this.templateReady = true;
   }
 
-  protected template() {
+  protected async template() {
     // Only set the component template if there no childs or the childs are templates
     if (!hasChildNodesTrim(this) || this.hasOnlyTemplateChilds()) {
+      const { default: template } = await import(
+        "./example-tabs.component.html"
+      );
       return template;
     } else {
       return null;

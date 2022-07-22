@@ -28,7 +28,6 @@ import {
   Debug,
 } from '@ribajs/core';
 import { hasChildNodesTrim } from "@ribajs/utils/src/dom";
-import template from './todo-item.component.html';
 
 interface Scope {
   description?: string;
@@ -81,11 +80,14 @@ export class TodoItemComponent extends Component {
     super.disconnectedCallback();
   }
 
-  protected template() {
+  protected async template() {
     // Only set the component template if there no childs already
     if (this.el && hasChildNodesTrim(this.el)) {
       return null;
     } else {
+      const { default: template } = await import(
+        './todo-item.component.html'
+      );
       return template;
     }
   }
