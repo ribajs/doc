@@ -92,7 +92,6 @@
     "@ribajs/babel-config": "workspace:infra/babel-config",
     "@ribajs/eslint-config": "workspace:^",
     "@ribajs/postcss-config": "workspace:infra/postcss-config",
-    "@ribajs/shopify-gulp": "workspace:^",
     "@ribajs/tsconfig": "workspace:^",
     "@ribajs/webpack-config": "workspace:infra/webpack-config",
     "@types/debug": "^4.1.7",
