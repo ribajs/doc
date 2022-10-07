@@ -48,14 +48,14 @@ export class Main {
   }
 
   constructor() {
-    this.riba.module.regist(coreModule.init());
-    this.riba.module.regist(extrasModule.init());
-    this.riba.module.regist(routerModule.init());
-    this.riba.module.regist(shopifyModule.init());
-    this.riba.module.regist(
+    this.riba.module.register(coreModule.init());
+    this.riba.module.register(extrasModule.init());
+    this.riba.module.register(routerModule.init());
+    this.riba.module.register(shopifyModule.init());
+    this.riba.module.register(
       i18nModule.init({ localesService: this.localesService })
     );
-    this.riba.module.regist(bs4Module.init());
+    this.riba.module.register(bs4Module.init());
 
     // Register custom components
     this.riba.module.component.regists(CustomComponents);

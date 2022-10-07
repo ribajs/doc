@@ -25,13 +25,13 @@
 </section></section><section class="my-5" id="install"><h2>Install</h2><section><pre><code class="language-bash">npm install --save @ribajs/router
 </code></pre>
 <h3>Regist</h3>
-<p>To regist the module include <code>import routerModule from '@ribajs/router';</code> in your <code>main.ts</code> file and regist the module with <code>riba.module.regist(routerModule.init());</code>:</p>
+<p>To regist the module include <code>import routerModule from '@ribajs/router';</code> in your <code>main.ts</code> file and regist the module with <code>riba.module.register(routerModule.init());</code>:</p>
 <pre><code class="language-ts">import { Riba } from '@ribajs/core';
 import { ready } from '@ribajs/utils/src/dom';
 import routerModule from '@ribajs/router';
 const riba = new Riba();
 const model = {};
-riba.module.regist(routerModule.init());
+riba.module.register(routerModule.init());
 ready(() =&gt; {
   riba.bind(document.body, model);
 });

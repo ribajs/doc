@@ -1045,14 +1045,14 @@ class Main {
 
     (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "localesService", _ribajs_shopify_tda__WEBPACK_IMPORTED_MODULE_9__.LocalesService.getSingleton());
 
-    this.riba.module.regist(_ribajs_core__WEBPACK_IMPORTED_MODULE_1__.coreModule.init());
-    this.riba.module.regist(_ribajs_extras__WEBPACK_IMPORTED_MODULE_4__.extrasModule.init());
-    this.riba.module.regist(_ribajs_router__WEBPACK_IMPORTED_MODULE_6__.routerModule.init());
-    this.riba.module.regist(_ribajs_shopify__WEBPACK_IMPORTED_MODULE_5__.shopifyModule.init());
-    this.riba.module.regist(_ribajs_i18n__WEBPACK_IMPORTED_MODULE_7__.i18nModule.init({
+    this.riba.module.register(_ribajs_core__WEBPACK_IMPORTED_MODULE_1__.coreModule.init());
+    this.riba.module.register(_ribajs_extras__WEBPACK_IMPORTED_MODULE_4__.extrasModule.init());
+    this.riba.module.register(_ribajs_router__WEBPACK_IMPORTED_MODULE_6__.routerModule.init());
+    this.riba.module.register(_ribajs_shopify__WEBPACK_IMPORTED_MODULE_5__.shopifyModule.init());
+    this.riba.module.register(_ribajs_i18n__WEBPACK_IMPORTED_MODULE_7__.i18nModule.init({
       localesService: this.localesService
     }));
-    this.riba.module.regist(_ribajs_bs4__WEBPACK_IMPORTED_MODULE_8__.bs4Module.init()); // Register custom components
+    this.riba.module.register(_ribajs_bs4__WEBPACK_IMPORTED_MODULE_8__.bs4Module.init()); // Register custom components
 
     this.riba.module.component.regists(_components_index_js__WEBPACK_IMPORTED_MODULE_10__); // Regist examples‚
 

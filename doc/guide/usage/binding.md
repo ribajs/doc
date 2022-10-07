@@ -8,7 +8,7 @@ const riba = new Riba();
 const model = {};
 
 // Register modules
-riba.module.regist(coreModule.init());
+riba.module.register(coreModule.init());
 
 const view = riba.bind(document.getElementById("rv-app"), model);
 ```

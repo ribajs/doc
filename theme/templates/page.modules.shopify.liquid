@@ -25,15 +25,15 @@
 }
 </code></pre>
 <h2>Regist Riba</h2>
-<p>To regist the module create a <code>src/ts/main.ts</code> and insert <code>import shopifyModule from '@ribajs/shopify';</code>, than you can regist the module with <code>riba.module.regist(shopifyModule.init());</code>:</p>
+<p>To regist the module create a <code>src/ts/main.ts</code> and insert <code>import shopifyModule from '@ribajs/shopify';</code>, than you can regist the module with <code>riba.module.register(shopifyModule.init());</code>:</p>
 <p>The main.ts could look like this:</p>
 <pre><code class="language-ts">import { Riba, coreModule } from '@ribajs/core';
 import { shopifyModule } from '@ribajs/shopify';
 import { ready } from '@ribajs/utils/src/dom';
 const riba = new Riba();
 const model = {};
-riba.module.regist(coreModule.init());
-riba.module.regist(shopifyModule.init());
+riba.module.register(coreModule.init());
+riba.module.register(shopifyModule.init());
 ready(() =&gt; {
   riba.bind(document.body, model);
 });
