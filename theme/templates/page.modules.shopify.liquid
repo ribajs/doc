@@ -19,13 +19,10 @@
 <h3>Webpack, Yarn PnP and TypeScript</h3>
 <pre><code class="language-bash">yarn add -D webpack webpack-cli webpack-stream typescript @yarnpkg/pnpify html-loader babel-loader
 </code></pre>
-<p>Add webpack to <code>resolutions</code> in your package.json to be shure to use the latest Webpack v4 version:</p>
+<p>Add webpack to <code>resolutions</code> in your package.json to be sure to use the latest Webpack v4 version:</p>
 <pre><code class="language-json">&quot;resolutions&quot;: {
   &quot;webpack&quot;: &quot;^4.42.1&quot;
 }
-</code></pre>
-<h3>Gulp 4 and (Slate) tools</h3>
-<pre><code class="language-bash">yarn add -D @ribajs/shopify-gulp gulp gulp-cheerio gulp-ext-replace gulp-plumber gulp-rename gulp-size gulp-svgmin gulp-util gulp-zip @ribajs/webpack-config
 </code></pre>
 <h2>Regist Riba</h2>
 <p>To regist the module create a <code>src/ts/main.ts</code> and insert <code>import shopifyModule from '@ribajs/shopify';</code>, than you can regist the module with <code>riba.module.regist(shopifyModule.init());</code>:</p>

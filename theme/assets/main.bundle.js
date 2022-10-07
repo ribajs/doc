@@ -13979,7 +13979,7 @@ class TextBinder extends _binder_js__WEBPACK_IMPORTED_MODULE_1__.Binder {
       if (typeof ((_value = value) === null || _value === void 0 ? void 0 : _value.toString) === "function") {
         value = value.toString();
       } else {
-        console.warn("[TextBinder] Can't convert value \"".concat(value, "\" to string! Element: "), el);
+        // console.warn("[TextBinder] Can't convert value \"".concat(value, "\" to string! Element: "), el);
       }
     }
 

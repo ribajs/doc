@@ -79,7 +79,7 @@ ready(() =&gt; {
 <p>This binder uses <code>TouchEventsService</code> to trigger the additional events, check out the <a rv-scroll-to-on-click="'#touch-events-service'" href="#touch-events-service" data-offset="80">TouchEventsService</a> to find out what additional events are available.</p>
 <rv-bind-content><template><rv-example-tabs handle="extras-touch-events"><template title="main.ts" type="source"><pre><code class="language-typescript">import { coreModule, Riba } from &quot;@ribajs/core&quot;;
 import { extrasModule } from &quot;@ribajs/extras&quot;;
-import { touchEventsModule } from &quot;./touch-events.module&quot;;
+import { touchEventsModule } from &quot;./touch-events.module.js&quot;;
 
 const riba = new Riba();
 const model = {};
@@ -183,7 +183,7 @@ export class TouchEventsExampleComponent extends Component {
 <p>This binder uses <code>ScrollEventsService</code> to trigger additional scroll events on the element, check out the <a rv-scroll-to-on-click="'#scroll-events-service'" href="#scroll-events-service" data-offset="80">ScrollEventsService</a> to find out what additional events are available.</p>
 <rv-bind-content><template><rv-example-tabs handle="extras-scroll-events"><template title="main.ts" type="source"><pre><code class="language-typescript">import { coreModule, Riba } from &quot;@ribajs/core&quot;;
 import { extrasModule } from &quot;@ribajs/extras&quot;;
-import { extrasScrollEventsModule } from &quot;./extras-scroll-events.module&quot;;
+import { extrasScrollEventsModule } from &quot;./extras-scroll-events.module.js&quot;;
 
 const riba = new Riba();
 const model = {};
