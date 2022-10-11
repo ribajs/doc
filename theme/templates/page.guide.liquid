@@ -83,7 +83,7 @@ export const ColorBinder: BinderDeprecated&lt;string&gt; = {
 import { ColorBinder } from './binders/color.binder';
 
 const riba = new Riba();
-riba.module.binder.regist(ColorBinder);
+riba.module.binder.register(ColorBinder);
 </code></pre>
 <p>With the above binder defined, you can now utilize the <code>rv-color</code> declaration in your views.</p>
 <pre><code class="language-html">&lt;button rv-color=&quot;label.color&quot;&gt;Apply&lt;/button&gt;
@@ -152,9 +152,9 @@ export const dateFormatter: Formatter = {
 import { colorBinder } from './formatters/date.formatter';
 
 const riba = new Riba();
-riba.module.formatter.regist(dateFormatter);
+riba.module.formatter.register(dateFormatter);
 </code></pre>
-<p><em>You can also register multiple formatters at once by calling <code>riba.module.binder.regists</code>, this is useful when importing multiple formatters like <code>import * as formatters from './formatters';</code></em></p>
+<p><em>You can also register multiple formatters at once by calling <code>riba.module.binder.registerAll</code>, this is useful when importing multiple formatters like <code>import * as formatters from './formatters';</code></em></p>
 <p>After you have regist your formatter, formatters are applied by piping them to binding declarations using <code>|</code> as a delimiter.</p>
 <pre><code class="language-html">&lt;span rv-text=&quot;event.startDate | date&quot;&gt;&lt;/span&gt;
 </code></pre>

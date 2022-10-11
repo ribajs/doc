@@ -58,10 +58,10 @@ export class Main {
     this.riba.module.register(bs4Module.init());
 
     // Register custom components
-    this.riba.module.component.regists(CustomComponents);
+    this.riba.module.component.registerAll(CustomComponents);
 
     // Regist examples‚
-    this.riba.module.component.regists({
+    this.riba.module.component.registerAll({
       EachItemExampleComponent,
       Bs4TabsAttrExampleComponent,
       Bs4TabsTplExampleComponent,

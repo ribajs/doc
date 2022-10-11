@@ -30,7 +30,7 @@ import { Riba } from '@ribajs/core';
 import { ColorBinder } from './binders/color.binder';
 
 const riba = new Riba();
-riba.module.binder.regist(ColorBinder);
+riba.module.binder.register(ColorBinder);
 ```
 
 With the above binder defined, you can now utilize the `rv-color` declaration in your views.

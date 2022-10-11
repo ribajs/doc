@@ -30,11 +30,11 @@ import { Riba } from '@ribajs/core';
 import { colorBinder } from './formatters/date.formatter';
 
 const riba = new Riba();
-riba.module.formatter.regist(dateFormatter);
+riba.module.formatter.register(dateFormatter);
 ```
 
 
-*You can also register multiple formatters at once by calling `riba.module.binder.regists`, this is useful when importing multiple formatters like `import * as formatters from './formatters';`*
+*You can also register multiple formatters at once by calling `riba.module.binder.registerAll`, this is useful when importing multiple formatters like `import * as formatters from './formatters';`*
 
 After you have regist your formatter, formatters are applied by piping them to binding declarations using `|` as a delimiter.
 

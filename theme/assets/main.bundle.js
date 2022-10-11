@@ -1054,9 +1054,9 @@ class Main {
     }));
     this.riba.module.register(_ribajs_bs4__WEBPACK_IMPORTED_MODULE_8__.bs4Module.init()); // Register custom components
 
-    this.riba.module.component.regists(_components_index_js__WEBPACK_IMPORTED_MODULE_10__); // Regist examples‚
+    this.riba.module.component.registerAll(_components_index_js__WEBPACK_IMPORTED_MODULE_10__); // Regist examples‚
 
-    this.riba.module.component.regists({
+    this.riba.module.component.registerAll({
       EachItemExampleComponent: _demos_core_each_item_src_ts_components_each_item_example_each_item_example_component_js__WEBPACK_IMPORTED_MODULE_11__.EachItemExampleComponent,
       Bs4TabsAttrExampleComponent: _demos_bs4_tabs_attr_src_ts_components_bs4_tabs_attr_example_bs4_tabs_attr_example_component_js__WEBPACK_IMPORTED_MODULE_12__.Bs4TabsAttrExampleComponent,
       Bs4TabsTplExampleComponent: _demos_bs4_tabs_tpl_src_ts_components_bs4_tabs_tpl_example_bs4_tabs_tpl_example_component_js__WEBPACK_IMPORTED_MODULE_13__.Bs4TabsTplExampleComponent,
@@ -19814,7 +19814,7 @@ class ModuleElementService {
     for (const key in elements) {
       if (elements[key] && key !== "__esModule") {
         const element = elements[key];
-        this.regist(element, key);
+        this.register(element, key);
       }
     }
 
@@ -19865,19 +19865,19 @@ class ModulesService {
     }
 
     if (module.binders) {
-      this.binder.regists(module.binders);
+      this.binder.registerAll(module.binders);
     }
 
     if (module.components) {
-      this.component.regists(module.components);
+      this.component.registerAll(module.components);
     }
 
     if (module.formatters) {
-      this.formatter.regists(module.formatters);
+      this.formatter.registerAll(module.formatters);
     }
 
     if (module.adapters) {
-      this.adapter.regists(module.adapters);
+      this.adapter.registerAll(module.adapters);
     }
   }
 
