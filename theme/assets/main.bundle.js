@@ -19728,12 +19728,6 @@ class LifecycleService {
     this.clearTimeout();
     const states = this.getStates();
 
-    if (Object.keys(states).length <= 0) {
-      console.warn("No component found");
-      this.events.trigger("ComponentLifecycle:noComponents");
-      return;
-    }
-
     let errorMessage = "[ComponentLifecycle] Timeout! {count} component(s) takes too long!\nUnfinished components:\n";
     let count = 0;
 
@@ -19744,6 +19738,12 @@ class LifecycleService {
         count++;
         errorMessage += "".concat(tagName, ": ").concat(JSON.stringify(states[tagName].state, null, 2), " + \n");
       }
+    }
+
+    if (count <= 0) {
+      console.warn("No component found");
+      this.events.trigger("ComponentLifecycle:noComponents");
+      return;
     }
 
     errorMessage = errorMessage.replace("{count}", count.toString());
