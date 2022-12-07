@@ -95,7 +95,6 @@
     "core-js": "^3.26.1",
     "css-flip": "^0.5.0",
     "css-loader": "^6.7.2",
-    "csso-cli": "^3.0.0",
     "eslint": "^8.29.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
@@ -109,7 +108,7 @@
     "inspectpack": "^4.7.1",
     "jshint": "^2.13.6",
     "jstransformer-escape-html": "^1.1.0",
-    "jstransformer-markdown-it": "^2.1.0",
+    "jstransformer-markdown-it": "^3.0.0",
     "jstransformer-prismjs": "^0.1.0",
     "mini-css-extract-plugin": "^2.7.2",
     "nodemon": "^2.0.20",
@@ -124,19 +123,13 @@
     "pug-loader": "^2.4.0",
     "sass": "^1.56.1",
     "sass-loader": "^13.2.0",
-    "semver": "^7.3.8",
-    "shelljs": "^0.8.5",
     "style-loader": "^3.3.1",
     "terser-webpack-plugin": "^5.3.6",
     "ts-loader": "^9.4.2",
     "typescript": "4.9.3",
-    "vinyl-buffer": "^1.0.1",
-    "vinyl-source-stream": "^2.0.0",
-    "watchify": "^4.0.0",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1",
-    "webpack-stream": "^7.0.0",
-    "yargs": "^17.6.2"
+    "webpack-stream": "^7.0.0"
   },
   "dependencies": {
     "@ribajs/bs4": "workspace:^",
@@ -156,8 +149,6 @@
     "jquery": "^3.6.1",
     "lorem-ipsum": "^2.0.8",
     "popper.js": "^1.16.1",
-    "require-dir": "^1.2.0",
-    "semver": "^7.3.8",
     "three": "^0.147.0"
   }
 }
