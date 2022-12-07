@@ -12440,7 +12440,7 @@ bs4-slideshow .slideshow-controls.control-middle {
 }
 bs4-slideshow .slideshow-controls.control-bottom {
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
 }
 bs4-slideshow .slideshow-controls.control-top {
   flex-direction: column;
@@ -12453,7 +12453,7 @@ bs4-slideshow .slideshow-controls.control-top {
   }
   bs4-slideshow .slideshow-controls.control-sm-bottom {
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
   }
   bs4-slideshow .slideshow-controls.control-sm-top {
     flex-direction: column;
@@ -12467,7 +12467,7 @@ bs4-slideshow .slideshow-controls.control-top {
   }
   bs4-slideshow .slideshow-controls.control-md-bottom {
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
   }
   bs4-slideshow .slideshow-controls.control-md-top {
     flex-direction: column;
@@ -12481,7 +12481,7 @@ bs4-slideshow .slideshow-controls.control-top {
   }
   bs4-slideshow .slideshow-controls.control-lg-bottom {
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
   }
   bs4-slideshow .slideshow-controls.control-lg-top {
     flex-direction: column;
@@ -12495,7 +12495,7 @@ bs4-slideshow .slideshow-controls.control-top {
   }
   bs4-slideshow .slideshow-controls.control-xl-bottom {
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
   }
   bs4-slideshow .slideshow-controls.control-xl-top {
     flex-direction: column;
