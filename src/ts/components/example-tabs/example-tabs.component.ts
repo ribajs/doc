@@ -158,7 +158,7 @@ export class ExampleBs4TabsComponent extends Bs4TabsComponent {
     // Only set the component template if there no childs or the childs are templates
     if (!hasChildNodesTrim(this) || this.hasOnlyTemplateChilds()) {
       const { default: template } = await import(
-        "./example-tabs.component.html"
+        "./example-tabs.component.html?raw"
       );
       return template;
     } else {

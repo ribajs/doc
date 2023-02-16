@@ -160,7 +160,7 @@ export class EachItemExampleComponent extends Component {
 
   protected async template() {
     const { default: template } = await import(
-      &quot;./each-item-example.component.html&quot;
+      &quot;./each-item-example.component.html?raw&quot;
     );
     return template;
   }

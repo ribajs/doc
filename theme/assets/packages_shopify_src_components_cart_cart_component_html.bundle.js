@@ -1,7 +1,7 @@
 "use strict";
 (self["webpackChunk_ribajs_doc"] = self["webpackChunk_ribajs_doc"] || []).push([["packages_shopify_src_components_cart_cart_component_html"],{
 
-/***/ "../../packages/shopify/src/components/cart/cart.component.html":
+/***/ "../../packages/shopify/src/components/cart/cart.component.html?raw":
 /*!**********************************************************************!*\
   !*** ../../packages/shopify/src/components/cart/cart.component.html ***!
   \**********************************************************************/

@@ -1,7 +1,7 @@
 "use strict";
 (self["webpackChunk_ribajs_doc"] = self["webpackChunk_ribajs_doc"] || []).push([["packages_shopify_src_components_comments-form_comments-form_component_html"],{
 
-/***/ "../../packages/shopify/src/components/comments-form/comments-form.component.html":
+/***/ "../../packages/shopify/src/components/comments-form/comments-form.component.html?raw":
 /*!****************************************************************************************!*\
   !*** ../../packages/shopify/src/components/comments-form/comments-form.component.html ***!
   \****************************************************************************************/

@@ -1,7 +1,7 @@
 "use strict";
 (self["webpackChunk_ribajs_doc"] = self["webpackChunk_ribajs_doc"] || []).push([["src_ts_demos_extras-scroll-events_src_ts_components_extras-scroll-events-example_extras-scrol-0f57b9"],{
 
-/***/ "./src/ts/demos/extras-scroll-events/src/ts/components/extras-scroll-events-example/extras-scroll-events-example.component.html":
+/***/ "./src/ts/demos/extras-scroll-events/src/ts/components/extras-scroll-events-example/extras-scroll-events-example.component.html?raw":
 /*!**************************************************************************************************************************************!*\
   !*** ./src/ts/demos/extras-scroll-events/src/ts/components/extras-scroll-events-example/extras-scroll-events-example.component.html ***!
   \**************************************************************************************************************************************/

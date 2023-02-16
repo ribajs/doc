@@ -1,7 +1,7 @@
 "use strict";
 (self["webpackChunk_ribajs_doc"] = self["webpackChunk_ribajs_doc"] || []).push([["packages_shopify-tda_src_components_instagram-scrollbar_instagram-scrollbar_component_html"],{
 
-/***/ "../../packages/shopify-tda/src/components/instagram-scrollbar/instagram-scrollbar.component.html":
+/***/ "../../packages/shopify-tda/src/components/instagram-scrollbar/instagram-scrollbar.component.html?raw":
 /*!********************************************************************************************************!*\
   !*** ../../packages/shopify-tda/src/components/instagram-scrollbar/instagram-scrollbar.component.html ***!
   \********************************************************************************************************/

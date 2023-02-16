@@ -1,7 +1,7 @@
 "use strict";
 (self["webpackChunk_ribajs_doc"] = self["webpackChunk_ribajs_doc"] || []).push([["src_ts_demos_extras-touch-events_src_ts_components_touch-events-example_touch-events-example_-869748"],{
 
-/***/ "./src/ts/demos/extras-touch-events/src/ts/components/touch-events-example/touch-events-example.component.html":
+/***/ "./src/ts/demos/extras-touch-events/src/ts/components/touch-events-example/touch-events-example.component.html?raw":
 /*!*********************************************************************************************************************!*\
   !*** ./src/ts/demos/extras-touch-events/src/ts/components/touch-events-example/touch-events-example.component.html ***!
   \*********************************************************************************************************************/

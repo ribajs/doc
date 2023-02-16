@@ -19,7 +19,7 @@ export class ShopifyLinklistComponent extends OriginalShopifyLinklistComponent {
       return null;
     } else {
       const { default: template } = await import(
-        "./shopify-linklist.component.html"
+        "./shopify-linklist.component.html?raw"
       );
       return template;
     }

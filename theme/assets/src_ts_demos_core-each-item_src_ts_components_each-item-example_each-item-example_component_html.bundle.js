@@ -1,7 +1,7 @@
 "use strict";
 (self["webpackChunk_ribajs_doc"] = self["webpackChunk_ribajs_doc"] || []).push([["src_ts_demos_core-each-item_src_ts_components_each-item-example_each-item-example_component_html"],{
 
-/***/ "./src/ts/demos/core-each-item/src/ts/components/each-item-example/each-item-example.component.html":
+/***/ "./src/ts/demos/core-each-item/src/ts/components/each-item-example/each-item-example.component.html?raw":
 /*!**********************************************************************************************************!*\
   !*** ./src/ts/demos/core-each-item/src/ts/components/each-item-example/each-item-example.component.html ***!
   \**********************************************************************************************************/

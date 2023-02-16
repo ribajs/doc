@@ -1,7 +1,7 @@
 "use strict";
 (self["webpackChunk_ribajs_doc"] = self["webpackChunk_ribajs_doc"] || []).push([["src_ts_demos_bs4-tabs-attr_src_ts_components_bs4-tabs-attr-example_bs4-tabs-attr-example_comp-d65616"],{
 
-/***/ "./src/ts/demos/bs4-tabs-attr/src/ts/components/bs4-tabs-attr-example/bs4-tabs-attr-example.component.html":
+/***/ "./src/ts/demos/bs4-tabs-attr/src/ts/components/bs4-tabs-attr-example/bs4-tabs-attr-example.component.html?raw":
 /*!*****************************************************************************************************************!*\
   !*** ./src/ts/demos/bs4-tabs-attr/src/ts/components/bs4-tabs-attr-example/bs4-tabs-attr-example.component.html ***!
   \*****************************************************************************************************************/

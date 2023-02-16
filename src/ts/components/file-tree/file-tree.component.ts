@@ -1,6 +1,6 @@
 import { BasicComponent } from "@ribajs/core";
 import { hasChildNodesTrim } from "@ribajs/utils/src/dom.js";
-import template from "./file-tree.component.html";
+import template from "./file-tree.component.html?raw";
 
 // interface Scope extends ScopeBase {}
 

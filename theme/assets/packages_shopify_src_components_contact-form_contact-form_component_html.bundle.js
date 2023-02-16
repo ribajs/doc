@@ -1,7 +1,7 @@
 "use strict";
 (self["webpackChunk_ribajs_doc"] = self["webpackChunk_ribajs_doc"] || []).push([["packages_shopify_src_components_contact-form_contact-form_component_html"],{
 
-/***/ "../../packages/shopify/src/components/contact-form/contact-form.component.html":
+/***/ "../../packages/shopify/src/components/contact-form/contact-form.component.html?raw":
 /*!**************************************************************************************!*\
   !*** ../../packages/shopify/src/components/contact-form/contact-form.component.html ***!
   \**************************************************************************************/

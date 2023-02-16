@@ -2,7 +2,7 @@ import { Component, ScopeBase } from "@ribajs/core";
 import { hasChildNodesTrim } from "@ribajs/utils/src/dom.js";
 import { escapeHtml } from "@ribajs/utils/src/type.js";
 
-import template from "./icon-preview.component.html";
+import template from "./icon-preview.component.html?raw";
 
 import * as Prism from "prismjs";
 

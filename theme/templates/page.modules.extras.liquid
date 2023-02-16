@@ -168,7 +168,7 @@ export class TouchEventsExampleComponent extends Component {
       return null;
     } else {
       const { default: template } = await import(
-        &quot;./touch-events-example.component.html&quot;
+        &quot;./touch-events-example.component.html?raw&quot;
       );
       return template;
     }
@@ -267,7 +267,7 @@ export class ExtrasScrollEventsExampleComponent extends Component {
       return null;
     } else {
       const { default: template } = await import(
-        &quot;./extras-scroll-events-example.component.html&quot;
+        &quot;./extras-scroll-events-example.component.html?raw&quot;
       );
       return template;
     }

@@ -32,7 +32,9 @@ export class BindContentComponent extends Component {
     }
     this.content = firstElementChild.innerHTML;
 
-    const { default: template } = await import("./bind-content.component.html");
+    const { default: template } = await import(
+      "./bind-content.component.html?raw"
+    );
 
     return template;
   }
