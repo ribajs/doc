@@ -1,8 +1,8 @@
 import { Riba, coreModule, View } from "@ribajs/core";
 import { EventDispatcher } from "@ribajs/events";
-import { ready } from "@ribajs/utils/src/index.js";
+import { ready } from "@ribajs/utils";
 import { extrasModule } from "@ribajs/extras";
-import type { State } from "@ribajs/history/src/index.js";
+import type { State } from "@ribajs/history";
 import { shopifyModule } from "@ribajs/shopify";
 import { routerModule } from "@ribajs/router";
 import { i18nModule } from "@ribajs/i18n";
