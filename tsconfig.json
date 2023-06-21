@@ -1,11 +1,10 @@
 {
-  "extends": "@ribajs/tsconfig/tsconfig.json",
+  "extends": "@ribajs/tsconfig",
   "files": [
     "src/ts/main.ts"
   ],
   "compilerOptions": {
     "outDir": "dist",
-    "typeRoots": ["./node_modules/@types", "./src/ts/types"],
     // node is required by npm:lorem-ipsum
     "types": ["node"]
   }
