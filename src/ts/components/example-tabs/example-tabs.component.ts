@@ -68,7 +68,7 @@ export class ExampleBs4TabsComponent extends Bs4TabsComponent {
       const previewElement = this.querySelector(".tab-content-preview");
       if (previewElement) {
         tab.content = `<pre class="language-html"><code class="language-html">${escapeHtml(
-          previewElement.innerHTML.trim()
+          previewElement.innerHTML.trim(),
         )}</code></pre>`;
         Prism.highlightAll();
       }
@@ -132,7 +132,7 @@ export class ExampleBs4TabsComponent extends Bs4TabsComponent {
         sourceTemplate.setAttribute("title", "Source");
         sourceTemplate.setAttribute("type", "source");
         sourceTemplate.innerHTML = `<pre class="language-html"><code class="language-html">${escapeHtml(
-          sourceCode
+          sourceCode,
         )}</code></pre>`;
         this.addItemByTemplate(sourceTemplate, index);
 

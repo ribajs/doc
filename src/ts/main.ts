@@ -38,7 +38,7 @@ export class Main {
     prevStatus: State,
     container: HTMLElement,
     newPageRawHTML: string,
-    dataset: any
+    dataset: any,
     // isInit: boolean
   ) {
     Prism.highlightAll();
@@ -53,7 +53,7 @@ export class Main {
     this.riba.module.register(routerModule.init());
     this.riba.module.register(shopifyModule.init());
     this.riba.module.register(
-      i18nModule.init({ localesService: this.localesService })
+      i18nModule.init({ localesService: this.localesService }),
     );
     this.riba.module.register(bs4Module.init());
 

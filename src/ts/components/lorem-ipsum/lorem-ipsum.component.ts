@@ -70,11 +70,11 @@ export class LoremIpsumComponent extends Component {
       this.innerHTML = this.lorem.generateWords(this.scope.generateWords);
     } else if (this.scope.generateSentences) {
       this.innerHTML = this.lorem.generateSentences(
-        this.scope.generateSentences
+        this.scope.generateSentences,
       );
     } else if (this.scope.generateParagraphs) {
       this.innerHTML = this.lorem.generateParagraphs(
-        this.scope.generateParagraphs
+        this.scope.generateParagraphs,
       );
     }
     await super.afterBind();
@@ -88,13 +88,13 @@ export class LoremIpsumComponent extends Component {
     attributeName: string,
     oldValue: any,
     newValue: any,
-    namespace: string | null
+    namespace: string | null,
   ) {
     super.parsedAttributeChangedCallback(
       attributeName,
       oldValue,
       newValue,
-      namespace
+      namespace,
     );
     switch (attributeName) {
       case "sentencesPerParagraphMax":

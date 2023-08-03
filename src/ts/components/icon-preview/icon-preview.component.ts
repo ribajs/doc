@@ -87,13 +87,13 @@ export class IconPreviewComponent extends Component {
     attributeName: string,
     oldValue: any,
     newValue: any,
-    namespace: string | null
+    namespace: string | null,
   ) {
     super.parsedAttributeChangedCallback(
       attributeName,
       oldValue,
       newValue,
-      namespace
+      namespace,
     );
     if (attributeName === "assetPath") {
       const urlParts = this.scope.assetPath.split("?");
@@ -107,7 +107,7 @@ export class IconPreviewComponent extends Component {
         <bs4-icon color="danger" src="/assets/${
           this.scope.name + ".svg"
         }" size="32" direction="up"></bs4-icon>
-      `.trim()
+      `.trim(),
       );
     }
   }
