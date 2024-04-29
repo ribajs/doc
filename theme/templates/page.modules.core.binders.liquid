@@ -196,7 +196,7 @@ interface Scope extends ScopeBase {
 <pre><code class="language-bash">git clone --recurse-submodules https://github.com/ribajs/riba.git
 cd riba/demos/core-each-item
 yarn install
-yarn run start
+yarn start
 </code></pre>
 </template><template title="Preview" type="preview"><rv-each-item-example> </rv-each-item-example></template></rv-example-tabs></template></rv-bind-content></section><section class="my-5" id="nested-each-item-binder"><h2>Nested each-[item]</h2><p>By nesting elements bound by <code>rv-each</code>, a scope is created for each nest level. The variables from parent scopes can be acessed by child ones, using a resolution algorithm similar to JavaScript prototype chain, i.e., looks for current scope if not found, look in parent scope repeating until find.</p>
 <pre><code class="language-html">&lt;ul&gt;
