@@ -23806,7 +23806,7 @@ class I18nStarBinder extends _ribajs_core__WEBPACK_IMPORTED_MODULE_1__.Binder {
           throw new Error("No language code found!");
         }
 
-        this.initOnReady(currentLangcode, currentLangcode !== initialLangcode || !options.localesService.doNotTranslateDefaultLanguage);
+        this.initOnReady(currentLangcode, currentLangcode !== initialLangcode || !options.localesService.doNotRetranslateDefaultLanguage);
       } else {
         this.i18n.event.on("ready", this.initOnReady);
       }
@@ -24383,9 +24383,9 @@ class LocalesRestService extends _types_locales_service_js__WEBPACK_IMPORTED_MOD
   }
 
   constructor(url) {
-    let doNotTranslateDefaultLanguage = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+    let doNotRetranslateDefaultLanguage = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
     let showMissingTranslation = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-    super(doNotTranslateDefaultLanguage, showMissingTranslation);
+    super(doNotRetranslateDefaultLanguage, showMissingTranslation);
 
     (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "locales", {});
 
@@ -24462,9 +24462,9 @@ class LocalesStaticService extends _types_locales_service_js__WEBPACK_IMPORTED_M
 
 
   constructor(locales, id) {
-    let doNotTranslateDefaultLanguage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+    let doNotRetranslateDefaultLanguage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
     let showMissingTranslation = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
-    super(doNotTranslateDefaultLanguage, showMissingTranslation);
+    super(doNotRetranslateDefaultLanguage, showMissingTranslation);
     this.locales = locales;
     this.id = id;
 
@@ -24563,15 +24563,15 @@ class LocalesService {
     return this._ready;
   }
 
-  constructor(doNotTranslateDefaultLanguage, showMissingTranslation) {
+  constructor(doNotRetranslateDefaultLanguage, showMissingTranslation) {
     (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "event", new _ribajs_events__WEBPACK_IMPORTED_MODULE_1__.EventDispatcher("i18n"));
 
     (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "showMissingTranslation", false);
 
     (0,_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(this, "_ready", false);
 
-    this.doNotTranslateDefaultLanguage = doNotTranslateDefaultLanguage;
-    this.doNotTranslateDefaultLanguage = doNotTranslateDefaultLanguage;
+    this.doNotRetranslateDefaultLanguage = doNotRetranslateDefaultLanguage;
+    this.doNotRetranslateDefaultLanguage = doNotRetranslateDefaultLanguage;
     this.showMissingTranslation = showMissingTranslation;
   }
   /**
@@ -24786,10 +24786,10 @@ class LocalesService {
         if (availableLangcodeObj.code === browserLangcode) {
           browserLangFound = true;
         }
-      } // only switch language if the browser language is not the default language (if doNotTranslateDefaultLanguage is true)
+      } // only switch language if the browser language is not the default language (if doNotRetranslateDefaultLanguage is true)
 
 
-      if (!this.doNotTranslateDefaultLanguage || browserLangFound && browserLangcode !== this.currentLangcode) {
+      if (!this.doNotRetranslateDefaultLanguage || browserLangFound && browserLangcode !== this.currentLangcode) {
         this.setLangcode(browserLangcode, true);
       }
 
@@ -24797,7 +24797,7 @@ class LocalesService {
     }).then(() => {
       this._ready = true; // If the current langcode is not the initial langcode then translation is needed
 
-      const translationNeeded = this.currentLangcode !== this.initialLangcode || !this.doNotTranslateDefaultLanguage;
+      const translationNeeded = this.currentLangcode !== this.initialLangcode || !this.doNotRetranslateDefaultLanguage;
       this.event.trigger("ready", this.currentLangcode, translationNeeded);
     }).catch(error => {
       console.error(error);
@@ -29308,7 +29308,7 @@ class LocalesService extends _ribajs_i18n__WEBPACK_IMPORTED_MODULE_0__.LocalesRe
 
   constructor() {
     let baseUrl = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _constants_index_js__WEBPACK_IMPORTED_MODULE_1__.BASE_HOST_URL;
-    let doNotTranslateDefaultLanguage = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+    let doNotRetranslateDefaultLanguage = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
     let showMissingTranslation = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
     let url = "".concat(baseUrl, "/shopify/api/themes/").concat(window.Shopify.theme.id, "/locales");
 
@@ -29316,7 +29316,7 @@ class LocalesService extends _ribajs_i18n__WEBPACK_IMPORTED_MODULE_0__.LocalesRe
       url += "?shop=".concat(window.Shopify.shop);
     }
 
-    super(url, doNotTranslateDefaultLanguage, showMissingTranslation);
+    super(url, doNotRetranslateDefaultLanguage, showMissingTranslation);
 
     if (LocalesService.instance) {
       return LocalesService.instance;
@@ -29327,14 +29327,14 @@ class LocalesService extends _ribajs_i18n__WEBPACK_IMPORTED_MODULE_0__.LocalesRe
 
   static getSingleton() {
     let baseUrl = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _constants_index_js__WEBPACK_IMPORTED_MODULE_1__.BASE_HOST_URL;
-    let doNotTranslateDefaultLanguage = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+    let doNotRetranslateDefaultLanguage = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
     let showMissingTranslation = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
 
     if (LocalesService.instance) {
       return LocalesService.instance;
     }
 
-    LocalesService.instance = new LocalesService(baseUrl, doNotTranslateDefaultLanguage, showMissingTranslation);
+    LocalesService.instance = new LocalesService(baseUrl, doNotRetranslateDefaultLanguage, showMissingTranslation);
     return LocalesService.instance;
   }
 

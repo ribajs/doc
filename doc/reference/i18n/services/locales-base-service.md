@@ -23,8 +23,8 @@ export class MyStaticLocalesService extends ALocalesService {
    */
   protected initalLangcode?: string;
 
-  constructor(staticLocales: any, protected id?: string, doNotTranslateDefaultLanguage: boolean = false, showMissingTranslation: boolean = false) {
-    super(doNotTranslateDefaultLanguage, showMissingTranslation);
+  constructor(staticLocales: any, protected id?: string, doNotRetranslateDefaultLanguage: boolean = false, showMissingTranslation: boolean = false) {
+    super(doNotRetranslateDefaultLanguage, showMissingTranslation);
     if (!id) {
       id = 'main';
     }
