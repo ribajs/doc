@@ -12,7 +12,7 @@
     "deploy": "yarn run deploy:pug",
     "deploy:pug": "yarn run build:prod:pug && theme deploy --dir ./theme layout sections snippets templates",
     "sync:demos": "rm -rf ./src/ts/demos/ && rsync -a --progress ../../demos ./src/ts/ --exclude .cache --exclude .yarn --exclude dist --exclude .eslintrc.js",
-    "lint:ts": "eslint ./src --fix && tsc --noEmit",
+    "lint:ts": "eslint ./src --ignore-pattern ./src/ts/demos/* --fix && tsc --noEmit",
     "lint": "yarn run sync:demos && yarn run lint:ts",
     "build": "yarn run sync:demos && yarn run build:prod:pug",
     "build:prod:pug": "concurrently \"yarn:build:prod:pug:*\"",
