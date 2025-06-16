@@ -80,7 +80,7 @@
     "@ribajs/tsconfig": "workspace:^",
     "@ribajs/webpack-config": "workspace:^",
     "@types/debug": "^4.1.12",
-    "@types/node": "^24.0.2",
+    "@types/node": "^24.0.3",
     "@types/prismjs": "^1.26.5",
     "@typescript-eslint/eslint-plugin": "^8.34.0",
     "@typescript-eslint/parser": "^8.34.0",
